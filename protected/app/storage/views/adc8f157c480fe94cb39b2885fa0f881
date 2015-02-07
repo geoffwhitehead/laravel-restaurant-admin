@@ -1,0 +1,313 @@
+<div class="page-content row">
+    <!-- Page header -->
+    <div class="page-header">
+      <div class="page-title">
+        <h3> <?php echo $pageTitle; ?> <small><?php echo $pageNote; ?></small></h3>
+      </div>
+      <ul class="breadcrumb">
+        <li><a href="<?php echo URL::to('dashboard'); ?>"><?php echo Lang::get('core.home'); ?></a></li>
+		<li><a href="<?php echo URL::to('sale?md='.$masterdetail["filtermd"]); ?>"><?php echo $pageTitle; ?></a></li>
+        <li class="active"> <?php echo Lang::get('core.detail'); ?> </li>
+      </ul>
+	 </div>  
+	 
+	 
+ 	<div class="page-content-wrapper">   
+	   <div class="toolbar-line">
+	   		<a href="<?php echo URL::to('sale?md='.$masterdetail["filtermd"].$trackUri); ?>" class="tips btn btn-xs btn-default" title="<?php echo Lang::get('core.btn_back'); ?>"><i class="icon-table"></i>&nbsp;<?php echo Lang::get('core.btn_back'); ?></a>
+			<?php if($access['is_add'] ==1): ?>
+	   		<a href="<?php echo URL::to('sale/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri); ?>" class="tips btn btn-xs btn-primary" title="<?php echo Lang::get('core.btn_edit'); ?>"><i class="icon-pencil3"></i>&nbsp;<?php echo Lang::get('core.btn_edit'); ?></a>
+			<?php endif; ?>  		   	  
+		</div>
+	<div class="table-responsive">
+	<table class="table table-striped table-bordered" >
+		<tbody>	
+	
+					<tr>
+						<td width='30%' class='label-view text-right'>Id</td>
+						<td><?php echo $row->id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Site Id</td>
+						<td><?php echo $row->site_id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Barperson Id</td>
+						<td><?php echo $row->barperson_id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Manager Id</td>
+						<td><?php echo $row->manager_id; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Sale Date</td>
+						<td><?php echo $row->sale_date; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Timestamp</td>
+						<td><?php echo $row->timestamp; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Report Total Sale</td>
+						<td><?php echo $row->report_total_sale; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Report Card Sale</td>
+						<td><?php echo $row->report_card_sale; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Report Voucher Sale</td>
+						<td><?php echo $row->report_voucher_sale; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Report Voucher Qty</td>
+						<td><?php echo $row->report_voucher_qty; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Deposits Used Amount</td>
+						<td><?php echo $row->deposits_used_amount; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Deposits Used Qty</td>
+						<td><?php echo $row->deposits_used_qty; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Expected Cash Sale</td>
+						<td><?php echo $row->expected_cash_sale; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Expected Cash Taken</td>
+						<td><?php echo $row->expected_cash_taken; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken</td>
+						<td><?php echo $row->cash_taken; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Variance</td>
+						<td><?php echo $row->cash_variance; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Variance Comments</td>
+						<td><?php echo $row->cash_variance_comments; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Correction Amt</td>
+						<td><?php echo $row->correction_amt; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Correction Qty</td>
+						<td><?php echo $row->correction_qty; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Correction Comments</td>
+						<td><?php echo $row->correction_comments; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Transactions Qty</td>
+						<td><?php echo $row->transactions_qty; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Staff Disc Amt</td>
+						<td><?php echo $row->staff_disc_amt; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Staff Disc Qty</td>
+						<td><?php echo $row->staff_disc_qty; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Staff Disc Comments</td>
+						<td><?php echo $row->staff_disc_comments; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Take Away</td>
+						<td><?php echo $row->take_away; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Eat In</td>
+						<td><?php echo $row->eat_in; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Card Tips Inc</td>
+						<td><?php echo $row->card_tips_inc; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken 5p</td>
+						<td><?php echo $row->cash_taken_5p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken 10p</td>
+						<td><?php echo $row->cash_taken_10p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken 20p</td>
+						<td><?php echo $row->cash_taken_20p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken 50p</td>
+						<td><?php echo $row->cash_taken_50p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken £1</td>
+						<td><?php echo $row->cash_taken_£1; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken £5</td>
+						<td><?php echo $row->cash_taken_£5; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken £10</td>
+						<td><?php echo $row->cash_taken_£10; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken £20</td>
+						<td><?php echo $row->cash_taken_£20; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Taken £50</td>
+						<td><?php echo $row->cash_taken_£50; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left 5p</td>
+						<td><?php echo $row->float_left_5p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left 10p</td>
+						<td><?php echo $row->float_left_10p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left 20p</td>
+						<td><?php echo $row->float_left_20p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left 50p</td>
+						<td><?php echo $row->float_left_50p; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left £1</td>
+						<td><?php echo $row->float_left_£1; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left £5</td>
+						<td><?php echo $row->float_left_£5; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left £10</td>
+						<td><?php echo $row->float_left_£10; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left £20</td>
+						<td><?php echo $row->float_left_£20; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Left £50</td>
+						<td><?php echo $row->float_left_£50; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Float Total Amount</td>
+						<td><?php echo $row->float_total_amount; ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td><?php echo $row->active; ?> </td>
+						
+					</tr>
+				
+		</tbody>	
+	</table>    
+	</div>
+	</div>
+</div>
+	  

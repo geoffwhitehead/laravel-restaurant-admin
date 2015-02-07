@@ -1,0 +1,243 @@
+
+  <div class="page-content row">
+    <!-- Page header -->
+    <div class="page-header">
+      <div class="page-title">
+        <h3> <?php echo $pageTitle; ?> <small><?php echo $pageNote; ?></small></h3>
+      </div>
+      <ul class="breadcrumb">
+        <li><a href="<?php echo URL::to('dashboard'); ?>"><?php echo Lang::get('core.home'); ?></a></li>
+		<li><a href="<?php echo URL::to('salecontroller?md='.$filtermd); ?>"><?php echo $pageTitle; ?></a></li>
+        <li class="active"><?php echo Lang::get('core.addedit'); ?> </li>
+      </ul>
+	  	  
+    </div>
+ 
+ 	<div class="page-content-wrapper">
+		<?php if(Session::has('message')): ?>	  
+			   <?php echo Session::get('message'); ?>
+		<?php endif; ?>	
+		<ul class="parsley-error-list">
+			<?php foreach($errors->all() as $error): ?>
+				<li><?php echo $error; ?></li>
+			<?php endforeach; ?>
+		</ul>
+		 <?php echo Form::open(array('url'=>'salecontroller/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-vertical','files' => true , 'parsley-validate'=>'','novalidate'=>' ')); ?>
+<div class="col-md-4">
+						<fieldset><legend> Sale Details</legend>
+									
+								  <div class="form-group hidethis " style="display:none;">
+									<label for="ipt" class=" control-label "> Id    </label>									
+									  <?php echo Form::text('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Barperson Id    </label>									
+									  <select name='barperson_id' rows='5' id='barperson_id' code='{$barperson_id}' 
+							class='select2 '    ></select> 						
+								  </div> 					
+								  <div class="form-group hidethis " style="display:none;">
+									<label for="ipt" class=" control-label "> Manager Id    </label>									
+									  <?php echo Form::text('manager_id', $row['manager_id'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Sale Date    </label>									
+									  
+				<?php echo Form::text('sale_date', $row['sale_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Timestamp    </label>									
+									  
+				<?php echo Form::text('timestamp', $row['timestamp'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Report Total Sale    </label>									
+									  <?php echo Form::text('report_total_sale', $row['report_total_sale'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Report Card Sale    </label>									
+									  <?php echo Form::text('report_card_sale', $row['report_card_sale'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Report Voucher Sale    </label>									
+									  <?php echo Form::text('report_voucher_sale', $row['report_voucher_sale'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Report Voucher Qty    </label>									
+									  <?php echo Form::text('report_voucher_qty', $row['report_voucher_qty'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Deposits Used Amount    </label>									
+									  <?php echo Form::text('deposits_used_amount', $row['deposits_used_amount'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Deposits Used Qty    </label>									
+									  <?php echo Form::text('deposits_used_qty', $row['deposits_used_qty'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Expected Cash Sale    </label>									
+									  <?php echo Form::text('expected_cash_sale', $row['expected_cash_sale'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Correction Amt    </label>									
+									  <?php echo Form::text('correction_amt', $row['correction_amt'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Correction Qty    </label>									
+									  <?php echo Form::text('correction_qty', $row['correction_qty'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Correction Comments    </label>									
+									  <?php echo Form::text('correction_comments', $row['correction_comments'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Transactions Qty    </label>									
+									  <?php echo Form::text('transactions_qty', $row['transactions_qty'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Staff Disc Amt    </label>									
+									  <?php echo Form::text('staff_disc_amt', $row['staff_disc_amt'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Staff Disc Qty    </label>									
+									  <?php echo Form::text('staff_disc_qty', $row['staff_disc_qty'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Staff Disc Comments    </label>									
+									  <?php echo Form::text('staff_disc_comments', $row['staff_disc_comments'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Take Away    </label>									
+									  <?php echo Form::text('take_away', $row['take_away'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Eat In    </label>									
+									  <?php echo Form::text('eat_in', $row['eat_in'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Card Tips Inc    </label>									
+									  <?php echo Form::text('card_tips_inc', $row['card_tips_inc'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> </fieldset>
+			</div>
+			
+			<div class="col-md-4">
+						<fieldset><legend> Cash Taken</legend>
+									
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken 5p    </label>									
+									  <?php echo Form::text('cash_taken_5p', $row['cash_taken_5p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken 10p    </label>									
+									  <?php echo Form::text('cash_taken_10p', $row['cash_taken_10p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken 20p    </label>									
+									  <?php echo Form::text('cash_taken_20p', $row['cash_taken_20p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken 50p    </label>									
+									  <?php echo Form::text('cash_taken_50p', $row['cash_taken_50p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken £1    </label>									
+									  <?php echo Form::text('cash_taken_£1', $row['cash_taken_£1'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken £5    </label>									
+									  <?php echo Form::text('cash_taken_£5', $row['cash_taken_£5'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken £10    </label>									
+									  <?php echo Form::text('cash_taken_£10', $row['cash_taken_£10'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken £20    </label>									
+									  <?php echo Form::text('cash_taken_£20', $row['cash_taken_£20'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken £50    </label>									
+									  <?php echo Form::text('cash_taken_£50', $row['cash_taken_£50'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Taken    </label>									
+									  <?php echo Form::text('cash_taken', $row['cash_taken'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Variance    </label>									
+									  <?php echo Form::text('cash_variance', $row['cash_variance'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Cash Variance Comments    </label>									
+									  <?php echo Form::text('cash_variance_comments', $row['cash_variance_comments'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> </fieldset>
+			</div>
+			
+			<div class="col-md-4">
+						<fieldset><legend> Float</legend>
+									
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left 5p    </label>									
+									  <?php echo Form::text('float_left_5p', $row['float_left_5p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left 10p    </label>									
+									  <?php echo Form::text('float_left_10p', $row['float_left_10p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left 20p    </label>									
+									  <?php echo Form::text('float_left_20p', $row['float_left_20p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left 50p    </label>									
+									  <?php echo Form::text('float_left_50p', $row['float_left_50p'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left £1    </label>									
+									  <?php echo Form::text('float_left_£1', $row['float_left_£1'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left £5    </label>									
+									  <?php echo Form::text('float_left_£5', $row['float_left_£5'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left £10    </label>									
+									  <?php echo Form::text('float_left_£10', $row['float_left_£10'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left £20    </label>									
+									  <?php echo Form::text('float_left_£20', $row['float_left_£20'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Left £50    </label>									
+									  <?php echo Form::text('float_left_£50', $row['float_left_£50'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="ipt" class=" control-label "> Float Total Amount    </label>									
+									  <?php echo Form::text('float_total_amount', $row['float_total_amount'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 						
+								  </div> </fieldset>
+			</div>
+			
+			
+			<div style="clear:both"></div>	
+				
+			  <div class="form-group">
+				<label class="col-sm-4 text-right">&nbsp;</label>
+				<div class="col-sm-8">	
+				<input type="submit" name="apply" class="btn btn-info" value="<?php echo Lang::get('core.sb_apply'); ?> " />
+				<input type="submit" name="submit" class="btn btn-primary" value="<?php echo Lang::get('core.sb_save'); ?>  " />
+				<button type="button" onclick="location.href='<?php echo URL::to('salecontroller?md='.$masterdetail["filtermd"].$trackUri); ?>' " id="submit" class="btn btn-success ">  <?php echo Lang::get('core.sb_cancel'); ?> </button>
+				</div>	  
+		
+			  </div> 
+		 
+		 <?php echo Form::close(); ?>
+</div>	
+</div>			 
+   <script type="text/javascript">
+	$(document).ready(function() { 
+		
+		$("#barperson_id").jCombo("<?php echo URL::to('salecontroller/comboselect?filter=tb_users:id:id'); ?>",
+		{  selected_value : '<?php echo $row["barperson_id"]; ?>' });
+		 
+	});
+	</script>		 
