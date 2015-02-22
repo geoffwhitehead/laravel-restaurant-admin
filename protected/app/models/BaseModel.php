@@ -70,19 +70,22 @@ class BaseModel extends Eloquent  {
 	{
        $table = with(new static)->table;
 	   $key = with(new static)->primaryKey;
+
+
 	    if($id == NULL )
         {
-			
-            // Insert Here 
-			if(isset($data['createdOn'])) $data['createdOn'] = date("Y-m-d H:i:s");	
-			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");	
+			$data['updated_by'] = Auth::id();
+			$data['created_by'] = Auth::id();
+            // Insert Here
+			if(isset($data['created_on'])) $data['created_on'] = date("Y-m-d H:i:s");
+			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");
 			 $id = DB::table( $table)->insertGetId($data);				
             
         } else {
             // Update here 
 			// update created field if any
-			if(isset($data['createdOn'])) unset($data['createdOn']);	
-			if(isset($data['updatedOn'])) $data['updatedOn'] = date("Y-m-d H:i:s");			
+			if(isset($data['created_on'])) unset($data['created_on']);
+			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");
 			 DB::table($table)->where($key,$id)->update($data);    
         }    
         return $id;    

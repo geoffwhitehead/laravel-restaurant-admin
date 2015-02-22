@@ -27,7 +27,7 @@
 						<fieldset><legend> Suppliers</legend>
 									
 								  <div class="form-group  " >
-									<label for="Supplier Name" class=" control-label col-md-4 text-left"> Supplier Name </label>
+									<label for="Supplier Name" class=" control-label col-md-4 text-left"> Supplier Name <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <?php echo Form::text('supplier_name', $row['supplier_name'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 									 </div> 
@@ -36,34 +36,34 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Address Street" class=" control-label col-md-4 text-left"> Address Street </label>
+									<label for="Address Street" class=" control-label col-md-4 text-left"> Address Street <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('address_street', $row['address_street'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('address_street', $row['address_street'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Address City" class=" control-label col-md-4 text-left"> Address City </label>
+									<label for="Address City" class=" control-label col-md-4 text-left"> Address City <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('address_city', $row['address_city'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('address_city', $row['address_city'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Address County" class=" control-label col-md-4 text-left"> Address County </label>
+									<label for="Address County" class=" control-label col-md-4 text-left"> Address County <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('address_county', $row['address_county'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('address_county', $row['address_county'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Address Postcode" class=" control-label col-md-4 text-left"> Address Postcode </label>
+									<label for="Address Postcode" class=" control-label col-md-4 text-left"> Address Postcode <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <?php echo Form::text('address_postcode', $row['address_postcode'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 									 </div> 
@@ -72,7 +72,7 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Contact Name" class=" control-label col-md-4 text-left"> Contact Name </label>
+									<label for="Contact Name" class=" control-label col-md-4 text-left"> Contact Name <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <?php echo Form::text('contact_name', $row['contact_name'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 									 </div> 
@@ -81,36 +81,27 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Contact Number" class=" control-label col-md-4 text-left"> Contact Number </label>
+									<label for="Contact Number" class=" control-label col-md-4 text-left"> Contact Number <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('contact_number', $row['contact_number'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('contact_number', $row['contact_number'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Contact Email" class=" control-label col-md-4 text-left"> Contact Email </label>
+									<label for="Contact Email" class=" control-label col-md-4 text-left"> Contact Email <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('contact_email', $row['contact_email'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('contact_email', $row['contact_email'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'email'   )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Vat Number" class=" control-label col-md-4 text-left"> Vat Number </label>
+									<label for="Vat Number" class=" control-label col-md-4 text-left"> Vat Number <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  <?php echo Form::text('vat_number', $row['vat_number'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
-									 </div>
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Active" class=" control-label col-md-4 text-left"> Active </label>
-									<div class="col-md-6">
-									  <?php echo Form::text('active', $row['active'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+									  <?php echo Form::text('vat_number', $row['vat_number'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?> 
 									 </div> 
 									 <div class="col-md-2">
 									 	

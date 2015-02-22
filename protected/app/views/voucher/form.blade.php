@@ -25,8 +25,17 @@
 		 {{ Form::open(array('url'=>'voucher/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
 <div class="col-md-12">
 						<fieldset><legend> Vouchers</legend>
-									
-								  <div class="form-group  " >
+
+							<div class="form-group  " >
+								<label for="ID" class=" control-label col-md-4 text-left"> id <span class="asterix"> * </span></label>
+								<div class="col-md-6">
+									{{ Form::hidden('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
+								</div>
+								<div class="col-md-2">
+
+								</div>
+							</div>
+							<div class="form-group  " >
 									<label for="Voucher Ref" class=" control-label col-md-4 text-left"> Voucher Ref <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  {{ Form::text('voucher_ref', $row['voucher_ref'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 

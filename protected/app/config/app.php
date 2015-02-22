@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' 					=> 'http://127.0.0.1/marvin2',
+	'url' 					=> 'http://localhost/marvin2',
 	
 
 	/*

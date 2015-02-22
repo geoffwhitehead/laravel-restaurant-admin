@@ -31,19 +31,19 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Site Id</td>
-						<td><?php echo $row->site_id; ?> </td>
+						<td><?php echo SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|address_city'); ?> </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Barperson Id</td>
-						<td><?php echo $row->barperson_id; ?> </td>
+						<td><?php echo SiteHelpers::gridDisplayView($row->barperson_id,'barperson_id','1:tb_users::id|first_name|last_name'); ?> </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Manager Id</td>
-						<td><?php echo $row->manager_id; ?> </td>
+						<td><?php echo SiteHelpers::gridDisplayView($row->manager_id,'manager_id','1:tb_users:id:id|first_name|last_name'); ?> </td>
 						
 					</tr>
 				
