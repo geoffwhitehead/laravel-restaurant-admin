@@ -37,31 +37,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Site Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|address_city') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Shift Date</td>
-						<td>{{ $row->shift_date }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Created By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Date Created</td>
-						<td>{{ $row->date_created }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Shift Preset Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->shift_preset_id,'shift_preset_id','1:shifts_presets:id:shift_description') }} </td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|name|address_city') }} </td>
 						
 					</tr>
 				
@@ -102,6 +78,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Manager Conf On</td>
+						<td>{{ $row->manager_conf_on }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Admin Conf Flag</td>
 						<td>{{ $row->admin_conf_flag }} </td>
 						
@@ -114,8 +96,50 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Admin Conf On</td>
+						<td>{{ $row->admin_conf_on }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Paid</td>
 						<td>{{ $row->paid }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Paid On</td>
+						<td>{{ $row->paid_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td>{{ $row->active }} </td>
 						
 					</tr>
 				

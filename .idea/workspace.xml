@@ -2,36 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dbeaf33-5a61-46a6-833e-eef8e0a5e8e2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/0341e18f1498fef046461a509fb8bb5d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/06d7fc8140a8e44d9f5267092d437479" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/08ce5e99c5cdfe91587f61f37b8a2e88" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/12f70762aeb4ac1c96209f6deb541ac1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/1de6064fa2cc3618c1c2f837c3da3c21" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/1f7430855acdb826d05e9a5efb1dba99" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/20b9b415bd53d8fd30f0bb1ad6e70a99" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/4b13ee08a3ff53493fdaf72cb135b794" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/5956c37b4d1caaef2b8e36eb5abc4849" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/9abf55fca8d217c93aee84d1cc174e10" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/9d688483d2c9492558746e5386310d64" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/models/Invoice.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/controllers/InvoiceController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/models/Supplier.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/controllers/SupplierController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/ac224e7d76c070a77201e21619394390" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/ae76bbf4b3a8cb3a0c5e41eab0ba397d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/af465dabb5d3bed9cbc9486486de7140" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/b86e1b7d89886885e16eecb698865006" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/cec90a953acc362ac0e79eb95cdcbcef" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/d3f120422c56f7285b84484221f4a24c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/d7e70e1b9faaaecf1e1d950f9b8e2e7b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/db0cd21ff8293ac97597437c34bfbe87" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/sessions/e19251478ebc999cf2c4b14bce9e029a145d7801" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/form.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/form.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/view.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/view.blade.php" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\controllers\ShiftpresetController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\controllers\ShiftslogController.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\models\Shiftpreset.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\models\Shiftslog.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\storage\sessions\e19251478ebc999cf2c4b14bce9e029a145d7801" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftpreset\form.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftpreset\index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftpreset\view.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftslog\form.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftslog\index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\shiftslog\view.blade.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/shift/form.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/shift/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/moduleroutes.php" afterPath="$PROJECT_DIR$/protected/app/moduleroutes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/shift/view.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/shift/view.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="marvin2.iws" />
@@ -57,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SaleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SaleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1996558" vertical-offset="204" max-vertical-offset="2125">
-              <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+            <state vertical-scroll-proportion="-21.576923" vertical-offset="204" max-vertical-offset="2125">
+              <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
               <folding>
                 <element signature="n#getIndex#0;n#SaleController#0;n#!!top" expanded="false" />
                 <element signature="e#707#805#0#PHP" expanded="false" />
@@ -74,6 +58,71 @@
                 <element signature="e#3658#3849#0#PHP" expanded="false" />
                 <marker date="1424913247844" expanded="true" signature="4117:4232" placeholder="SELECT SUM(a..company_invoices..." />
                 <marker date="1424913247844" expanded="true" signature="4269:4384" placeholder="SELECT SUM(a..company_invoices..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SiteController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/controllers/SiteController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3281">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvoiceController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/app/controllers/InvoiceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52667814" vertical-offset="408" max-vertical-offset="1258">
+              <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+              <folding>
+                <element signature="n#__construct#0;n#InvoiceController#0;n#!!top" expanded="false" />
+                <element signature="e#459#624#0#PHP" expanded="false" />
+                <element signature="n#getIndex#0;n#InvoiceController#0;n#!!top" expanded="false" />
+                <element signature="e#719#817#0#PHP" expanded="false" />
+                <element signature="e#1390#1698#0#PHP" expanded="false" />
+                <element signature="e#2916#3018#0#PHP" expanded="false" />
+                <element signature="e#3065#3226#0#PHP" expanded="false" />
+                <element signature="e#3233#3395#0#PHP" expanded="false" />
+                <element signature="e#3507#3640#0#PHP" expanded="false" />
+                <element signature="e#3555#3640#0#PHP" expanded="false" />
+                <element signature="e#3684#3875#0#PHP" expanded="false" />
+                <element signature="n#getShow#0;n#InvoiceController#0;n#!!top" expanded="false" />
+                <element signature="e#4261#4359#0#PHP" expanded="false" />
+                <element signature="e#4477#4610#0#PHP" expanded="false" />
+                <element signature="e#4525#4610#0#PHP" expanded="false" />
+                <element signature="e#5846#5992#0#PHP" expanded="false" />
+                <element signature="n#postDestroy#0;n#InvoiceController#0;n#!!top" expanded="false" />
+                <element signature="e#6104#6202#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VoucherController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/controllers/VoucherController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.923077" vertical-offset="413" max-vertical-offset="1020">
+              <caret line="158" column="20" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+              <folding>
+                <element signature="e#459#624#0#PHP" expanded="false" />
+                <element signature="n#getIndex#0;n#VoucherController#0;n#!!top" expanded="false" />
+                <element signature="e#719#817#0#PHP" expanded="false" />
+                <element signature="e#1390#1698#0#PHP" expanded="false" />
+                <element signature="e#2916#3018#0#PHP" expanded="false" />
+                <element signature="n#getAdd#0;n#VoucherController#0;n#!!top" expanded="false" />
+                <element signature="e#3676#3867#0#PHP" expanded="false" />
+                <element signature="n#getShow#0;n#VoucherController#0;n#!!top" expanded="false" />
+                <element signature="e#4253#4351#0#PHP" expanded="false" />
+                <element signature="e#4469#4594#0#PHP" expanded="false" />
+                <element signature="e#4517#4594#0#PHP" expanded="false" />
+                <element signature="e#5691#5920#0#PHP" expanded="false" />
+                <element signature="e#5756#5902#0#PHP" expanded="false" />
+                <element signature="n#postDestroy#0;n#VoucherController#0;n#!!top" expanded="false" />
+                <element signature="e#6014#6112#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -459,7 +508,13 @@
       <option name="project" value="LOCAL" />
       <updated>1424966822026</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="working on sale&#10;">
+      <created>1424966923517</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1424966923517</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,9 +528,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -504,7 +559,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="working on sale&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on sale&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,17 +584,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/app/views/sale/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10511" max-vertical-offset="11050">
-          <caret line="643" column="13" selection-start-line="643" selection-start-column="13" selection-end-line="643" selection-end-column="13" />
-          <folding>
-            <marker date="1424913052606" expanded="true" signature="6980:7176" placeholder="..." />
-            <marker date="1424913052606" expanded="true" signature="7608:7814" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/views/sale/view.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="5814">
@@ -551,6 +596,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="561">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,6 +604,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3281">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#__construct#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#459#624#0#PHP" expanded="false" />
+            <element signature="n#getIndex#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#719#817#0#PHP" expanded="false" />
+            <element signature="e#1390#1698#0#PHP" expanded="false" />
+            <element signature="e#2916#3018#0#PHP" expanded="false" />
+            <element signature="e#3065#3226#0#PHP" expanded="false" />
+            <element signature="e#3233#3395#0#PHP" expanded="false" />
+            <element signature="e#3507#3640#0#PHP" expanded="false" />
+            <element signature="e#3555#3640#0#PHP" expanded="false" />
+            <element signature="e#3684#3875#0#PHP" expanded="false" />
+            <element signature="n#getShow#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#4261#4359#0#PHP" expanded="false" />
+            <element signature="e#4477#4610#0#PHP" expanded="false" />
+            <element signature="e#4525#4610#0#PHP" expanded="false" />
+            <element signature="e#5846#5992#0#PHP" expanded="false" />
+            <element signature="n#postDestroy#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#6104#6202#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -771,6 +837,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="561">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -889,17 +956,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/controllers/InvoiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692" vertical-offset="408" max-vertical-offset="1258">
-          <caret line="161" column="79" selection-start-line="161" selection-start-column="79" selection-end-line="161" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/controllers/SupplierController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-97.42308" vertical-offset="0" max-vertical-offset="3298">
           <caret line="149" column="60" selection-start-line="149" selection-start-column="60" selection-end-line="149" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -933,30 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/controllers/VoucherController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.309091" vertical-offset="422" max-vertical-offset="1020">
-          <caret line="159" column="78" selection-start-line="159" selection-start-column="78" selection-end-line="159" selection-end-column="78" />
-          <folding>
-            <element signature="e#459#624#0#PHP" expanded="false" />
-            <element signature="n#getIndex#0;n#VoucherController#0;n#!!top" expanded="false" />
-            <element signature="e#719#817#0#PHP" expanded="false" />
-            <element signature="e#1390#1698#0#PHP" expanded="false" />
-            <element signature="e#2916#3018#0#PHP" expanded="false" />
-            <element signature="n#getAdd#0;n#VoucherController#0;n#!!top" expanded="false" />
-            <element signature="e#3676#3867#0#PHP" expanded="false" />
-            <element signature="n#getShow#0;n#VoucherController#0;n#!!top" expanded="false" />
-            <element signature="e#4253#4351#0#PHP" expanded="false" />
-            <element signature="e#4469#4594#0#PHP" expanded="false" />
-            <element signature="e#4517#4594#0#PHP" expanded="false" />
-            <element signature="e#5691#5920#0#PHP" expanded="false" />
-            <element signature="e#5756#5902#0#PHP" expanded="false" />
-            <element signature="n#postDestroy#0;n#VoucherController#0;n#!!top" expanded="false" />
-            <element signature="e#6014#6112#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/models/Sale.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="561">
@@ -975,6 +1012,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.269231" vertical-offset="2717" max-vertical-offset="3536">
           <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -990,6 +1028,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.115385" vertical-offset="612" max-vertical-offset="2363">
           <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -997,6 +1036,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4471831" vertical-offset="732" max-vertical-offset="2057">
           <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1021,8 +1061,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1996558" vertical-offset="204" max-vertical-offset="2125">
-          <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+        <state vertical-scroll-proportion="-21.576923" vertical-offset="204" max-vertical-offset="2125">
+          <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
           <folding>
             <element signature="n#getIndex#0;n#SaleController#0;n#!!top" expanded="false" />
             <element signature="e#707#805#0#PHP" expanded="false" />
@@ -1035,6 +1075,65 @@
             <element signature="e#3658#3849#0#PHP" expanded="false" />
             <marker date="1424913247844" expanded="true" signature="4117:4232" placeholder="SELECT SUM(a..company_invoices..." />
             <marker date="1424913247844" expanded="true" signature="4269:4384" placeholder="SELECT SUM(a..company_invoices..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3281">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/controllers/VoucherController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.923077" vertical-offset="413" max-vertical-offset="1020">
+          <caret line="158" column="20" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+          <folding>
+            <element signature="e#459#624#0#PHP" expanded="false" />
+            <element signature="n#getIndex#0;n#VoucherController#0;n#!!top" expanded="false" />
+            <element signature="e#719#817#0#PHP" expanded="false" />
+            <element signature="e#1390#1698#0#PHP" expanded="false" />
+            <element signature="e#2916#3018#0#PHP" expanded="false" />
+            <element signature="n#getAdd#0;n#VoucherController#0;n#!!top" expanded="false" />
+            <element signature="e#3676#3867#0#PHP" expanded="false" />
+            <element signature="n#getShow#0;n#VoucherController#0;n#!!top" expanded="false" />
+            <element signature="e#4253#4351#0#PHP" expanded="false" />
+            <element signature="e#4469#4594#0#PHP" expanded="false" />
+            <element signature="e#4517#4594#0#PHP" expanded="false" />
+            <element signature="e#5691#5920#0#PHP" expanded="false" />
+            <element signature="e#5756#5902#0#PHP" expanded="false" />
+            <element signature="n#postDestroy#0;n#VoucherController#0;n#!!top" expanded="false" />
+            <element signature="e#6014#6112#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/controllers/InvoiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52667814" vertical-offset="408" max-vertical-offset="1258">
+          <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+          <folding>
+            <element signature="n#__construct#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#459#624#0#PHP" expanded="false" />
+            <element signature="n#getIndex#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#719#817#0#PHP" expanded="false" />
+            <element signature="e#1390#1698#0#PHP" expanded="false" />
+            <element signature="e#2916#3018#0#PHP" expanded="false" />
+            <element signature="e#3065#3226#0#PHP" expanded="false" />
+            <element signature="e#3233#3395#0#PHP" expanded="false" />
+            <element signature="e#3507#3640#0#PHP" expanded="false" />
+            <element signature="e#3555#3640#0#PHP" expanded="false" />
+            <element signature="e#3684#3875#0#PHP" expanded="false" />
+            <element signature="n#getShow#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#4261#4359#0#PHP" expanded="false" />
+            <element signature="e#4477#4610#0#PHP" expanded="false" />
+            <element signature="e#4525#4610#0#PHP" expanded="false" />
+            <element signature="e#5846#5992#0#PHP" expanded="false" />
+            <element signature="n#postDestroy#0;n#InvoiceController#0;n#!!top" expanded="false" />
+            <element signature="e#6104#6202#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
