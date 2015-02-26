@@ -25,17 +25,8 @@
 		 {{ Form::open(array('url'=>'voucher/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
 <div class="col-md-12">
 						<fieldset><legend> Vouchers</legend>
-
-							<div class="form-group  " >
-								<label for="ID" class=" control-label col-md-4 text-left"> id <span class="asterix"> * </span></label>
-								<div class="col-md-6">
-									{{ Form::hidden('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
-								</div>
-								<div class="col-md-2">
-
-								</div>
-							</div>
-							<div class="form-group  " >
+									
+								  <div class="form-group  " >
 									<label for="Voucher Ref" class=" control-label col-md-4 text-left"> Voucher Ref <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  {{ Form::text('voucher_ref', $row['voucher_ref'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 
@@ -67,7 +58,17 @@
 								  <div class="form-group  " >
 									<label for="Amount" class=" control-label col-md-4 text-left"> Amount <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('amount', $row['amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 
+									  {{ Form::text('amount', $row['amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )) }} 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Sale Id" class=" control-label col-md-4 text-left"> Sale Id </label>
+									<div class="col-md-6">
+									  <select name='sale_id' rows='5' id='sale_id' code='{$sale_id}' 
+							class='select2 '    ></select> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
@@ -94,16 +95,21 @@
 								  <div class="form-group  " >
 									<label for="Paypal Payment Date" class=" control-label col-md-4 text-left"> Paypal Payment Date </label>
 									<div class="col-md-6">
-									  {{ Form::text('paypal_payment_date', $row['paypal_payment_date'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  
+				{{ Form::text('paypal_payment_date', $row['paypal_payment_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }} 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Charity" class=" control-label col-md-4 text-left"> Charity </label>
+									<label for="Charity" class=" control-label col-md-4 text-left"> Charity <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('charity', $row['charity'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  
+					<label class='radio radio-inline'>
+					<input type='radio' name='charity' value ='0' requred @if($row['charity'] == '0') checked="checked" @endif > No </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='charity' value ='1' requred @if($row['charity'] == '1') checked="checked" @endif > Yes </label> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
@@ -132,6 +138,9 @@
 		
 		$("#authorised_by").jCombo("{{ URL::to('voucher/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
 		{  selected_value : '{{ $row["authorised_by"] }}' });
+		
+		$("#sale_id").jCombo("{{ URL::to('voucher/comboselect?filter=sales:id:id|site_id|sale_date') }}",
+		{  selected_value : '{{ $row["sale_id"] }}' });
 		 
 	});
 	</script>		 

@@ -150,15 +150,14 @@ class VoucherController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('vouchers');
-			//$data['created_by'] = Auth::id();
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));

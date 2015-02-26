@@ -119,6 +119,11 @@ class SaleController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
+
+		//add code for sites here
+
+		$this->data['1'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 1');
+		$this->data['2'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 2');
 		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );	
 	}
 	
@@ -137,10 +142,12 @@ class SaleController extends BaseController {
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('sales'); 
 		}
+
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','sale.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','sale.view',$this->data)->with('menus', $this->menus );
+
 	}	
 	
 	function postSave( $id =0)
@@ -154,10 +161,10 @@ class SaleController extends BaseController {
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
@@ -184,5 +191,5 @@ class SaleController extends BaseController {
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('sale?md='.Input::get('md'));
 	}			
-		
+
 }

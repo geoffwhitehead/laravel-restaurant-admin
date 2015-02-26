@@ -36,23 +36,27 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Created By</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
-					<tr>
-						<td width='30%' class='label-view text-right'>Created On</td>
-						<td>{{$row->created_on}} </td>
-					</tr>
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Updated By</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
-
+						
 					</tr>
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Updated On</td>
-						<td>{{$row->updated_on}} </td>
-
+						<td>{{ $row->updated_on }} </td>
+						
 					</tr>
 				
 					<tr>
@@ -87,7 +91,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Sale Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->sale_id,'sale_id','1:sales:id:id|sale_date|manager_id') }} </td>
+						<td>{{ SiteHelpers::gridDisplayView($row->sale_id,'sale_id','1:sales:id:id|site_id|sale_date') }} </td>
 						
 					</tr>
 				
@@ -96,10 +100,16 @@
 						<td>{{ $row->used }} </td>
 						
 					</tr>
-
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Active</td>
 						<td>{{ $row->active }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Charity</td>
+						<td>{{ $row->charity }} </td>
 						
 					</tr>
 				
@@ -118,12 +128,6 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Paypal Payment Date</td>
 						<td>{{ $row->paypal_payment_date }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Charity</td>
-						<td>{{ $row->charity }} </td>
 						
 					</tr>
 				

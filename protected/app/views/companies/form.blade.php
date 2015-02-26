@@ -109,13 +109,13 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Active" class=" control-label col-md-4 text-left"> Active <span class="asterix"> * </span></label>
+									<label for="Active" class=" control-label col-md-4 text-left"> Active </label>
 									<div class="col-md-6">
 									  
 					<label class='radio radio-inline'>
-					<input type='radio' name='active' value ='0' requred @if($row['active'] == '0') checked="checked" @endif > Inactive </label>
+					<input type='radio' name='active' value ='0'  @if($row['active'] == '0') checked="checked" @endif > Inactive </label>
 					<label class='radio radio-inline'>
-					<input type='radio' name='active' value ='1' requred @if($row['active'] == '1') checked="checked" @endif > Active </label> 
+					<input type='radio' name='active' value ='1'  @if($row['active'] == '1') checked="checked" @endif > Active </label> 
 									 </div> 
 									 <div class="col-md-2">
 									 	

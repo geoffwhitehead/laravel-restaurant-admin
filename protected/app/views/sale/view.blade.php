@@ -2,16 +2,17 @@
     <!-- Page header -->
     <div class="page-header">
       <div class="page-title">
-        <h3> {{ $pageTitle }} <small>{{ $pageNote }}</small></h3>
+        <h3> {{ $pageTitle }} <small>{{ $pageNote }}  </td> </small></h3>
       </div>
       <ul class="breadcrumb">
         <li><a href="{{ URL::to('dashboard') }}">{{ Lang::get('core.home') }}</a></li>
 		<li><a href="{{ URL::to('sale?md='.$masterdetail["filtermd"]) }}">{{ $pageTitle }}</a></li>
         <li class="active"> {{ Lang::get('core.detail') }} </li>
       </ul>
-	 </div>  
-	 
-	 
+	 </div>
+
+
+
  	<div class="page-content-wrapper">   
 	   <div class="toolbar-line">
 	   		<a href="{{ URL::to('sale?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_back') }}"><i class="icon-table"></i>&nbsp;{{ Lang::get('core.btn_back') }}</a>
@@ -25,37 +26,24 @@
 	
 					<tr>
 						<td width='30%' class='label-view text-right'>Id</td>
-						<td>{{ $row->id }} </td>
-						
+						<td>{{ $row->id }}
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Site Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|address_city') }} </td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|name|address_city') }} </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Barperson Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->barperson_id,'barperson_id','1:tb_users::id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Manager Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->manager_id,'manager_id','1:tb_users:id:id|first_name|last_name') }} </td>
+						<td>{{ SiteHelpers::gridDisplayView($row->barperson_id,'barperson_id','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Sale Date</td>
 						<td>{{ $row->sale_date }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Timestamp</td>
-						<td>{{ $row->timestamp }} </td>
 						
 					</tr>
 				
@@ -98,6 +86,18 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Expected Cash Sale</td>
 						<td>{{ $row->expected_cash_sale }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Total Cash Invoices</td>
+						<td>{{ $row->total_cash_invoices }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Rem After Bills</td>
+						<td>{{ $row->cash_rem_after_bills }} </td>
 						
 					</tr>
 				
@@ -296,6 +296,30 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Float Total Amount</td>
 						<td>{{ $row->float_total_amount }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
 						
 					</tr>
 				

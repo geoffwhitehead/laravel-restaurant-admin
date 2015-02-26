@@ -147,7 +147,11 @@ class CompaniesController extends BaseController {
 	{
 		$trackUri = $this->data['trackUri'];
 		$rules = $this->validateForm();
-		$validator = Validator::make(Input::all(), $rules);	
+		$data = Input::all();
+		$data['active'] = 0;
+		var_dump($data);
+
+		$validator = Validator::make($data, $rules);
 		if ($validator->passes()) {
 			$data = $this->validatePost('companies');
 			$ID = $this->model->insertRow($data , Input::get('id'));
