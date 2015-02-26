@@ -2,38 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dbeaf33-5a61-46a6-833e-eef8e0a5e8e2" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\controllers\InvoicesController.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\controllers\SupplieraccountsController.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\controllers\SuppliersController.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\models\Invoices.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\models\Supplieraccounts.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\models\Suppliers.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\invoices\form.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\invoices\index.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\invoices\view.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\supplieraccounts\form.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\supplieraccounts\index.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\supplieraccounts\view.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\suppliers\form.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\suppliers\index.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\views\suppliers\view.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/96c22f034a686133320d36945108ae4f" afterPath="$PROJECT_DIR$/protected/app/storage/views/96c22f034a686133320d36945108ae4f" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/models/BaseModel.php" afterPath="$PROJECT_DIR$/protected/app/models/BaseModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/CompaniesController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/CompaniesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/SaleController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/SaleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/VoucherController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/VoucherController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/a80c0116600d665589097a3f52078043" afterPath="$PROJECT_DIR$/protected/app/storage/views/a80c0116600d665589097a3f52078043" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/adc8f157c480fe94cb39b2885fa0f881" afterPath="$PROJECT_DIR$/protected/app/storage/views/adc8f157c480fe94cb39b2885fa0f881" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/af2f4ea7af52aa9a7b2f1c0d4fd85c87" afterPath="$PROJECT_DIR$/protected/app/storage/views/af2f4ea7af52aa9a7b2f1c0d4fd85c87" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/f8e90182e2506fbcf6ecb518bb2d86e5" afterPath="$PROJECT_DIR$/protected/app/storage/views/f8e90182e2506fbcf6ecb518bb2d86e5" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/companies/form.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/companies/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/sale/form.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/sale/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/voucher/form.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/voucher/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/sale/index.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/sale/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/protected/app/storage/logs/laravel.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/moduleroutes.php" afterPath="$PROJECT_DIR$/protected/app/moduleroutes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/sale/view.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/sale/view.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/voucher/view.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/voucher/view.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/0341e18f1498fef046461a509fb8bb5d" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/06d7fc8140a8e44d9f5267092d437479" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/08ce5e99c5cdfe91587f61f37b8a2e88" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/12f70762aeb4ac1c96209f6deb541ac1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/1de6064fa2cc3618c1c2f837c3da3c21" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/1f7430855acdb826d05e9a5efb1dba99" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/20b9b415bd53d8fd30f0bb1ad6e70a99" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/4b13ee08a3ff53493fdaf72cb135b794" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/5956c37b4d1caaef2b8e36eb5abc4849" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/9abf55fca8d217c93aee84d1cc174e10" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/9d688483d2c9492558746e5386310d64" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/models/Invoice.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/controllers/InvoiceController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/models/Supplier.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/controllers/SupplierController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/ac224e7d76c070a77201e21619394390" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/ae76bbf4b3a8cb3a0c5e41eab0ba397d" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/af465dabb5d3bed9cbc9486486de7140" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/b86e1b7d89886885e16eecb698865006" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/cec90a953acc362ac0e79eb95cdcbcef" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/d3f120422c56f7285b84484221f4a24c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/d7e70e1b9faaaecf1e1d950f9b8e2e7b" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/views/db0cd21ff8293ac97597437c34bfbe87" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/storage/sessions/e19251478ebc999cf2c4b14bce9e029a145d7801" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/form.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/form.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/index.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/index.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/invoice/view.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/views/supplier/view.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="marvin2.iws" />
@@ -62,7 +60,7 @@
       <file leaf-file-name="SaleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6729776" vertical-offset="510" max-vertical-offset="2125">
+            <state vertical-scroll-proportion="1.1996558" vertical-offset="204" max-vertical-offset="2125">
               <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
               <folding>
                 <element signature="n#getIndex#0;n#SaleController#0;n#!!top" expanded="false" />
@@ -375,28 +373,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marvin2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marvin2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -477,20 +453,27 @@
       <option name="project" value="LOCAL" />
       <updated>1424635855217</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1424966822026</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1424966822026</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -499,7 +482,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -727,6 +709,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4444447" vertical-offset="1647" max-vertical-offset="10370">
           <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -749,6 +732,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.769231" vertical-offset="1512" max-vertical-offset="2567">
           <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="122" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -901,6 +885,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.115385" vertical-offset="966" max-vertical-offset="4369">
           <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -929,6 +914,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.181818" vertical-offset="1436" max-vertical-offset="2448">
           <caret line="98" column="16" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -936,6 +922,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.690909" vertical-offset="1422" max-vertical-offset="2567">
           <caret line="115" column="43" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -995,6 +982,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.6363635" vertical-offset="51" max-vertical-offset="2363">
           <caret line="18" column="19" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,7 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6729776" vertical-offset="510" max-vertical-offset="2125">
+        <state vertical-scroll-proportion="1.1996558" vertical-offset="204" max-vertical-offset="2125">
           <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
           <folding>
             <element signature="n#getIndex#0;n#SaleController#0;n#!!top" expanded="false" />
