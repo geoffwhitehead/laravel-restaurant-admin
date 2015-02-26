@@ -67,16 +67,16 @@ class BaseModel extends Eloquent  {
 	}
 	public static function addTimestamps ($data, $id){
 
-		if($id == NULL)
+		if($id == NULL || $id == '')
 		{
-			if(isset($data['created_by'])) $data['created_by'] = Auth::id();
-			if(isset($data['created_on'])) $data['created_on'] = date("Y-m-d H:i:s");
-			if(isset($data['updated_by'])) $data['updated_by'] = Auth::id();
-			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");
+			$data['created_by'] = Auth::id();
+			$data['created_on'] = date("Y-m-d H:i:s");
+			$data['updated_by'] = Auth::id();
+			$data['updated_on'] = date("Y-m-d H:i:s");
 
 		} else {
-			if(isset($data['updated_by'])) $data['updated_by'] = Auth::id();
-			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");
+			$data['updated_by'] = Auth::id();
+			$data['updated_on'] = date("Y-m-d H:i:s");
 		}
 		return $data;
 	}

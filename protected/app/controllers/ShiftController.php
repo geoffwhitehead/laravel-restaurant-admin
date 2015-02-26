@@ -150,6 +150,7 @@ class ShiftController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('shifts');
+            $data = $this->model->addTimestamps($data, Input::get('id'));
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
