@@ -107,40 +107,40 @@
 									 <div class="col-md-2">
 									 	
 									 </div>
-								  </div> 					
+								  </div>
 								  <div class="form-group  " >
 									<label for="Manager Conf Id" class=" control-label col-md-4 text-left"> Manager Conf Id </label>
 									<div class="col-md-6">
-									  <select name='manager_conf_id' rows='5' id='manager_conf_id' code='{$manager_conf_id}' 
-							class='select2 '    ></select> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
+									  <select name='manager_conf_id' rows='5' id='manager_conf_id' code='{$manager_conf_id}'
+							class='select2 '    ></select>
 									 </div>
-								  </div> 					
+									 <div class="col-md-2">
+
+									 </div>
+								  </div>
 								  <div class="form-group  " >
 									<label for="Manager Conf On" class=" control-label col-md-4 text-left"> Manager Conf On </label>
 									<div class="col-md-6">
-									  
-				{{ Form::text('manager_conf_on', $row['manager_conf_on'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }} 
-									 </div> 
-									 <div class="col-md-2">
-									 	
+
+				{{ Form::text('manager_conf_on', $row['manager_conf_on'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }}
 									 </div>
-								  </div> 					
+									 <div class="col-md-2">
+
+									 </div>
+								  </div>
 								  <div class="form-group  " >
 									<label for="Admin Conf Flag" class=" control-label col-md-4 text-left"> Admin Conf Flag </label>
 									<div class="col-md-6">
-									  
+
 					<label class='radio radio-inline'>
 					<input type='radio' name='admin_conf_flag' value ='0'  @if($row['admin_conf_flag'] == '0') checked="checked" @endif > Inactive </label>
 					<label class='radio radio-inline'>
-					<input type='radio' name='admin_conf_flag' value ='1'  @if($row['admin_conf_flag'] == '1') checked="checked" @endif > Active </label> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
+					<input type='radio' name='admin_conf_flag' value ='1'  @if($row['admin_conf_flag'] == '1') checked="checked" @endif > Active </label>
 									 </div>
-								  </div> 					
+									 <div class="col-md-2">
+
+									 </div>
+								  </div>
 								  <div class="form-group  " >
 									<label for="Admin Conf Id" class=" control-label col-md-4 text-left"> Admin Conf Id </label>
 									<div class="col-md-6">

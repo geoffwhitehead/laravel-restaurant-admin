@@ -99,7 +99,7 @@ class InvoiceController extends BaseController {
 			if($this->access['is_edit'] ==0 )
 			return Redirect::to('')->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
 		}				
-			
+
 		$id = ($id == null ? '' : SiteHelpers::encryptID($id,true)) ;
 		
 		$row = $this->model->find($id);
