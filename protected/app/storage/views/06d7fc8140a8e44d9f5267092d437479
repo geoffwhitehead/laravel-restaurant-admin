@@ -65,6 +65,16 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
+									<label for="Sale Id" class=" control-label col-md-4 text-left"> Sale Id </label>
+									<div class="col-md-6">
+									  <select name='sale_id' rows='5' id='sale_id' code='{$sale_id}' 
+							class='select2 '    ></select> 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
 									<label for="Paypal Payment Ref" class=" control-label col-md-4 text-left"> Paypal Payment Ref </label>
 									<div class="col-md-6">
 									  <?php echo Form::text('paypal_payment_ref', $row['paypal_payment_ref'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
@@ -128,6 +138,9 @@
 		
 		$("#authorised_by").jCombo("<?php echo URL::to('voucher/comboselect?filter=tb_users:id:id|first_name|last_name'); ?>",
 		{  selected_value : '<?php echo $row["authorised_by"]; ?>' });
+		
+		$("#sale_id").jCombo("<?php echo URL::to('voucher/comboselect?filter=sales:id:id|site_id|sale_date'); ?>",
+		{  selected_value : '<?php echo $row["sale_id"]; ?>' });
 		 
 	});
 	</script>		 

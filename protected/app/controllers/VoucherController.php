@@ -154,10 +154,10 @@ class VoucherController extends BaseController {
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));

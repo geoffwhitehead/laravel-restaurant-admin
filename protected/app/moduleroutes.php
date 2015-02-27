@@ -8,4 +8,7 @@
                     Route::controller('supplier', 'SupplierController');
                     Route::controller('sale', 'SaleController');
                     Route::controller('shift', 'ShiftController');
+                    Route::controller('usevoucher', 'UsevoucherController');
+                    Route::controller('deposit', 'DepositController');
+                    Route::controller('usedeposit', 'UsedepositController');
                     ?>

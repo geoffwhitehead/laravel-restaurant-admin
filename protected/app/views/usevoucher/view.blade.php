@@ -6,7 +6,7 @@
       </div>
       <ul class="breadcrumb">
         <li><a href="{{ URL::to('dashboard') }}">{{ Lang::get('core.home') }}</a></li>
-		<li><a href="{{ URL::to('voucher?md='.$masterdetail["filtermd"]) }}">{{ $pageTitle }}</a></li>
+		<li><a href="{{ URL::to('usevoucher?md='.$masterdetail["filtermd"]) }}">{{ $pageTitle }}</a></li>
         <li class="active"> {{ Lang::get('core.detail') }} </li>
       </ul>
 	 </div>  
@@ -14,9 +14,9 @@
 	 
  	<div class="page-content-wrapper">   
 	   <div class="toolbar-line">
-	   		<a href="{{ URL::to('voucher?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_back') }}"><i class="icon-table"></i>&nbsp;{{ Lang::get('core.btn_back') }}</a>
+	   		<a href="{{ URL::to('usevoucher?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_back') }}"><i class="icon-table"></i>&nbsp;{{ Lang::get('core.btn_back') }}</a>
 			@if($access['is_add'] ==1)
-	   		<a href="{{ URL::to('voucher/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-primary" title="{{ Lang::get('core.btn_edit') }}"><i class="icon-pencil3"></i>&nbsp;{{ Lang::get('core.btn_edit') }}</a>
+	   		<a href="{{ URL::to('usevoucher/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-primary" title="{{ Lang::get('core.btn_edit') }}"><i class="icon-pencil3"></i>&nbsp;{{ Lang::get('core.btn_edit') }}</a>
 			@endif  		   	  
 		</div>
 	<div class="table-responsive">
@@ -30,38 +30,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Created On</td>
-						<td>{{ $row->created_on }} </td>
-						
-					</tr>
-				
-					<tr>
 						<td width='30%' class='label-view text-right'>Voucher Ref</td>
 						<td>{{ $row->voucher_ref }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Created By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Updated By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
 						<td width='30%' class='label-view text-right'>Authorised By</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->authorised_by,'authorised_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Updated On</td>
-						<td>{{ $row->updated_on }} </td>
 						
 					</tr>
 				
@@ -90,14 +66,8 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Site Used</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->site_used,'site_used','1:sites:id:id|name|address_city') }} </td>
-						
-					</tr>
-				
-					<tr>
 						<td width='30%' class='label-view text-right'>Sale Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->sale_id,'sale_id','1:sales:id:id|site_id|sale_date') }} </td>
+						<td>{{ $row->sale_id }} </td>
 						
 					</tr>
 				
@@ -108,14 +78,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Active</td>
-						<td>{{ $row->active }} </td>
+						<td width='30%' class='label-view text-right'>Site Used</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_used,'site_used','1:sites:id:id|name|address_city') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Charity</td>
-						<td>{{ $row->charity }} </td>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td>{{ $row->active }} </td>
 						
 					</tr>
 				
@@ -134,6 +104,36 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Paypal Payment Date</td>
 						<td>{{ $row->paypal_payment_date }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Charity</td>
+						<td>{{ $row->charity }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ $row->created_by }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ $row->updated_by }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
 						
 					</tr>
 				

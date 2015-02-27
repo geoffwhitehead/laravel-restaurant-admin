@@ -101,7 +101,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        <?php echo Form::text('report_voucher_sale', $row['report_voucher_sale'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?>
+                        <?php echo Form::text('report_voucher_sale',$morpeth_voucher_sale[0]->amt,array('value'=>$morpeth_voucher_sale[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'report-voucher-sale'  ,'readonly')); ?>
                     </div>
                     <div class="col-md-2">
 
@@ -112,7 +112,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        <?php echo Form::text('report_voucher_qty', $row['report_voucher_qty'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?>
+                        <?php echo Form::text('report_voucher_qty', $morpeth_voucher_count[0]->amt,array('value'=>$morpeth_voucher_count[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly')); ?>
                     </div>
                     <div class="col-md-2">
 
@@ -123,7 +123,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        <?php echo Form::text('deposits_used_amount', $row['deposits_used_amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?>
+                        <?php echo Form::text('deposits_used_amount', $morpeth_deposit_sale[0]->amt,array('value'=>$morpeth_deposit_sale[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly')); ?>
                     </div>
                     <div class="col-md-2">
 
@@ -134,7 +134,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        <?php echo Form::text('deposits_used_qty', $row['deposits_used_qty'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )); ?>
+                        <?php echo Form::text('deposits_used_qty', $morpeth_deposit_count[0]->amt,array('value'=>$morpeth_deposit_count[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly')); ?>
                     </div>
                     <div class="col-md-2">
 
@@ -156,7 +156,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        <?php echo Form::text('total_cash_invoices', $inv[0]->amt,array('value'=>$inv[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'  ,'id' => 'total-cash-invoices', 'readonly'=>'true',)); ?>
+                        <?php echo Form::text('total_cash_invoices', $morpeth_invoices[0]->amt,array('value'=>$morpeth_invoices[0]->amt,'class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'  ,'id' => 'total-cash-invoices', 'readonly'=>'true',)); ?>
 
                     </div>
                     <div class="col-md-2">
@@ -639,6 +639,8 @@
         });
         $(".form-control").focusout(function() {
             $('#expected-cash-sale').val(('#expected-cash-sale').val()+1);
+            $('#report-voucher-sale').val(())
         })
+
 
     </script>

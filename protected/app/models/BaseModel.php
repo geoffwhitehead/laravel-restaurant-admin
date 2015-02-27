@@ -71,9 +71,6 @@ class BaseModel extends Eloquent  {
 		{
 			$data['created_by'] = Auth::id();
 			$data['created_on'] = date("Y-m-d H:i:s");
-			$data['updated_by'] = Auth::id();
-			$data['updated_on'] = date("Y-m-d H:i:s");
-
 		} else {
 			$data['updated_by'] = Auth::id();
 			$data['updated_on'] = date("Y-m-d H:i:s");

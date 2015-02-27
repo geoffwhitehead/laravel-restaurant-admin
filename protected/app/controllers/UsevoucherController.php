@@ -1,22 +1,22 @@
 <?php
-class SaleController extends BaseController {
+class UsevoucherController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'sale';
+	public $module = 'usevoucher';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Sale();
+		$this->model = new Usevoucher();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'sale',
+			'pageModule'=> 'usevoucher',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -80,7 +80,7 @@ class SaleController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','sale.index',$this->data)
+		$this->layout->nest('content','usevoucher.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -107,7 +107,7 @@ class SaleController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('sales'); 
+			$this->data['row'] = $this->model->getColumnTable('vouchers'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -119,26 +119,7 @@ class SaleController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-
-		//add code for sites here
-
-		//MORPETH TODO replace with session variable to select site
-		$this->data['morpeth_invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 1');
-		$this->data['morpeth_voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 1');
-		$this->data['morpeth_voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 1');
-		$this->data['morpeth_deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 1');
-		$this->data['morpeth_deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 1');
-
-
-		//DURHAM TODO replace with session variable to select site
-		$this->data['durham_invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 2');
-		$this->data['durham_voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 2');
-		$this->data['durham_voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 2');
-		$this->data['durham_deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 2');
-		$this->data['durham_deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 2');
-
-
-		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','usevoucher.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -154,14 +135,12 @@ class SaleController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('sales'); 
+			$this->data['row'] = $this->model->getColumnTable('vouchers'); 
 		}
-
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','sale.view',$this->data)->with('menus', $this->menus );
-
+		$this->layout->nest('content','usevoucher.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
@@ -170,7 +149,8 @@ class SaleController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('sales');
+			$data = $this->validatePost('vouchers');
+			$data = $this->model->useVoucher($data);
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
@@ -182,11 +162,11 @@ class SaleController extends BaseController {
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'sale/add/'.$id.'?md='.$md.$trackUri :  'sale?md='.$md.$trackUri );
+			$redirect = (!is_null(Input::get('apply')) ? 'usevoucher/add/'.$id.'?md='.$md.$trackUri :  'usevoucher?md='.$md.$trackUri );
 			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
 		} else {
 			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('sale/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
+			return Redirect::to('usevoucher/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -203,7 +183,7 @@ class SaleController extends BaseController {
 		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('sale?md='.Input::get('md'));
+		return Redirect::to('usevoucher?md='.Input::get('md'));
 	}			
-
+		
 }
