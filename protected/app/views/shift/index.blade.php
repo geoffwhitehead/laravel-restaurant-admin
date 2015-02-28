@@ -143,37 +143,68 @@ $(document).ready(function(){
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,basicWeek,basicDay'
+                right: 'month,agendaWeek,agendaDay'
             },
+            defaultView: 'agendaWeek',
             defaultDate: '{{date('Y-m-d')}}',
             editable: true,
             eventLimit: true, // allow "more" link when too many events
-            eventDrop: function(event, delta, revertFunc) {
+            eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
+                $.ajax({
+                    url: ("/event/edit"),
+                    data: ({
+                        id: event.id,
+                        start: event.start.format(),
+                        end: event.end.format()
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        alert("success");
+                        //$('#calendar').fullCalendar('refetchEvents');
+                    },
+                    error: function (xhr, status, error) {
+                        alert("fail");
+                        revertFunc();
+                    }
+                });
+            },
+            eventDrop: function(event, delta, revertFunc, jsEvent, ui, view) {
 
-                alert(event.title + " was dropped on " + event.start.format());
-
-                if (!confirm("Are you sure about this change?")) {
-                    revertFunc();
-                }
+                //alert("/event/" + event.id + "/" + event.start.format() + "/" + event.end.format());
+                $.ajax({
+                    url: ("/event/edit"),
+                    data: ({
+                        id: event.id,
+                        start: event.start.format(),
+                        end: event.end.format()
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        alert("success");
+                        //$('#calendar').fullCalendar('refetchEvents');
+                    },
+                    error: function (xhr, status, error) {
+                        alert("fail");
+                        revertFunc();
+                    }
+                });
 
             },
             timeFormat: 'h:mm',
-            events: [
-                @foreach ($shifts as $row)
+            eventSources: [
                 {
-                    title    : '{{$row->first_name}} {{$row->last_name}}',
-                    start    : '{{$row->shift_start}}',
-                    end      : '{{$row->shift_end}}',
-                    @if ($row->shift_start > date('Y-m-d h:i:s'))
-                        className: 'shift-scheduled',
-                    @elseif ($row->shift_start < date('Y-m-d h:i:s') && $row->shift_end > date('Y-m-d h:i:s') )
-                        className: 'shift-in-progress',
-                    @else
-                        className: 'shift-completed',
-                    @endif
-                },
-                @endforeach
-
+                    url: '/event/list',
+                    type: 'GET',
+                    data: {
+                        custom_param1: 'manager_conf_flag',
+                        custom_param2: 'admin_conf_flag',
+                        custom_param3: 'paid',
+                        custom_param4: 'last_name'
+                    },
+                    error: function() {
+                        alert('there was an error while fetching events!');
+                    }
+                }
             ]
         })
 
