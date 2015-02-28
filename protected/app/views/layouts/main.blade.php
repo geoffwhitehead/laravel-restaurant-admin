@@ -15,16 +15,18 @@
 		{{ HTML::style('sximo/js/plugins/select2/select2.css')}}
 		{{ HTML::style('sximo/js/plugins/iCheck/skins/square/green.css')}}
 		{{ HTML::style('sximo/js/plugins/fancybox/jquery.fancybox.css') }}
-		{{ HTML::style('sximo/css/sximo.css')}}		
-		{{ HTML::style('sximo/css/animate.css')}}		
+		{{ HTML::style('sximo/css/sximo.css')}}
+		{{ HTML::style('sximo/css/animate.css')}}
 		{{ HTML::style('sximo/css/icons.min.css')}}
-		
-		
-		
 
+        {{ HTML::style('sximo/js/plugins/fullcalendar/fullcalendar.min.css')}}
 		{{ HTML::script('sximo/js/plugins/jquery.min.js') }}
-		{{ HTML::script('sximo/js/plugins/jquery.cookie.js') }}			
-		{{ HTML::script('sximo/js/plugins/jquery-ui.min.js') }}				
+        {{ HTML::script('sximo/js/plugins/fullcalendar/lib/moment.min.js')}}
+        {{ HTML::script('sximo/js/plugins/fullcalendar/fullcalendar.js')}}
+        {{ HTML::style('sximo/css/marvin.css')}}
+
+		{{ HTML::script('sximo/js/plugins/jquery.cookie.js') }}
+		{{ HTML::script('sximo/js/plugins/jquery-ui.min.js') }}
 		{{ HTML::script('sximo/js/plugins/iCheck/icheck.min.js') }}
 		{{ HTML::script('sximo/js/plugins/select2/select2.min.js') }}
 		{{ HTML::script('sximo/js/plugins/fancybox/jquery.fancybox.js') }}
@@ -39,21 +41,21 @@
 		{{ HTML::script('sximo/js/plugins/jquery.jCombo.min.js') }}
 		{{ HTML::script('sximo/js/plugins/bootstrap.summernote/summernote.min.js') }}
 		{{ SiteHelpers::initMarkitUp() }}
-		
+
 
 		<script language="javascript">
 		jQuery(document).ready(function($)	{
 		   $('.markItUp').markItUp(mySettings );
 		});
 		</script>
-		
+
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->	
+		<![endif]-->
 
-		
-	
+
+
   	</head>
 
 <body class="sxim-init" >

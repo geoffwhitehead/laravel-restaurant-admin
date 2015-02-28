@@ -123,7 +123,7 @@ class UserController extends BaseController {
 			$data = array(
 				'fb_enabled' => $soc['providers']['Facebook']['enabled'],
 				'google_enabled' => $soc['providers']['Google']['enabled'],
-				'twit_enabled' => $soc['providers']['Twitter']['enabled'],
+				'twit_enabled' => $soc['providers']['Twitter']['enabled']
 			);
 			$this->layout = View::make('layouts.login');
 			$this->layout->nest('content','user.login',$data);

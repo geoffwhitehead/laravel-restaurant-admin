@@ -1,0 +1,29 @@
+/* Fullcalendar.io -> Shift Completed */
+a.fc-day-grid-event.shift-completed div.fc-content
+{
+    background-image: url('/sximo/images/icons/calendar33.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #8959a8;
+}
+
+/* Fullcalendar.io ->  Shift in Progress */
+a.fc-day-grid-event.shift-in-progress div.fc-content
+{
+    background-image: url('/sximo/images/icons/clock125.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #c12e2a;
+}
+
+/* Fullcalendar.io ->  Shift Scheduled */
+a.fc-day-grid-event.shift-scheduled div.fc-content
+{
+    background-image: url('/sximo/images/icons/hour11.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #9cc2cb;
+}

@@ -115,13 +115,14 @@
         </tbody>
       
     </table>
+         <div id='calendar'></div>
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
 	</div>
 	{{ Form::close() }}
 	@include('footer')
 	
 	</div>	  
-</div>	
+</div>
 <script>
 $(document).ready(function(){
 
@@ -131,4 +132,50 @@ $(document).ready(function(){
 	});
 	
 });	
-</script>		
+</script>
+<script>
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            defaultDate: '{{date('Y-m-d')}}',
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            eventDrop: function(event, delta, revertFunc) {
+
+                alert(event.title + " was dropped on " + event.start.format());
+
+                if (!confirm("Are you sure about this change?")) {
+                    revertFunc();
+                }
+
+            },
+            timeFormat: 'h:mm',
+            events: [
+                @foreach ($shifts as $row)
+                {
+                    title    : '{{$row->first_name}} {{$row->last_name}}',
+                    start    : '{{$row->shift_start}}',
+                    end      : '{{$row->shift_end}}',
+                    @if ($row->shift_start > date('Y-m-d h:i:s'))
+                        className: 'shift-scheduled',
+                    @elseif ($row->shift_start < date('Y-m-d h:i:s') && $row->shift_end > date('Y-m-d h:i:s') )
+                        className: 'shift-in-progress',
+                    @else
+                        className: 'shift-completed',
+                    @endif
+                },
+                @endforeach
+
+            ]
+        })
+
+    });
+</script>

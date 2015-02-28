@@ -23,6 +23,8 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
+            test
+            {{URL::to('sale/comboselect?filter=tb_users:id:id|first_name|last_name')}}
         {{ Form::open(array('url'=>'sale/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
         <div class="col-md-3">
             <fieldset>
@@ -626,8 +628,8 @@
 
             {{ Form::close() }}
         </div>
-    </div>
 
+    </div>
     <script type="text/javascript">
         $(document).ready(function () {
 
