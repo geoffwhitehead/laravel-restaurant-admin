@@ -11,5 +11,4 @@
     Route::controller('usevoucher', 'UsevoucherController');
     Route::controller('deposit', 'DepositController');
     Route::controller('usedeposit', 'UsedepositController');
-    Route::controller('event', 'EventController');
 ?>

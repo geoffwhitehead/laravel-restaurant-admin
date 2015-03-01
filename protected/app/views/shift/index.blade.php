@@ -115,6 +115,21 @@
         </tbody>
       
     </table>
+         <div id='external-events'><h4>Shifts</h4>
+             
+             <span class='label label-primary'>Hanna</span>
+             <span class='label label-primary'>May</span>
+             <span class='label label-primary'>Beth</span>
+             <span class='label label-primary'>Gavin</span><br />
+             <span class='label label-primary'>Hanna</span>
+             <span class='label label-primary'>May</span>
+             <span class='label label-primary'>Beth</span>
+             <span class='label label-primary'>Gavin</span><br />
+             <span class='label label-primary'>Hanna</span>
+             <span class='label label-primary'>May</span>
+             <span class='label label-primary'>Beth</span>
+             <span class='label label-primary'>Gavin</span><br />
+         </div>
          <div id='calendar'></div>
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
 	</div>
@@ -133,8 +148,30 @@ $(document).ready(function(){
 	
 });	
 </script>
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
+
+        $('#external-events span').each(function() {
+
+            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+            // it doesn't need to have a start or end
+            var eventObject = {
+                title: $.trim($(this).text()) // use the element's text as the event title
+            };
+
+            // store the Event Object in the DOM element so we can get to it later
+            $(this).data('eventObject', eventObject);
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
+
 
         // page is now ready, initialize the calendar...
 
@@ -148,6 +185,7 @@ $(document).ready(function(){
             defaultView: 'agendaWeek',
             defaultDate: '{{date('Y-m-d')}}',
             editable: true,
+            droppable: true,
             eventLimit: true, // allow "more" link when too many events
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
                 $.ajax({
@@ -189,6 +227,39 @@ $(document).ready(function(){
                     }
                 });
 
+            },
+            drop: function(date, allDay) {
+                // retrieve the dropped element's stored Event Object
+                var originalEventObject = $(this).data('eventObject');
+
+                // we need to copy it, so that multiple events don't have a reference to the same object
+                var copiedEventObject = $.extend({}, originalEventObject);
+
+                // assign it the date that was reported
+                copiedEventObject.start = date;
+                copiedEventObject.end = date;
+
+                // render the event on the calendar
+                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+                var $gavDate = moment(date);
+
+                $.ajax({
+                    url: ("/event/create"),
+                    data: ({
+                        id: 1,
+                        start: moment(date).format(),
+                        end: moment(date).add(5, 'hours').format()
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        alert("success");
+                    },
+                    error: function (xhr, status, error) {
+                        alert("fail");
+                    }
+                });
             },
             timeFormat: 'h:mm',
             eventSources: [

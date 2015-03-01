@@ -23,6 +23,7 @@ Route::get('/', 'HomeController@index');
 Route::controller('home', 'HomeController');
 Route::controller('blog', 'BlogController');
 include('pageroutes.php');
+Route::controller('event', 'EventController'); //TODO: move back into secure location
 Route::group(array('before' => 'auth'), function() 
 {
 	/* CORE APPLICATION DONT DELETE IT */
