@@ -106,13 +106,13 @@
 						<td>{{ $row->expected_cash_taken }} </td>
 						
 					</tr>
-				
+
 					<tr>
 						<td width='30%' class='label-view text-right'>Cash Taken</td>
 						<td>{{ $row->cash_taken }} </td>
-						
+
 					</tr>
-				
+
 					<tr>
 						<td width='30%' class='label-view text-right'>Cash Variance</td>
 						<td>{{ $row->cash_variance }} </td>
@@ -238,7 +238,7 @@
 						<td>{{ $row->cash_taken_£50 }} </td>
 						
 					</tr>
-				
+
 					<tr>
 						<td width='30%' class='label-view text-right'>Float Left 5p</td>
 						<td>{{ $row->float_left_5p }} </td>

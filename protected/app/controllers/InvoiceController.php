@@ -82,6 +82,7 @@ class InvoiceController extends BaseController {
 		// Render into template
 		$this->layout->nest('content','invoice.index',$this->data)
 						->with('menus', SiteHelpers::menus());
+
 	}		
 	
 

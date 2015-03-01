@@ -4,10 +4,10 @@ class UserController extends BaseController {
 
 	
 	protected $layout = "layouts.main";
+	protected $sites = array();
 
 	public function __construct() {
 		$this->beforeFilter('csrf', array('on'=>'post'));
-
 	} 
 
 	public function getRegister() {
@@ -115,7 +115,7 @@ class UserController extends BaseController {
 	
 		if(Auth::check())
 		{
-			return Redirect::to('')->with('message',SiteHelpers::alert('success','Youre already login'));
+			return Redirect::to('')->with('message',SiteHelpers::alert('success','Youre already logged in'));
 
 		} else {
 			$soc =  Config::get('hybridauth');
@@ -124,7 +124,9 @@ class UserController extends BaseController {
 				'fb_enabled' => $soc['providers']['Facebook']['enabled'],
 				'google_enabled' => $soc['providers']['Google']['enabled'],
 				'twit_enabled' => $soc['providers']['Twitter']['enabled'],
+				'sites' => DB::select('SELECT id, name, address_city FROM sites WHERE id IS NOT NULL'),
 			);
+
 			$this->layout = View::make('layouts.login');
 			$this->layout->nest('content','user.login',$data);
 		}	
@@ -135,6 +137,7 @@ class UserController extends BaseController {
 		$rules = array(
 			'email'=>'required|email',
 			'password'=>'required',
+			'site_id'=>'required',
 		);		
 		if(CNF_RECAPTCHA =='true') $rules['recaptcha_response_field'] = 'required|recaptcha';
 		$validator = Validator::make(Input::all(), $rules);
@@ -154,14 +157,16 @@ class UserController extends BaseController {
 					{
 						// BLocked users
 						Auth::logout();
-						return Redirect::to('user/login')->with('message', SiteHelpers::alert('error','Your Account is BLocked'));
+						return Redirect::to('user/login')->with('message', SiteHelpers::alert('error','Your Account is Blocked'));
 					} else {
 						DB::table('tb_users')->where('id', '=',$row->id )->update(array('last_login' => date("Y-m-d H:i:s")));
 						Session::put('uid', $row->id);
 						Session::put('gid', $row->group_id);
 						Session::put('eid', $row->email);
 						Session::put('ll', $row->last_login);
-						Session::put('fid', $row->first_name.' '. $row->last_name);	
+						Session::put('fid', $row->first_name.' '. $row->last_name);
+						$data = Input::all();
+						Session::put('sid', Input::get('site_id'));
 						if(CNF_FRONT =='false') :
 							return Redirect::to('dashboard');						
 						else :

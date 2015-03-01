@@ -318,7 +318,7 @@ class BaseController extends Controller {
 			return json_encode($items); 	
 		} else {
 			return json_encode(array('OMG'=>" Are u trying to cheat ?? FUCK YOU !!"));
-		}	
+		}
 	}
 	
 	function getCombotable()

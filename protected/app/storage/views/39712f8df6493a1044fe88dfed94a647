@@ -17,8 +17,7 @@
 				<li><?php echo $error; ?></li>
 			<?php endforeach; ?>
 		</ul>		
-		
-			
+
 	<div class="form-group has-feedback animated fadeInLeft delayp1">
 		<label><?php echo Lang::get('core.email');; ?>	</label>
 		<?php echo Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email Address')); ?>
@@ -30,6 +29,16 @@
 		<?php echo Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')); ?>
 		<i class="icon-lock form-control-feedback"></i>
 	</div>
+
+	<div class="form-group has-feedback  animated fadeInRight delayp1">
+		<label>Site</label><br/>
+		<select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 ' required>
+			<?php foreach ($sites as $site): ?>
+			<option value="<?php echo $site->id; ?>"><?php echo $site->name; ?>, <?php echo $site->address_city; ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+
 	<?php if(CNF_RECAPTCHA =='true'): ?> 
 	<div class="form-group has-feedback  animated fadeInLeft delayp1">
 		<label class="text-left"> Are u human ? </label>		
@@ -97,12 +106,19 @@
  <?php echo Form::close(); ?>		 
 
 
+
   <div class="clr"></div>
   </div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#site_id").jCombo({
+		url: "<?php echo URL::to('user/sites'); ?>"
+	});
+
+	$(".form-control").focusout(function() {
+		$('#expected-cash-sale').val(('#expected-cash-sale').val()+1);
 $('#or').click(function(){
 $('#fr').toggle();
 });

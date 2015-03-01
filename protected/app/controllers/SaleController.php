@@ -82,6 +82,7 @@ class SaleController extends BaseController {
 		// Render into template
 		$this->layout->nest('content','sale.index',$this->data)
 						->with('menus', SiteHelpers::menus());
+
 	}		
 	
 
@@ -121,22 +122,16 @@ class SaleController extends BaseController {
 		$this->data['id'] = $id;
 
 		//add code for sites here
-
-		//MORPETH TODO replace with session variable to select site
-		$this->data['morpeth_invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 1');
-		$this->data['morpeth_voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 1');
-		$this->data['morpeth_voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 1');
-		$this->data['morpeth_deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 1');
-		$this->data['morpeth_deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 1');
-
-
-		//DURHAM TODO replace with session variable to select site
-		$this->data['durham_invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = 2');
-		$this->data['durham_voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 2');
-		$this->data['durham_voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = 2');
-		$this->data['durham_deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 2');
-		$this->data['durham_deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = 2');
-
+		$this->data['invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = '.Session::get("sid").'');
+		$this->data['voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = '.Session::get("sid").'');
+		$this->data['voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = '.Session::get("sid").'');
+		$this->data['deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = '.Session::get("sid").'');
+		$this->data['deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = '.Session::get("sid").'');
+		$this->data['used_invoices'] = DB::select('SELECT id, invoice_date, amount FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = '.Session::get("sid").'');
+		$this->data['used_vouchers'] = DB::select('SELECT voucher_ref, date, amount FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = '.Session::get("sid").'');
+		$this->data['used_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = '.Session::get("sid").'');
+		$this->data['unused_due_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 0 and (DATE(booking_date_time) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()) and site_id = '.Session::get("sid").'');
+		$this->data['yesterdays_float'] = DB::select('SELECT float_total_amount FROM sales ORDER BY sale_date DESC LIMIT 1');
 
 		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );	
 	}
@@ -161,7 +156,9 @@ class SaleController extends BaseController {
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
 		$this->layout->nest('content','sale.view',$this->data)->with('menus', $this->menus );
-
+		//ADDED
+		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );
+		//END ADDED
 	}	
 	
 	function postSave( $id =0)
@@ -200,7 +197,7 @@ class SaleController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
 		// delete multipe rows 
 		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('sale?md='.Input::get('md'));
