@@ -126,6 +126,8 @@
             in form below. If the cash variance is not 0 then a mistake may have been made. Recount and confirm
             this.</p>
 
+            test
+            {{URL::to('sale/comboselect?filter=tb_users:id:id|first_name|last_name')}}
         {{ Form::open(array('url'=>'sale/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
         <div class="col-md-3" id="sale-group">
             <fieldset>
@@ -268,6 +270,8 @@
 
                     </div>
                 </div>
+                <div class="form-group  ">
+                    <label for="Cash Taken" class=" control-label col-md-4 text-left"> Cash Taken <span class="asterix"> * </span></label>
 
                 <div class="form-group  ">
                     <label for="Cash Variance" class=" control-label col-md-4 text-left"> Cash Variance <span
@@ -701,16 +705,12 @@
                         id="submit" class="btn btn-success ">  {{ Lang::get('core.sb_cancel') }} </button>
             </div>
 
+            {{ Form::close() }}
         </div>
-
-        {{ Form::close() }}
     </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        $("#site_id").jCombo("{{ URL::to('sale/comboselect?filter=sites:id:id|address_city') }}",
-                {selected_value: '{{Session::get('sid')}}'});
+    <script type="text/javascript">
+        $(document).ready(function () {
 
         $("#barperson_id").jCombo("{{ URL::to('sale/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
                 {selected_value: '{{ $row["barperson_id"] }}'});

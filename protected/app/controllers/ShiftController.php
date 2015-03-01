@@ -23,6 +23,7 @@ class ShiftController extends BaseController {
 				
 	} 
 
+
 	
 	public function getIndex()
 	{
@@ -62,6 +63,7 @@ class ShiftController extends BaseController {
 		
 		
 		$this->data['rowData']		= $results['rows'];
+        $this->data['shifts']       = DB::select('SELECT shifts.id, shift_start, shift_end, manager_conf_flag, admin_conf_flag, paid, tb_users.first_name, tb_users.last_name from shifts left outer join tb_users on shifts.employee_id=tb_users.id');
 		// Build Pagination 
 		$this->data['pagination']	= $pagination;
 		// Build pager number and append current param GET
