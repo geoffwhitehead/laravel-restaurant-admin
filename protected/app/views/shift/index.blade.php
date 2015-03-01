@@ -97,7 +97,7 @@
 						<ul  class="dropdown-menu  icons-left pull-right">					 	
 						{{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
 					 	@if($access['is_detail'] ==1)
-						<li><a href="{{ URL::to('shift/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
+						<li><a href="{{ URL::to('shift/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
 						@endif
 						@if($access['is_edit'] ==1)
 						<li><a  href="{{ URL::to('shift/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a></li>
@@ -111,24 +111,12 @@
                 </tr>
 				
             @endforeach
-              
+
         </tbody>
       
     </table>
          <div id='external-events'><h4>Shifts</h4>
-             
-             <span class='label label-primary'>Hanna</span>
-             <span class='label label-primary'>May</span>
-             <span class='label label-primary'>Beth</span>
-             <span class='label label-primary'>Gavin</span><br />
-             <span class='label label-primary'>Hanna</span>
-             <span class='label label-primary'>May</span>
-             <span class='label label-primary'>Beth</span>
-             <span class='label label-primary'>Gavin</span><br />
-             <span class='label label-primary'>Hanna</span>
-             <span class='label label-primary'>May</span>
-             <span class='label label-primary'>Beth</span>
-             <span class='label label-primary'>Gavin</span><br />
+
          </div>
          <div id='calendar'></div>
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
@@ -150,28 +138,30 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
+        $.ajax({
+            url: '/event/users/',
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(json) {
+                //alert('success');
+                for(var i=0;i<json.length;i++){
+                    var eventObject = {
+                        title: json[i]['last_name'] + ', ' + json[i]['first_name'],
+                        id: json[i]['id'],
+                        duration: 1
+                    }
 
-        $('#external-events span').each(function() {
-
-            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-            // it doesn't need to have a start or end
-            var eventObject = {
-                title: $.trim($(this).text()) // use the element's text as the event title
-            };
-
-            // store the Event Object in the DOM element so we can get to it later
-            $(this).data('eventObject', eventObject);
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
+                    $('<div/>', {
+                        class: 'label label-success',
+                        text: json[i]['first_name'] + " " + json[i]['last_name']
+                    }).data('eventObject', eventObject).draggable({
+                        zIndex: 999,
+                        revert: true,      // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    }).appendTo('#external-events');
+                }
+            }
         });
-
-
 
         // page is now ready, initialize the calendar...
 
@@ -228,7 +218,7 @@ $(document).ready(function(){
                 });
 
             },
-            drop: function(date, allDay) {
+            drop: function(date) {
                 // retrieve the dropped element's stored Event Object
                 var originalEventObject = $(this).data('eventObject');
 
@@ -237,20 +227,18 @@ $(document).ready(function(){
 
                 // assign it the date that was reported
                 copiedEventObject.start = date;
-                copiedEventObject.end = date;
+                copiedEventObject.end = moment(date).add(copiedEventObject.duration, 'hours');
 
                 // render the event on the calendar
                 // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                var $gavDate = moment(date);
+                $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
 
                 $.ajax({
                     url: ("/event/create"),
                     data: ({
-                        id: 1,
+                        id: copiedEventObject.id,
                         start: moment(date).format(),
-                        end: moment(date).add(5, 'hours').format()
+                        end: moment(date).add(copiedEventObject.duration, 'hours').format()
                     }),
                     type: "POST",
                     success: function (data) {

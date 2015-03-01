@@ -3,10 +3,14 @@
 use Illuminate\Http\Response;
 
 class EventController extends BaseController {
-    public function getEdit() {
+    public function postEdit() {
         $data = Input::all();
         $return = DB::table('shifts')->where('id', $data['id'])->update(array('shift_start'=>$data['start'], 'shift_end'=>$data['end']));
         return $return;//response("Error", 401);
+    }
+
+    public function getUsers() {
+        return json_encode(DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','1')->get());
     }
 
     public function postCreate() {

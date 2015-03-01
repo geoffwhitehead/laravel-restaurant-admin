@@ -63,7 +63,6 @@ class ShiftController extends BaseController {
 		
 		
 		$this->data['rowData']		= $results['rows'];
-        $this->data['users']       = DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','true')->get();
 
 		// Build Pagination 
 		$this->data['pagination']	= $pagination;
