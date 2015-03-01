@@ -156,9 +156,6 @@ class SaleController extends BaseController {
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
 		$this->layout->nest('content','sale.view',$this->data)->with('menus', $this->menus );
-		//ADDED
-		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );
-		//END ADDED
 	}	
 	
 	function postSave( $id =0)

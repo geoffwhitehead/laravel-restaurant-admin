@@ -15,16 +15,18 @@
 		<?php echo HTML::style('sximo/js/plugins/select2/select2.css'); ?>
 		<?php echo HTML::style('sximo/js/plugins/iCheck/skins/square/green.css'); ?>
 		<?php echo HTML::style('sximo/js/plugins/fancybox/jquery.fancybox.css'); ?>
-		<?php echo HTML::style('sximo/css/sximo.css'); ?>		
-		<?php echo HTML::style('sximo/css/animate.css'); ?>		
+		<?php echo HTML::style('sximo/css/sximo.css'); ?>
+		<?php echo HTML::style('sximo/css/animate.css'); ?>
 		<?php echo HTML::style('sximo/css/icons.min.css'); ?>
-		
-		
-		
 
+        <?php echo HTML::style('sximo/js/plugins/fullcalendar/fullcalendar.min.css'); ?>
 		<?php echo HTML::script('sximo/js/plugins/jquery.min.js'); ?>
-		<?php echo HTML::script('sximo/js/plugins/jquery.cookie.js'); ?>			
-		<?php echo HTML::script('sximo/js/plugins/jquery-ui.min.js'); ?>				
+        <?php echo HTML::script('sximo/js/plugins/fullcalendar/lib/moment.min.js'); ?>
+        <?php echo HTML::script('sximo/js/plugins/fullcalendar/fullcalendar.js'); ?>
+        <?php echo HTML::style('sximo/css/marvin.css'); ?>
+
+		<?php echo HTML::script('sximo/js/plugins/jquery.cookie.js'); ?>
+		<?php echo HTML::script('sximo/js/plugins/jquery-ui.min.js'); ?>
 		<?php echo HTML::script('sximo/js/plugins/iCheck/icheck.min.js'); ?>
 		<?php echo HTML::script('sximo/js/plugins/select2/select2.min.js'); ?>
 		<?php echo HTML::script('sximo/js/plugins/fancybox/jquery.fancybox.js'); ?>
@@ -39,21 +41,21 @@
 		<?php echo HTML::script('sximo/js/plugins/jquery.jCombo.min.js'); ?>
 		<?php echo HTML::script('sximo/js/plugins/bootstrap.summernote/summernote.min.js'); ?>
 		<?php echo SiteHelpers::initMarkitUp(); ?>
-		
+
 
 		<script language="javascript">
 		jQuery(document).ready(function($)	{
 		   $('.markItUp').markItUp(mySettings );
 		});
 		</script>
-		
+
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->	
+		<![endif]-->
 
-		
-	
+
+
   	</head>
 
 <body class="sxim-init" >

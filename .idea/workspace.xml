@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1dbeaf33-5a61-46a6-833e-eef8e0a5e8e2" name="Default" comment="created new deposit and voucher modules and added some func to sales">
-      <change type="DELETED" beforePath="C:\wamp\www\marvin2\protected\app\storage\sessions\082e9a3441296e0699273fa5df7c171d260d25f3" afterPath="" />
+    <list default="true" id="1dbeaf33-5a61-46a6-833e-eef8e0a5e8e2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/app/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/39712f8df6493a1044fe88dfed94a647" afterPath="$PROJECT_DIR$/protected/app/storage/views/39712f8df6493a1044fe88dfed94a647" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/BaseController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/InvoiceController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/InvoiceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/0bb6b249110f309b87e8bc9a4188405a" afterPath="$PROJECT_DIR$/protected/app/storage/views/0bb6b249110f309b87e8bc9a4188405a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/SaleController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/SaleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/controllers/UserController.php" afterPath="$PROJECT_DIR$/protected/app/controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/views/a80c0116600d665589097a3f52078043" afterPath="$PROJECT_DIR$/protected/app/storage/views/a80c0116600d665589097a3f52078043" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/sale/form.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/sale/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/protected/app/storage/logs/laravel.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/user/login.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/user/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/moduleroutes.php" afterPath="$PROJECT_DIR$/protected/app/moduleroutes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/config/session.php" afterPath="$PROJECT_DIR$/protected/app/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/views/sale/view.blade.php" afterPath="$PROJECT_DIR$/protected/app/views/sale/view.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="marvin2.iws" />
@@ -35,169 +26,17 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="BaseController.php" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/protected/app/controllers/BaseController.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-0.32185885" vertical-offset="561" max-vertical-offset="2924">
-                    <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-                    <folding>
-                      <element signature="e#51#125#0#PHP" expanded="false" />
-                      <element signature="n#setupLayout#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#473#557#0#PHP" expanded="false" />
-                      <element signature="n#prepare#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#650#698#0#PHP" expanded="false" />
-                      <element signature="n#infoTable#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="n#getDownload#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#923#1021#0#PHP" expanded="false" />
-                      <element signature="e#1329#1362#0#PHP" expanded="false" />
-                      <element signature="e#1584#1714#0#PHP" expanded="false" />
-                      <element signature="e#1743#2061#0#PHP" expanded="false" />
-                      <element signature="e#1797#2033#0#PHP" expanded="false" />
-                      <element signature="e#1830#2027#0#PHP" expanded="false" />
-                      <element signature="n#postSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#2416#2544#0#PHP" expanded="false" />
-                      <element signature="n#postMultisearch#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#2703#2882#0#PHP" expanded="false" />
-                      <element signature="e#2737#2864#1#PHP" expanded="false" />
-                      <element signature="n#postFilter#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="n#injectPaginate#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="n#trackUriSegmented#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#5037#5101#0#PHP" expanded="false" />
-                      <element signature="n#infoFieldSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#5264#5420#0#PHP" expanded="false" />
-                      <element signature="e#5329#5416#0#PHP" expanded="false" />
-                      <element signature="n#buildSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#5625#6175#0#PHP" expanded="false" />
-                      <element signature="e#5708#6170#0#PHP" expanded="false" />
-                      <element signature="e#5739#6165#0#PHP" expanded="false" />
-                      <element signature="e#5807#6158#0#PHP" expanded="false" />
-                      <element signature="e#5854#6140#1#PHP" expanded="false" />
-                      <element signature="e#6031#6140#0#PHP" expanded="false" />
-                      <element signature="n#buildMasterDetail#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#6319#7266#0#PHP" expanded="false" />
-                      <element signature="e#6888#7046#0#PHP" expanded="false" />
-                      <element signature="e#6973#7046#0#PHP" expanded="false" />
-                      <element signature="e#7061#7129#0#PHP" expanded="false" />
-                      <element signature="e#7159#7266#0#PHP" expanded="false" />
-                      <element signature="e#7179#7239#0#PHP" expanded="false" />
-                      <element signature="n#masterDetailParam#0;n#BaseController#0;n#!!top" expanded="false" />
-                      <element signature="e#7320#7805#0#PHP" expanded="false" />
-                      <element signature="e#7411#7660#0#PHP" expanded="false" />
-                      <element signature="e#7666#7805#0#PHP" expanded="false" />
-                      <element signature="e#7684#7796#0#PHP" expanded="false" />
-                      <element signature="e#8531#8847#0#PHP" expanded="false" />
-                      <element signature="e#8759#8847#0#PHP" expanded="false" />
-                      <element signature="e#8956#9364#0#PHP" expanded="false" />
-                      <element signature="e#9077#9238#0#PHP" expanded="false" />
-                      <element signature="e#9276#9364#0#PHP" expanded="false" />
-                      <element signature="e#9491#9577#0#PHP" expanded="false" />
-                      <element signature="e#9715#10553#0#PHP" expanded="false" />
-                      <element signature="e#9747#10539#0#PHP" expanded="false" />
-                      <element signature="e#9852#9940#0#PHP" expanded="false" />
-                      <element signature="e#9941#10042#0#PHP" expanded="false" />
-                      <element signature="e#10043#10155#0#PHP" expanded="false" />
-                      <element signature="e#10156#10245#0#PHP" expanded="false" />
-                      <element signature="e#10246#10342#0#PHP" expanded="false" />
-                      <element signature="e#10343#10429#0#PHP" expanded="false" />
-                      <element signature="e#10435#10539#0#PHP" expanded="false" />
-                      <element signature="e#10524#10539#0#PHP" expanded="false" />
-                      <element signature="e#10680#12758#0#PHP" expanded="false" />
-                      <element signature="e#10729#12753#0#PHP" expanded="false" />
-                      <element signature="e#10761#12739#0#PHP" expanded="false" />
-                      <element signature="e#10948#12739#0#PHP" expanded="false" />
-                      <element signature="e#10997#11089#0#PHP" expanded="false" />
-                      <element signature="e#11131#12142#0#PHP" expanded="false" />
-                      <element signature="e#11172#12130#0#PHP" expanded="false" />
-                      <element signature="e#11565#11992#0#PHP" expanded="false" />
-                      <element signature="e#11661#11791#0#PHP" expanded="false" />
-                      <element signature="e#12009#12077#0#PHP" expanded="false" />
-                      <element signature="e#12087#12130#0#PHP" expanded="false" />
-                      <element signature="e#12177#12330#0#PHP" expanded="false" />
-                      <element signature="e#12218#12322#0#PHP" expanded="false" />
-                      <element signature="e#12366#12470#0#PHP" expanded="false" />
-                      <element signature="e#12523#12718#0#PHP" expanded="false" />
-                      <element signature="e#12562#12710#0#PHP" expanded="false" />
-                      <element signature="e#12977#13183#0#PHP" expanded="false" />
-                      <element signature="e#13060#13174#0#PHP" expanded="false" />
-                      <element signature="e#13551#13822#0#PHP" expanded="false" />
-                      <element signature="e#13828#14103#0#PHP" expanded="false" />
-                      <element signature="e#14698#14862#0#PHP" expanded="false" />
-                      <element signature="e#14818#14862#0#PHP" expanded="false" />
-                      <marker date="1425079229745" expanded="true" signature="1664:1683" placeholder="..." />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="BaseModel.php" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/protected/app/models/BaseModel.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.297593" vertical-offset="935" max-vertical-offset="4318">
-                    <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-                    <folding>
-                      <marker date="1425000922875" expanded="true" signature="3135:3187" placeholder="SELECT * FRO.._table WHERE..." />
-                      <marker date="1425000922875" expanded="true" signature="3294:3315" placeholder="SELECT * FRO..table..." />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="form.blade.php" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/protected/app/views/sale/form.blade.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.21112697" vertical-offset="12177" max-vertical-offset="13039">
-                    <caret line="725" column="7" selection-start-line="725" selection-start-column="7" selection-end-line="725" selection-end-column="7" />
-                    <folding>
-                      <marker date="1425169071509" expanded="true" signature="8377:8583" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="9636:9847" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="10279:10495" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="10930:11130" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="11562:11759" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="17277:17488" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="29964:30154" placeholder="..." />
-                      <marker date="1425169071509" expanded="true" signature="30584:30779" placeholder="..." />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="marvin2" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SiteHelpers.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SiteHelpers.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/app/library/SiteHelpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="19479" max-vertical-offset="20519">
-              <caret line="1165" column="9" selection-start-line="1165" selection-start-column="9" selection-end-line="1165" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.22030981" vertical-offset="19626" max-vertical-offset="20519">
+              <caret line="1162" column="44" selection-start-line="1162" selection-start-column="44" selection-end-line="1162" selection-end-column="44" />
               <folding>
                 <marker date="1424987181911" expanded="true" signature="3114:3267" placeholder="SELECT tb_me..tb_menu..." />
                 <marker date="1424987181911" expanded="true" signature="11946:12022" placeholder="..." />
@@ -215,34 +54,6 @@
                 <marker date="1424987181911" expanded="true" signature="24750:24859" placeholder="..." />
                 <marker date="1424987181911" expanded="true" signature="31376:31389" placeholder="..." />
                 <marker date="1424987181911" expanded="true" signature="31424:31432" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaleController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73415494" vertical-offset="1759" max-vertical-offset="3213">
-              <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
-              <folding>
-                <element signature="e#707#805#0#PHP" expanded="false" />
-                <element signature="e#1378#1686#0#PHP" expanded="false" />
-                <element signature="e#3051#3212#0#PHP" expanded="false" />
-                <element signature="e#3219#3381#0#PHP" expanded="false" />
-                <element signature="e#3493#3615#0#PHP" expanded="false" />
-                <element signature="e#3659#3850#0#PHP" expanded="false" />
-                <marker date="1425164233813" expanded="true" signature="4124:4238" placeholder="SELECT SUM(a..company_invoices..." />
-                <marker date="1425164233813" expanded="true" signature="4309:4400" placeholder="SELECT SUM(a..vouchers..." />
-                <marker date="1425164233813" expanded="true" signature="4472:4565" placeholder="SELECT COUNT..vouchers..." />
-                <marker date="1425164233813" expanded="true" signature="4636:4738" placeholder="SELECT SUM(d..deposits..." />
-                <marker date="1425164233813" expanded="true" signature="4810:4914" placeholder="SELECT COUNT..deposits..." />
-                <marker date="1425164233813" expanded="true" signature="4986:5106" placeholder="SELECT id, i..company_invoices..." />
-                <marker date="1425164233813" expanded="true" signature="5178:5198" placeholder="SELECT id, v..company_invoices..." />
-                <marker date="1425164233813" expanded="true" signature="5178:5276" placeholder="SELECT vouch..." />
-                <marker date="1425164233813" expanded="true" signature="5348:5502" placeholder="SELECT id, b..deposits..." />
-                <marker date="1425164233813" expanded="true" signature="5580:5788" placeholder="SELECT booki..deposits..." />
-                <marker date="1425164233813" expanded="true" signature="5863:5931" placeholder="SELECT float..sales..." />
               </folding>
             </state>
           </provider>
@@ -287,9 +98,9 @@
         <option value="$PROJECT_DIR$/protected/app/views/user/login.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/protected/app/controllers/InvoiceController.php" />
-        <option value="$PROJECT_DIR$/protected/app/controllers/SaleController.php" />
         <option value="$PROJECT_DIR$/protected/app/views/sale/form.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/models/BaseModel.php" />
+        <option value="$PROJECT_DIR$/protected/app/controllers/SaleController.php" />
       </list>
     </option>
   </component>
@@ -332,7 +143,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -619,6 +429,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -630,6 +441,22 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="711" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="71" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="712" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RunManager" selected="PHP Web Application.Marvin">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -649,15 +476,15 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <configuration default="false" name="Marvin" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost" start_url="/marvin2">
@@ -716,33 +543,45 @@
       <option name="project" value="LOCAL" />
       <updated>1425007141659</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="almost finished sale, added session site variable">
+      <created>1425208964579</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1425208964579</updated>
+    </task>
+    <task id="LOCAL-00008" summary="almost finished sale, added session site variable v2">
+      <created>1425224828225</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1425224828225</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.49944505" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.49895832" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15100317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -764,7 +603,9 @@
     <MESSAGE value="working on sale&#10;" />
     <MESSAGE value="recreated shits module, deleted log&#10;" />
     <MESSAGE value="created new deposit and voucher modules and added some func to sales" />
-    <option name="LAST_COMMIT_MESSAGE" value="created new deposit and voucher modules and added some func to sales" />
+    <MESSAGE value="almost finished sale, added session site variable" />
+    <MESSAGE value="almost finished sale, added session site variable v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost finished sale, added session site variable v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1128,10 +969,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/controllers/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6092943" vertical-offset="1734" max-vertical-offset="2924">
+          <caret line="297" column="60" selection-start-line="297" selection-start-column="60" selection-end-line="297" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/views/sale/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49072754" vertical-offset="10009" max-vertical-offset="13039">
+          <caret line="609" column="42" selection-start-line="609" selection-start-column="42" selection-end-line="609" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6144366" vertical-offset="1946" max-vertical-offset="3162">
+          <caret line="157" column="93" selection-start-line="157" selection-start-column="93" selection-end-line="157" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/library/SiteHelpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19479" max-vertical-offset="20519">
-          <caret line="1165" column="9" selection-start-line="1165" selection-start-column="9" selection-end-line="1165" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.22030981" vertical-offset="19626" max-vertical-offset="20519">
+          <caret line="1162" column="44" selection-start-line="1162" selection-start-column="44" selection-end-line="1162" selection-end-column="44" />
           <folding>
             <marker date="1424987181911" expanded="true" signature="3114:3267" placeholder="SELECT tb_me..tb_menu..." />
             <marker date="1424987181911" expanded="true" signature="11946:12022" placeholder="..." />
@@ -1153,149 +1015,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/controllers/SaleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73415494" vertical-offset="1759" max-vertical-offset="3213">
-          <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
-          <folding>
-            <element signature="e#707#805#0#PHP" expanded="false" />
-            <element signature="e#1378#1686#0#PHP" expanded="false" />
-            <element signature="e#3051#3212#0#PHP" expanded="false" />
-            <element signature="e#3219#3381#0#PHP" expanded="false" />
-            <element signature="e#3493#3615#0#PHP" expanded="false" />
-            <element signature="e#3659#3850#0#PHP" expanded="false" />
-            <marker date="1425164233813" expanded="true" signature="4124:4238" placeholder="SELECT SUM(a..company_invoices..." />
-            <marker date="1425164233813" expanded="true" signature="4309:4400" placeholder="SELECT SUM(a..vouchers..." />
-            <marker date="1425164233813" expanded="true" signature="4472:4565" placeholder="SELECT COUNT..vouchers..." />
-            <marker date="1425164233813" expanded="true" signature="4636:4738" placeholder="SELECT SUM(d..deposits..." />
-            <marker date="1425164233813" expanded="true" signature="4810:4914" placeholder="SELECT COUNT..deposits..." />
-            <marker date="1425164233813" expanded="true" signature="4986:5106" placeholder="SELECT id, i..company_invoices..." />
-            <marker date="1425164233813" expanded="true" signature="5178:5198" placeholder="SELECT id, v..company_invoices..." />
-            <marker date="1425164233813" expanded="true" signature="5178:5276" placeholder="SELECT vouch..." />
-            <marker date="1425164233813" expanded="true" signature="5348:5502" placeholder="SELECT id, b..deposits..." />
-            <marker date="1425164233813" expanded="true" signature="5580:5788" placeholder="SELECT booki..deposits..." />
-            <marker date="1425164233813" expanded="true" signature="5863:5931" placeholder="SELECT float..sales..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/controllers/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.32185885" vertical-offset="561" max-vertical-offset="2924">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="e#51#125#0#PHP" expanded="false" />
-            <element signature="n#setupLayout#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#473#557#0#PHP" expanded="false" />
-            <element signature="n#prepare#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#650#698#0#PHP" expanded="false" />
-            <element signature="n#infoTable#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="n#getDownload#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#923#1021#0#PHP" expanded="false" />
-            <element signature="e#1329#1362#0#PHP" expanded="false" />
-            <element signature="e#1584#1714#0#PHP" expanded="false" />
-            <element signature="e#1743#2061#0#PHP" expanded="false" />
-            <element signature="e#1797#2033#0#PHP" expanded="false" />
-            <element signature="e#1830#2027#0#PHP" expanded="false" />
-            <element signature="n#postSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#2416#2544#0#PHP" expanded="false" />
-            <element signature="n#postMultisearch#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#2703#2882#0#PHP" expanded="false" />
-            <element signature="e#2737#2864#1#PHP" expanded="false" />
-            <element signature="n#postFilter#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="n#injectPaginate#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="n#trackUriSegmented#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#5037#5101#0#PHP" expanded="false" />
-            <element signature="n#infoFieldSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#5264#5420#0#PHP" expanded="false" />
-            <element signature="e#5329#5416#0#PHP" expanded="false" />
-            <element signature="n#buildSearch#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#5625#6175#0#PHP" expanded="false" />
-            <element signature="e#5708#6170#0#PHP" expanded="false" />
-            <element signature="e#5739#6165#0#PHP" expanded="false" />
-            <element signature="e#5807#6158#0#PHP" expanded="false" />
-            <element signature="e#5854#6140#1#PHP" expanded="false" />
-            <element signature="e#6031#6140#0#PHP" expanded="false" />
-            <element signature="n#buildMasterDetail#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#6319#7266#0#PHP" expanded="false" />
-            <element signature="e#6888#7046#0#PHP" expanded="false" />
-            <element signature="e#6973#7046#0#PHP" expanded="false" />
-            <element signature="e#7061#7129#0#PHP" expanded="false" />
-            <element signature="e#7159#7266#0#PHP" expanded="false" />
-            <element signature="e#7179#7239#0#PHP" expanded="false" />
-            <element signature="n#masterDetailParam#0;n#BaseController#0;n#!!top" expanded="false" />
-            <element signature="e#7320#7805#0#PHP" expanded="false" />
-            <element signature="e#7411#7660#0#PHP" expanded="false" />
-            <element signature="e#7666#7805#0#PHP" expanded="false" />
-            <element signature="e#7684#7796#0#PHP" expanded="false" />
-            <element signature="e#8531#8847#0#PHP" expanded="false" />
-            <element signature="e#8759#8847#0#PHP" expanded="false" />
-            <element signature="e#8956#9364#0#PHP" expanded="false" />
-            <element signature="e#9077#9238#0#PHP" expanded="false" />
-            <element signature="e#9276#9364#0#PHP" expanded="false" />
-            <element signature="e#9491#9577#0#PHP" expanded="false" />
-            <element signature="e#9715#10553#0#PHP" expanded="false" />
-            <element signature="e#9747#10539#0#PHP" expanded="false" />
-            <element signature="e#9852#9940#0#PHP" expanded="false" />
-            <element signature="e#9941#10042#0#PHP" expanded="false" />
-            <element signature="e#10043#10155#0#PHP" expanded="false" />
-            <element signature="e#10156#10245#0#PHP" expanded="false" />
-            <element signature="e#10246#10342#0#PHP" expanded="false" />
-            <element signature="e#10343#10429#0#PHP" expanded="false" />
-            <element signature="e#10435#10539#0#PHP" expanded="false" />
-            <element signature="e#10524#10539#0#PHP" expanded="false" />
-            <element signature="e#10680#12758#0#PHP" expanded="false" />
-            <element signature="e#10729#12753#0#PHP" expanded="false" />
-            <element signature="e#10761#12739#0#PHP" expanded="false" />
-            <element signature="e#10948#12739#0#PHP" expanded="false" />
-            <element signature="e#10997#11089#0#PHP" expanded="false" />
-            <element signature="e#11131#12142#0#PHP" expanded="false" />
-            <element signature="e#11172#12130#0#PHP" expanded="false" />
-            <element signature="e#11565#11992#0#PHP" expanded="false" />
-            <element signature="e#11661#11791#0#PHP" expanded="false" />
-            <element signature="e#12009#12077#0#PHP" expanded="false" />
-            <element signature="e#12087#12130#0#PHP" expanded="false" />
-            <element signature="e#12177#12330#0#PHP" expanded="false" />
-            <element signature="e#12218#12322#0#PHP" expanded="false" />
-            <element signature="e#12366#12470#0#PHP" expanded="false" />
-            <element signature="e#12523#12718#0#PHP" expanded="false" />
-            <element signature="e#12562#12710#0#PHP" expanded="false" />
-            <element signature="e#12977#13183#0#PHP" expanded="false" />
-            <element signature="e#13060#13174#0#PHP" expanded="false" />
-            <element signature="e#13551#13822#0#PHP" expanded="false" />
-            <element signature="e#13828#14103#0#PHP" expanded="false" />
-            <element signature="e#14698#14862#0#PHP" expanded="false" />
-            <element signature="e#14818#14862#0#PHP" expanded="false" />
-            <marker date="1425079229745" expanded="true" signature="1664:1683" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/models/BaseModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.297593" vertical-offset="935" max-vertical-offset="4318">
-          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
-          <folding>
-            <marker date="1425000922875" expanded="true" signature="3135:3187" placeholder="SELECT * FRO.._table WHERE..." />
-            <marker date="1425000922875" expanded="true" signature="3294:3315" placeholder="SELECT * FRO..table..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/views/sale/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21112697" vertical-offset="12177" max-vertical-offset="13039">
-          <caret line="725" column="7" selection-start-line="725" selection-start-column="7" selection-end-line="725" selection-end-column="7" />
-          <folding>
-            <marker date="1425169071509" expanded="true" signature="8377:8583" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="9636:9847" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="10279:10495" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="10930:11130" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="11562:11759" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="17277:17488" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="29964:30154" placeholder="..." />
-            <marker date="1425169071509" expanded="true" signature="30584:30779" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.55593807" vertical-offset="1802" max-vertical-offset="4318">
+          <caret line="125" column="9" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
         </state>
       </provider>
     </entry>
