@@ -19,12 +19,8 @@ class ShiftController extends BaseController {
 			'pageModule'=> 'shift',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
-			
-				
 	} 
 
-
-	
 	public function getIndex()
 	{
 		if($this->access['is_view'] ==0) 
