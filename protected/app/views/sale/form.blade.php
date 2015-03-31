@@ -24,10 +24,10 @@
 			@endforeach
 		</ul>
 		<div>
-			<p>Step 1: Below are the currently unallocated cash invoices, vouchers, and deposits from today. Ensure there aren't any more to
+			<p>Step 1: Below are the currently unallocated cash invoices, vouchers, and deposits. Ensure there aren't any more to
 				be submitted before continuing. Extra records cannot be added to this sale once sale submitted.</p>
 
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<legend> Cash Invoices</legend>
 				<table class="table table-striped">
 					<thead>
@@ -49,7 +49,7 @@
 				</table>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<legend> Deposits Used</legend>
 				<table class="table table-striped">
 					<thead>
@@ -73,7 +73,7 @@
 
 				</table>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<legend> Vouchers Used</legend>
 				<table class="table table-striped">
 					<thead>
@@ -91,12 +91,10 @@
 					@endforeach
 					</thead>
 
-
 				</table>
 			</div>
 
-
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<legend> Deposits Unused</legend>
 				<table class="table table-striped">
 					<thead>
@@ -145,7 +143,7 @@
 					<label class=" control-label col-md-4 text-left">Site </label>
 
 					<div class="col-md-6">
-						<select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '  disabled>
+						<select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 ' required >
 
 						</select>
 					</div>
@@ -806,6 +804,7 @@
 			});
 			$('#cash-taken').val(sum.toFixed(2));
 
+
 			//calculate expected cash sale / cash rem after bills / expected cash taken
 			sum = 0;
 			sum += Number($('#report-total-sale').val());
@@ -813,6 +812,7 @@
 			sum -= Number($('#deposit-used-amt').val());
 			$('#actual-total-sale').val(sum.toFixed(2));
 			sum -= Number($('#report-card-sale').val());
+			sum += Number($('#card-tips-inc').val());
 			$('#expected-cash-sale').val(sum.toFixed(2));
 			sum -= Number($('#total-cash-invoices').val());
 			$('#cash-rem-after-bills').val(sum.toFixed(2));

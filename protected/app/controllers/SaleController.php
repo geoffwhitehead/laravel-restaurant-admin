@@ -32,7 +32,7 @@ class SaleController extends BaseController {
 
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -171,12 +171,21 @@ class SaleController extends BaseController {
 		if ($validator->passes()) {
 			$data = $this->validatePost('sales');
 
-
+			$data = $this->model->addTimestamps($data,Input::get('id'));
 			$ID = $this->model->insertRow($data , Input::get('id'));
+
+			// assign vouchers to sale here
+			DB::update('UPDATE vouchers SET sale_id = '.$ID.' WHERE used = 1 and sale_id IS NULL and site_used = '.Session::get("sid").'');
+			// assign deposits to sale here
+			DB::update('UPDATE deposits SET used_sale_id = '.$ID.' WHERE used = 1 and used_sale_id IS NULL and site_id = '.Session::get("sid").'');
+			// assign cash invoices to sale here
+			DB::update('UPDATE company_invoices SET cash_taken_sale_id = '.$ID.' WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = '.Session::get("sid").'');
+
 			// Input logs
 			if( Input::get('id') =='')
 			{
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
+
 				$id = SiteHelpers::encryptID($ID);
 			} else {
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");

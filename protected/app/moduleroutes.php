@@ -12,4 +12,5 @@
                     Route::controller('usedeposit', 'UsedepositController');
                     Route::controller('event', 'EventController');
                     Route::controller('sale', 'SaleController');
+                    Route::controller('saleedit', 'SaleeditController');
                     ?>
