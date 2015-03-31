@@ -120,7 +120,7 @@
 	{{ Form::close() }}
 	@include('footer')
 	
-	</div>
+	</div>	  
 </div>	
 <script>
 $(document).ready(function(){

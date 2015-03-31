@@ -32,9 +32,9 @@
 
 	<div class="form-group has-feedback  animated fadeInRight delayp1">
 		<label>Site</label><br/>
-		<select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 ' required>
+		<select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '>
 			@foreach ($sites as $site)
-			<option value="{{$site->id}}">{{$site->name}}, {{$site->address_city}}</option>
+				<option value="{{$site->id}}">{{$site->name}}, {{$site->address_city}}</option>
 			@endforeach
 		</select>
 	</div>

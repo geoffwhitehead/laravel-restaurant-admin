@@ -2,17 +2,16 @@
     <!-- Page header -->
     <div class="page-header">
       <div class="page-title">
-        <h3> {{ $pageTitle }} <small>{{ $pageNote }}  </td> </small></h3>
+        <h3> {{ $pageTitle }} <small>{{ $pageNote }}</small></h3>
       </div>
       <ul class="breadcrumb">
         <li><a href="{{ URL::to('dashboard') }}">{{ Lang::get('core.home') }}</a></li>
 		<li><a href="{{ URL::to('sale?md='.$masterdetail["filtermd"]) }}">{{ $pageTitle }}</a></li>
         <li class="active"> {{ Lang::get('core.detail') }} </li>
       </ul>
-	 </div>
-
-
-
+	 </div>  
+	 
+	 
  	<div class="page-content-wrapper">   
 	   <div class="toolbar-line">
 	   		<a href="{{ URL::to('sale?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_back') }}"><i class="icon-table"></i>&nbsp;{{ Lang::get('core.btn_back') }}</a>
@@ -26,12 +25,13 @@
 	
 					<tr>
 						<td width='30%' class='label-view text-right'>Id</td>
-						<td>{{ $row->id }}
+						<td>{{ $row->id }} </td>
+						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Site Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|name|address_city') }} </td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:id|address_city') }} </td>
 						
 					</tr>
 				
@@ -50,6 +50,12 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Report Total Sale</td>
 						<td>{{ $row->report_total_sale }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Actual Total Sale</td>
+						<td>{{ $row->actual_total_sale }} </td>
 						
 					</tr>
 				
@@ -106,13 +112,13 @@
 						<td>{{ $row->expected_cash_taken }} </td>
 						
 					</tr>
-
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Cash Taken</td>
 						<td>{{ $row->cash_taken }} </td>
-
+						
 					</tr>
-
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Cash Variance</td>
 						<td>{{ $row->cash_variance }} </td>
@@ -186,6 +192,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Card Tips % Taken</td>
+						<td>{{ $row->card_tips_%_taken }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Cash Taken 5p</td>
 						<td>{{ $row->cash_taken_5p }} </td>
 						
@@ -238,7 +250,7 @@
 						<td>{{ $row->cash_taken_£50 }} </td>
 						
 					</tr>
-
+				
 					<tr>
 						<td width='30%' class='label-view text-right'>Float Left 5p</td>
 						<td>{{ $row->float_left_5p }} </td>
@@ -296,6 +308,48 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Float Total Amount</td>
 						<td>{{ $row->float_total_amount }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Cash Checked Amt</td>
+						<td>{{ $row->cash_checked_amt }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Sale Checked On</td>
+						<td>{{ $row->sale_checked_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Sale Checked By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->sale_checked_by,'sale_checked_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Refund Qty</td>
+						<td>{{ $row->refund_qty }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Refund Amt</td>
+						<td>{{ $row->refund_amt }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Refund Details</td>
+						<td>{{ $row->refund_details }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Deposit Balance</td>
+						<td>{{ $row->deposit_balance }} </td>
 						
 					</tr>
 				
