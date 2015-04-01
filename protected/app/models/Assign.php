@@ -1,8 +1,8 @@
 <?php
-class Saleedit extends BaseModel  {
+class Assign extends BaseModel  {
 	
-	protected $table = 'sales';
-	protected $primaryKey = 'id';
+	protected $table = 'assigned_to';
+	protected $primaryKey = '';
 
 	public function __construct() {
 		parent::__construct();
@@ -12,11 +12,11 @@ class Saleedit extends BaseModel  {
 	public static function querySelect(  ){
 		
 		
-		return "  SELECT sales.* FROM sales  ";
+		return "  SELECT assigned_to.* FROM assigned_to  ";
 	}
 	public static function queryWhere(  ){
 		
-		return " WHERE sales.id IS NOT NULL AND sale_checked_by is NULL";
+		return "   ";
 	}
 	
 	public static function queryGroup(){

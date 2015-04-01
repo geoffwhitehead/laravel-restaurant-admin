@@ -31,7 +31,7 @@ class SaleeditController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
 				
 		// Filter sort and order for query 
-		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
+		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'sale_date');
 		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
@@ -150,6 +150,9 @@ class SaleeditController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('sales');
+			$data['sale_checked_on'] = date("Y-m-d H:i:s");
+			$data['sale_checked_by'] = Auth::id();
+
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')

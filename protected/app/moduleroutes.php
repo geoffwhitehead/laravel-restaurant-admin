@@ -13,4 +13,5 @@
                     Route::controller('event', 'EventController');
                     Route::controller('sale', 'SaleController');
                     Route::controller('saleedit', 'SaleeditController');
+                    Route::controller('assign', 'AssignController');
                     ?>

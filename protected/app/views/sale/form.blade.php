@@ -58,7 +58,6 @@
 						<th>Name</th>
 						<th>Covers</th>
 						<th>Deposit Amount</th>
-
 					</tr>
 					@foreach($used_deposits as $ud)
 						<tr>
@@ -69,8 +68,6 @@
 						</tr>
 					@endforeach
 					</thead>
-
-
 				</table>
 			</div>
 			<div class="col-md-12">
@@ -90,7 +87,6 @@
 						</tr>
 					@endforeach
 					</thead>
-
 				</table>
 			</div>
 
@@ -804,7 +800,6 @@
 			});
 			$('#cash-taken').val(sum.toFixed(2));
 
-
 			//calculate expected cash sale / cash rem after bills / expected cash taken
 			sum = 0;
 			sum += Number($('#report-total-sale').val());
@@ -833,7 +828,5 @@
 			var cleanNum = num.toFixed(2);
 			$(this).val(cleanNum);
 		});
-
-
 	</script>
 </div>
