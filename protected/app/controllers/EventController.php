@@ -72,12 +72,23 @@ class EventController extends BaseController {
 
     public function postEdit() {
         $data = Input::all();
-        $return = DB::table('shifts')->where('id', $data['id'])
-            ->update(array('shift_start'=>$data['start'], 'shift_end'=>$data['end']));
-        return $return;
+        if (!isset($data['start']))
+            return (new Response("No 'start' parameter defined", 400));
+        if (!isset($data['end']))
+            return (new Response("No 'end' parameter defined", 400));
+        if (!isset($data['id']))
+            return (new Response("No 'id' parameter defined (employee id!)", 400));
+        try {
+            $return = DB::table('shifts')->where('id', $data['id'])
+                ->update(array('shift_start'=>$data['start'], 'shift_end'=>$data['end']));
+            return $return;
+        } catch (Exception $e) {
+            return (new Response("Exception caught: ", 402));
+        }
     }
 
     public function getUsers() {
+        
         return json_encode(DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','1')->get());
     }
 

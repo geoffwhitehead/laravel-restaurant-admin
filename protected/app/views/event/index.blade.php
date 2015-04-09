@@ -16,38 +16,45 @@
             {{ Session::get('message') }}
         @endif
         {{ $details }}
-<div id="event_content">
-            <div id='external-events'><h4>Shifts</h4>
-
-            </div>
+    <div id="event_content">
+        <div id='external-events'>
+            <h4>Shifts</h4>
+            <div id='lunch'><h4>Lunch</h4></div>
+            <div id='evening'><h4>Evening</h4></div>
+            <h4>Status panel</h4>
+            <div id="status_panel" style=""></div>
             <div id="calendar"></div>
         </div>
-
     </div>
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
+      var shift_type_duration = [3.5, 5.5];
+      var shift_type_id       = ["#lunch", "#evening"];
+      var shift_type_class    = ["label-success", "label-warning"];
       $.ajax({
           url: '/event/users/',
           type: 'GET',
           dataType: 'JSON',
           success: function(json) {
               //alert('success');
-              for(var i=0;i<json.length;i++){
-                  var eventObject = {
-                      title: json[i]['last_name'] + ', ' + json[i]['first_name'],
-                      id: json[i]['id'],
-                      duration: 1
-                  }
+              for(var i=0; i<=1; i++) {
+                  for(var j=0;j<json.length;j++){
+                      var eventObject = {
+                          title: json[j]['last_name'] + ', ' + json[j]['first_name'],
+                          user_id: json[j]['id'],
+                          duration: shift_type_duration[i]
+                      }
 
-                  $('<div/>', {
-                      class: 'label label-success',
-                      text: json[i]['first_name'] + " " + json[i]['last_name']
-                  }).data('eventObject', eventObject).draggable({
-                      zIndex: 999,
-                      revert: true,      // will cause the event to go back to its
-                      revertDuration: 0  //  original position after the drag
-                  }).appendTo('#external-events');
+                      $('<div/>', {
+                          class: 'label ' + shift_type_class[i],
+                          text: json[j]['first_name'] + " " + json[j]['last_name']
+                      }).data('eventObject', eventObject).draggable({
+                          zIndex: 999,
+                          revert: true,      // will cause the event to go back to its
+                          revertDuration: 0  //  original position after the drag
+                      }).appendTo('#external-events ' + shift_type_id[i]);
+                  }
               }
           }
       });
@@ -63,9 +70,22 @@
           },
           defaultView: 'agendaWeek',
           defaultDate: '{{date('Y-m-d')}}',
+          minTime: '11:00:00',
           editable: true,
           droppable: true,
           eventLimit: true, // allow "more" link when too many events
+          eventAfterAllRender: function( view ) {
+              var events = $('#calendar').fullCalendar('clientEvents');
+              var satCount = 0;
+              var satStart = moment('2015-03-07 16:00', 'YYYY-MM-DD hh:mm');
+              var satEnd = moment('2015-03-07 23:59', 'YYYY-MM-DD hh:mm');
+              $.each(events, function(index, value) {
+                  if (value.start.isAfter(satStart) && value.end.isBefore(satEnd)) {
+                      satCount++;
+                  }
+              });
+              //alert(satCount);
+          },
           eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
               $.ajax({
                   url: ('/event/edit'),
@@ -76,11 +96,10 @@
                       end: event.end.format()
                   }),
                   success: function (data) {
-                      alert("success");
                       //$('#calendar').fullCalendar('refetchEvents');
                   },
                   error: function (xhr, status, error) {
-                      alert("fail");
+                      alert("fail " + status + " " + error);
                       revertFunc();
                   }
               });
@@ -97,10 +116,10 @@
                       end: event.end.format()
                   }),
                   success: function (data) {
-                      alert("success");
+
                   },
                   error: function (xhr, status, error) {
-                      alert("fail");
+                      alert("fail " + status + " " + error);
                       revertFunc();
                   }
               });
@@ -117,25 +136,27 @@
               copiedEventObject.start = date;
               copiedEventObject.end = moment(date).add(copiedEventObject.duration, 'hours');
 
-              // render the event on the calendar
-              // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-              $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
-
+              //TODO: events dragged onto screen have the ID of user, not the shift id? this needs to be fixed.
               $.ajax({
                   url: ('/event/create'),
                   type: 'POST',
                   data: {
-                      id: copiedEventObject.id,
+                      id: copiedEventObject.user_id,
                       start: moment(date).format(),
                       end: moment(date).add(copiedEventObject.duration, 'hours').format()
                   },
                   success: function (data) {
-                      alert("success");
+                      // render the event on the calendar
+                      // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                      copiedEventObject.id = data;
+                      $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
                   },
                   error: function (xhr, status, error) {
-                      alert("fail");
+                      alert("fail " + status + " " + error);
                   }
               });
+
+
           },
           timeFormat: 'h:mm',
           eventSources: [
