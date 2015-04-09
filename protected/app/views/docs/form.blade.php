@@ -36,28 +36,28 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Name" class=" control-label col-md-4 text-left"> Name </label>
+									<label for="Name" class=" control-label col-md-4 text-left"> Name <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('name', $row['name'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  {{ Form::text('name', $row['name'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+									<label for="Description" class=" control-label col-md-4 text-left"> Description <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('description', $row['description'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  {{ Form::text('description', $row['description'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="File" class=" control-label col-md-4 text-left"> File </label>
+									<label for="File" class=" control-label col-md-4 text-left"> File <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <input  type='file' name='file' id='file' @if($row['file'] =='') class='required' @endif style='width:150px !important;'  />
-					{{ SiteHelpers::showUploadedFile($row['file'],'asdasdasd') }}
+					{{ SiteHelpers::showUploadedFile($row['file'],'uploads\documents') }}
 				 
 									 </div> 
 									 <div class="col-md-2">
@@ -75,9 +75,13 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Global" class=" control-label col-md-4 text-left"> Global </label>
+									<label for="Global" class=" control-label col-md-4 text-left"> Global <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('global', $row['global'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  
+					<label class='radio radio-inline'>
+					<input type='radio' name='global' value ='0' requred @if($row['global'] == '0') checked="checked" @endif > No </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='global' value ='1' requred @if($row['global'] == '1') checked="checked" @endif > Yes </label> 
 									 </div> 
 									 <div class="col-md-2">
 									 	

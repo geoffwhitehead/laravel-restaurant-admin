@@ -40,6 +40,8 @@
 		{{ HTML::script('sximo/js/sximo.js') }}
 		{{ HTML::script('sximo/js/plugins/jquery.jCombo.min.js') }}
 		{{ HTML::script('sximo/js/plugins/bootstrap.summernote/summernote.min.js') }}
+
+		{{ HTML::style('public/css/main.css'); }}
 		{{ SiteHelpers::initMarkitUp() }}
 
 
