@@ -23,6 +23,7 @@
             <div id='evening'><h4>Evening</h4></div>
             <h4>Status panel</h4>
             <div id="status_panel" style=""></div>
+            <div id="loading" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">{{ HTML::image('sximo/images/spinner.gif') }}</div>
             <div id="calendar"></div>
         </div>
     </div>
@@ -32,6 +33,10 @@
       var shift_type_duration = [3.5, 5.5];
       var shift_type_id       = ["#lunch", "#evening"];
       var shift_type_class    = ["label-success", "label-warning"];
+
+      //hide the loading bar, initially
+      //$('#loading').hide();
+
       $.ajax({
           url: '/event/users/',
           type: 'GET',
@@ -173,7 +178,15 @@
                       alert('there was an error while fetching events!');
                   }
               }
-          ]
+          ],
+          loading: function(isLoading, view) {
+              if (isLoading) {
+                  $('#loading').show();
+              } else {
+                  $('#loading').hide();
+              }
+
+          }
       })
 
   });
