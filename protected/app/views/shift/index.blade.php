@@ -97,7 +97,7 @@
 						<ul  class="dropdown-menu  icons-left pull-right">					 	
 						{{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
 					 	@if($access['is_detail'] ==1)
-						<li><a href="{{ URL::to('shift/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
+						<li><a href="{{ URL::to('shift/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
 						@endif
 						@if($access['is_edit'] ==1)
 						<li><a  href="{{ URL::to('shift/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a></li>
@@ -111,11 +111,13 @@
                 </tr>
 				
             @endforeach
-              
+
         </tbody>
       
     </table>
-         <div id='calendar'></div>
+         <div id='external-events'><h4>Shifts</h4>
+
+         </div>
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
 	</div>
 	{{ Form::close() }}
@@ -132,81 +134,4 @@ $(document).ready(function(){
 	});
 	
 });	
-</script>
-<script>
-    $(document).ready(function() {
-
-        // page is now ready, initialize the calendar...
-
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            defaultView: 'agendaWeek',
-            defaultDate: '{{date('Y-m-d')}}',
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-            eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
-                $.ajax({
-                    url: ("/event/edit"),
-                    data: ({
-                        id: event.id,
-                        start: event.start.format(),
-                        end: event.end.format()
-                    }),
-                    type: "POST",
-                    success: function (data) {
-                        alert("success");
-                        //$('#calendar').fullCalendar('refetchEvents');
-                    },
-                    error: function (xhr, status, error) {
-                        alert("fail");
-                        revertFunc();
-                    }
-                });
-            },
-            eventDrop: function(event, delta, revertFunc, jsEvent, ui, view) {
-
-                //alert("/event/" + event.id + "/" + event.start.format() + "/" + event.end.format());
-                $.ajax({
-                    url: ("/event/edit"),
-                    data: ({
-                        id: event.id,
-                        start: event.start.format(),
-                        end: event.end.format()
-                    }),
-                    type: "POST",
-                    success: function (data) {
-                        alert("success");
-                        //$('#calendar').fullCalendar('refetchEvents');
-                    },
-                    error: function (xhr, status, error) {
-                        alert("fail");
-                        revertFunc();
-                    }
-                });
-
-            },
-            timeFormat: 'h:mm',
-            eventSources: [
-                {
-                    url: '/event/list',
-                    type: 'GET',
-                    data: {
-                        custom_param1: 'manager_conf_flag',
-                        custom_param2: 'admin_conf_flag',
-                        custom_param3: 'paid',
-                        custom_param4: 'last_name'
-                    },
-                    error: function() {
-                        alert('there was an error while fetching events!');
-                    }
-                }
-            ]
-        })
-
-    });
 </script>
