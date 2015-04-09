@@ -61,7 +61,7 @@
                         @endif
                     @endforeach
                     <th>{{ Lang::get('core.btn_action') }}</th>
-                    <th>Download</th>
+                    <th>Download File</th>
                 </tr>
                 </thead>
 
@@ -95,8 +95,11 @@
                                         {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
                                     @endif
                                 </td>
+
                             @endif
+
                         @endforeach
+
                         <td>
                             <div class="btn-group">
                                 <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
@@ -126,10 +129,10 @@
                             </div>
                         </td>
                         <td>
-                            {{-- HTML::image('uploads/images/download.png', 'download', array('class' => 'download')) --}}
-                            {{ HTML::link('/protected/app/uploads/documents/'.$row->file.'', 'download')}}
-                            {{URL::to( '/protected/app/uploads/documents/'.$row->file )}}
+                            <a href="{{ URL::to( '/doc_repository/' . $row->file)  }}"
+                               target="_blank">{{ $row->file }}</a>
                         </td>
+
                     </tr>
 
                 @endforeach

@@ -57,7 +57,7 @@
 									<label for="File" class=" control-label col-md-4 text-left"> File <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <input  type='file' name='file' id='file' @if($row['file'] =='') class='required' @endif style='width:150px !important;'  />
-					{{ SiteHelpers::showUploadedFile($row['file'],'uploads\documents') }}
+					{{ SiteHelpers::showUploadedFile($row['file'],'doc_repository') }}
 				 
 									 </div> 
 									 <div class="col-md-2">

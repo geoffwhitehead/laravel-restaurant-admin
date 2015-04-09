@@ -43,7 +43,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>File</td>
-						<td>{{ $row->file }} </td>
+						<td>{{ SiteHelpers::showUploadedFile($row->file,'') }} </td>
 						
 					</tr>
 				
