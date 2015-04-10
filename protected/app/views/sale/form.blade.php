@@ -25,7 +25,7 @@
 		</ul>
 		<div>
 			<p>Step 1: Below are the currently unallocated cash invoices, vouchers, and deposits. Ensure there aren't any more to
-				be submitted before continuing. Extra records cannot be added to this sale once sale submitted.</p>
+				be submitted before continuing. Extra records cannot be added to this sale once sale submitted. NNNEEEEEEEEEEEEMOOOOOOOOOOOOOOOOOOOO</p>
 
 			<div class="col-md-12">
 				<legend> Cash Invoices</legend>
