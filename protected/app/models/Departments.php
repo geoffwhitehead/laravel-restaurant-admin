@@ -1,7 +1,7 @@
 <?php
-class Assign extends BaseModel  {
+class Departments extends BaseModel  {
 	
-	protected $table = 'assigned_to';
+	protected $table = 'departments';
 	protected $primaryKey = 'id';
 
 	public function __construct() {
@@ -12,11 +12,11 @@ class Assign extends BaseModel  {
 	public static function querySelect(  ){
 		
 		
-		return "  SELECT assigned_to.* FROM assigned_to  ";
+		return "  SELECT departments.* FROM departments  ";
 	}
 	public static function queryWhere(  ){
 		
-		return " WHERE assigned_to.id IS NOT NULL   ";
+		return " WHERE departments.id IS NOT NULL   ";
 	}
 	
 	public static function queryGroup(){

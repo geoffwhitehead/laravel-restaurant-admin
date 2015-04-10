@@ -1,22 +1,22 @@
 <?php
-class AssignController extends BaseController {
+class DepartmentsController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'assign';
+	public $module = 'departments';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Assign();
+		$this->model = new Departments();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'assign',
+			'pageModule'=> 'departments',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -80,7 +80,7 @@ class AssignController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','assign.index',$this->data)
+		$this->layout->nest('content','departments.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -107,7 +107,7 @@ class AssignController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('assigned_to'); 
+			$this->data['row'] = $this->model->getColumnTable('departments'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -119,7 +119,7 @@ class AssignController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-		$this->layout->nest('content','assign.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','departments.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -135,12 +135,12 @@ class AssignController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('assigned_to'); 
+			$this->data['row'] = $this->model->getColumnTable('departments'); 
 		}
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','assign.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','departments.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
@@ -149,7 +149,7 @@ class AssignController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('assigned_to');
+			$data = $this->validatePost('departments');
 			$data = $this->model->addTimestamps($data,Input::get('id'));
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
@@ -162,11 +162,11 @@ class AssignController extends BaseController {
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'assign/add/'.$id.'?md='.$md.$trackUri :  'assign?md='.$md.$trackUri );
+			$redirect = (!is_null(Input::get('apply')) ? 'departments/add/'.$id.'?md='.$md.$trackUri :  'departments?md='.$md.$trackUri );
 			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
 		} else {
 			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('assign/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
+			return Redirect::to('departments/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -183,7 +183,7 @@ class AssignController extends BaseController {
 		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('assign?md='.Input::get('md'));
+		return Redirect::to('departments?md='.Input::get('md'));
 	}			
 		
 }

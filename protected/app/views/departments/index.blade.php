@@ -17,7 +17,7 @@
 	<div class="page-content-wrapper">
     <div class="toolbar-line ">
 			@if($access['is_add'] ==1)
-	   		<a href="{{ URL::to('assign/add?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-info"  title="{{ Lang::get('core.btn_create') }}">
+	   		<a href="{{ URL::to('departments/add?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-info"  title="{{ Lang::get('core.btn_create') }}">
 			<i class="fa fa-plus"></i>&nbsp;{{ Lang::get('core.btn_create') }}</a>
 			@endif  
 			@if($access['is_remove'] ==1)
@@ -25,11 +25,11 @@
 			<i class="fa fa-trash-o"></i>&nbsp;{{ Lang::get('core.btn_remove') }}</a>
 			@endif 		
 			@if($access['is_excel'] ==1)
-			<a href="{{ URL::to('assign/download?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
+			<a href="{{ URL::to('departments/download?md='.$masterdetail["filtermd"].$trackUri) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
 			<i class="fa fa-download"></i>&nbsp;{{ Lang::get('core.btn_download') }} </a>
 			@endif		
 		 	@if(Session::get('gid') ==1)
-			<a href="{{ URL::to('module/config/assign') }}" class="tips btn btn-xs btn-default"  title="{{ Lang::get('core.btn_config') }}">
+			<a href="{{ URL::to('module/config/departments') }}" class="tips btn btn-xs btn-default"  title="{{ Lang::get('core.btn_config') }}">
 			<i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>	
 			@endif  			
 	 
@@ -41,7 +41,7 @@
 	@endif	
 	{{ $details }}
 	
-	 {{ Form::open(array('url'=>'assign/destroy/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
+	 {{ Form::open(array('url'=>'departments/destroy/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
 	 <div class="table-responsive" style="min-height:300px;">
     <table class="table table-striped ">
         <thead>
@@ -97,10 +97,10 @@
 						<ul  class="dropdown-menu  icons-left pull-right">					 	
 						{{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
 					 	@if($access['is_detail'] ==1)
-						<li><a href="{{ URL::to('assign/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
+						<li><a href="{{ URL::to('departments/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a></li>
 						@endif
 						@if($access['is_edit'] ==1)
-						<li><a  href="{{ URL::to('assign/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a></li>
+						<li><a  href="{{ URL::to('departments/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}" ><i class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a></li>
 						@endif
 						@foreach($subgrid as $md)
 						<li><a href="{{ URL::to($md['module'].'?md='.$md['master'].'+'.$md['master_key'].'+'.$md['module'].'+'.$md['key'].'+'.$id) }}" ><i class="icon-eye2"></i> {{ $md['title'] }}</a></li>
@@ -126,7 +126,7 @@
 $(document).ready(function(){
 
 	$('.do-quick-search').click(function(){
-		$('#SximoTable').attr('action','{{ URL::to("assign/multisearch")}}');
+		$('#SximoTable').attr('action','{{ URL::to("departments/multisearch")}}');
 		$('#SximoTable').submit();
 	});
 	
