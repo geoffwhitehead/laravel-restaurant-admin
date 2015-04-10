@@ -11,6 +11,8 @@
             <li class="active">{{ $pageTitle }}</li>
         </ul>
 
+        {{ $site }}
+
     </div>
         @if(Session::has('message'))
             {{ Session::get('message') }}

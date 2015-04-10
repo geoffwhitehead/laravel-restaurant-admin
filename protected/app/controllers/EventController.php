@@ -50,6 +50,9 @@ class EventController extends BaseController {
             'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
         );
 
+        // Fetch the site name to display on the page
+        $this->data['site'] = DB::table('sites')->where('id', '=', Session::get('sid'))->pluck('address_city');
+
         // Build pager number and append current param GET
         $this->data['pager'] 		= $this->injectPaginate();
         // Row grid Number
@@ -106,7 +109,7 @@ class EventController extends BaseController {
                     'shift_start'   => $data['start'],
                     'shift_end'     => $data['end'],
                     'employee_id'   => $data['id'],
-                    'site_id'       => 1, //TODO: Swap with geoffs session variable with he finally commits ;)
+                    'site_id'       => Session::get('sid'),
                     'created_by'    => Auth::id(),
                     'created_on'    => date('Y-m-d h:i:s')
                 ]);
@@ -122,7 +125,8 @@ class EventController extends BaseController {
     }
 
     public function getList() {
-        $data = DB::select('SELECT shifts.id, shift_start as start, shift_end as end, manager_conf_flag, admin_conf_flag, paid, tb_users.first_name as title, tb_users.last_name from shifts left outer join tb_users on shifts.employee_id=tb_users.id');
+        $sid = Session::get('sid');
+        $data = DB::select('SELECT shifts.id, shift_start as start, shift_end as end, manager_conf_flag, admin_conf_flag, paid, tb_users.first_name as title, tb_users.last_name from shifts left outer join tb_users on shifts.employee_id=tb_users.id WHERE shifts.site_id = "'.$sid.'"');
         return json_encode($data);
     }
 }
