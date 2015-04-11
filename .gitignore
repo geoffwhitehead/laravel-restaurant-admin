@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -47,7 +47,4 @@ _ide_helper.php
 .logs/
 .log
 storage/
-=======
-_ide_helper.php
-.idea/
->>>>>>> giraffenoise
+.htaccess

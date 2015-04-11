@@ -40,7 +40,7 @@
       //$('#loading').hide();
 
       $.ajax({
-          url: '/event/users/',
+          url: 'marvin2/event/users/',
           type: 'GET',
           dataType: 'JSON',
           success: function(json) {
@@ -95,7 +95,7 @@
           },
           eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
               $.ajax({
-                  url: ('/event/edit'),
+                  url: ('event/edit'),
                   type: 'POST',
                   data: ({
                       id: event.id,
@@ -115,7 +115,7 @@
 
               //alert("/event/" + event.id + "/" + event.start.format() + "/" + event.end.format());
               $.ajax({
-                  url: ('/event/edit'),
+                  url: ('event/edit'),
                   type: 'POST',
                   data: ({
                       id: event.id,
@@ -145,7 +145,7 @@
 
               //TODO: events dragged onto screen have the ID of user, not the shift id? this needs to be fixed.
               $.ajax({
-                  url: ('/event/create'),
+                  url: ('event/create'),
                   type: 'POST',
                   data: {
                       id: copiedEventObject.user_id,
@@ -168,7 +168,7 @@
           timeFormat: 'h:mm',
           eventSources: [
               {
-                  url: '/event/list',
+                  url: 'event/list',
                   type: 'GET',
                   data: {
                       custom_param1: 'manager_conf_flag',
