@@ -27,3 +27,8 @@ a.fc-day-grid-event.shift-scheduled div.fc-content
     background-size: contain;
     background-color: #9cc2cb;
 }
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
