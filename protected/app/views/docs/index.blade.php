@@ -60,14 +60,15 @@
                             <th>{{ $t['label'] }}</th>
                         @endif
                     @endforeach
-                    <th>{{ Lang::get('core.btn_action') }}</th>
                     <th>Download File</th>
+                    <th>{{ Lang::get('core.btn_action') }}</th>
+
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr id="sximo-quick-search">
-                    <td> #</td>
+                    <td> # </td>
                     <td></td>
                     @foreach ($tableGrid as $t)
                         @if($t['view'] =='1')
@@ -76,6 +77,7 @@
                             </td>
                         @endif
                     @endforeach
+
                     <td style="width:130px;">
                         <input type="hidden" value="Search">
                         <button type="button" class=" do-quick-search btn btn-xs btn-info"> GO</button>
@@ -99,6 +101,10 @@
                             @endif
 
                         @endforeach
+                        <td>
+                            <a href="{{ URL::to( '/doc_repository/' . $row->file)  }}"
+                               target="_blank">{{ $row->file }}</a>
+                        </td>
 
                         <td>
                             <div class="btn-group">
@@ -128,10 +134,7 @@
                                 </ul>
                             </div>
                         </td>
-                        <td>
-                            <a href="{{ URL::to( '/doc_repository/' . $row->file)  }}"
-                               target="_blank">{{ $row->file }}</a>
-                        </td>
+
 
                     </tr>
 

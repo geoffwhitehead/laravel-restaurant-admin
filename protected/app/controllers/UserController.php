@@ -166,8 +166,11 @@ class UserController extends BaseController {
 						Session::put('eid', $row->email);
 						Session::put('ll', $row->last_login);
 						Session::put('fid', $row->first_name.' '. $row->last_name);
+
 						$data = Input::all();
 						Session::put('sid', Input::get('site_id'));
+						Session::put('lvl', $row->level);
+
 						if(CNF_FRONT =='false') :
 							return Redirect::to('dashboard');						
 						else :

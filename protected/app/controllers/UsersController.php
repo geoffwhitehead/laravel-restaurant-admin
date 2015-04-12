@@ -115,7 +115,7 @@ class UsersController extends BaseController {
 		$rules = array(
 			'active'		=> 'required',
 			'first_name'	=> 'required|alpha',
-			'first_name'	=> 'required|alpha',				
+			'first_name'	=> 'required|alpha',
 		);
 		if(Input::get('id') =='')
 		{
@@ -123,7 +123,7 @@ class UsersController extends BaseController {
 			$rules['password_confirmation'] = 'required|alpha_num|between:6,12';
 			$rules['email'] 				= 'required|email|unique:tb_users';
 			$rules['username'] 				= 'required|alpha_num||min:2|unique:tb_users';
-			
+			$rules['gender']				= 'required|alpha';
 		} else {
 			if(Input::get('password') !='')
 			{
@@ -147,7 +147,7 @@ class UsersController extends BaseController {
 			
 			$this->model->insertRow($data , Input::get('id'));
 
-			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Save Successfull'));
+			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {
 			return Redirect::to('users/add/'.$id)->with('message', SiteHelpers::alert('error','The following errors occurred'))
 			->withErrors($validator)->withInput();

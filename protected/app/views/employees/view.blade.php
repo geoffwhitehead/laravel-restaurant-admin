@@ -102,6 +102,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Avatar</td>
+						<td>{{ SiteHelpers::showUploadedFile($row->avatar,'/uploads/users/') }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Active</td>
 						<td>{{ $row->active }} </td>
 						

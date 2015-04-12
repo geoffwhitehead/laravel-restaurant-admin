@@ -1,13 +1,13 @@
 <?php
 return array(	
-	"base_url"   => "http://127.0.0.1/marvin2/user/socmed",
+	"base_url"   => "http://localhost/marvin2/user/socmed",
 	"providers"  => array (
 		"Google"     => array (
 			"enabled"    => false,
 			"keys"       => array ( "id" => "1038196167526-euluve7af4mhfgde9vr79a8s1or4t8it", "secret" => "Z_Wq238T-bSWC5Azmyk2jSs6" ),
 			),
 		"Facebook"   => array (
-			"enabled"    => true,
+			"enabled"    => false,
 			"keys"       => array ( "id" => "725712687473196", "secret" => "97af69633d9f00e4d3d2e9929574d9e9" ),
 			),
 		"Twitter"    => array (

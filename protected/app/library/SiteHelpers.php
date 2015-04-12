@@ -1001,7 +1001,7 @@ public static function alphaID($in, $to_num = false, $pad_up = false, $passKey =
 		
 	public static function avatar( $width =75)
 	{
-		$avatar = '<img alt="" src="http://www.gravatar.com/avatar/'.md5(Session::get('email')).'" class="img-circle" width="'.$width.'" />';
+		$avatar = '<img alt="" src="/marvin2/uploads/users/default.png" class="img-circle" width="'.$width.'" />';
 		$Q = DB::table("tb_users")->where("id",'=',Session::get('uid'))->get();
 		$row = $Q[0];
 		$files =  './uploads/users/'.$row->avatar ;
