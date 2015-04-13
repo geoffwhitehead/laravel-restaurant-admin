@@ -152,6 +152,7 @@ class DepositController extends BaseController {
 
 			$data = $this->validatePost('deposits');
 			$data = $this->model->addTimestamps($data, Input::get('id'));
+			$data['site_id'] = Session::get('sid');
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')

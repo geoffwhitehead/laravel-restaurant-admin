@@ -20,7 +20,7 @@ class Sale extends BaseModel
 
     public static function queryWhere()
     {
-        if (Session::get('gid') > 2) {
+        if (Session::get('gid') > 3) {
             return "WHERE id = (select max(id) from sales where site_id = ".Session::get("sid").")";
         } else {
             return " WHERE sales.id IS NOT NULL   ";

@@ -158,7 +158,6 @@ class UsersController extends BaseController {
 			DB::table('assigned_to')->insert(
 				array('user_id'=>$ID, 'site_id' => Input::get('site_id'), 'department_id' => Input::get('department_id'), 'created_by'=>Session::get('uid'),)
 			);
-
 			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {
 			return Redirect::to('users/add/'.$id)->with('message', SiteHelpers::alert('error','The following errors occurred'))

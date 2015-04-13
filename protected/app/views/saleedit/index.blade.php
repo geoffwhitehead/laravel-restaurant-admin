@@ -47,6 +47,7 @@
         <thead>
 			<tr>
 				<th> No </th>
+				<th>Status</th>
 				<th> <input type="checkbox" class="checkall" /></th>
 				
 				@foreach ($tableGrid as $t)
@@ -60,6 +61,7 @@
 
         <tbody>
 			<tr id="sximo-quick-search" >
+				<td></td>
 				<td> # </td>
 				<td> </td>
 				@foreach ($tableGrid as $t)
@@ -75,6 +77,17 @@
 			  </tr>				
             @foreach ($rowData as $row)
                 <tr>
+					<!-- status colour here -->
+					@if($row->cash_variance < -10 or $row->cash_variance > 10)
+						<td class="editable" style="background:indianred">
+							@elseif ($row->cash_variance < -2.50 or $row->cash_variance > 2.50)
+						<td class="editable" style="background:yellow">
+					@else
+						<td class="editable" style="background:darkseagreen">
+							@endif
+
+						</td>
+
 					<td width="50"> {{ ++$i }} </td>
 					<td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}" />  </td>									
 				 @foreach ($tableGrid as $field)
@@ -120,7 +133,16 @@
 	{{ Form::close() }}
 	@include('footer')
 	
-	</div>	  
+	</div>
+	  <div class="col-md-6">
+		  <Strong>
+			  <p>Red : Sale is erroneous : cash variance differs by £10.00</p>
+
+			  <p>Yellow : Sale is erroneous : cash variance differs by between £2.50 and £10.00</p>
+
+			  <p>Green : Sale is correct : cash variance differs by less than £2.50</p>
+		  </Strong>
+	  </div>
 </div>	
 <script>
 $(document).ready(function(){

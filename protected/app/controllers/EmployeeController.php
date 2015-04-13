@@ -149,15 +149,19 @@ class EmployeeController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
+			if ($data['active'] = 0){
+				DB::table('tb_users')->where('id', $data['employee_id']) -> update(array('active' => 0));
+			}
 			$data = $this->validatePost('employee_records');
+			$data['reg_complete'] = 1;
 			$ID = $this->model->insertRow($data , Input::get('employee_id'));
 			// Input logs
 			if( Input::get('employee_id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));

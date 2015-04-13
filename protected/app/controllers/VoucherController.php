@@ -149,7 +149,9 @@ class VoucherController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
+
 			$data = $this->validatePost('vouchers');
+			$data = $this->model->addTimestamps($data,Input::get('id'));
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')

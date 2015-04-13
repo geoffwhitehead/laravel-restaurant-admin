@@ -193,7 +193,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Card Tips % Taken</td>
-						<td>{{ $row->card_tips_%_taken }} </td>
+						<td>{{ $row->card_tips_taken }} </td>
 						
 					</tr>
 				

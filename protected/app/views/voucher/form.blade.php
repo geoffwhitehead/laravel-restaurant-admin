@@ -64,16 +64,7 @@
 									 	
 									 </div>
 								  </div> 					
-								  <div class="form-group  " >
-									<label for="Sale Id" class=" control-label col-md-4 text-left"> Sale Id </label>
-									<div class="col-md-6">
-									  <select name='sale_id' rows='5' id='sale_id' code='{$sale_id}' 
-							class='select2 '    ></select> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
-									 </div>
-								  </div> 					
+
 								  <div class="form-group  " >
 									<label for="Paypal Payment Ref" class=" control-label col-md-4 text-left"> Paypal Payment Ref </label>
 									<div class="col-md-6">

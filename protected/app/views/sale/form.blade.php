@@ -166,25 +166,13 @@
                     <label for="Id" class=" control-label col-md-4 text-left"> Id </label>
 
                     <div class="col-md-6">
-                        {{ Form::text('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'',   )) }}
+                        {{ Form::text('id', $row['id'],array('class'=>'form-control', 'placeholder'=>''  )) }}
                     </div>
                     <div class="col-md-1">
 
                     </div>
                 </div>
-                <div class="form-group  ">
-                    <label class=" control-label col-md-4 text-left">Site </label>
 
-                    <div class="col-md-6">
-                        <select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 ' required>
-
-                        </select>
-                    </div>
-
-                    <div class="col-md-1">
-
-                    </div>
-                </div>
                 <div class="form-group  ">
                     <label for="Sale Date" class=" control-label col-md-4 text-left"> Sale Date <span
                                 class="asterix"> * </span></label>
@@ -215,7 +203,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('report_total_sale', $row['report_total_sale'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'report-total-sale')) }}
+                        {{ Form::text('report_total_sale', $row['report_total_sale'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'report-total-sale')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -226,7 +214,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('actual_total_sale', $row['actual_total_sale'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'actual-total-sale', 'readonly')) }}
+                        {{ Form::text('actual_total_sale', $row['actual_total_sale'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'actual-total-sale', 'readonly')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -237,7 +225,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('report_card_sale', $row['report_card_sale'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'report-card-sale')) }}
+                        {{ Form::text('report_card_sale', $row['report_card_sale'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'report-card-sale')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -248,7 +236,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('report_voucher_sale',$voucher_sale[0]->amt,array('value'=>$voucher_sale[0]->amt,'class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'voucher-sale'  ,'readonly')) }}
+                        {{ Form::text('report_voucher_sale',$voucher_sale[0]->amt,array('value'=>$voucher_sale[0]->amt,'class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'voucher-sale'  ,'readonly')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -271,7 +259,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('expected_cash_sale', $row['expected_cash_sale'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true' ,'id'=>'expected-cash-sale'  )) }}
+                        {{ Form::text('expected_cash_sale', $row['expected_cash_sale'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true' ,'id'=>'expected-cash-sale'  )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -282,7 +270,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('total_cash_invoices', $invoices[0]->amt,array('value'=>$invoices[0]->amt,'class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'  ,'id' => 'total-cash-invoices', 'readonly'=>'true',)) }}
+                        {{ Form::text('total_cash_invoices', $invoices[0]->amt,array('value'=>$invoices[0]->amt,'class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'  ,'id' => 'total-cash-invoices', 'readonly'=>'true',)) }}
 
                     </div>
                     <div class="col-md-1">
@@ -294,7 +282,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_rem_after_bills', $row['cash_rem_after_bills'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-rem-after-bills'  )) }}
+                        {{ Form::text('cash_rem_after_bills', $row['cash_rem_after_bills'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-rem-after-bills'  )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -305,7 +293,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('expected_cash_taken', $row['expected_cash_taken'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'expected-cash-taken'  )) }}
+                        {{ Form::text('expected_cash_taken', $row['expected_cash_taken'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'expected-cash-taken'  )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -317,7 +305,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_variance', $row['cash_variance'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-variance')) }}
+                        {{ Form::text('cash_variance', $row['cash_variance'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-variance')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -346,7 +334,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('correction_amt', $row['correction_amt'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'correction-amt'  )) }}
+                        {{ Form::text('correction_amt', $row['correction_amt'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'correction-amt'  )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -379,7 +367,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('staff_disc_amt', $row['staff_disc_amt'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'staff-disc-amt' )) }}
+                        {{ Form::text('staff_disc_amt', $row['staff_disc_amt'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'staff-disc-amt' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -401,7 +389,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('refund_amt', $row['refund_amt'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'refund-amt' )) }}
+                        {{ Form::text('refund_amt', $row['refund_amt'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'id'=>'refund-amt' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -412,7 +400,7 @@
                     <label for="Take Away" class=" control-label col-md-4 text-left"> Take Away </label>
 
                     <div class="col-md-6">
-                        {{ Form::text('take_away', $row['take_away'],array('class'=>'form-control cash-box', 'placeholder'=>'', )) }}
+                        {{ Form::text('take_away', $row['take_away'],array('class'=>'form-control decimal', 'placeholder'=>'', )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -422,7 +410,7 @@
                     <label for="Eat In" class=" control-label col-md-4 text-left"> Eat In </label>
 
                     <div class="col-md-6">
-                        {{ Form::text('eat_in', $row['eat_in'],array('class'=>'form-control', 'placeholder'=>'',)) }}
+                        {{ Form::text('eat_in', $row['eat_in'],array('class'=>'form-control decimal', 'placeholder'=>'',)) }}
                     </div>
                     <div class="col-md-1">
 
@@ -433,7 +421,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('card_tips_inc', $row['card_tips_inc'],array('class'=>'form-control cash-box', 'id'=>'card-tips-inc', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number')) }}
+                        {{ Form::text('card_tips_inc', $row['card_tips_inc'],array('class'=>'form-control cash-box decimal', 'id'=>'card-tips-inc', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -444,7 +432,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('card_tips_%_taken', $row['card_tips_%_taken'],array('class'=>'form-control cash-box', 'id'=>'card-tips-taken',  'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly')) }}
+                        {{ Form::text('card_tips_taken', $row['card_tips_taken'],array('class'=>'form-control cash-box decimal', 'id'=>'card-tips-taken',  'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -455,7 +443,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('deposits_used_amount', $deposit_sale[0]->amt,array('value'=>$deposit_sale[0]->amt,'class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly', 'id'=>'deposit-used-amt' )) }}
+                        {{ Form::text('deposits_used_amount', $deposit_sale[0]->amt,array('value'=>$deposit_sale[0]->amt,'class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly', 'id'=>'deposit-used-amt' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -477,7 +465,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('deposit_balance', $row['deposit_balance'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number')) }}
+                        {{ Form::text('deposit_balance', $row['deposit_balance'],array('class'=>'form-control decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number')) }}
                     </div>
                     <div class="col-md-1">
 
@@ -495,7 +483,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_5p', $row['cash_taken_5p'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-5p' )) }}
+                        {{ Form::text('cash_taken_5p', $row['cash_taken_5p'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-5p' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -506,7 +494,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_10p', $row['cash_taken_10p'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-10p' )) }}
+                        {{ Form::text('cash_taken_10p', $row['cash_taken_10p'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-10p' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -517,7 +505,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_20p', $row['cash_taken_20p'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-20p' )) }}
+                        {{ Form::text('cash_taken_20p', $row['cash_taken_20p'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-20p' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -528,7 +516,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_50p', $row['cash_taken_50p'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-50p' )) }}
+                        {{ Form::text('cash_taken_50p', $row['cash_taken_50p'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-50p' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -539,7 +527,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_£1', $row['cash_taken_£1'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£1' )) }}
+                        {{ Form::text('cash_taken_£1', $row['cash_taken_£1'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£1' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -550,7 +538,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_£5', $row['cash_taken_£5'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£5' )) }}
+                        {{ Form::text('cash_taken_£5', $row['cash_taken_£5'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£5' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -561,7 +549,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_£10', $row['cash_taken_£10'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£10' )) }}
+                        {{ Form::text('cash_taken_£10', $row['cash_taken_£10'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£10' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -572,7 +560,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_£20', $row['cash_taken_£20'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£20' )) }}
+                        {{ Form::text('cash_taken_£20', $row['cash_taken_£20'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£20' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -583,7 +571,7 @@
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken_£50', $row['cash_taken_£50'],array('class'=>'form-control cash-box cash-taken', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£50' )) }}
+                        {{ Form::text('cash_taken_£50', $row['cash_taken_£50'],array('class'=>'form-control cash-box cash-taken decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-taken-£50' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -593,7 +581,7 @@
                     <label for="Cash Taken" class=" control-label col-md-4 text-left"> Cash Taken <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_taken', $row['cash_taken'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-taken' )) }}
+                        {{ Form::text('cash_taken', $row['cash_taken'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'=>'true', 'id'=>'cash-taken' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -612,7 +600,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_5p', $row['float_left_5p'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-5p' )) }}
+                            {{ Form::text('float_left_5p', $row['float_left_5p'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-5p' )) }}
                         </div>
                         <div class="col-md-1">
 
@@ -623,7 +611,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_10p', $row['float_left_10p'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-10p')) }}
+                            {{ Form::text('float_left_10p', $row['float_left_10p'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-10p')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -634,7 +622,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_20p', $row['float_left_20p'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number','id'=>'float-20p')) }}
+                            {{ Form::text('float_left_20p', $row['float_left_20p'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number','id'=>'float-20p')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -645,7 +633,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_50p', $row['float_left_50p'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-50p')) }}
+                            {{ Form::text('float_left_50p', $row['float_left_50p'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-50p')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -656,7 +644,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_£1', $row['float_left_£1'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£1')) }}
+                            {{ Form::text('float_left_£1', $row['float_left_£1'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£1')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -667,7 +655,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_£5', $row['float_left_£5'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£5')) }}
+                            {{ Form::text('float_left_£5', $row['float_left_£5'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£5')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -678,7 +666,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_£10', $row['float_left_£10'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£10')) }}
+                            {{ Form::text('float_left_£10', $row['float_left_£10'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£10')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -689,7 +677,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_£20', $row['float_left_£20'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£20')) }}
+                            {{ Form::text('float_left_£20', $row['float_left_£20'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£20')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -700,7 +688,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_left_£50', $row['float_left_£50'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£50')) }}
+                            {{ Form::text('float_left_£50', $row['float_left_£50'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'float-£50')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -711,7 +699,7 @@
                                     class="asterix"> * </span></label>
 
                         <div class="col-md-6">
-                            {{ Form::text('float_total_amount', $row['float_total_amount'],array('class'=>'form-control cash-box', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'readonly'=>'true', 'id'=>'float-total-amt')) }}
+                            {{ Form::text('float_total_amount', $row['float_total_amount'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number' , 'readonly'=>'true', 'id'=>'float-total-amt')) }}
                         </div>
                         <div class="col-md-1">
 
@@ -725,8 +713,9 @@
                 <label for="Previous Float" class=" control-label col-md-4 text-left"> Previous Float <span
                             class="asterix"> * </span></label>
 
+
                 <div class="col-md-6">
-                    {{ Form::text('float_total_amount', $yesterdays_float[0]->float_total_amount,array('class'=>'form-control cash-box', 'placeholder'=>$yesterdays_float[0]->float_total_amount, 'readonly'=>'true', 'id'=>'float-previous')) }}
+                    {{ Form::text('float_total_amount_prev', $yesterdays_float[0]->float_total_amount,array('value'=>$deposit_count[0]->amt,'class'=>'form-control cash-box decimal', 'placeholder'=>"", 'readonly', 'id'=>'float-previous')) }}
                 </div>
                 <div class="col-md-1">
 
@@ -810,11 +799,25 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $("#site_id").jCombo("{{ URL::to('sale/comboselect?filter=sites:id:id|address_city') }}",
-                    {selected_value: '{{Session::get('sid')}}'});
-
             $("#barperson_id").jCombo("{{ URL::to('sale/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
                     {selected_value: '{{ $row["barperson_id"] }}'});
+
+            if ($('#total-cash-invoices').val() == "") {
+                var zero = 0;
+                $('#total-cash-invoices').val(zero.toFixed(2));
+            }
+            ;
+
+            if ($('#voucher-sale').val() == "") {
+                var zero = 0;
+                $('#voucher-sale').val(zero.toFixed(2));
+            }
+            ;
+            if ($('#deposit-used-amt').val() == "") {
+                var zero = 0;
+                $('#deposit-used-amt').val(zero.toFixed(2));
+            }
+            ;
         });
 
         //change to 2 decimal places
@@ -847,22 +850,29 @@
             $('#expected-cash-sale').val(sum.toFixed(2));
             sum -= Number($('#total-cash-invoices').val());
             $('#cash-rem-after-bills').val(sum.toFixed(2));
-            sum -= Number($('#float-previous').val());
-            sum += Number($('#float-total-amt').val());
+            sum += Number($('#float-previous').val());
+            sum -= Number($('#float-total-amt').val());
             sum += Number($('#card-tips-taken').val());
             $('#expected-cash-taken').val(sum.toFixed(2));
             var variance = $('#cash-taken').val();
             variance -= $('#expected-cash-taken').val();
             $('#cash-variance').val(variance.toFixed(2));
 
-            var tips = $('#card-tips-inc').val();
-            tips = ((tips / 100) * 25);
+            var tips = 0;
+            if ($('#card-tips-inc').val() > 0) {
+                tips = $('#card-tips-inc').val();
+                tips = ((tips / 100) * 25);
+            }
             $('#card-tips-taken').val(tips.toFixed(2));
 
+
+        });
+        $(".decimal").focusout(function () {
             //to 2 decimal places
             var num = Number($(this).val());
             var cleanNum = num.toFixed(2);
             $(this).val(cleanNum);
         });
+
     </script>
 </div>

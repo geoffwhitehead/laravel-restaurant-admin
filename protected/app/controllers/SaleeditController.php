@@ -31,7 +31,7 @@ class SaleeditController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
 				
 		// Filter sort and order for query 
-		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'sale_date');
+		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
 		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
@@ -119,6 +119,7 @@ class SaleeditController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
+		$this->data['yesterdays_float'] = DB::select('SELECT float_total_amount FROM sales WHERE site_id = '.Session::get("sid").' and id < '.$id.' ORDER BY id DESC LIMIT 1');
 		$this->layout->nest('content','saleedit.form',$this->data)->with('menus', $this->menus );	
 	}
 	
@@ -152,6 +153,7 @@ class SaleeditController extends BaseController {
 			$data = $this->validatePost('sales');
 			$data['sale_checked_on'] = date("Y-m-d H:i:s");
 			$data['sale_checked_by'] = Auth::id();
+			$data['site_id'] = Input::get('sid');
 
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
@@ -160,7 +162,7 @@ class SaleeditController extends BaseController {
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));

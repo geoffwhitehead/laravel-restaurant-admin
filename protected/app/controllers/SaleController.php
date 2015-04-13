@@ -134,7 +134,7 @@ class SaleController extends BaseController {
 		$this->data['used_vouchers'] = DB::select('SELECT voucher_ref, date, amount FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = '.Session::get("sid").'');
 		$this->data['used_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = '.Session::get("sid").'');
 		$this->data['unused_due_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 0 and no_show_flag = 0 and DATE(booking_date_time) < CURDATE() and site_id = '.Session::get("sid").' ORDER BY booking_date_time');
-		$this->data['yesterdays_float'] = DB::select('SELECT float_total_amount FROM sales WHERE site_id = '.Session::get("sid").' ORDER BY sale_date DESC LIMIT 1');
+		$this->data['yesterdays_float'] = DB::select('SELECT float_total_amount FROM sales WHERE site_id = '.Session::get("sid").' ORDER BY id DESC LIMIT 1');
 		$this->data['sites'] = DB::select('SELECT id, name, address_city FROM sites');
 
 		$this->layout->nest('content','sale.form',$this->data)->with('menus', $this->menus );
@@ -172,6 +172,10 @@ class SaleController extends BaseController {
 			$data = $this->validatePost('sales');
 
 			$data = $this->model->addTimestamps($data,Input::get('id'));
+			$data['site_id'] = Session::get('sid');
+
+			$data['card_tips_taken'] = Input::get('card_tips_taken');
+
 			$ID = $this->model->insertRow($data , Input::get('id'));
 
 			// assign vouchers to sale here

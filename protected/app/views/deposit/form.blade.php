@@ -35,16 +35,7 @@
 									 	
 									 </div>
 								  </div> 					
-								  <div class="form-group  " >
-									<label for="Site Id" class=" control-label col-md-4 text-left"> Site Id <span class="asterix"> * </span></label>
-									<div class="col-md-6">
-									  <select name='site_id' rows='5' id='site_id' code='{$site_id}' 
-							class='select2 '  required  ></select> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
-									 </div>
-								  </div> 					
+
 								  <div class="form-group  " >
 									<label for="Booking Date Time" class=" control-label col-md-4 text-left"> Booking Date Time <span class="asterix"> * </span></label>
 									<div class="col-md-6">
