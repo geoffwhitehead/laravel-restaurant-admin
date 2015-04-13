@@ -1,6 +1,5 @@
 <?php
-        Route::controller('employees', 'EmployeesController');
-                    Route::controller('companies', 'CompaniesController');
+        Route::controller('companies', 'CompaniesController');
                     Route::controller('paymentmethods', 'PaymentmethodsController');
                     Route::controller('site', 'SiteController');
                     Route::controller('voucher', 'VoucherController');
@@ -16,4 +15,5 @@
                     Route::controller('docs', 'DocsController');
                     Route::controller('departments', 'DepartmentsController');
                     Route::controller('assign', 'AssignController');
+                    Route::controller('employee', 'EmployeeController');
                     ?>

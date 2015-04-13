@@ -86,6 +86,10 @@ class UsersController extends BaseController {
 		$res = $res[0];
 		$this->data['level'] = $res->level;		
 		$this->data['id'] = $id;
+		$this->data['employment_start'] = DB::select('SELECT employment_start FROM employee_records WHERE employee_id = '.Session::get('uid'.''));
+		$this->data['companies'] = DB::select('SELECT id, company_name FROM companies WHERE id IS NOT NULL');
+		$this->data['sites'] = DB::select('SELECT id, name, address_city FROM sites WHERE id IS NOT NULL');
+		$this->data['departments'] = DB::select('SELECT id, name FROM departments WHERE id IS NOT NULL');
 		$this->layout->nest('content','users.form',$this->data)->with('menus', $this->menus );	
 	}
 	
@@ -112,6 +116,7 @@ class UsersController extends BaseController {
 	function postSave( $id =0)
 	{
 
+
 		$rules = array(
 			'active'		=> 'required',
 			'first_name'	=> 'required|alpha',
@@ -123,12 +128,11 @@ class UsersController extends BaseController {
 			$rules['password_confirmation'] = 'required|alpha_num|between:6,12';
 			$rules['email'] 				= 'required|email|unique:tb_users';
 			$rules['username'] 				= 'required|alpha_num||min:2|unique:tb_users';
-			$rules['gender']				= 'required|alpha';
 		} else {
 			if(Input::get('password') !='')
 			{
 				$rules['password'] 				='required|alpha_num|between:6,12';
-				$rules['password_confirmation'] ='required|alpha_num|between:6,12';			
+				$rules['password_confirmation'] ='required|alpha_num|between:6,12';
 			}
 		}
 		
@@ -144,8 +148,16 @@ class UsersController extends BaseController {
 					$data['password'] = Hash::make(Input::get('password'));
 				}
 			}
-			
-			$this->model->insertRow($data , Input::get('id'));
+
+			DB::table('employee_records')->insert(
+				array('first_name'=> Input::get('first_name'), 'last_name'=>Input::get('last_name') , 'email_address'=>Input::get('email') ,'employee_id' => Input::get('id'), 'company_id' => Input::get('company_id'), 'default_site' => Input::get('site_id'), 'employment_start' => Input::get('employment_start'), 'default_department' => Input::get('department_id'))
+			);
+
+			$ID = $this->model->insertRow($data , Input::get('id'));
+
+			DB::table('assigned_to')->insert(
+				array('user_id'=>$ID, 'site_id' => Input::get('site_id'), 'department_id' => Input::get('department_id'), 'created_by'=>Session::get('uid'),)
+			);
 
 			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {

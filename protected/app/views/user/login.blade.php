@@ -119,15 +119,5 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#site_id").jCombo({
-            url: "{{ URL::to('user/sites') }}"
-        });
 
-        $(".form-control").focusout(function () {
-            $('#expected-cash-sale').val(('#expected-cash-sale').val() + 1);
-            $('#or').click(function () {
-                $('#fr').toggle();
-            });
-        });
 </script>

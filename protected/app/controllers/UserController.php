@@ -126,6 +126,7 @@ class UserController extends BaseController {
 				'google_enabled' => $soc['providers']['Google']['enabled'],
 				'twit_enabled' => $soc['providers']['Twitter']['enabled'],
 				'sites' => DB::select('SELECT id, name, address_city FROM sites WHERE id IS NOT NULL'),
+
 			);
 
 			$this->layout = View::make('layouts.login');

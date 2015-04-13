@@ -81,50 +81,82 @@
                             {{ Form::text('email', $row['email'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true' )) }}
                         </div>
                     </div>
-                    <div class="form-group  ">
-                        <label for="ipt"
-                               class=" control-label col-md-4 text-right"> Employment Start </label>
 
-                        <div class="col-md-8">
-                            <!--{{ Form::text('employment_start', $row['employment_start'],array('class'=>'form-control date', 'required'=>'true',  'placeholder'=>'' )) }}-->
+                    <!--ADDED CODE FROM OTHER TABLES HERE-->
+                    @if($row['id'] == 0)
+                        <div class="form-group  ">
+                            <label for="ipt"
+                                   class=" control-label col-md-4 text-right">Employment Start </label>
 
-                            {{ Form::text('employment_start', $row['employment_start'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                            <div class="col-md-8">
+                                {{ Form::text('employment_start', "" ,array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group  ">
-                        <label for="ipt"
-                               class=" control-label col-md-4 text-right"> Gender </label>
+                        <div class="form-group">
+                            <label for="ipt" class=" control-label col-md-4 text-right"> Company </label>
 
-                        <div class="col-md-8">
-                            {{ Form::text('gender', $row['gender'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true' )) }}
+                            <div class="col-md-8">
+                                <select name='company_id' rows='5' id='company_id' code='{$company_id}' class='select2 '
+                                        required>
+                                    @foreach ($companies as $company)
+                                        <option value="{{$company->id}}">{{$company->company_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="ipt" class=" control-label col-md-4 text-right"> Default Site </label>
 
-
-                    <div class="form-group  ">
-                        <label for="ipt" class=" control-label col-md-4 text-right"> Status </label>
-
-                        <div class="col-md-8">
-
-                            <label class='checked'>
-                                <input type='radio' name='active' value='0' required @if($row['active'] == '0')
-                                       checked="checked" @endif > Inactive </label>
-                            <label class='checked'>
-                                <input type='radio' name='active' value='1' required @if($row['active'] == '1')
-                                       checked="checked" @endif > Active </label>
+                            <div class="col-md-8">
+                                <select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '
+                                        required>
+                                    @foreach ($sites as $site)
+                                        <option value="{{$site->id}}">{{$site->name}}, {{$site->address_city}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="ipt" class=" control-label col-md-4 text-right"> Default Department </label>
+
+                            <div class="col-md-8">
+                                <select name='department_id' rows='5' id='department_id' code='{$department_id}' class='select2 '
+                                        required>
+                                    @foreach ($departments as $department)
+                                        <option value="{{$department->id}}">{{$department->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        @endif
+
+                                <!--END MODIFICATION-->
 
 
-                    <div class="form-group">
-                        <label class="col-sm-4 text-right">&nbsp;</label>
+                        <div class="form-group  ">
+                            <label for="ipt" class=" control-label col-md-4 text-right"> Status </label>
 
-                        <div class="col-sm-8">
-                            <button type="submit"
-                                    class="btn btn-primary ">  {{ Lang::get('core.sb_savechanges') }} </button>
+                            <div class="col-md-8">
+
+                                <label class='checked'>
+                                    <input type='radio' name='active' value='0' required @if($row['active'] == '0')
+                                           checked="checked" @endif > Inactive </label>
+                                <label class='checked'>
+                                    <input type='radio' name='active' value='1' required @if($row['active'] == '1')
+                                           checked="checked" @endif > Active </label>
+                            </div>
                         </div>
 
-                    </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right">&nbsp;</label>
+
+                            <div class="col-sm-8">
+                                <button type="submit"
+                                        class="btn btn-primary ">  {{ Lang::get('core.sb_savechanges') }} </button>
+                            </div>
+
+                        </div>
 
                 </div>
 
@@ -191,4 +223,5 @@
                 {selected_value: '{{ $row['group_id'] }}'});
 
     });
+
 </script>
