@@ -23,7 +23,7 @@ class Sale extends BaseModel
         if (Session::get('gid') > 3) {
             return "WHERE id = (select max(id) from sales where site_id = ".Session::get("sid").")";
         } else {
-            return " WHERE sales.id IS NOT NULL   ";
+            return " WHERE sales.id IS NOT NULL and sales.sale_checked_by IS NOT NULL  ";
         }
     }
 
