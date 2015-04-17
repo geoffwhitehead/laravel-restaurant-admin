@@ -4,7 +4,7 @@
     <div class="page-header">
         <div class="page-title">
             <h3> {{ $pageTitle }}
-                <small>{{ $pageNote }}</small>
+                <small>{{ $pageNote }} </small>
             </h3>
         </div>
 
@@ -25,7 +25,7 @@
             <div id='external-events'>
                 <h4>Shifts</h4>
 
-                <div id='lunch'><h4>Lunch</h4></div>
+                <div id='lunch'><h4>Lunch asdasdasd</h4></div>
                 <div id='evening'><h4>Evening</h4></div>
                 <h4>Status panel</h4>
 
