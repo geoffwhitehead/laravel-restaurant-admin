@@ -156,7 +156,7 @@
                 // assign it the date that was reported
                 copiedEventObject.start = date;
                 copiedEventObject.end = moment(date).add(copiedEventObject.duration, 'hours');
-                copiedEventObject.addTouch();  // TODO THIS NEEDS CHECKING
+               // copiedEventObject.addTouch();  // TODO THIS NEEDS CHECKING
 
                 //TODO: events dragged onto screen have the ID of user, not the shift id? this needs to be fixed.
                 $.ajax({
@@ -171,7 +171,7 @@
                         // render the event on the calendar
                         // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
                         copiedEventObject.id = data;
-                        copiedEventObject.addTouch(); // TODO THIS NEEDS CHECKING
+                       // copiedEventObject.addTouch(); // TODO THIS NEEDS CHECKING
                         $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
                     },
                     error: function (xhr, status, error) {
