@@ -149,16 +149,19 @@ class UsersController extends BaseController {
 				}
 			}
 
-			DB::table('employee_records')->insert(
-				array('first_name'=> Input::get('first_name'), 'last_name'=>Input::get('last_name') , 'email_address'=>Input::get('email') ,'employee_id' => Input::get('id'), 'company_id' => Input::get('company_id'), 'default_site' => Input::get('site_id'), 'employment_start' => Input::get('employment_start'), 'default_department' => Input::get('department_id'))
-			);
 
 			$ID = $this->model->insertRow($data , Input::get('id'));
 
+			// INSERTING INTO EMPLOYEE RECORDS TABLE HERE
+			DB::table('employee_records')->insert(
+				array('employee_id' => $ID,'first_name'=> Input::get('first_name'), 'last_name'=>Input::get('last_name') , 'email_address'=>Input::get('email') , 'company_id' => Input::get('company_id'), 'default_site' => Input::get('site_id'), 'employment_start' => Input::get('employment_start'), 'default_department' => Input::get('department_id'))
+			);
+
+			// INSERTING INITIAL ASSIGNMENT FOR EMPLOYEE HERE
 			DB::table('assigned_to')->insert(
 				array('user_id'=>$ID, 'site_id' => Input::get('site_id'), 'department_id' => Input::get('department_id'), 'created_by'=>Session::get('uid'),)
 			);
-			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
+			return Redirect::to('users')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfullyy'));
 		} else {
 			return Redirect::to('users/add/'.$id)->with('message', SiteHelpers::alert('error','The following errors occurred'))
 			->withErrors($validator)->withInput();
@@ -171,7 +174,7 @@ class UsersController extends BaseController {
 		// delete multipe rows 
 		$data = $this->model->destroy(Input::get('id'));
 		// redirect
-		Session::flash('message', SiteHelpers::alert('success','Successfully deleted row!'));
+		Session::flash('message', SiteHelpers::alert('success','Successfullyy deleted row!'));
 		return Redirect::to('users');
 	}			
 		

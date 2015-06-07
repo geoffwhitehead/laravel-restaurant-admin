@@ -32,7 +32,7 @@ class EmployeeController extends BaseController {
 				
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'employee_id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -158,10 +158,10 @@ class EmployeeController extends BaseController {
 			// Input logs
 			if( Input::get('employee_id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfullyy");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfullyy");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
@@ -183,7 +183,7 @@ class EmployeeController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
 		// delete multipe rows 
 		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('employee?md='.Input::get('md'));

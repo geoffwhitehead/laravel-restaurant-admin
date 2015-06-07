@@ -199,7 +199,7 @@ class PagesController extends BaseController {
 			$data['template'] = Input::get('template');	
 			$this->model->insertRow($data , Input::get('pageID'));
 			self::createRouters();
-			return Redirect::to('pages')->with('message', SiteHelpers::alert('success','Data Has Been Save Successfull'));
+			return Redirect::to('pages')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {
 			return Redirect::to('pages/add/'.$id)->with('message', SiteHelpers::alert('error','The following errors occurred'))
 			->withErrors($validator)->withInput();
@@ -229,7 +229,7 @@ class PagesController extends BaseController {
 		// delete multipe rows 
 		$data = $this->model->destroy(Input::get('id'));
 		self::createRouters();
-		Session::flash('message', SiteHelpers::alert('success','Successfully deleted row!'));
+		Session::flash('message', SiteHelpers::alert('success','Successfullyy deleted row!'));
 		return Redirect::to('pages');
 	}	
 

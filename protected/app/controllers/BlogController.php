@@ -148,9 +148,9 @@ class BlogController extends BaseController {
 			// Input logs
 			if( Input::get('blogID') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			return Redirect::to('blog/add/'.$id)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));

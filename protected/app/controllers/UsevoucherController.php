@@ -155,10 +155,10 @@ class UsevoucherController extends BaseController {
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfullyy");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfullyy");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
@@ -180,7 +180,7 @@ class UsevoucherController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
 		// delete multipe rows 
 		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('usevoucher?md='.Input::get('md'));

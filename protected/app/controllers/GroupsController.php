@@ -144,12 +144,12 @@ class GroupsController extends BaseController {
 			// Input logs
 			if( Input::get('group_id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfull");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfull");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
-			return Redirect::to('groups')->with('message', SiteHelpers::alert('success','Data Has Been Save Successfull'));
+			return Redirect::to('groups')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {
 			return Redirect::to('groups/add/'.$id)->with('message', SiteHelpers::alert('error','The following errors occurred'))
 			->withErrors($validator)->withInput();
@@ -165,9 +165,9 @@ class GroupsController extends BaseController {
 				->with('message', SiteHelpers::alert('error',' Your are not allowed to access the page '));		
 		// delete multipe rows 
 		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
-		Session::flash('message', SiteHelpers::alert('success','Successfully deleted row!'));
+		Session::flash('message', SiteHelpers::alert('success','Successfullyy deleted row!'));
 		return Redirect::to('groups');
 	}			
 		

@@ -161,7 +161,7 @@
             
             self::createRouters();
     
-            return Redirect::to('module')->with('message',SiteHelpers::alert('success','Code Script has been replaced successfull'));
+            return Redirect::to('module')->with('message',SiteHelpers::alert('success','Code Script has been replaced Successfully'));
        
     }
     
@@ -208,7 +208,7 @@
                 self::removeDir( app_path()."/views/{$path}");
                 
                 return Redirect::to($this->module)
-                ->with('message', SiteHelpers::alert('success','Module has been removed successfull'));                
+                ->with('message', SiteHelpers::alert('success','Module has been removed Successfully'));
                 
             }    
             
@@ -479,7 +479,7 @@
             $affected = DB::table('tb_module')->where('module_id', '=',$id )->update($data);
 
             return Redirect::to($this->module.'/config/'.Input::get('module_name'))
-            ->with('message', SiteHelpers::alert('success','Module Info Has Been Save Successfull'));
+            ->with('message', SiteHelpers::alert('success','Module Info Has Been Saved Successfully'));
         } else {
             return Redirect::to($this->module.'/config/'.Input::get('module_name'))
             ->with('message', SiteHelpers::alert('error','The following errors occurred'))
@@ -519,7 +519,7 @@
             ->update(array('module_config' => SiteHelpers::CF_encode_json($new_config)));        
 
         return Redirect::to($this->module.'/config/'.$row->module_name)
-        ->with('message',SiteHelpers::alert('success','Module Setting Has Been Save Successfull'));    
+        ->with('message',SiteHelpers::alert('success','Module Setting Has Been Saved Successfully'));
                 
         
     }        
@@ -733,7 +733,7 @@
             ->update(array('module_config' => SiteHelpers::CF_encode_json($new_config)));        
 
         return Redirect::to($this->module.'/table/'.$row->module_name)
-        ->with('message',SiteHelpers::alert('success','Module Table Has Been Save Successfull'));        
+        ->with('message',SiteHelpers::alert('success','Module Table Has Been Saved Successfully'));
         
         
     }    
@@ -830,7 +830,7 @@
                     
         return Redirect::to($this->module.'/table/'.$row->module_name)
         ->with('message',SiteHelpers::alert('success','Module Forms Has Changed Successful.'));                
-        //return SiteHelpers::alert('success','Connection has been save successfull');            
+        //return SiteHelpers::alert('success','Connection has been Saved Successfully');
 
     }
     

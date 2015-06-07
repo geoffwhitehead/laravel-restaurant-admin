@@ -18,7 +18,7 @@
 	<div class="col-md-8" style="margin-bottom:50px;">
 	
 		<h2 > Setting Up Application Info </h2>
-		<p>After your successfull install your application , now you need to setting your app . </p>
+		<p>After your successfully install your application , now you need to setting your app . </p>
 		<p class="alert alert-info"> Go to : Control Panel -> setting </p>
 		<img src="{{asset('assets/images/fanssignupsplash.png')}}">
 		

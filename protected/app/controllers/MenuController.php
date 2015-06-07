@@ -122,7 +122,7 @@ class MenuController extends BaseController {
 				$a++;		
 			}
 
-			return Redirect::to('menu')->with('message', SiteHelpers::alert('success','Data Has Been Save Successfull'));
+			return Redirect::to('menu')->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 		} else {
 			return Redirect::to('menu')->with('message', SiteHelpers::alert('error','The following errors occurred'));
 		}	
@@ -168,7 +168,7 @@ class MenuController extends BaseController {
 			$data['allow_guest'] = Input::get('allow_guest');
 			$this->model->insertRow($data , Input::get('menu_id'));
 			
-			return Redirect::to('menu?pos='.$pos)->with('message', SiteHelpers::alert('success','Data Has Been Save Successfull'));
+			return Redirect::to('menu?pos='.$pos)->with('message', SiteHelpers::alert('success','Data Has Been Saved Successfully'));
 			
 		} else {
 			return Redirect::to('menu')->with('message', SiteHelpers::alert('error','The following errors occurred'))
@@ -189,7 +189,7 @@ class MenuController extends BaseController {
 		
 		$this->model->destroy($id);
 		// redirect
-		Session::flash('message', SiteHelpers::alert('success','Successfully deleted row!'));
+		Session::flash('message', SiteHelpers::alert('success','Successfullyy deleted row!'));
 		return Redirect::to('menu');
 	}			
 		
