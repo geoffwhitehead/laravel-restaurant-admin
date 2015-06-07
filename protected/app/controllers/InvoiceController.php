@@ -125,7 +125,6 @@ class InvoiceController extends BaseController {
 	
 	function getShow( $id = null)
 	{
-	
 		if($this->access['is_detail'] ==0) 
 			return Redirect::to('')
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
@@ -151,6 +150,9 @@ class InvoiceController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('company_invoices');
+			if (Session::get('gid') > 3){
+				$data['site_id'] = Session::get('sid');
+			}
 
 			$data = $this->model->addTimestamps($data, Input::get('id'));
 			$ID = $this->model->insertRow($data , Input::get('id'));
@@ -170,8 +172,7 @@ class InvoiceController extends BaseController {
 			$md = str_replace(" ","+",Input::get('md'));
 			return Redirect::to('invoice/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
-		}	
-	
+		}
 	}
 	
 	public function postDestroy()
@@ -182,7 +183,7 @@ class InvoiceController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
 		// delete multipe rows 
 		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfull");
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('invoice?md='.Input::get('md'));

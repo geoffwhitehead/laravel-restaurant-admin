@@ -15,8 +15,12 @@ class Deposit extends BaseModel  {
 		return "  SELECT deposits.* FROM deposits  ";
 	}
 	public static function queryWhere(  ){
-		
-		return " WHERE deposits.id IS NOT NULL   ";
+		if (Session::get('gid') <= 3) {
+			return " WHERE deposits.id IS NOT NULL   ";
+		} else{
+			return " WHERE deposits.id IS NOT NULL AND deposits.site_id = ".Session::get('sid')."  ";
+		}
+
 	}
 	
 	public static function queryGroup(){

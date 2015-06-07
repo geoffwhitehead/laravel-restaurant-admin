@@ -102,7 +102,7 @@
 
                         @endforeach
                         <td>
-                            <a href="{{ URL::to( '/doc_repository/' . $row->file)  }}"
+                            <a href="{{ URL::to( '/uploads/docs/' . $row->file)  }}"
                                target="_blank">{{ $row->file }}</a>
                         </td>
 

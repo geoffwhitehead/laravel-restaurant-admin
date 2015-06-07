@@ -146,6 +146,9 @@
                 });
 
             },
+
+
+
             drop: function (date) {
                 // retrieve the dropped element's stored Event Object
                 var originalEventObject = $(this).data('eventObject');
@@ -171,7 +174,7 @@
                         // render the event on the calendar
                         // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
                         copiedEventObject.id = data;
-                       copiedEventObject.draggable(); // TODO THIS NEEDS CHECKING
+                        copiedEventObject.draggable(); // TODO THIS NEEDS CHECKING
                         $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
                     },
                     error: function (xhr, status, error) {

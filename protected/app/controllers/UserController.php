@@ -255,6 +255,9 @@ class UserController extends BaseController {
 			if(isset( $data['avatar']))  $user->avatar  = $newfilename; 			
 			$user->save();
 
+
+
+
 			return Redirect::to('user/profile')->with('message',SiteHelpers::alert('success','Profile has been saved!'));
 		} else {
 			return Redirect::to('user/profile')->with('message', SiteHelpers::alert('error','The following errors occurred')

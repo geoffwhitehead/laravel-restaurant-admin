@@ -8,7 +8,7 @@
     </div>
     <div class="sbox-content">
         <div class="text-center  animated fadeInDown delayp1">
-            <img src="{{ asset('sximo/images/logo-sximo.png')}}" width="70" height="70"/>
+            <img src="{{ asset('uploads/images/logo.png')}}" width="220" height="70"/>
         </div>
         {{ Form::open(array('url'=>'user/signin', 'class'=>'form-vertical')) }}
         @if(Session::has('message'))
@@ -60,7 +60,7 @@
             <p class="text-center"><a id="or" href="javascript://ajax">
                     <small>Forgot password?</small>
                 </a></p>
-            <p class="text-muted text-center">Do not have an account?</p>
+            <!--<p class="text-muted text-center">Do not have an account?</p>-->
             @if(CNF_REGIST =='true')
                 <a class="btn btn-default btn-white btn-white btn-block" href="{{ URL::to('user/register')}}"> Create an
                     account </a>
