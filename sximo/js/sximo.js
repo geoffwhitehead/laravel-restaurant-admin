@@ -115,13 +115,24 @@ function SximoConfirmDelete( url )
 	return false;
 }
 function SximoDelete(  )
-{	
+{
 	var total = $('input[class="ids"]:checkbox:checked').length;
-	if(confirm('are u sure removing selected rows ?'))
+	if(confirm('are you sure you want to remove the selected rows?'))
 	{
-			$('#SximoTable').submit();// do the rest here	
-	}	
-}	
+		$('#SximoTable').submit();// do the rest here
+	}
+}
+
+// GEOFF : added function here to confirm selection of training records
+function ConfirmTraining(  )
+{
+	var total = $('input[class="ids"]:checkbox:checked').length;
+	if(confirm('are u sure you want to mark the selected training tasks as completed?'))
+	{
+		$('#SximoTable').submit();// do the rest here
+	}
+}
+
 function SximoModal( url , title)
 {
 	$('#sximo-modal-content').html(' ....Loading content , please wait ...');

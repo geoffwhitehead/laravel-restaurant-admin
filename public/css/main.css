@@ -3,3 +3,47 @@
     	width:25%;
 	height:auto;
 }
+
+#procedures .panel-default {
+	display: none;
+}
+
+#procedures .panel-default:target {
+	display: block;
+	animation: fadein 1s;
+	-webkit-animation: fadein 1s; /* support for Safari and Chrome */
+	-moz-animation: fadein 1s; /* support for Firefox */
+	-o-animation: fadein 1s; /* support for Opera */
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadein { /* support for Safari and Chrome */
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadein { /* support for Firefox */
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+
+}

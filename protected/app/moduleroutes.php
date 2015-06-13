@@ -16,4 +16,10 @@
                     Route::controller('departments', 'DepartmentsController');
                     Route::controller('assign', 'AssignController');
                     Route::controller('employee', 'EmployeeController');
+                    Route::controller('procedures', 'ProceduresController');
+                    Route::controller('trainingtasks', 'TrainingtasksController');
+                    Route::controller('trainingrecords', 'TrainingrecordsController');
+                    Route::controller('trainingcategories', 'TrainingcategoriesController');
+                    Route::controller('trainingsignoff', 'TrainingsignoffController');
+                    Route::controller('trainingrecordsfull', 'TrainingrecordsfullController');
                     ?>

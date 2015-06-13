@@ -1,22 +1,22 @@
 <?php
-class EmployeeController extends BaseController {
+class TrainingcategoriesController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'employee';
+	public $module = 'trainingcategories';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Employee();
+		$this->model = new Trainingcategories();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'employee',
+			'pageModule'=> 'trainingcategories',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -31,8 +31,8 @@ class EmployeeController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
 				
 		// Filter sort and order for query 
-		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'employee_id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -80,7 +80,7 @@ class EmployeeController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','employee.index',$this->data)
+		$this->layout->nest('content','trainingcategories.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -107,7 +107,7 @@ class EmployeeController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('employee_records'); 
+			$this->data['row'] = $this->model->getColumnTable('training_categories'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -119,7 +119,7 @@ class EmployeeController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-		$this->layout->nest('content','employee.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','trainingcategories.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -135,12 +135,12 @@ class EmployeeController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('employee_records'); 
+			$this->data['row'] = $this->model->getColumnTable('training_categories'); 
 		}
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','employee.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','trainingcategories.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
@@ -149,27 +149,25 @@ class EmployeeController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
-			if ($data['active'] = 0){
-				DB::table('tb_users')->where('id', $data['employee_id']) -> update(array('active' => 0));
-			}
-			$data = $this->validatePost('employee_records');
-			$data['reg_complete'] = 1;
-			$ID = $this->model->insertRow($data , Input::get('employee_id'));
+			$data = $this->validatePost('training_categories');
+			$data['created_by'] = Auth::id();
+			$data['created_on'] = date("Y-m-d H:i:s");
+			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
-			if( Input::get('employee_id') =='')
+			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfullyy");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'employee/add/'.$id.'?md='.$md.$trackUri :  'employee?md='.$md.$trackUri );
+			$redirect = (!is_null(Input::get('apply')) ? 'trainingcategories/add/'.$id.'?md='.$md.$trackUri :  'trainingcategories?md='.$md.$trackUri );
 			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
 		} else {
 			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('employee/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
+			return Redirect::to('trainingcategories/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -186,7 +184,7 @@ class EmployeeController extends BaseController {
 		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('employee?md='.Input::get('md'));
+		return Redirect::to('trainingcategories?md='.Input::get('md'));
 	}			
 		
 }

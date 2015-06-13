@@ -475,6 +475,9 @@ class BaseController extends Controller {
 		if($global == 0 )
 			$data['entry_by'] = Session::get('uid');
 					
+
+
+
 		return $data;
 	}
 	

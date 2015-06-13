@@ -73,8 +73,8 @@ class BaseModel extends Eloquent  {
 			$data['created_on'] = date("Y-m-d H:i:s");
 			if(isset($data['updated_by'])) $data['updated_by'] = Auth::id();
 		} else {
-			$data['updated_by'] = Auth::id();
-			$data['updated_on'] = date("Y-m-d H:i:s");
+			if(isset($data['updated_by'])) $data['updated_by'] = Auth::id();
+			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");
 		}
 		return $data;
 	}
@@ -84,9 +84,8 @@ class BaseModel extends Eloquent  {
 	   $key = with(new static)->primaryKey;
 
 
-	    if($id == NULL )
+	    if($id == NULL || $id == '' )
         {
-
             // Insert Here
 			if(isset($data['created_on'])) $data['created_on'] = date("Y-m-d H:i:s");
 			if(isset($data['updated_on'])) $data['updated_on'] = date("Y-m-d H:i:s");

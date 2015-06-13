@@ -176,6 +176,13 @@ class UsersController extends BaseController {
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success','Successfullyy deleted row!'));
 		return Redirect::to('users');
-	}			
-		
+	}
+
+	public function layout()
+	{
+		$sites = User::find($id);
+
+		return View::make('user.profile', array('user' => $user));
+	}
+
 }

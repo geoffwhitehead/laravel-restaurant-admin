@@ -96,15 +96,17 @@ class EventController extends BaseController
 
     public function getUsers()
     {
+        return json_encode(DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','1')->get());
 
-        //return json_encode(DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','1')->get());
-        return json_encode(DB::table('tb_users')
-            ->join('assigned_to', function ($join) {
-                $join->on('tb_users.id', '=', 'assigned_to.user_id')
-                    ->where('assigned_to.site_id', '=', Session::get('sid'))
-                    ->where('assigned_to.department_id', '=', 2);
-            })
-            ->get());
+
+
+       //return json_encode(DB::table('tb_users')
+           // ->join('assigned_to', function ($join) {
+           //     $join->on('tb_users.id', '=', 'assigned_to.user_id')
+          //          ->where('assigned_to.site_id', '=', Session::get('sid'))
+            //        ->where('assigned_to.department_id', '=', 2);
+          //  })
+
     }
 
 

@@ -5,6 +5,7 @@
                         class="fa fa-bars"></i> </a>
 
         </div>
+
         <ul class="nav navbar-top-links navbar-right">
             @if(CNF_MULTILANG ==1)
                 <li class="user dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -17,6 +18,8 @@
                     </ul>
                 </li>
             @endif
+               <!--ADD CODE HERE TO SELECT SITE AND DEPARTMENT-->
+
             @if(!Auth::check())
                 <li><a href="{{ URL::to('user/login')}}"><i
                                 class="icon-arrow-right12"></i> {{ Lang::get('core.signin'); }}</a></li>

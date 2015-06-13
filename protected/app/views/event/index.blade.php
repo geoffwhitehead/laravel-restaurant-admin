@@ -14,12 +14,12 @@
         </ul>
 
         {{ $site }}
-
     </div>
     @if(Session::has('message'))
         {{ Session::get('message') }}
     @endif
     {{ $details }}
+
     <div class="col-lg-12">
         <div id="event_content">
             <div id='external-events'>
