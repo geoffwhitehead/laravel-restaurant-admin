@@ -31,6 +31,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::controller('groups', 'GroupsController');
 	Route::controller('menu', 'MenuController');
 	Route::controller('dashboard', 'DashboardController');
+	//added route to change a site id
+	Route::post('changesite', 'DashboardController@postChangeSite');
+	Route::post('changedep', 'DashboardController@postChangeDep');
+
 	if(Session::get('gid') ==1)
 	{
 		Route::controller('module', 'ModuleController');
@@ -41,7 +45,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::controller('blogcategories', 'BlogcategoriesController');
 	Route::controller('blogcomment', 'BlogcommentController');
 	/* END CORE APPLICATION  */
-	
 	/* Dynamic Routers */
 	include('moduleroutes.php');
 });	

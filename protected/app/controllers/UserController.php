@@ -179,9 +179,19 @@ class UserController extends BaseController
                             Session::put('ll', $row->last_login);
                             Session::put('fid', $row->first_name . ' ' . $row->last_name);
 
+
+
+                            //HERE ------------------------------
                             $data = Input::all();
-                            Session::put('sid', Input::get('site_id'));
+                            $sid = DB::select("SELECT emp.default_site FROM employee_records as emp WHERE emp.employee_id = ".Session::get('uid')." limit 1");
+                            $did = DB::select("SELECT emp.default_department FROM employee_records as emp WHERE emp.employee_id = ".Session::get('uid')." limit 1");
+                            Session::put('sid', $sid[0]->default_site);
+                            Session::put('did', $did[0]->default_department);
                             Session::put('lvl', $row->level);
+                            // TO HERE -------------------------------
+
+
+
 
                             if (CNF_FRONT == 'false') :
                                 return Redirect::to('dashboard');

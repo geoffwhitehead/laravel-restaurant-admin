@@ -145,7 +145,7 @@
 		<div class="alert alert-info" role="alert">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			<span class="sr-only">Info:</span>
-			<p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training unconfirmed <br> Green: Training complete</p>
+			<p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training complete <br> Green: Training confirmed</p>
 		</div>
 	@include('footer')
 	

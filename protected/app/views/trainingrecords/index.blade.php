@@ -41,7 +41,7 @@
             @if(Session::get('gid') ==1)
                 <a href="javascript://ajax" onclick="ConfirmTraining();" class="tips btn btn-xs btn-success"
                    title="Confirm Training">
-                    <i class="fa fa-plus-circle"></i>&nbsp;Confirm Training</a>
+                    <i class="fa fa-plus-circle"></i>&nbsp;Mark as Complete</a>
             @endif
 
         </div>
@@ -56,7 +56,7 @@
         @endif
         {{ $details }}
 
-
+        {{ Input::get('md') }}
         {{ Form::open(array('url'=>'trainingrecords/confirm/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
         <div class="table-responsive" style="min-height:300px;">
             <table class="table table-striped ">
@@ -161,7 +161,7 @@
         <div class="alert alert-info" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Info:</span>
-            <p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training unconfirmed <br> Green: Training complete</p>
+            <p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training complete <br> Green: Training confirmed</p>
         </div>
     </div>
 

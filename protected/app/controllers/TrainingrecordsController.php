@@ -203,7 +203,7 @@ class TrainingrecordsController extends BaseController {
 		}
 		$serialise = implode(",", $ids);
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('trainingrecords?md='.Input::get('md'))->with('message', "Training records successfully updated [ID/s ".$ids."]");
+		return Redirect::to('trainingrecords?md='.Input::get('md'))->with('message', "Training records successfully updated [ID/s ".$serialise."]");
 	}
 
 }
