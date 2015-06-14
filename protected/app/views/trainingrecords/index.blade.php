@@ -103,51 +103,51 @@
                             <td width="50" class="editable" style="background:yellow"></td>
                         @else
                             <td width="50" class="editable" style="background:indianred"></td>
-                            @endif
+                        @endif
 
-                            <td width="50"> {{ ++$i }} </td>
-                            <td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}"/></td>
-                            @foreach ($tableGrid as $field)
-                                @if($field['view'] =='1')
-                                    <td>
-                                        @if($field['attribute']['image']['active'] =='1')
-                                            {{ SiteHelpers::showUploadedFile($row->$field['field'],$field['attribute']['image']['path']) }}
-                                        @else
-                                            {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
-                                            {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
-                                        @endif
-                                    </td>
-                                @endif
-                            @endforeach
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
-                                            aria-expanded="false">
-                                        <i class="fa fa-cog"></i> <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu  icons-left pull-right">
-                                        {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
-                                        @if($access['is_detail'] ==1)
-                                            <li>
-                                                <a href="{{ URL::to('trainingrecords/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                            class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if($access['is_edit'] ==1)
-                                            <li>
-                                                <a href="{{ URL::to('trainingrecords/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                            class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
-                                            </li>
-                                        @endif
-                                        @foreach($subgrid as $md)
-                                            <li>
-                                                <a href="{{ URL::to($md['module'].'?md='.$md['master'].'+'.$md['master_key'].'+'.$md['module'].'+'.$md['key'].'+'.$id) }}"><i
-                                                            class="icon-eye2"></i> {{ $md['title'] }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </td>
+                        <td width="50"> {{ ++$i }} </td>
+                        <td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}"/></td>
+                        @foreach ($tableGrid as $field)
+                            @if($field['view'] =='1')
+                                <td>
+                                    @if($field['attribute']['image']['active'] =='1')
+                                        {{ SiteHelpers::showUploadedFile($row->$field['field'],$field['attribute']['image']['path']) }}
+                                    @else
+                                        {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
+                                        {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
+                                    @endif
+                                </td>
+                            @endif
+                        @endforeach
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <i class="fa fa-cog"></i> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu  icons-left pull-right">
+                                    {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
+                                    @if($access['is_detail'] ==1)
+                                        <li>
+                                            <a href="{{ URL::to('trainingrecords/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($access['is_edit'] ==1)
+                                        <li>
+                                            <a href="{{ URL::to('trainingrecords/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                        class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
+                                        </li>
+                                    @endif
+                                    @foreach($subgrid as $md)
+                                        <li>
+                                            <a href="{{ URL::to($md['module'].'?md='.$md['master'].'+'.$md['master_key'].'+'.$md['module'].'+'.$md['key'].'+'.$id) }}"><i
+                                                        class="icon-eye2"></i> {{ $md['title'] }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </td>
                 </tr>
 
                 @endforeach

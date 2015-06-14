@@ -15,8 +15,8 @@ class BaseController extends Controller {
 		$this->sidebar = SiteHelpers::menus('sidebar'); 
 		$driver = Config::get('database.default');
 		$database = Config::get('database.connections');
-		$this->db = $database[$driver]['database'];		
-		
+		$this->db = $database[$driver]['database'];
+
 		
 	}
 	 

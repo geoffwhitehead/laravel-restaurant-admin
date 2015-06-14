@@ -26,7 +26,7 @@
 <div class="col-md-12">
 						<fieldset><legend> Training Sign Off</legend>
 									
-								  <div class="form-group  " >
+								  <div class="form-group hidethis " style="display:none;">
 									<label for="Id" class=" control-label col-md-4 text-left"> Id </label>
 									<div class="col-md-6">
 									  {{ Form::text('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
@@ -107,7 +107,11 @@
 								  <div class="form-group  " >
 									<label for="Active" class=" control-label col-md-4 text-left"> Active </label>
 									<div class="col-md-6">
-									  {{ Form::text('active', $row['active'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  
+					<label class='radio radio-inline'>
+					<input type='radio' name='active' value ='0'  @if($row['active'] == '0') checked="checked" @endif > Inactive </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='active' value ='1'  @if($row['active'] == '1') checked="checked" @endif > Active </label> 
 									 </div> 
 									 <div class="col-md-2">
 									 	
@@ -134,16 +138,16 @@
    <script type="text/javascript">
 	$(document).ready(function() { 
 		
-		$("#user_id").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id') }}",
+		$("#user_id").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
 		{  selected_value : '{{ $row["user_id"] }}' });
 		
-		$("#training_task_id").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=training_tasks:id:id') }}",
+		$("#training_task_id").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=training_tasks:id:task_name') }}",
 		{  selected_value : '{{ $row["training_task_id"] }}' });
 		
-		$("#conf_completed_by").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id') }}",
+		$("#conf_completed_by").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
 		{  selected_value : '{{ $row["conf_completed_by"] }}' });
 		
-		$("#created_by").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id') }}",
+		$("#created_by").jCombo("{{ URL::to('trainingsignoff/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
 		{  selected_value : '{{ $row["created_by"] }}' });
 		 
 	});

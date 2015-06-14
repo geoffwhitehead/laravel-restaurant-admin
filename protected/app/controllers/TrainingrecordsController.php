@@ -150,14 +150,11 @@ class TrainingrecordsController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('training_records');
-			//ADD TIMESTAMPS
-			$data['created_by'] = Auth::id();
-			$data['created_on'] = date("Y-m-d H:i:s");
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
@@ -173,10 +170,6 @@ class TrainingrecordsController extends BaseController {
 		}	
 	
 	}
-
-	//ADD A FUNCTION HERE TO CALL TO UPDATE CONFIRMED FLAG ON TRAINING TASKS FOR AN EMPLOYEE
-
-	//ADD A FUNCTION HERE TO CALL TO SIGN OFF A CONFIRMED FLAG FOR SIGN OFF SECTION
 	
 	public function postDestroy()
 	{
@@ -190,7 +183,6 @@ class TrainingrecordsController extends BaseController {
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('trainingrecords?md='.Input::get('md'));
-
 	}
 
 	public function postConfirm()
@@ -205,5 +197,4 @@ class TrainingrecordsController extends BaseController {
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('trainingrecords?md='.Input::get('md'))->with('message', "Training records successfully updated [ID/s ".$serialise."]");
 	}
-
 }

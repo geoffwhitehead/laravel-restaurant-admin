@@ -118,6 +118,11 @@
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
 	</div>
 	{{ Form::close() }}
+		<div class="alert alert-info" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span class="sr-only">Info:</span>
+			<p><strong>Note: </strong><br> Categories are cross department AND cross site. They offer no functionality other than allowing you to sort training tasks</p>
+		</div>
 	@include('footer')
 	
 	</div>	  

@@ -12,10 +12,10 @@ class Trainingrecords extends BaseModel  {
 	public static function querySelect(  ){
 		
 		
-		return "  SELECT training_records.* FROM training_records  ";
+		return " SELECT training_records.*, training_tasks.department_id, training_tasks.site_id, training_tasks.task_description FROM training_records JOIN training_tasks ON training_tasks.id = training_records.training_task_id ";
 	}
-	public static function queryWhere(  )
-	{
+	public static function queryWhere(  ){
+		
 		return " WHERE training_records.user_id = " . Session::get('uid') . "";
 	}
 	

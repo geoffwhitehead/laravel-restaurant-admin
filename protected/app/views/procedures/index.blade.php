@@ -3248,48 +3248,7 @@
 
 
             @if (Session::get('sid') == 2)
-                <h2>BASIC </h2>
-                <h3 id="000">NTP 000 : General Rules</h3>
-                <h3 id="001">NTP 001 : Opening Times</h3>
-                <h3 id="002">NTP 002 : Opening the Restaurant</h3>
-                <h3 id="003">NTP 003 : Closing the Restaurant</h3>
-
-                <h3 id="004">NTP 004 : Restaurant Cleaning Duties</h3>
-                <h3 id="007">NTP 007 : Drain / Clean the Glasswasher / Dishwasher</h3>
-                <h3 id="008">NTP 008 : Cleaning Toilets</h3>
-                <h3 id="009">NTP 009 : Wash / Press Napkins</h3>
-                <h3 id="010">NTP 010 : Accepting Deliveries</h3>
-                <h3 id="011">NTP 011 : Taking a Reservation</h3>
-
-                <h3 id="012">NTP 012 : Restaurant Service Procedure</h3>
-                <h3 id="013">NTP 013 : Taking a Voucher as Payment</h3>
-                <h3 id="014">NTP 014 : Recording Staff Food / Wastage</h3>
-
-
-                <h3 id="023">NTP 023 : Training</h3>
-                <h3 id="024">NTP 024 : Cleaning Coffee Machine (Daily)</h3>
-                <h3 id="025">NTP 025 : Using Cleaning Chemicals</h3>
-                <h3 id="026">NTP 026 : Polishing Glass / Cutlery</h3>
-                <h3 id="027">NTP 027 : Taking an Order</h3>
-                <h3 id="029">NTP 029 : Age Verification Policy</h3>
-                <h3 id="032">NTP 032 : Taking an Email Reservation</h3>
-
-                <h2>HEALTH & SAFETY / GRIEVANCE / HOLIDAYS </h2>
-
-                <h3 id="015">NTP 015 : Holiday / Absence Requests</h3>
-                <h3 id="016">NTP 016 : Reporting a Grievance</h3>
-                <h3 id="019">NTP 019 : General Health & Safety at Workplace</h3>
-                <h3 id="020">NTP 020 : Specific Health & Safety Issues</h3>
-
-                <h2>MANAGERIAL </h2>
-                <h3 id="021">NTP 021 : Raising Requirements / Ordering</h3>
-                <h3 id="022">NTP 022 : End of Day (Till)</h3>
-                <h3 id="028">NTP 028 : End of Day (Closing)</h3>
-                <h3 id="017">NTP 017 : Taking a Deposit</h3>
-                <h3 id="030">NTP 030 : Taking Payments over the Phone</h3>
-                <h3 id="005">NTP 005 : Cleaning Coffee Machine</h3>
-                <h3 id="006">NTP 006 : Descaling Coffee Machine</h3>
-                <h3 id="031">NTP 031 : Stock Checking</h3>
+                <p>procedures for durham go here</p>
             @endif
 
 

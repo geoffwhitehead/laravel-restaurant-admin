@@ -183,6 +183,18 @@ class TrainingsignoffController extends BaseController {
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
 		return Redirect::to('trainingsignoff?md='.Input::get('md'));
-	}			
-		
+	}
+
+	public function postConfirm()
+	{
+		$ids = Input::get('id');
+		foreach ($ids as $id){
+			DB::table('training_records')
+				->where('id', $id)
+				->update(array('conf_completed_by' => Auth::id(), 'conf_completed_on' => date("Y-m-d H:i:s")));
+		}
+		$serialise = implode(",", $ids);
+		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
+		return Redirect::to('trainingsignoff?md='.Input::get('md'))->with('message', "Training records successfully signed off [ID/s ".$serialise."]");
+	}
 }

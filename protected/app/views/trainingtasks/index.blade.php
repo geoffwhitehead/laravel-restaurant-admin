@@ -118,6 +118,7 @@
 	<input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}" />
 	</div>
 	{{ Form::close() }}
+
 	@include('footer')
 	
 	</div>	  
