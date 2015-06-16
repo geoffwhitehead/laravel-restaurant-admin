@@ -150,15 +150,11 @@ class TrainingsignoffController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('training_records');
+
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
-			if( Input::get('id') =='')
-			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
-				$id = SiteHelpers::encryptID($ID);
-			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
-			}
+			$this->inputLogs("ID: $ID - User ".Auth::id()." Signed off training task with ID ".Input::get('training_task_id')." for employee ".Input::get('user_id')."");
+
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
 			$redirect = (!is_null(Input::get('apply')) ? 'trainingsignoff/add/'.$id.'?md='.$md.$trackUri :  'trainingsignoff?md='.$md.$trackUri );

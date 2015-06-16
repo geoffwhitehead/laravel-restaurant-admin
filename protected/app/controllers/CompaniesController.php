@@ -147,18 +147,22 @@ class CompaniesController extends BaseController {
 	{
 		$trackUri = $this->data['trackUri'];
 		$rules = $this->validateForm();
-		$data = Input::all();
-		$data['active'] = 0;
-		var_dump($data);
-
-		$validator = Validator::make($data, $rules);
+		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('companies');
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
 				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");

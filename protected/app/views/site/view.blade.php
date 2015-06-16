@@ -83,6 +83,36 @@
 						
 					</tr>
 				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td>{{ $row->active }} </td>
+						
+					</tr>
+				
 		</tbody>	
 	</table>    
 	</div>

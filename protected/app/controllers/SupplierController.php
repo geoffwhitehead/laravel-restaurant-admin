@@ -150,15 +150,22 @@ class SupplierController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('suppliers');
-			$data = $this->model->addTimestamps($data, Input::get('id'));
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfullyy");
+				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfullyy");
+				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));

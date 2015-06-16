@@ -150,6 +150,10 @@ class DocsController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('doc_repo');
+			//add the timestamps
+			$data['uploaded_by'] = Auth::id();
+			$data['uploaded_on'] = date("Y-m-d H:i:s");
+			//insert the row
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')

@@ -150,7 +150,13 @@ class TrainingrecordsController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('training_records');
-			$ID = $this->model->insertRow($data , Input::get('id'));
+
+			//set the timestamps here
+			$inputID = Input::get('id');
+			$data = $this->model->createStamps($data, $inputID) ;
+
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{

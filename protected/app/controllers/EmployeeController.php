@@ -1,192 +1,191 @@
 <?php
-class EmployeeController extends BaseController {
 
-	protected $layout = "layouts.main";
-	protected $data = array();	
-	public $module = 'employee';
-	static $per_page	= '10';
-	
-	public function __construct() {
-		parent::__construct();
-		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Employee();
-		$this->info = $this->model->makeInfo( $this->module);
-		$this->access = $this->model->validAccess($this->info['id']);
-	
-		$this->data = array(
-			'pageTitle'	=> 	$this->info['title'],
-			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'employee',
-			'trackUri' 	=> $this->trackUriSegmented()	
-		);
-			
-				
-	} 
+class EmployeeController extends BaseController
+{
 
-	
-	public function getIndex()
-	{
-		if($this->access['is_view'] ==0) 
-			return Redirect::to('')
-				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
-				
-		// Filter sort and order for query 
-		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'employee_id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
-		// End Filter sort and order for query 
-		// Filter Search for query		
-		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
-		// End Filter Search for query 
-		
-		// Take param master detail if any
-		$master  = $this->buildMasterDetail(); 
-		// append to current $filter
-		$filter .=  $master['masterFilter'];
-	
-		
-		$page = Input::get('page', 1);
-		$params = array(
-			'page'		=> $page ,
-			'limit'		=> (!is_null(Input::get('rows')) ? filter_var(Input::get('rows'),FILTER_VALIDATE_INT) : static::$per_page ) ,
-			'sort'		=> $sort ,
-			'order'		=> $order,
-			'params'	=> $filter,
-			'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
-		);
-		// Get Query 
-		$results = $this->model->getRows( $params );		
-		
-		// Build pagination setting
-		$page = $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false ? $page : 1;	
-		$pagination = Paginator::make($results['rows'], $results['total'],$params['limit']);		
-		
-		
-		$this->data['rowData']		= $results['rows'];
-		// Build Pagination 
-		$this->data['pagination']	= $pagination;
-		// Build pager number and append current param GET
-		$this->data['pager'] 		= $this->injectPaginate();	
-		// Row grid Number 
-		$this->data['i']			= ($page * $params['limit'])- $params['limit']; 
-		// Grid Configuration 
-		$this->data['tableGrid'] 	= $this->info['config']['grid'];
-		$this->data['tableForm'] 	= $this->info['config']['forms'];
-		$this->data['colspan'] 		= SiteHelpers::viewColSpan($this->info['config']['grid']);		
-		// Group users permission
-		$this->data['access']		= $this->access;
-		// Detail from master if any
-		$this->data['masterdetail']  = $this->masterDetailParam(); 
-		$this->data['details']		= $master['masterView'];
-		// Master detail link if any 
-		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
-		// Render into template
-		$this->layout->nest('content','employee.index',$this->data)
-						->with('menus', SiteHelpers::menus());
-	}		
-	
+    protected $layout = "layouts.main";
+    protected $data = array();
+    public $module = 'employee';
+    static $per_page = '10';
 
-	function getAdd( $id = null)
-	{
-	
-		if($id =='')
-		{
-			if($this->access['is_add'] ==0 )
-			return Redirect::to('')->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
-		}	
-		
-		if($id !='')
-		{
-			if($this->access['is_edit'] ==0 )
-			return Redirect::to('')->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
-		}				
-			
-		$id = ($id == null ? '' : SiteHelpers::encryptID($id,true)) ;
-		
-		$row = $this->model->find($id);
-		if($row)
-		{
-			$this->data['row'] =  $row;
-		} else {
-			$this->data['row'] = $this->model->getColumnTable('employee_records'); 
-		}
-		/* Master detail lock key and value */
-		if(!is_null(Input::get('md')) && Input::get('md') !='')
-		{
-			$filters = explode(" ", Input::get('md') );
-			$this->data['row'][$filters[3]] = SiteHelpers::encryptID($filters[4],true); 	
-		}
-		/* End Master detail lock key and value */
-		$this->data['masterdetail']  = $this->masterDetailParam(); 
-		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
-		$this->data['id'] = $id;
-		$this->layout->nest('content','employee.form',$this->data)->with('menus', $this->menus );	
-	}
-	
-	function getShow( $id = null)
-	{
-	
-		if($this->access['is_detail'] ==0) 
-			return Redirect::to('')
-				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
-					
-		$ids = (is_numeric($id) ? $id : SiteHelpers::encryptID($id,true)  );
-		$row = $this->model->getRow($ids);
-		if($row)
-		{
-			$this->data['row'] =  $row;
-		} else {
-			$this->data['row'] = $this->model->getColumnTable('employee_records'); 
-		}
-		$this->data['masterdetail']  = $this->masterDetailParam(); 
-		$this->data['id'] = $id;
-		$this->data['access']		= $this->access;
-		$this->layout->nest('content','employee.view',$this->data)->with('menus', $this->menus );	
-	}	
-	
-	function postSave( $id =0)
-	{
-		$trackUri = $this->data['trackUri'];
-		$rules = $this->validateForm();
-		$validator = Validator::make(Input::all(), $rules);	
-		if ($validator->passes()) {
-			if ($data['active'] = 0){
-				DB::table('tb_users')->where('id', $data['employee_id']) -> update(array('active' => 0));
-			}
-			$data = $this->validatePost('employee_records');
-			$data['reg_complete'] = 1;
-			$ID = $this->model->insertRow($data , Input::get('employee_id'));
-			// Input logs
-			if( Input::get('employee_id') =='')
-			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
-				$id = SiteHelpers::encryptID($ID);
-			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfullyy");
-			}
-			// Redirect after save	
-			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'employee/add/'.$id.'?md='.$md.$trackUri :  'employee?md='.$md.$trackUri );
-			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
-		} else {
-			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('employee/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
-			->withErrors($validator)->withInput();
-		}	
-	
-	}
-	
-	public function postDestroy()
-	{
-		
-		if($this->access['is_remove'] ==0) 
-			return Redirect::to('')
-				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
-		// delete multipe rows 
-		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
-		// redirect
-		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('employee?md='.Input::get('md'));
-	}			
-		
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('csrf', array('on' => 'post'));
+        $this->model = new Employee();
+        $this->info = $this->model->makeInfo($this->module);
+        $this->access = $this->model->validAccess($this->info['id']);
+
+        $this->data = array(
+            'pageTitle' => $this->info['title'],
+            'pageNote' => $this->info['note'],
+            'pageModule' => 'employee',
+            'trackUri' => $this->trackUriSegmented()
+        );
+
+
+    }
+
+
+    public function getIndex()
+    {
+        if ($this->access['is_view'] == 0)
+            return Redirect::to('')
+                ->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+
+        // Filter sort and order for query
+        $sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'employee_id');
+        $order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+        // End Filter sort and order for query
+        // Filter Search for query
+        $filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
+        // End Filter Search for query
+
+        // Take param master detail if any
+        $master = $this->buildMasterDetail();
+        // append to current $filter
+        $filter .= $master['masterFilter'];
+
+
+        $page = Input::get('page', 1);
+        $params = array(
+            'page' => $page,
+            'limit' => (!is_null(Input::get('rows')) ? filter_var(Input::get('rows'), FILTER_VALIDATE_INT) : static::$per_page),
+            'sort' => $sort,
+            'order' => $order,
+            'params' => $filter,
+            'global' => (isset($this->access['is_global']) ? $this->access['is_global'] : 0)
+        );
+        // Get Query
+        $results = $this->model->getRows($params);
+
+        // Build pagination setting
+        $page = $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false ? $page : 1;
+        $pagination = Paginator::make($results['rows'], $results['total'], $params['limit']);
+
+
+        $this->data['rowData'] = $results['rows'];
+        // Build Pagination
+        $this->data['pagination'] = $pagination;
+        // Build pager number and append current param GET
+        $this->data['pager'] = $this->injectPaginate();
+        // Row grid Number
+        $this->data['i'] = ($page * $params['limit']) - $params['limit'];
+        // Grid Configuration
+        $this->data['tableGrid'] = $this->info['config']['grid'];
+        $this->data['tableForm'] = $this->info['config']['forms'];
+        $this->data['colspan'] = SiteHelpers::viewColSpan($this->info['config']['grid']);
+        // Group users permission
+        $this->data['access'] = $this->access;
+        // Detail from master if any
+        $this->data['masterdetail'] = $this->masterDetailParam();
+        $this->data['details'] = $master['masterView'];
+        // Master detail link if any
+        $this->data['subgrid'] = (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
+        // Render into template
+        $this->layout->nest('content', 'employee.index', $this->data)
+            ->with('menus', SiteHelpers::menus());
+    }
+
+
+    function getAdd($id = null)
+    {
+
+        if ($id == '') {
+            if ($this->access['is_add'] == 0)
+                return Redirect::to('')->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+        }
+
+        if ($id != '') {
+            if ($this->access['is_edit'] == 0)
+                return Redirect::to('')->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+        }
+
+        $id = ($id == null ? '' : SiteHelpers::encryptID($id, true));
+
+        $row = $this->model->find($id);
+        if ($row) {
+            $this->data['row'] = $row;
+        } else {
+            $this->data['row'] = $this->model->getColumnTable('employee_records');
+        }
+        /* Master detail lock key and value */
+        if (!is_null(Input::get('md')) && Input::get('md') != '') {
+            $filters = explode(" ", Input::get('md'));
+            $this->data['row'][$filters[3]] = SiteHelpers::encryptID($filters[4], true);
+        }
+        /* End Master detail lock key and value */
+        $this->data['masterdetail'] = $this->masterDetailParam();
+        $this->data['filtermd'] = str_replace(" ", "+", Input::get('md'));
+        $this->data['id'] = $id;
+        $this->layout->nest('content', 'employee.form', $this->data)->with('menus', $this->menus);
+    }
+
+    function getShow($id = null)
+    {
+
+        if ($this->access['is_detail'] == 0)
+            return Redirect::to('')
+                ->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+
+        $ids = (is_numeric($id) ? $id : SiteHelpers::encryptID($id, true));
+        $row = $this->model->getRow($ids);
+        if ($row) {
+            $this->data['row'] = $row;
+        } else {
+            $this->data['row'] = $this->model->getColumnTable('employee_records');
+        }
+        $this->data['masterdetail'] = $this->masterDetailParam();
+        $this->data['id'] = $id;
+        $this->data['access'] = $this->access;
+        $this->layout->nest('content', 'employee.view', $this->data)->with('menus', $this->menus);
+    }
+
+    function postSave($id = 0)
+    {
+        $trackUri = $this->data['trackUri'];
+        $rules = $this->validateForm();
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->passes()) {
+            if ($data['active'] = 0) {
+                DB::table('tb_users')->where('id', $data['employee_id'])->update(array('active' => 0));
+            }
+            $data = $this->validatePost('employee_records');
+            //set the timestamps here
+            $inputID = Input::get('employee_id');
+            //update timestamps
+            $data = $this->model->updateStamps($data, $inputID);
+            //mark registration as complete
+            $data['reg_complete'] = 1;
+            //insert the row
+            $ID = $this->model->insertRow($data, $inputID);
+            // Input logs
+            $this->inputLogs("Employee registration of user id: $ID completed");
+
+            // Redirect after save
+            $md = str_replace(" ", "+", Input::get('md'));
+            $redirect = (!is_null(Input::get('apply')) ? 'employee/add/' . $id . '?md=' . $md . $trackUri : 'employee?md=' . $md . $trackUri);
+            return Redirect::to($redirect)->with('message', SiteHelpers::alert('success', Lang::get('core.note_success')));
+        } else {
+            $md = str_replace(" ", "+", Input::get('md'));
+            return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
+                ->withErrors($validator)->withInput();
+        }
+
+    }
+
+    public function postDestroy()
+    {
+
+        if ($this->access['is_remove'] == 0)
+            return Redirect::to('')
+                ->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+        // delete multipe rows
+        $this->model->destroy(Input::get('id'));
+        $this->inputLogs("ID : " . implode(",", Input::get('id')) . "  , Has Been Removed Successfully");
+        // redirect
+        Session::flash('message', SiteHelpers::alert('success', Lang::get('core.note_success_delete')));
+        return Redirect::to('employee?md=' . Input::get('md'));
+    }
+
 }

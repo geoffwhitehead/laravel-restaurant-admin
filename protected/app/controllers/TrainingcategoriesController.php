@@ -150,9 +150,15 @@ class TrainingcategoriesController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('training_categories');
-			$data['created_by'] = Auth::id();
-			$data['created_on'] = date("Y-m-d H:i:s");
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{

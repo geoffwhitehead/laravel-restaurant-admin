@@ -150,10 +150,17 @@ class CheckcategoriesController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('check_categories');
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+
+			$ID = $this->model->insertRow($data , $inputID);
+
 			// Input logs
-			if( Input::get('id') =='')
-			{
+			if( Input::get('id') ==''){
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {

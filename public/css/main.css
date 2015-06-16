@@ -4,6 +4,10 @@
 	height:auto;
 }
 
+#sidemenu .logo-header .navbar-brand{
+	padding:3px 42px 3px 22px;
+}
+
 #procedures .panel-default {
 	display: none;
 }

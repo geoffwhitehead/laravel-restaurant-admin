@@ -167,8 +167,12 @@ class AssignController extends BaseController
 
         if ($validator->passes()) {
             $data = $this->validatePost('assigned_to');
-            $data = $this->model->addTimestamps($data, Input::get('id'));
-            $ID = $this->model->insertRow($data, Input::get('id'));
+            $inputID = Input::get('id');
+            if ($inputID == '') {
+                $data = $this->model->createStamps($data, $inputID) ;
+            }
+            $ID = $this->model->insertRow($data, $inputID);
+
             // Input logs
             if (Input::get('id') == '') {
                 $this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");

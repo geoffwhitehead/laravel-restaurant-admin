@@ -151,8 +151,15 @@ class VoucherController extends BaseController {
 		if ($validator->passes()) {
 
 			$data = $this->validatePost('vouchers');
-			$data = $this->model->addTimestamps($data,Input::get('id'));
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{

@@ -116,6 +116,56 @@
 									 <div class="col-md-2">
 									 	
 									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Created On" class=" control-label col-md-4 text-left"> Created On </label>
+									<div class="col-md-6">
+									  
+				{{ Form::text('created_on', $row['created_on'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }} 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Created By" class=" control-label col-md-4 text-left"> Created By </label>
+									<div class="col-md-6">
+									  <select name='created_by' rows='5' id='created_by' code='{$created_by}' 
+							class='select2 '    ></select> 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Updated On" class=" control-label col-md-4 text-left"> Updated On </label>
+									<div class="col-md-6">
+									  
+				{{ Form::text('updated_on', $row['updated_on'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }} 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Updated By" class=" control-label col-md-4 text-left"> Updated By </label>
+									<div class="col-md-6">
+									  <select name='updated_by' rows='5' id='updated_by' code='{$updated_by}' 
+							class='select2 '    ></select> 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
+								  </div> 					
+								  <div class="form-group  " >
+									<label for="Active" class=" control-label col-md-4 text-left"> Active </label>
+									<div class="col-md-6">
+									  <textarea name='active' rows='2' id='active' class='form-control '  
+				           >{{ $row['active'] }}</textarea> 
+									 </div> 
+									 <div class="col-md-2">
+									 	
+									 </div>
 								  </div> </fieldset>
 			</div>
 			
@@ -140,6 +190,12 @@
 		
 		$("#company_id").jCombo("{{ URL::to('site/comboselect?filter=companies:id:id|company_name') }}",
 		{  selected_value : '{{ $row["company_id"] }}' });
+		
+		$("#created_by").jCombo("{{ URL::to('site/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
+		{  selected_value : '{{ $row["created_by"] }}' });
+		
+		$("#updated_by").jCombo("{{ URL::to('site/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
+		{  selected_value : '{{ $row["updated_by"] }}' });
 		 
 	});
 	</script>		 

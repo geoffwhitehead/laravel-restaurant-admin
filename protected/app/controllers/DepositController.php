@@ -151,9 +151,17 @@ class DepositController extends BaseController {
 		if ($validator->passes()) {
 
 			$data = $this->validatePost('deposits');
-			$data = $this->model->addTimestamps($data, Input::get('id'));
+			//add the site_id variable, TODO: maybe be able to change this later so its in form and hide from certain users
 			$data['site_id'] = Session::get('sid');
-			$ID = $this->model->insertRow($data , Input::get('id'));
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
+			$ID = $this->model->insertRow($data , $inputID);
 			// Input logs
 			if( Input::get('id') =='')
 			{

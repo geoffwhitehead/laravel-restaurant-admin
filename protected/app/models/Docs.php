@@ -16,7 +16,7 @@ class Docs extends BaseModel  {
 	}
 	public static function queryWhere(  ){
 		
-		return " WHERE doc_repo.id IS NOT NULL   ";
+		return " WHERE doc_repo.site_id = ".Session::get('sid')." or doc_repo.global = 1";
 	}
 	
 	public static function queryGroup(){

@@ -149,12 +149,15 @@ class TrainingtasksController extends BaseController
         if ($validator->passes()) {
             DB::beginTransaction();
             $data = $this->validatePost('training_tasks');
-            //ADD TIMESTAMPS
-            if (Input::get('id') == '') {
-                $data['created_by'] = Auth::id();
-                $data['created_on'] = date("Y-m-d H:i:s");
+            //set the timestamps here
+            $inputID = Input::get('id');
+            if ($inputID == '') {
+                $data = $this->model->createStamps($data, $inputID) ;
+            } else {
+                $data = $this->model->updateStamps($data, $inputID) ;
             }
-            $ID = $this->model->insertRow($data, Input::get('id'));
+            //insert the row
+            $ID = $this->model->insertRow($data , $inputID);
             // Input logs
             if (Input::get('id') == '') {
 

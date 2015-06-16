@@ -150,6 +150,15 @@ class ChecksController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('checks');
+
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
+			//insert the row
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')

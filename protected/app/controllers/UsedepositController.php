@@ -19,8 +19,6 @@ class UsedepositController extends BaseController {
 			'pageModule'=> 'usedeposit',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
-			
-				
 	} 
 
 	

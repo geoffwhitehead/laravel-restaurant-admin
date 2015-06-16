@@ -36,25 +36,25 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Reg Address Street</td>
+						<td width='30%' class='label-view text-right'>Street</td>
 						<td>{{ $row->reg_address_street }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Reg Address City</td>
+						<td width='30%' class='label-view text-right'>City</td>
 						<td>{{ $row->reg_address_city }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Reg Address County</td>
+						<td width='30%' class='label-view text-right'>County</td>
 						<td>{{ $row->reg_address_county }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Reg Address Postcode</td>
+						<td width='30%' class='label-view text-right'>Postcode</td>
 						<td>{{ $row->reg_address_postcode }} </td>
 						
 					</tr>
@@ -74,6 +74,30 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Incorporation Date</td>
 						<td>{{ $row->incorporation_date }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
 				
