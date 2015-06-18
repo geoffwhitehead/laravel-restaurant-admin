@@ -30,7 +30,7 @@
                 </div>-->
                 <div class="" panel-body>
                     <div>
-                        <label>Site</label><br/>
+                        <label for = "site_id">Site</label><br/>
                         <select name='site_id' rows='5' id='site_id' class='select2 '>
 
                             @foreach ($sites as $site)
@@ -44,7 +44,7 @@
                         </select>
                     </div>
                     <div>
-                        <label>Department</label><br/>
+                        <label for ="dep_id">Department:</label><br/>
                         <select name='dep_id' rows='5' id='dep_id' class='select2 '>
                             @foreach ($departments as $dep)
                                 @if ($dep->id == Session::get('did'))
@@ -56,8 +56,13 @@
                         </select>
                     </div>
                 </div>
-            </div>
 
+            </div>
+                <div class="alert alert-info" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Info:</span>
+                    <p><strong>Note: </strong><br> As an admin the site and department selection is not necessary except in some cases such as creating a sale. Will remove after testing.</p>
+                </div>
                 <section>
 
                     <div class=" row m-l-none m-r-none m-t white-bg shortcut ">

@@ -56,6 +56,11 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-info" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
+                <p><strong>Note: </strong><br> As an admin the site and department selection is not neccessary except in some cases such as creating a sale. Will remove after testing.</p>
+            </div>
 
 
     </div>

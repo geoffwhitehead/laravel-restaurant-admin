@@ -19,7 +19,7 @@
     <div class="page-content-wrapper">
         <div class="toolbar-line ">
             @if($access['is_add'] ==1)
-                <a href="{{ URL::to('trainingrecords/add?md='.$masterdetail["filtermd"].$trackUri) }}"
+                <a href="{{ URL::to('jobs/add?md='.$masterdetail["filtermd"].$trackUri) }}"
                    class="tips btn btn-xs btn-info" title="{{ Lang::get('core.btn_create') }}">
                     <i class="fa fa-plus"></i>&nbsp;{{ Lang::get('core.btn_create') }}</a>
             @endif
@@ -29,20 +29,21 @@
                     <i class="fa fa-trash-o"></i>&nbsp;{{ Lang::get('core.btn_remove') }}</a>
             @endif
             @if($access['is_excel'] ==1)
-                <a href="{{ URL::to('trainingrecords/download?md='.$masterdetail["filtermd"].$trackUri) }}"
+                <a href="{{ URL::to('jobs/download?md='.$masterdetail["filtermd"].$trackUri) }}"
                    class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
                     <i class="fa fa-download"></i>&nbsp;{{ Lang::get('core.btn_download') }} </a>
             @endif
             @if(Session::get('gid') ==1)
-                <a href="{{ URL::to('module/config/trainingrecords') }}" class="tips btn btn-xs btn-default"
+                <a href="{{ URL::to('module/config/jobs') }}" class="tips btn btn-xs btn-default"
                    title="{{ Lang::get('core.btn_config') }}">
                     <i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>
             @endif
-            @if(Session::get('gid') ==1)
-                <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
-                   title="Confirm Training">
-                    <i class="fa fa-plus-circle"></i>&nbsp;Mark as Complete</a>
-            @endif
+            <a href="javascript://ajax" onclick="MarkCompleted();"
+               class="tips btn btn-xs btn-success"
+               title="Mark Job Complete">
+                <i class="fa fa-check"></i>&nbsp;Mark Jobs as Completed
+            </a>
+
 
         </div>
 
@@ -50,20 +51,20 @@
         @if(Session::has('message'))
             <div class="alert alert-info" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span>
-                {{ Session::get('message') }}
+                <span class="sr-only">Info:</span>
+
+                <p>{{ Session::get('message') }}</p>
             </div>
         @endif
         {{ $details }}
 
-        {{ Input::get('md') }}
-        {{ Form::open(array('url'=>'trainingrecords/confirm/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
+        {{ Form::open(array('url'=>'jobs/completed/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
         <div class="table-responsive" style="min-height:300px;">
             <table class="table table-striped ">
                 <thead>
                 <tr>
                     <th>Status</th>
-                    <th>No</th>
+                    <th> No</th>
                     <th><input type="checkbox" class="checkall"/></th>
 
                     @foreach ($tableGrid as $t)
@@ -92,15 +93,15 @@
                         <button type="button" class=" do-quick-search btn btn-xs btn-info"> GO</button>
                     </td>
                 </tr>
-                <tr>
-                    @foreach ($rowData as $row)
-                        {{var_dump($row)}}
-                        <!-- added status colours for training records here-->
 
-                        @if($row->conf_completed_by != NULL)
+                @foreach ($rowData as $row)
+                    <tr>
+                       <?php echo $_REQUEST[$row->id]?>
+
+                        @if($row->id != NULL)
                             <td width="50" class="editable" style="background:darkseagreen"></td>
 
-                        @elseif ($row->completed == 1)
+                        @elseif ($row->id == 1)
                             <td width="50" class="editable" style="background:yellow"></td>
                         @else
                             <td width="50" class="editable" style="background:indianred"></td>
@@ -130,14 +131,13 @@
                                     {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
                                     @if($access['is_detail'] ==1)
                                         <li>
-                                            <a href="{{ URL::to('trainingrecords/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
-                                            </a>
+                                            <a href="{{ URL::to('jobs/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a>
                                         </li>
                                     @endif
                                     @if($access['is_edit'] ==1)
                                         <li>
-                                            <a href="{{ URL::to('trainingrecords/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                            <a href="{{ URL::to('jobs/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
                                                         class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
                                         </li>
                                     @endif
@@ -149,7 +149,7 @@
                                 </ul>
                             </div>
                         </td>
-                </tr>
+                    </tr>
 
                 @endforeach
 
@@ -159,21 +159,15 @@
             <input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}"/>
         </div>
         {{ Form::close() }}
-        <div class="alert alert-info" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Info:</span>
-            <p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training complete <br> Green: Training confirmed</p>
-        </div>
+        @include('footer')
+
     </div>
-
-    @include('footer')
-
 </div>
 <script>
     $(document).ready(function () {
 
         $('.do-quick-search').click(function () {
-            $('#SximoTable').attr('action', '{{ URL::to("trainingrecords/multisearch")}}');
+            $('#SximoTable').attr('action', '{{ URL::to("jobs/multisearch")}}');
             $('#SximoTable').submit();
         });
 

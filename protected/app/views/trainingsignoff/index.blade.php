@@ -23,11 +23,6 @@
                    class="tips btn btn-xs btn-info" title="{{ Lang::get('core.btn_create') }}">
                     <i class="fa fa-plus"></i>&nbsp;{{ Lang::get('core.btn_create') }}</a>
             @endif
-            @if($access['is_remove'] ==1)
-                <a href="javascript://ajax" onclick="SximoDelete();" class="tips btn btn-xs btn-danger"
-                   title="{{ Lang::get('core.btn_remove') }}">
-                    <i class="fa fa-trash-o"></i>&nbsp;{{ Lang::get('core.btn_remove') }}</a>
-            @endif
             @if($access['is_excel'] ==1)
                 <a href="{{ URL::to('trainingsignoff/download?md='.$masterdetail["filtermd"].$trackUri) }}"
                    class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
@@ -38,14 +33,20 @@
                    title="{{ Lang::get('core.btn_config') }}">
                     <i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>
             @endif
-            <a href="javascript://ajax" onclick="ConfirmTraining();" class="tips btn btn-xs btn-success"
+            <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
                title="Confirm Training">
                 <i class="fa fa-plus-circle"></i>&nbsp;Sign Off Training</a>
         </div>
 
 
         @if(Session::has('message'))
-            {{ Session::get('message') }}
+            <div class="alert alert-info" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
+
+                <p>{{ Session::get('message') }}</p>
+            </div>
+
         @endif
         {{ $details }}
 
@@ -86,6 +87,7 @@
                 </tr>
                 <tr>
                     @foreach ($rowData as $row)
+                        {{var_dump($row)}}
                         <!-- added status colours for training records here-->
 
                         @if($row->conf_completed_by != NULL)

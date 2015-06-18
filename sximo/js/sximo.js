@@ -124,10 +124,10 @@ function SximoDelete(  )
 }
 
 // GEOFF : added function here to confirm selection of training records
-function ConfirmTraining(  )
+function MarkCompleted(  )
 {
 	var total = $('input[class="ids"]:checkbox:checked').length;
-	if(confirm('are u sure you want to mark the selected training tasks as completed?'))
+	if(confirm('are u sure you want to mark the selected as completed?'))
 	{
 		$('#SximoTable').submit();// do the rest here
 	}

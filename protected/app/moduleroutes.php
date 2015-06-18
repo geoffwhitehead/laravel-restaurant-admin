@@ -23,7 +23,7 @@
                     Route::controller('trainingsignoff', 'TrainingsignoffController');
                     Route::controller('trainingrecordsfull', 'TrainingrecordsfullController');
                     Route::controller('checkcategories', 'CheckcategoriesController');
-                    Route::controller('checks', 'ChecksController');
                     Route::controller('checktimeperiods', 'ChecktimeperiodsController');
                     Route::controller('checkslog', 'CheckslogController');
+                    Route::controller('jobs', 'JobsController');
                     ?>

@@ -16,6 +16,8 @@ class BaseController extends Controller {
 		$driver = Config::get('database.default');
 		$database = Config::get('database.connections');
 		$this->db = $database[$driver]['database'];
+		//set default timezone
+		date_default_timezone_set('UTC');
 
 		
 	}
@@ -117,7 +119,7 @@ class BaseController extends Controller {
 		$post = $_POST;
 		$items ='';
 		foreach($post as $item=>$val):
-			if($_POST[$item] !='' and $item !='_token' and $item !='md' && $item !='id'):
+			if($_POST[$item] !='' and $item !='_token' and $item !='md' && $item !='.id'):
 				$items .= $item.':'.trim($val).'|';
 			endif;	
 		
