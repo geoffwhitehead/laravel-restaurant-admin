@@ -8,7 +8,7 @@
         </div>
         <ul class="breadcrumb">
             <li><a href="{{ URL::to('dashboard') }}">{{ Lang::get('core.home') }}</a></li>
-            <li><a href="{{ URL::to('deposit?md='.$filtermd) }}">{{ $pageTitle }}</a></li>
+            <li><a href="{{ URL::to('invoice?md='.$filtermd) }}">{{ $pageTitle }}</a></li>
             <li class="active">{{ Lang::get('core.addedit') }} </li>
         </ul>
 
@@ -23,10 +23,10 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        {{ Form::open(array('url'=>'deposit/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
+        {{ Form::open(array('url'=>'invoices/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
         <div class="col-md-12">
             <fieldset>
-                <legend> Deposits</legend>
+                <legend> Invoices</legend>
 
                 <div class="form-group hidethis " style="display:none;">
                     <label for="Id" class=" control-label col-md-4 text-left"> Id </label>
@@ -38,6 +38,19 @@
 
                     </div>
                 </div>
+                <div class="form-group  ">
+                    <label for="Invoice Date" class=" control-label col-md-4 text-left"> Invoice Date <span
+                                class="asterix"> * </span></label>
+
+                    <div class="col-md-6">
+
+                        {{ Form::text('invoice_date', $row['invoice_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+
 
                 <!--i have made the options below only available for user below or = to level 3. This will be chosen automatially for other users based on their position-->
                 @if(Session::get('lvl') <= GLOBAL_USER)
@@ -73,123 +86,108 @@
                     </div>
                 @endif
 
+
+
+
+
                 <div class="form-group  ">
-                    <label for="Booking Date Time" class=" control-label col-md-4 text-left"> Booking Date Time <span
+                    <label for="Supplier" class=" control-label col-md-4 text-left"> Supplier <span
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-
-                        {{ Form::text('booking_date_time', $row['booking_date_time'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }}
+                        <select name='supplier_id' rows='5' id='supplier_id' code='{$supplier_id}'
+                                class='select2 ' required></select>
                     </div>
                     <div class="col-md-2">
 
                     </div>
                 </div>
                 <div class="form-group  ">
-                    <label for="Booking Name" class=" control-label col-md-4 text-left"> Booking Name <span
+                    <label for="Payment Method" class=" control-label col-md-4 text-left"> Payment Method <span
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('booking_name', $row['booking_name'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
+                        <select name='payment_method_id' rows='5' id='payment_method_id' code='{$payment_method_id}'
+                                class='select2 ' required></select>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-4"></div>
+                    <div class="col-md-6">
+
+                        <div class="alert alert-info" role="alert">
+                            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Info:</span>
+
+                                <strong>Note: </strong>On selecting "CASH" as the payment method you are confirming that
+                                the cash was taken from today's sale. If this isn't the case the till at the end of the
+                                day will be down and you will have to detail this in the "cash variance" comments box in
+                                the sale tab at the end of the day.</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="form-group  ">
+                    <label for="Amount" class=" control-label col-md-4 text-left"> Amount <span
+                                class="asterix"> * </span></label>
+
+                    <div class="col-md-6">
+                        {{ Form::text('amount', $row['amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
                     </div>
                     <div class="col-md-2">
 
                     </div>
                 </div>
                 <div class="form-group  ">
-                    <label for="Booking Phone" class=" control-label col-md-4 text-left"> Booking Phone <span
-                                class="asterix"> * </span></label>
+                    <label for="Comments" class=" control-label col-md-4 text-left"> Comments </label>
 
                     <div class="col-md-6">
-                        {{ Form::text('booking_phone', $row['booking_phone'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
+                        {{ Form::text('comments', $row['comments'],array('class'=>'form-control', 'placeholder'=>'',   )) }}
                     </div>
                     <div class="col-md-2">
 
                     </div>
                 </div>
-
-
-                <div class="form-group  ">
-                    <label for="Booking Covers" class=" control-label col-md-4 text-left"> Booking Covers <span
-                                class="asterix"> * </span></label>
-
-                    <div class="col-md-6">
-                        {{ Form::text('booking_covers', $row['booking_covers'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }}
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
-                </div>
-                @if($row['id'] == "")
-                    <div class="form-group  ">
-                        <label for="Deposit Amount" class=" control-label col-md-4 text-left"> Deposit Amount <span
-                                    class="asterix"> * </span></label>
-
-                        <div class="col-md-6">
-                            {{ Form::text('deposit_amount', $row['deposit_amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )) }}
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-
-
-
+                @if(Session::get('lvl') <= GLOBAL_USER)
 
                     <div class="form-group  ">
-                        <label for="Payment Method" class=" control-label col-md-4 text-left"> Payment Method <span
+                        <label for="Cash Taken" class=" control-label col-md-4 text-left"> Cash Taken <span
                                     class="asterix"> * </span></label>
-
-                        <div class="col-md-6">
-                            <select name='payment_method' rows='5' id='payment_method' code='{$payment_method}'
-                                    class='select2 ' required></select>
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                @else
-                    <div class="form-group  ">
-                        <label for="Deposit Amount" class=" control-label col-md-4 text-left"> Deposit Amount <span
-                                    class="asterix"> * </span></label>
-
-                        <div class="col-md-6">
-                            {{ Form::text('deposit_amount', $row['deposit_amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'readonly'  )) }}
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                    <div class="form-group hidethis " style="display:none;">
-                        <label for="Payment Method" class=" control-label col-md-4 text-left"> Payment Method <span
-                                    class="asterix"> * </span></label>
-
-                        <div class="col-md-6">
-                            <select name='payment_method' rows='5' id='payment_method' code='{$payment_method}'
-                                    class='select2 '></select>
-                        </div>
-                        <div class="col-md-2">
-
-                        </div>
-                    </div>
-                @endif
-                @if($row['id'] != "")
-                    <div class="form-group  ">
-                        <label for="No Show" class=" control-label col-md-4 text-left"> No Show </label>
 
                         <div class="col-md-6">
 
                             <label class='radio radio-inline'>
-                                <input type='radio' name='no_show_flag' value='0'  @if($row['no_show_flag'] == '0')
+                                <input type='radio' name='cash_taken' value='0' requred @if($row['cash_taken'] == '0')
                                        checked="checked" @endif > No </label>
                             <label class='radio radio-inline'>
-                                <input type='radio' name='no_show_flag' value='1'  @if($row['no_show_flag'] == '1')
+                                <input type='radio' name='cash_taken' value='1' requred @if($row['cash_taken'] == '1')
                                        checked="checked" @endif > Yes </label>
                         </div>
                         <div class="col-md-2">
 
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-4"></div>
+                        <div class="col-md-6">
+
+                            <div class="alert alert-info" role="alert">
+                                <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Info:</span>
+
+                                    <strong>Note: </strong>As an admin you are able to select whether cash invoices were
+                                    taken from the sale or not. This is not available to standard users</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                @endif
+                @if($row['id'] != "")
                     <div class="form-group  ">
                         <label for="Active" class=" control-label col-md-4 text-left"> Active </label>
 
@@ -224,7 +222,7 @@
                            value="{{ Lang::get('core.sb_save') }}  "/>
                 @endif
                 <button type="button"
-                        onclick="location.href='{{ URL::to('deposit?md='.$masterdetail["filtermd"].$trackUri) }}' "
+                        onclick="location.href='{{ URL::to('invoice?md='.$masterdetail["filtermd"].$trackUri) }}' "
                         id="submit" class="btn btn-success ">  {{ Lang::get('core.sb_cancel') }} </button>
             </div>
 
@@ -236,18 +234,14 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $("#site_id").jCombo("{{ URL::to('deposit/comboselect?filter=sites:id:id|name|address_city') }}",
+        $("#site_id").jCombo("{{ URL::to('invoice/comboselect?filter=sites:id:id|address_city') }}",
                 {selected_value: '{{ $row["site_id"] }}'});
 
-        $("#payment_method").jCombo("{{ URL::to('deposit/comboselect?filter=payment_methods:id:invoice_type') }}",
-                {selected_value: '{{ $row["payment_method"] }}'});
+        $("#supplier_id").jCombo("{{ URL::to('invoice/comboselect?filter=suppliers:id:supplier_name|account_ref|site_id') }}",
+                {selected_value: '{{ $row["supplier_id"] }}'});
+
+        $("#payment_method_id").jCombo("{{ URL::to('invoice/comboselect?filter=payment_methods:id:invoice_type') }}",
+                {selected_value: '{{ $row["payment_method_id"] }}'});
 
     });
 </script>
-
-
-
-
-
-
-

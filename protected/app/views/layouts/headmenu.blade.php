@@ -18,12 +18,17 @@
                     </ul>
                 </li>
             @endif
-               <!--ADD CODE HERE TO SELECT SITE AND DEPARTMENT-->
+
+
 
             @if(!Auth::check())
+
+
+
                 <li><a href="{{ URL::to('user/login')}}"><i
                                 class="icon-arrow-right12"></i> {{ Lang::get('core.signin'); }}</a></li>
             @elseif(Session::get('gid') ==1)
+
                 <li class="user dropdown"><a class="dropdown-toggle" href="javascript:void(0)"
                                              data-toggle="dropdown"><i class="icon-screen"></i>
                         <span>{{ Lang::get('core.m_controlpanel'); }}</span><i class="caret"></i></a>
@@ -60,7 +65,7 @@
                 </li>
 
                 <!--added seperate menu bar for administrators and managing directors.-->
-            @elseif(Session::get('gid') == 2 or Session::get('gid') == 3 )
+            @elseif(Session::get('lvl') <= GLOBAL_USER )
                 <li class="user dropdown"><a class="dropdown-toggle" href="javascript:void(0)"
                                              data-toggle="dropdown"><i class="icon-screen"></i>User Management<i class="caret"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right icons-right">

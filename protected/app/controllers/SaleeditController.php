@@ -192,5 +192,30 @@ class SaleeditController extends BaseController
         Session::flash('message', SiteHelpers::alert('success', Lang::get('core.note_success_delete')));
         return Redirect::to('saleedit?md=' . Input::get('md'));
     }
+    public function postConfirm()
+    {
+        DB::beginTransaction();
+        try {
+
+
+            $ids = Input::get('id');
+
+            foreach ($ids as $id) {
+                $amt = DB::select("select cash_taken from sales where id = ".$id."");
+                DB::table('sales')
+                    ->where('id', $id)
+                    ->update(array('sale_checked_by' => Auth::id(), 'sale_checked_on' => date("Y-m-d H:i:s"), 'cash_checked_amt' => $amt[0]->cash_taken,));
+            }
+            //input logs
+            $serialise = implode(",", $ids);
+            $this->inputLogs("User: " . Auth::id() . " has marked sales with ID's of " . $serialise . " as correct");
+            Session::flash('message', SiteHelpers::alert('success',"Success"));
+            DB::commit();
+            return Redirect::to('saleedit?md=' . Input::get('md'))->with('message', SiteHelpers::alert('success', "Successfully marked ". count($ids) ." sale/s"));
+        } catch (Exception $e) {
+            DB::rollBack();
+            return Redirect::to('saleedit?md=' . Input::get('md'))->with('message', SiteHelpers::alert('error', "error: no changes made"));
+        }
+    }
 
 }

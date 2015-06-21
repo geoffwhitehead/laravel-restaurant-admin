@@ -15,19 +15,20 @@ class Employee extends BaseModel
     public static function querySelect()
     {
 
-        return "  SELECT employee_records.* FROM employee_records  ";
+
+        return "  SELECT employee_records.*, usr.active FROM employee_records join tb_users usr on usr.id = employee_records.employee_id ";
     }
 
     public static function queryWhere()
     {
-        if (Session::get('gid') == 5) {
-            return " WHERE employee_records.employee_id IS NOT NULL and employee_records.default_site = " . Session::get('sid') . "";
-        } elseif (Session::get('gid') > 4) {
-            return " WHERE employee_records.employee_id =" . Session::get('uid') . "";
-        } else {
-            return " WHERE employee_records.employee_id IS NOT NULL   ";
-        }
 
+        if (Session::get('lvl') <= GLOBAL_USER) {
+            return " WHERE employee_records.employee_id IS NOT NULL";
+        } elseif (Session::get('lvl') == MANAGER) {
+            return " WHERE employee_records.default_site = " . Session::get('d_sid') . " and usr.active = 1";
+        } else {
+            return " WHERE employee_records.employee_id =" . Session::get('uid') . "";
+        }
     }
 
     public static function queryGroup()

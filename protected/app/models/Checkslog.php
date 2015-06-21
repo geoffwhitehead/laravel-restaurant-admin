@@ -21,7 +21,7 @@ class Checkslog extends BaseModel
 
     public static function queryWhere()
     {
-        if (Session::get('lvl') > 3) {
+        if (Session::get('lvl') > GLOBAL_USER) {
             return "where check_log.site_id = " . Session::get('sid') . "";
         } else {
             return " WHERE checks_log.id IS NOT NULL   ";

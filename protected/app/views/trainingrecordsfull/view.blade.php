@@ -36,8 +36,26 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Site Id</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:address_city') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Department Id</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->department_id,'department_id','1:departments:id:name') }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Training Task Id</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->training_task_id,'training_task_id','1:training_tasks:id:task_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Task Description</td>
+						<td>{{ $row->task_description }} </td>
 						
 					</tr>
 				
@@ -48,14 +66,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Conf Completed By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->conf_completed_by,'conf_completed_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						<td width='30%' class='label-view text-right'>Conf Completed On</td>
+						<td>{{ $row->conf_completed_on }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Conf Completed On</td>
-						<td>{{ $row->conf_completed_on }} </td>
+						<td width='30%' class='label-view text-right'>Conf Completed By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->conf_completed_by,'conf_completed_by','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
 				

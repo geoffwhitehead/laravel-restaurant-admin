@@ -32,7 +32,7 @@ class JobsController extends BaseController {
 				
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -79,11 +79,6 @@ class JobsController extends BaseController {
 		$this->data['details']		= $master['masterView'];
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
-
-		//ADD THE LAST COMPLETED VIEW
-		$this->data['status'] = DB::Select('select cl.* from checks_lastupdate as cl');
-
-
 
 		// Render into template
 		$this->layout->nest('content','jobs.index',$this->data)
@@ -156,10 +151,21 @@ class JobsController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('checks');
+			//set the timestamps here
+			$inputID = Input::get('id');
+			if ($inputID == '') {
+				$data = $this->model->createStamps($data, $inputID) ;
+			} else {
+				$data = $this->model->updateStamps($data, $inputID) ;
+			}
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
 			{
+				//create log entry for this task - this is necessary due to the sql query in place, otherwise it wont show in the query results index table for this module.
+				DB::table('checks_log')
+					->insert(array('check_id' => $ID, 'comments' => Input::get('Initial log entry on creation'),'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
+
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
@@ -193,24 +199,11 @@ class JobsController extends BaseController {
 
 			DB::commit();
 			Session::flash('message', SiteHelpers::alert('success','Successfully marked the selected jobs as completed'));
-			return Redirect::to('jobs?md='.Input::get('md'))->with('message', "Jobs with ID/s [".$serialise."] marked as completed");
+			return Redirect::to('jobs?md='.Input::get('md'))->with('message', SiteHelpers::alert('success',"Jobs with ID/s [".$serialise."] marked as completed"));
 		}catch(Exception $e){
 			DB::rollBack();
 			return Redirect::to('jobs?md='.Input::get('md'))->with('message', "Failed marking the selected jobs as completed");
 		}
 	}
-	//public function postDestroy()
-	//{
-	//
-	//	if($this->access['is_remove'] ==0)
-	//		return Redirect::to('')
-	//			->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
-	//	// delete multipe rows
-	//	$this->model->destroy(Input::get('id'));
-	//	$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
-	//	// redirect
-	//	Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-	//	return Redirect::to('jobs?md='.Input::get('md'));
-	//}
 
 }

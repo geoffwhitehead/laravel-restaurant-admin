@@ -32,7 +32,7 @@ class VoucherController extends BaseController {
 				
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -150,6 +150,13 @@ class VoucherController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 
+            //check for duplicate voucher_ref
+            $result = DB::select("select count(id) as cnt from vouchers where voucher_ref = ".Input::get('voucher_ref')."");
+            if ($result[0]->cnt == 1) {
+                $md = str_replace(" ","+",Input::get('md'));
+                return Redirect::to('voucher/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error', "Error: Duplicate entry for field \"voucher reference\" found, no changes made"));
+            }
+
 			$data = $this->validatePost('vouchers');
 			//set the timestamps here
 			$inputID = Input::get('id');
@@ -163,10 +170,10 @@ class VoucherController extends BaseController {
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
+				$this->inputLogs("New voucher with ID : $ID has been created");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
+				$this->inputLogs(" Voucher with ID : $ID has been edited");
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
@@ -179,19 +186,26 @@ class VoucherController extends BaseController {
 		}	
 	
 	}
-	
-	public function postDestroy()
-	{
-		
-		if($this->access['is_remove'] ==0) 
-			return Redirect::to('')
-				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
-		// delete multipe rows 
-		$this->model->destroy(Input::get('id'));
-		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
-		// redirect
-		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('voucher?md='.Input::get('md'));
-	}			
+
+    public function postConfirm()
+    {
+        DB::beginTransaction();
+        try {
+            $ids = Input::get('id');
+            foreach ($ids as $id) {
+                DB::table('vouchers')
+                    ->where('id', $id)
+                    ->update(array('confirmed_used_by' => Auth::id(), 'confirmed_used_on' => date("Y-m-d H:i:s"), 'used' => 1, 'site_used' => Session::get('sid')));
+            }
+            //input logs
+            $serialise = implode(",", $ids);
+            $this->inputLogs("User: " . Auth::id() . " has marked vouchers with ID's of " . $serialise . " as used");
+            Session::flash('message', SiteHelpers::alert('success',"Success"));
+            DB::commit();
+            return Redirect::to('voucher?md=' . Input::get('md'))->with('message', SiteHelpers::alert('success', "Successfully marked ". count($ids) ." voucher/s"));
+        } catch (Exception $e) {
+            DB::rollBack();
+        }
+    }
 		
 }

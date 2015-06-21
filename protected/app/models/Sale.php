@@ -20,10 +20,11 @@ class Sale extends BaseModel
 
     public static function queryWhere()
     {
-        if (Session::get('gid') > 3) {
-            return "WHERE id = (select max(id) from sales where site_id = ".Session::get("sid").")";
+        if (Session::get('lvl') > GLOBAL_USER) {
+
+            return "where datediff(curdate(), sales.sale_date) < 3 and sales.site_id = ".Session::get('sid')."";
         } else {
-            return " WHERE sales.id IS NOT NULL and sales.sale_checked_by IS NOT NULL  ";
+            return " WHERE sales.id IS NOT NULL";
         }
     }
 

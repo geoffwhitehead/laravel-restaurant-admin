@@ -15,8 +15,12 @@ class Voucher extends BaseModel  {
 		return "  SELECT vouchers.* FROM vouchers  ";
 	}
 	public static function queryWhere(  ){
-		
-		return " WHERE vouchers.id IS NOT NULL   ";
+
+        if(Session::get('lvl')>GLOBAL_USER){
+            return "where vouchers.used_sale_id is null and vouchers.active = 1";
+        }
+
+		return " WHERE vouchers.active = 1";
 	}
 	
 	public static function queryGroup(){

@@ -86,12 +86,28 @@
                 @foreach ($rowData as $row)
                     <tr>
                         <!-- status colour here -->
-                        @if($row->cash_variance < -10 or $row->cash_variance > 10)
-                            <td class="editable" style="background:indianred">
-                                @elseif ($row->cash_variance < -2.50 or $row->cash_variance > 2.50)
-                            <td class="editable" style="background:yellow">
+                        @if($row->cash_variance < -15 or $row->cash_variance > 15)
+                            <td width ="50" class="editable" style="background:indianred">
+                                @elseif ($row->cash_variance < -5 or $row->cash_variance > 5)
+                            <td width ="50" class="editable" style="background:yellow">
                         @else
-                            <td class="editable" style="background:darkseagreen">
+                            <td width ="50" class="editable" style="background:darkseagreen">
+                                @endif
+
+                                @if($row->sale_checked_by != "")
+                                    <i class="fa fa-check fa-lg fa-inverse"></i>
+                                @endif
+                                @if($row->correction_amt > ($row->report_total_sale * 0.05))
+                                    <i class="fa fa-warning fa-lg"></i>
+                                @endif
+                                @if($row->staff_disc_amt > 0)
+                                    <i class="fa fa-heart fa-lg"></i>
+                                @endif
+                                @if($row->refund_amt > 0)
+                                    <i class="fa fa-frown-o fa-lg"></i>
+                                @endif
+                                @if($row->float_total_amount < 40.00)
+                                    <i class="fa fa-cloud-download fa-lg"></i>
                                 @endif
 
                             </td>
@@ -150,14 +166,26 @@
         </div>
         {{ Form::close() }}
         @include('footer')
-        <div class="col-md-6">
-            <Strong>
-                <p>Red : Sale is erroneous : cash variance differs by £10.00</p>
+        <div class="col-md-12 alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Info:</span>
 
-                <p>Yellow : Sale is erroneous : cash variance differs by between £2.50 and £10.00</p>
+            <strong>Note:</strong> Use this section to check sales and confirm the amount of money stated.
+            You can use the edit button to make changes and recalculate a sale. If the sale is correct you can use the
+            "confirm sale" button to quickly mark a sale. Note that this will automatically enter the amount of cash
+            checked to what was stated in the sale.
+            <br>
 
-                <p>Green : Sale is correct : cash variance differs by less than £2.50</p>
-            </Strong>
+            <br>
+            <strong> Green: </strong>Cash variance is low (below £5)<br>
+            <strong> Yellow: </strong>Cash variance abnormal (£5 - £15) <br>
+            <strong> Red :</strong>Cash Variance is high (over £15) <br>
+            <i class="fa fa-warning fa-lg"></i> :  High correction amount <br>
+            <i class="fa fa-heart fa-lg"></i> :  Contains staff discounts<br>
+            <i class="fa fa-frown-o fa-lg"></i> :  Contains refunds <br>
+            <i class="fa fa-cloud-download fa-lg"></i> :  Low float <br>
+            <i class="fa fa-check fa-lg fa-inverse"></i> :  Sale Checked <br>
+
         </div>
     </div>
 </div>

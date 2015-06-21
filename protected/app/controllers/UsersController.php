@@ -33,7 +33,7 @@ class UsersController extends BaseController
 
         // Filter sort and order for query
         $sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
-        $order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
+        $order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
         // End Filter sort and order for query
         // Filter Search for query
         $filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -173,7 +173,7 @@ class UsersController extends BaseController
                 }
                 //now loop through all task id's and create training records
                 foreach ($tasks as $task) {
-                    DB::table('training_records')->insert(array('user_id' => ID, 'training_task_id' => $task->id, 'created_by' => Auth::id(), 'created_on' => date("Y-m-d H:i:s")));
+                    DB::table('training_records')->insert(array('user_id' => $ID, 'training_task_id' => $task->id, 'created_by' => Auth::id(), 'created_on' => date("Y-m-d H:i:s")));
                 }
             }
 

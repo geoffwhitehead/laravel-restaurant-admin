@@ -124,13 +124,13 @@ class SaleController extends BaseController
         $this->data['id'] = $id;
 
         //add code for sites here
-        $this->data['invoices'] = DB::select('SELECT SUM(amount) AS amt FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
-        $this->data['voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = ' . Session::get("sid") . '');
-        $this->data['voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = ' . Session::get("sid") . '');
+        $this->data['invoices'] = DB::select('SELECT SUM(amount) AS amt FROM invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
+        $this->data['voucher_sale'] = DB::select('SELECT SUM(amount) AS amt FROM vouchers WHERE used = 1 and used_sale_id IS NULL and site_used = ' . Session::get("sid") . '');
+        $this->data['voucher_count'] = DB::select('SELECT COUNT(amount) AS amt FROM vouchers WHERE used = 1 and used_sale_id IS NULL and site_used = ' . Session::get("sid") . '');
         $this->data['deposit_sale'] = DB::select('SELECT SUM(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
         $this->data['deposit_count'] = DB::select('SELECT COUNT(deposit_amount) AS amt FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
-        $this->data['used_invoices'] = DB::select('SELECT id, invoice_date, amount FROM company_invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
-        $this->data['used_vouchers'] = DB::select('SELECT voucher_ref, date, amount FROM vouchers WHERE used = 1 and sale_id IS NULL and site_used = ' . Session::get("sid") . '');
+        $this->data['used_invoices'] = DB::select('SELECT id, invoice_date, amount FROM invoices WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
+        $this->data['used_vouchers'] = DB::select('SELECT voucher_ref, authorized_by, amount FROM vouchers WHERE used = 1 and used_sale_id IS NULL and site_used = ' . Session::get("sid") . '');
         $this->data['used_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 1 and used_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
         $this->data['unused_due_deposits'] = DB::select('SELECT booking_date_time, booking_name, booking_phone, booking_covers, deposit_amount FROM deposits WHERE used = 0 and no_show_flag = 0 and DATE(booking_date_time) < CURDATE() and site_id = ' . Session::get("sid") . ' ORDER BY booking_date_time');
         $this->data['yesterdays_float'] = DB::select('SELECT float_total_amount FROM sales WHERE site_id = ' . Session::get("sid") . ' ORDER BY id DESC LIMIT 1');
@@ -185,13 +185,13 @@ class SaleController extends BaseController
                 $ID = $this->model->insertRow($data, $inputID);
 
                 //if creating a new sale
-                if ($inputID == ""){
+                if ($inputID == "") {
                     // assign vouchers to sale here
-                    DB::update('UPDATE vouchers SET sale_id = ' . $ID . ' WHERE used = 1 and sale_id IS NULL and site_used = ' . Session::get("sid") . '');
+                    DB::update("UPDATE vouchers SET used_sale_id = " . $ID . " WHERE used = 1 and used_sale_id IS NULL and site_used = " . Session::get("sid") . "");
                     // assign deposits to sale here
                     DB::update('UPDATE deposits SET used_sale_id = ' . $ID . ' WHERE used = 1 and used_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
                     // assign cash invoices to sale here
-                    DB::update('UPDATE company_invoices SET cash_taken_sale_id = ' . $ID . ' WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
+                    DB::update('UPDATE invoices SET cash_taken_sale_id = ' . $ID . ' WHERE cash_taken = 1 and cash_taken_sale_id IS NULL and site_id = ' . Session::get("sid") . '');
                 }
 
                 // Input logs
@@ -202,9 +202,12 @@ class SaleController extends BaseController
                 } else {
                     $this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
                 }
+
                 DB::commit();
             } catch (Exception $e) {
                 DB::rollBack();
+                $md = str_replace(" ", "+", Input::get('md'));
+                return Redirect::to('sale/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', 'An error has occurred'));
             }
 
             // Redirect after save

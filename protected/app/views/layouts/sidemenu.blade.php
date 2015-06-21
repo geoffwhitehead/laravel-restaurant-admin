@@ -21,8 +21,13 @@
 				 </span> 
 				 </span>
                     </a>
+                    <div class="animated fadeIn siteinfo sidebar-sitedep">
+                      {{Session::get('site')}}<br>{{Session::get('dep')}}
+                    </div>
                 </div>
                 <div class="photo-header "> {{ SiteHelpers::avatar( 50 )}} </div>
+
+
             </li>
             @foreach ($sidebar as $menu)
                 <li @if(Request::is($menu['module'])) class="active" @endif>

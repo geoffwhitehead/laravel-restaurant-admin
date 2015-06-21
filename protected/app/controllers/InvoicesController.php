@@ -1,22 +1,22 @@
 <?php
-class CompaniesController extends BaseController {
+class InvoicesController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'companies';
+	public $module = 'invoices';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Companies();
+		$this->model = new Invoices();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'companies',
+			'pageModule'=> 'invoices',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -32,7 +32,7 @@ class CompaniesController extends BaseController {
 				
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -80,7 +80,7 @@ class CompaniesController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','companies.index',$this->data)
+		$this->layout->nest('content','invoices.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -107,7 +107,7 @@ class CompaniesController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('companies'); 
+			$this->data['row'] = $this->model->getColumnTable('invoices'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -119,7 +119,7 @@ class CompaniesController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-		$this->layout->nest('content','companies.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','invoices.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -135,53 +135,65 @@ class CompaniesController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('companies'); 
+			$this->data['row'] = $this->model->getColumnTable('invoices'); 
 		}
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','companies.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','invoices.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
 	{
 		$trackUri = $this->data['trackUri'];
 		$rules = $this->validateForm();
-		$validator = Validator::make(Input::all(), $rules);	
-		if ($validator->passes()) {
-			$data = $this->validatePost('companies');
-			//set the timestamps here
-			$inputID = Input::get('id');
-			if ($inputID == '') {
-				$data = $this->model->createStamps($data, $inputID) ;
-			} else {
-				$data = $this->model->updateStamps($data, $inputID) ;
-			}
-			//insert the row
-			$ID = $this->model->insertRow($data , $inputID);
-			// Input logs
-			if( Input::get('id') =='')
-			{
-				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
-				$id = SiteHelpers::encryptID($ID);
-			} else {
-				$this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
-			}
-			// Redirect after save	
-			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'companies/add/'.$id.'?md='.$md.$trackUri :  'companies?md='.$md.$trackUri );
-			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
-		} else {
-			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('companies/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
-			->withErrors($validator)->withInput();
-		}	
+		$validator = Validator::make(Input::all(), $rules);
+        if ($validator->passes()) {
+            $data = $this->validatePost('invoices');
+
+            //set the cash taken field automatically if cash taken is selected
+            if (Session::get('lvl') > GLOBAL_USER) {
+                if ($data['payment_method_id'] == 1) {
+                    $data['cash_taken'] = 1;
+                }
+                //reset the cash taken field for use when > GLOBAL USER changes the payment type when editing an invoice
+                else {
+                    $data['cash_taken'] = 0;
+                }
+            }
+
+            //set the timestamps here
+            $inputID = Input::get('id');
+            if ($inputID == '') {
+                $data = $this->model->createStamps($data, $inputID);
+            } else {
+                $data = $this->model->updateStamps($data, $inputID);
+            }
+            //insert the row
+            $ID = $this->model->insertRow($data, $inputID);
+
+            // Input logs
+            if (Input::get('id') == '') {
+                $this->inputLogs("New Entry row with ID : $ID  , Has Been Saved Successfully");
+                $id = SiteHelpers::encryptID($ID);
+            } else {
+                $this->inputLogs(" ID : $ID  , Has Been Changed Successfully");
+            }
+            // Redirect after save
+            $md = str_replace(" ", "+", Input::get('md'));
+            $redirect = (!is_null(Input::get('apply')) ? 'invoices/add/' . $id . '?md=' . $md . $trackUri : 'invoices?md=' . $md . $trackUri);
+            return Redirect::to($redirect)->with('message', SiteHelpers::alert('success', Lang::get('core.note_success')));
+        } else {
+            $md = str_replace(" ", "+", Input::get('md'));
+            return Redirect::to('invoices/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
+                ->withErrors($validator)->withInput();
+        }
 	
 	}
 	
 	public function postDestroy()
 	{
-		
+
 		if($this->access['is_remove'] ==0) 
 			return Redirect::to('')
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
@@ -190,7 +202,7 @@ class CompaniesController extends BaseController {
 		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('companies?md='.Input::get('md'));
+		return Redirect::to('invoices?md='.Input::get('md'));
 	}			
 		
 }

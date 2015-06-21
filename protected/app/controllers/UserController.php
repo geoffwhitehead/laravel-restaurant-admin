@@ -119,7 +119,7 @@ class UserController extends BaseController
     {
 
         if (Auth::check()) {
-            return Redirect::to('')->with('message', SiteHelpers::alert('success', 'Youre already logged in'));
+            return Redirect::to('')->with('message', SiteHelpers::alert('success', 'You\'re already logged in'));
 
         } else {
             $soc = Config::get('hybridauth');
@@ -128,8 +128,6 @@ class UserController extends BaseController
                 'fb_enabled' => $soc['providers']['Facebook']['enabled'],
                 'google_enabled' => $soc['providers']['Google']['enabled'],
                 'twit_enabled' => $soc['providers']['Twitter']['enabled'],
-                'sites' => DB::select('SELECT id, name, address_city FROM sites WHERE id IS NOT NULL'),
-
             );
 
             $this->layout = View::make('layouts.login');
@@ -143,7 +141,6 @@ class UserController extends BaseController
         $rules = array(
             'email' => 'required|email',
             'password' => 'required',
-            'site_id' => 'required',
         );
         if (CNF_RECAPTCHA == 'true') $rules['recaptcha_response_field'] = 'required|recaptcha';
         $validator = Validator::make(Input::all(), $rules);
@@ -152,63 +149,49 @@ class UserController extends BaseController
                 if (Auth::check()) {
                     $row = User::find(Auth::user()->id);
 
-                    // check that the user is able to log into this site
-                    $assigned = DB::table('assigned_to')
-                        ->where('user_id', $row->id)
-                        ->where('site_id', Input::get('site_id'))
-                        ->first();
-
-                    // lets you log in if you have a low enough group id OR you are actually assigned to that site
-                    if ($row->group_id <= 3 or $assigned) {
-
-
-                        if ($row->active == '0') {
-                            // inactive
-                            Auth::logout();
-                            return Redirect::to('user/login')->with('message', SiteHelpers::alert('error', 'Your Account is not active'));
-
-                        } else if ($row->active == '2') {
-                            // BLocked users
-                            Auth::logout();
-                            return Redirect::to('user/login')->with('message', SiteHelpers::alert('error', 'Your Account is Blocked'));
-                        } else {
-                            DB::table('tb_users')->where('id', '=', $row->id)->update(array('last_login' => date("Y-m-d H:i:s")));
-                            Session::put('uid', $row->id);
-                            Session::put('gid', $row->group_id);
-                            Session::put('eid', $row->email);
-                            Session::put('ll', $row->last_login);
-                            Session::put('fid', $row->first_name . ' ' . $row->last_name);
-
-
-
-                            //HERE ------------------------------
-                            $data = Input::all();
-                            $sid = DB::select("SELECT emp.default_site FROM employee_records as emp WHERE emp.employee_id = ".Session::get('uid')." limit 1");
-                            $did = DB::select("SELECT emp.default_department FROM employee_records as emp WHERE emp.employee_id = ".Session::get('uid')." limit 1");
-                            Session::put('sid', $sid[0]->default_site);
-                            Session::put('did', $did[0]->default_department);
-                            Session::put('lvl', $row->level);
-                            // TO HERE -------------------------------
-
-
-
-
-                            if (CNF_FRONT == 'false') :
-                                return Redirect::to('dashboard');
-                            else :
-                                return Redirect::to('');
-                            endif;
-
-                        }
-                    } else {
-
+                    if ($row->active == '0') {
+                        // inactive
                         Auth::logout();
-                        return Redirect::to('user/login')->with('message', SiteHelpers::alert('error', 'You are not currently assigned to this site, contact an admin to be assigned here'));
+                        return Redirect::to('user/login')->with('message', SiteHelpers::alert('error', 'Your Account is not active'));
+
+                    } else if ($row->active == '2') {
+                        // BLocked users
+                        Auth::logout();
+                        return Redirect::to('user/login')->with('message', SiteHelpers::alert('error', 'Your Account is Blocked'));
+                    } else {
+                        DB::table('tb_users')->where('id', '=', $row->id)->update(array('last_login' => date("Y-m-d H:i:s")));
+                        Session::put('uid', $row->id);
+                        Session::put('gid', $row->group_id);
+                        Session::put('eid', $row->email);
+                        Session::put('ll', $row->last_login);
+                        Session::put('fid', $row->first_name . ' ' . $row->last_name);
+
+
+                        //add extra session variables here
+                        $info = DB::select("SELECT emp.default_site,emp.default_department, site.address_city, dep.name FROM employee_records as emp JOIN sites as site on site.id = emp.default_site join departments as dep on dep.id = emp.default_department WHERE emp.employee_id = " . Session::get('uid') . " limit 1");
+                        $level = DB::select("select g.level from tb_users u join tb_groups g on g.group_id = u.group_id where u.id = ".$row->id."");
+
+                        Session::put('sid', $info[0]->default_site);
+                        Session::put('did', $info[0]->default_department);
+                        Session::put('site', $info[0]->address_city);
+                        Session::put('dep', $info[0]->name);
+                        //defaults
+                        Session::put('d_sid', $info[0]->default_site);
+                        Session::put('d_did', $info[0]->default_department);
+                        Session::put('d_site', $info[0]->address_city);
+                        Session::put('d_dep', $info[0]->name);
+
+                        Session::put('lvl', $level[0]->level);
+
+
+                        if (CNF_FRONT == 'false') :
+                            return Redirect::to('dashboard');
+                        else :
+                            return Redirect::to('');
+                        endif;
+
                     }
-
-
                 }
-
             } else {
                 return Redirect::to('user/login')
                     ->with('message', SiteHelpers::alert('error', 'Your username/password combination was incorrect'))

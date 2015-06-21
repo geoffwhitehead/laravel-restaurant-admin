@@ -1,5 +1,10 @@
 <?php
 
+
+define("GLOBAL_USER",  "3");
+define("MANAGER", "4");
+
+
 class BaseController extends Controller {
 
 	/**
@@ -8,7 +13,9 @@ class BaseController extends Controller {
 	 * @return void
 	 */
 	//public $menus =''; 
-	
+
+
+
 	public function __construct() {
 		
 		$this->menus = SiteHelpers::menus(); 

@@ -132,6 +132,21 @@ function MarkCompleted(  )
 		$('#SximoTable').submit();// do the rest here
 	}
 }
+function MarkUsed(){
+    var total = $('input[class="ids"]:checkbox:checked').length;
+    if(confirm('are u sure you want to mark the selected deposits as used?'))
+    {
+        $('#SximoTable').submit();// do the rest here
+    }
+}
+function MarkCorrect(){
+    var total = $('input[class="ids"]:checkbox:checked').length;
+    if(confirm('are u sure you want to mark the selected sales as correct?'))
+    {
+        $('#SximoTable').submit();// do the rest here
+    }
+}
+
 
 function SximoModal( url , title)
 {

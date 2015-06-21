@@ -30,44 +30,20 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Created On</td>
-						<td>{{ $row->created_on }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Voucher Ref</td>
+						<td width='30%' class='label-view text-right'>Voucher Reference Number</td>
 						<td>{{ $row->voucher_ref }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Created By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						<td width='30%' class='label-view text-right'>Authorized By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->authorized_by,'authorized_by','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Updated By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Authorised By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->authorised_by,'authorised_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Updated On</td>
-						<td>{{ $row->updated_on }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Date</td>
-						<td>{{ $row->date }} </td>
+						<td width='30%' class='label-view text-right'>Authorized On</td>
+						<td>{{ $row->authorized_on }} </td>
 						
 					</tr>
 				
@@ -78,49 +54,13 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Date Used</td>
-						<td>{{ $row->date_used }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Confirmed Used By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->confirmed_used_by,'confirmed_used_by','1:tb_users:id:id|first_name|last_name') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Site Used</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->site_used,'site_used','1:sites:id:id|name|address_city') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Sale Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->sale_id,'sale_id','1:sales:id:id|site_id|sale_date') }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Used</td>
-						<td>{{ $row->used }} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Active</td>
-						<td>{{ $row->active }} </td>
-						
-					</tr>
-				
-					<tr>
 						<td width='30%' class='label-view text-right'>Charity</td>
 						<td>{{ $row->charity }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Paypal Payment Ref</td>
+						<td width='30%' class='label-view text-right'>Paypal Payment Reference</td>
 						<td>{{ $row->paypal_payment_ref }} </td>
 						
 					</tr>
@@ -134,6 +74,72 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Paypal Payment Date</td>
 						<td>{{ $row->paypal_payment_date }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Used</td>
+						<td>{{ $row->used }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Sale Used</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->used_sale_id,'used_sale_id','1:sales:id:id|sale_date') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Notes</td>
+						<td>{{ $row->notes }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Site Used</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_used,'site_used','1:sites:id:address_city') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Confirmed Used By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->confirmed_used_by,'confirmed_used_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Confirmed Used On</td>
+						<td>{{ $row->confirmed_used_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->created_by,'created_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Created On</td>
+						<td>{{ $row->created_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Active</td>
+						<td>{{ $row->active }} </td>
 						
 					</tr>
 				

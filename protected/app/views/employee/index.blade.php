@@ -88,11 +88,11 @@
                 @foreach ($rowData as $row)
                     <tr>
                         @if($row->processed == 1)
-                            <td width ="50" class="editable" style="background:darkseagreen">
+                            <td width="50" class="editable" style="background:darkseagreen">
                                 @elseif ($row->reg_complete == 1)
-                            <td width ="50" class="editable" style="background:yellow">
+                            <td width="50" class="editable" style="background:yellow">
                         @else
-                            <td width ="50" class="editable" style="background:indianred">
+                            <td width="50" class="editable" style="background:indianred">
                                 @endif
                                         <!-- status colour here -->
                             </td>
@@ -128,11 +128,14 @@
                                                 </a>
                                             </li>
                                         @endif
-                                        @if($access['is_edit'] ==1)
-                                            <li>
-                                                <a href="{{ URL::to('employee/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                            class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
-                                            </li>
+                                        @if($row->employee_id == Session::get('uid') or Session::get('lvl') >= GLOBAL_USER)
+                                            @if($access['is_edit'] ==1)
+                                                <li>
+                                                    <a href="{{ URL::to('employee/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                                class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}
+                                                    </a>
+                                                </li>
+                                            @endif
                                         @endif
                                         @foreach($subgrid as $md)
                                             <li>
@@ -144,7 +147,7 @@
                             </td>
 
                     </tr>
-                    @endforeach
+                @endforeach
                 </tbody>
 
             </table>
@@ -155,7 +158,9 @@
         <div class="alert alert-info" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Info:</span>
-            <p><strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete but not yet processed by accountant. <br> Green : Registration complete and processed.</p>
+
+            <p><strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete
+                but not yet processed by accountant. <br> Green : Registration complete and processed.</p>
         </div>
         @include('footer')
     </div>

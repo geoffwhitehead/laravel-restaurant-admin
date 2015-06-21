@@ -38,11 +38,9 @@
                    title="{{ Lang::get('core.btn_config') }}">
                     <i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>
             @endif
-            @if(Session::get('gid') ==1)
                 <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
                    title="Confirm Training">
                     <i class="fa fa-plus-circle"></i>&nbsp;Mark as Complete</a>
-            @endif
 
         </div>
 
@@ -94,7 +92,6 @@
                 </tr>
                 <tr>
                     @foreach ($rowData as $row)
-                        {{var_dump($row)}}
                         <!-- added status colours for training records here-->
 
                         @if($row->conf_completed_by != NULL)

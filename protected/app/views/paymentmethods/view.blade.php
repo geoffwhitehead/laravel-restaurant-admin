@@ -30,7 +30,7 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Invoice Type</td>
+						<td width='30%' class='label-view text-right'>Payment Type</td>
 						<td>{{ $row->invoice_type }} </td>
 						
 					</tr>

@@ -32,18 +32,9 @@
             <i class="icon-lock form-control-feedback"></i>
         </div>
 
-        <div class="form-group has-feedback  animated fadeInRight delayp1">
-            <label>Site</label><br/>
-            <select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '>
-                @foreach ($sites as $site)
-                    <option value="{{$site->id}}">{{$site->name}}, {{$site->address_city}}</option>
-                @endforeach
-            </select>
-        </div>
-
         @if(CNF_RECAPTCHA =='true')
             <div class="form-group has-feedback  animated fadeInLeft delayp1">
-                <label class="text-left"> Are u human ? </label>
+                <label class="text-left"> Are you human? </label>
                 {{ Form::captcha(array('theme' => 'white')); }}
                 <div class="clr"></div>
             </div>

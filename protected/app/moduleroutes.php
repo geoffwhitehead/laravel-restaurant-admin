@@ -3,12 +3,9 @@
                     Route::controller('paymentmethods', 'PaymentmethodsController');
                     Route::controller('site', 'SiteController');
                     Route::controller('voucher', 'VoucherController');
-                    Route::controller('invoice', 'InvoiceController');
                     Route::controller('supplier', 'SupplierController');
                     Route::controller('shift', 'ShiftController');
-                    Route::controller('usevoucher', 'UsevoucherController');
                     Route::controller('deposit', 'DepositController');
-                    Route::controller('usedeposit', 'UsedepositController');
                     Route::controller('event', 'EventController');
                     Route::controller('sale', 'SaleController');
                     Route::controller('saleedit', 'SaleeditController');
@@ -26,4 +23,5 @@
                     Route::controller('checktimeperiods', 'ChecktimeperiodsController');
                     Route::controller('checkslog', 'CheckslogController');
                     Route::controller('jobs', 'JobsController');
+                    Route::controller('invoices', 'InvoicesController');
                     ?>

@@ -27,7 +27,7 @@
 
 		{{ HTML::script('sximo/js/plugins/jquery.cookie.js') }}
 		{{ HTML::script('sximo/js/plugins/jquery-ui.min.js') }}
-		{{ HTML::script('sximo/js/plugins/jquery.ui.touch-punch.min.js')}}
+    {{ HTML::script('sximo/js/plugins/jquery.ui.touch-punch.min.js')}}
 		{{ HTML::script('sximo/js/plugins/iCheck/icheck.min.js') }}
 		{{ HTML::script('sximo/js/plugins/select2/select2.min.js') }}
 		{{ HTML::script('sximo/js/plugins/fancybox/jquery.fancybox.js') }}

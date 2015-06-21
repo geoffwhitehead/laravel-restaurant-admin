@@ -24,9 +24,15 @@
             @endforeach
         </ul>
         <div>
-            <p>Step 1: Below are the currently unallocated cash invoices, vouchers, and deposits. Ensure there aren't
-                any more to
-                be submitted before continuing. Extra records cannot be added to this sale once sale submitted.</p>
+            <div class="col-md-12 alert alert-info" role="alert">
+                <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Info:</span>
+                    <strong>Step 1: </strong>Below are the currently unallocated cash invoices, vouchers, and
+                    deposits. Ensure there aren't
+                    any more to
+                    be submitted before continuing. Extra records cannot be added to this sale once sale submitted.</p>
+            </div>
+
 
             <div class="col-md-12">
                 <legend> Cash Invoices</legend>
@@ -110,7 +116,7 @@
                         @foreach($used_vouchers as $uv)
                             <tr>
                                 <th>{{$uv->voucher_ref}}</th>
-                                <th>{{$uv->date}}</th>
+                                <th>{{$uv->authorized_by}}</th>
                                 <th>{{$uv->amount}}</th>
                             </tr>
                         @endforeach
@@ -151,13 +157,21 @@
 
                 </table>
             </div>
+
         </div>
-
-        <p>Step 2: Confirm you have logged into the correct site by checking the site id, then fill out all the fields
-            in form below. If the cash variance is not 0 then a mistake may have been made. Recount and confirm
-            this.</p>
-
+        <div class="col-md-12 alert alert-info" role="alert">
+            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
+                <strong>Step 2: </strong>Confirm you have logged into the correct site by checking the site
+                id, then
+                fill out all the fields
+                in form below. If the cash variance is not 0 then a mistake may have been made. Recount and confirm
+                this.</p>
+        </div>
         {{ Form::open(array('url'=>'sale/save/'.SiteHelpers::encryptID($row['id']).'?md='.$filtermd.$trackUri, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) }}
+
+
+
         <div class="col-md-3" id="sale-group">
             <fieldset>
                 <legend> Sale</legend>
@@ -171,6 +185,30 @@
                     <div class="col-md-1">
 
                     </div>
+                </div>
+                <div class="form-group  ">
+                    <label for="Site" class=" control-label col-md-4 text-left"> Site <span
+                                class="asterix"> * </span></label>
+
+                    <div class="col-md-6 hidethis" style="display:none;">
+                        {{ Form::text('site_id', Session::get('sid'), array('class'=>'form-control','placeholder'=>'','required'=>'true'  )) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ Form::text('ignore', Session::get('site'), array( 'class'=>'form-control','placeholder'=>'', 'readonly'=>'true' )) }}
+                    </div>
+
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 alert alert-warning" role="alert">
+                        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Warning:</span>
+                        <strong>Warning:</strong> Are you signed into the correct site?
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
 
                 <div class="form-group  ">
@@ -255,7 +293,8 @@
                 </div>
 
                 <div class="form-group  ">
-                    <label for="Expected Cash Sale" class=" control-label col-md-4 text-left"> Expected Cash Sale <span
+                    <label for="Expected Cash Sale" class=" control-label col-md-4 text-left"> Expected Cash
+                        Sale <span
                                 class="asterix"> * </span></label>
 
                     <div class="col-md-6">
@@ -715,7 +754,11 @@
 
 
                 <div class="col-md-6">
-                    {{ Form::text('float_total_amount_prev', $yesterdays_float[0]->float_total_amount,array('value'=>$deposit_count[0]->amt,'class'=>'form-control cash-box decimal', 'placeholder'=>"", 'readonly', 'id'=>'float-previous')) }}
+                    @if (array_key_exists(0, $yesterdays_float))
+                        {{ Form::text('float_total_amount_prev', $yesterdays_float[0]->float_total_amount,array('class'=>'form-control cash-box decimal', 'placeholder'=>"", 'readonly', 'id'=>'float-previous')) }}
+                    @else
+                        {{ Form::text('float_total_amount_prev', '0',array('class'=>'form-control cash-box decimal', 'placeholder'=>"", 'readonly', 'id'=>'float-previous')) }}
+                    @endif
                 </div>
                 <div class="col-md-1">
 
@@ -723,9 +766,13 @@
             </div>
         </div>
 
-
-        <p>Step 3: Give details and reasons for any cash variance. Detail who received a staff discount. Give reasons
-            for high corrections.</p>
+        <div class="col-md-12 alert alert-info" role="alert">
+            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
+                <strong>Step 3: </strong>Give details and reasons for any cash variance. Detail who received a staff
+                discount. Give reasons
+                for high corrections.</p>
+        </div>
 
         <div class="col-md-12">
             <fieldset>

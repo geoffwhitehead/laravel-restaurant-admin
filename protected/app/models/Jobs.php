@@ -12,7 +12,7 @@ class Jobs extends BaseModel  {
 	public static function querySelect(  ){
 		
 		
-		return " SELECT checks.*, check_time_periods.id as tpid, check_time_periods.name, check_time_periods.period_in_days, lu.last_completed_on, lu.last_completed_by FROM checks JOIN check_time_periods ON check_time_periods.id = checks.check_frequency JOIN checks_lastupdate as lu ON lu.id = checks.id ";
+		return " SELECT checks.*, check_time_periods.id as tpid, check_time_periods.name, check_time_periods.period_in_days as freq, lu.last_completed_on, lu.last_completed_by, lu.datediff FROM checks JOIN check_time_periods ON check_time_periods.id = checks.check_frequency JOIN checks_lastupdate as lu ON lu.id = checks.id ";
 	}
 	public static function queryWhere(  ){
 		

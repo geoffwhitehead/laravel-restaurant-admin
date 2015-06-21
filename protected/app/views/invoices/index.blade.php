@@ -7,7 +7,7 @@
                 <small>{{ $pageNote }}</small>
             </h3>
         </div>
-
+        {{ date("Y-m-d")}}
         <ul class="breadcrumb">
             <li><a href="{{ URL::to('dashboard') }}">{{ Lang::get('core.home') }}</a></li>
             <li class="active">{{ $pageTitle }}</li>
@@ -19,44 +19,40 @@
     <div class="page-content-wrapper">
         <div class="toolbar-line ">
             @if($access['is_add'] ==1)
-                <a href="{{ URL::to('trainingsignoff/add?md='.$masterdetail["filtermd"].$trackUri) }}"
+                <a href="{{ URL::to('invoices/add?md='.$masterdetail["filtermd"].$trackUri) }}"
                    class="tips btn btn-xs btn-info" title="{{ Lang::get('core.btn_create') }}">
                     <i class="fa fa-plus"></i>&nbsp;{{ Lang::get('core.btn_create') }}</a>
             @endif
+            @if($access['is_remove'] ==1)
+                <a href="javascript://ajax" onclick="SximoDelete();" class="tips btn btn-xs btn-danger"
+                   title="{{ Lang::get('core.btn_remove') }}">
+                    <i class="fa fa-trash-o"></i>&nbsp;{{ Lang::get('core.btn_remove') }}</a>
+            @endif
             @if($access['is_excel'] ==1)
-                <a href="{{ URL::to('trainingsignoff/download?md='.$masterdetail["filtermd"].$trackUri) }}"
+                <a href="{{ URL::to('invoices/download?md='.$masterdetail["filtermd"].$trackUri) }}"
                    class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
                     <i class="fa fa-download"></i>&nbsp;{{ Lang::get('core.btn_download') }} </a>
             @endif
             @if(Session::get('gid') ==1)
-                <a href="{{ URL::to('module/config/trainingsignoff') }}" class="tips btn btn-xs btn-default"
+                <a href="{{ URL::to('module/config/invoices') }}" class="tips btn btn-xs btn-default"
                    title="{{ Lang::get('core.btn_config') }}">
                     <i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>
             @endif
-            <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
-               title="Confirm Training">
-                <i class="fa fa-plus-circle"></i>&nbsp;Sign Off Training</a>
+
         </div>
 
 
         @if(Session::has('message'))
-            <div class="alert alert-info" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Info:</span>
-
-                <p>{{ Session::get('message') }}</p>
-            </div>
-
+            {{ Session::get('message') }}
         @endif
         {{ $details }}
 
-        {{ Form::open(array('url'=>'trainingsignoff/confirm/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
+        {{ Form::open(array('url'=>'invoices/destroy/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
         <div class="table-responsive" style="min-height:300px;">
             <table class="table table-striped ">
                 <thead>
                 <tr>
-                    <th>Status</th>
-                    <th>No</th>
+                    <th> No</th>
                     <th><input type="checkbox" class="checkall"/></th>
 
                     @foreach ($tableGrid as $t)
@@ -70,7 +66,6 @@
 
                 <tbody>
                 <tr id="sximo-quick-search">
-                    <td></td>
                     <td> #</td>
                     <td></td>
                     @foreach ($tableGrid as $t)
@@ -85,20 +80,8 @@
                         <button type="button" class=" do-quick-search btn btn-xs btn-info"> GO</button>
                     </td>
                 </tr>
-
-                    @foreach ($rowData as $row)
-                <tr>
-                        <!-- added status colours for training records here-->
-
-                        @if($row->conf_completed_by != NULL)
-                            <td width="50" class="editable" style="background:darkseagreen"></td>
-
-                        @elseif ($row->completed == 1)
-                            <td width="50" class="editable" style="background:yellow"></td>
-                        @else
-                            <td width="50" class="editable" style="background:indianred"></td>
-                        @endif
-
+                @foreach ($rowData as $row)
+                    <tr>
                         <td width="50"> {{ ++$i }} </td>
                         <td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}"/></td>
                         @foreach ($tableGrid as $field)
@@ -123,16 +106,21 @@
                                     {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
                                     @if($access['is_detail'] ==1)
                                         <li>
-                                            <a href="{{ URL::to('trainingrecords/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
-                                            </a>
+                                            <a href="{{ URL::to('invoices/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a>
                                         </li>
                                     @endif
-                                    @if($access['is_edit'] ==1)
-                                        <li>
-                                            <a href="{{ URL::to('trainingrecords/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
-                                        </li>
+
+                                    @if($row->cash_taken_sale_id == "")
+                                        @if($row->invoice_date == date('Y-m-d') or Session::get('lvl') <= GLOBAL_USER)
+                                            @if($access['is_edit'] ==1)
+                                                <li>
+                                                    <a href="{{ URL::to('invoices/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                                class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endif
                                     @endif
                                     @foreach($subgrid as $md)
                                         <li>
@@ -142,7 +130,7 @@
                                 </ul>
                             </div>
                         </td>
-                </tr>
+                    </tr>
 
                 @endforeach
 
@@ -155,9 +143,8 @@
         <div class="alert alert-info" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Info:</span>
-            <strong>Status Colours:</strong>
-            <br><strong>Yellow:</strong> Training marked as complete by user<br> <br>
-                <strong>Note:</strong> Sign off staff training by selecting the row and pressing the "Sign Off Training" button.
+
+            <p><strong>Note: </strong>Edits are only allowed for invoices from the same day unless user authorisation is level 3 or below. <br>Edits are not allowed on invoices already linked to a sale. </p>
         </div>
         @include('footer')
 
@@ -167,7 +154,7 @@
     $(document).ready(function () {
 
         $('.do-quick-search').click(function () {
-            $('#SximoTable').attr('action', '{{ URL::to("trainingsignoff/multisearch")}}');
+            $('#SximoTable').attr('action', '{{ URL::to("invoices/multisearch")}}');
             $('#SximoTable').submit();
         });
 

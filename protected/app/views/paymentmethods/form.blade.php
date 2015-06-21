@@ -26,7 +26,7 @@
 <div class="col-md-12">
 						<fieldset><legend> PaymentsMethods</legend>
 									
-								  <div class="form-group  " >
+								  <div class="form-group hidethis " style="display:none;">
 									<label for="Id" class=" control-label col-md-4 text-left"> Id </label>
 									<div class="col-md-6">
 									  {{ Form::text('id', $row['id'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
@@ -36,19 +36,19 @@
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Invoice Type" class=" control-label col-md-4 text-left"> Invoice Type </label>
+									<label for="Invoice Type" class=" control-label col-md-4 text-left"> Invoice Type <span class="asterix"> * </span></label>
 									<div class="col-md-6">
-									  {{ Form::text('invoice_type', $row['invoice_type'],array('class'=>'form-control', 'placeholder'=>'',   )) }} 
+									  {{ Form::text('invoice_type', $row['invoice_type'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) }} 
 									 </div> 
 									 <div class="col-md-2">
 									 	
 									 </div>
 								  </div> 					
 								  <div class="form-group  " >
-									<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+									<label for="Description" class=" control-label col-md-4 text-left"> Description <span class="asterix"> * </span></label>
 									<div class="col-md-6">
 									  <textarea name='description' rows='2' id='description' class='form-control '  
-				           >{{ $row['description'] }}</textarea> 
+				         required  >{{ $row['description'] }}</textarea> 
 									 </div> 
 									 <div class="col-md-2">
 									 	

@@ -146,29 +146,41 @@ class EmployeeController extends BaseController
         $trackUri = $this->data['trackUri'];
         $rules = $this->validateForm();
         $validator = Validator::make(Input::all(), $rules);
-        if ($validator->passes()) {
-            if ($data['active'] = 0) {
-                DB::table('tb_users')->where('id', $data['employee_id'])->update(array('active' => 0));
-            }
-            $data = $this->validatePost('employee_records');
-            //set the timestamps here
-            $inputID = Input::get('employee_id');
-            //update timestamps
-            $data = $this->model->updateStamps($data, $inputID);
-            //mark registration as complete
-            $data['reg_complete'] = 1;
-            //insert the row
-            $ID = $this->model->insertRow($data, $inputID);
-            // Input logs
-            $this->inputLogs("Employee registration of user id: $ID completed");
 
-            // Redirect after save
+        //fetches an assignemnt matching the inputs
+        $result = DB::select('select count(a.id) as count from assigned_to as a where a.user_id = ' . Input::get('employee_id') . ' and a.site_id = ' . Input::get('default_site') . ' and a.department_id = ' . Input::get('default_department') . ' and a.active = 1');
+
+        //if no assignment was found then its not possible to select the site and dep as default.
+        if ($result[0]->count != 0)
+            if ($validator->passes()) {
+                if ($data['active'] = 0) {
+                    DB::table('tb_users')->where('id', $data['employee_id'])->update(array('active' => 0));
+                }
+                $data = $this->validatePost('employee_records');
+
+                //set the timestamps here
+                $inputID = Input::get('employee_id');
+                //update timestamps
+                $data = $this->model->updateStamps($data, $inputID);
+
+                //mark registration as complete
+                $data['reg_complete'] = 1;
+                //insert the row
+                $ID = $this->model->insertRow($data, $inputID);
+                // Input logs
+                $this->inputLogs("Employee registration of user id: $ID completed");
+
+                // Redirect after save
+                $md = str_replace(" ", "+", Input::get('md'));
+                $redirect = (!is_null(Input::get('apply')) ? 'employee/add/' . $id . '?md=' . $md . $trackUri : 'employee?md=' . $md . $trackUri);
+                return Redirect::to($redirect)->with('message', SiteHelpers::alert('success', "Record updated - Changes to default site and department will not take affect until logging back in"));
+            } else {
+                $md = str_replace(" ", "+", Input::get('md'));
+                return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
+                    ->withErrors($validator)->withInput();
+            } else {
             $md = str_replace(" ", "+", Input::get('md'));
-            $redirect = (!is_null(Input::get('apply')) ? 'employee/add/' . $id . '?md=' . $md . $trackUri : 'employee?md=' . $md . $trackUri);
-            return Redirect::to($redirect)->with('message', SiteHelpers::alert('success', Lang::get('core.note_success')));
-        } else {
-            $md = str_replace(" ", "+", Input::get('md'));
-            return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
+            return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', 'Error: You need to be assigned to this site and department before it can be selected as default'))
                 ->withErrors($validator)->withInput();
         }
 

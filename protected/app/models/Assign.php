@@ -15,9 +15,9 @@ class Assign extends BaseModel  {
 		return "  SELECT assigned_to.* FROM assigned_to  ";
 	}
 	public static function queryWhere(  ){
-		if (Session::get('gid') > 5){
-			return " WHERE assigned_to.id =".Session::get('uid')."";
-		} elseif(Session::get('gid') > 3){
+		if (Session::get('lvl') > 5){
+			return " WHERE assigned_to.user_id =".Session::get('uid')."";
+		} elseif(Session::get('lvl') > GLOBAL_USER){
 			return " WHERE assigned_to.site_id =".Session::get('sid')."";
 		} else {
 			return " WHERE assigned_to.id IS NOT NULL";

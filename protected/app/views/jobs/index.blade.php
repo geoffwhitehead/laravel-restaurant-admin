@@ -49,119 +49,142 @@
 
 
         @if(Session::has('message'))
-            <div class="alert alert-info" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Info:</span>
+            <p>{{ Session::get('message') }}</p>
+    </div>
+    @endif
+    {{ $details }}
 
-                <p>{{ Session::get('message') }}</p>
-            </div>
-        @endif
-        {{ $details }}
+    {{ Form::open(array('url'=>'jobs/completed/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
+    <div class="table-responsive" style="min-height:300px;">
+        <table class="table table-striped ">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th> No</th>
+                <th><input type="checkbox" class="checkall"/></th>
 
-        {{ Form::open(array('url'=>'jobs/completed/', 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) }}
-        <div class="table-responsive" style="min-height:300px;">
-            <table class="table table-striped ">
-                <thead>
+                @foreach ($tableGrid as $t)
+                    @if($t['view'] =='1')
+                        <th>{{ $t['label'] }}</th>
+                    @endif
+                @endforeach
+                <th>{{ Lang::get('core.btn_action') }}</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr id="sximo-quick-search">
+                <td></td>
+                <td> #</td>
+                <td></td>
+                @foreach ($tableGrid as $t)
+                    @if($t['view'] =='1')
+                        <td>
+                            {{ SiteHelpers::transForm($t['field'] , $tableForm) }}
+                        </td>
+                    @endif
+                @endforeach
+                <td style="width:130px;">
+                    <input type="hidden" value="Search">
+                    <button type="button" class=" do-quick-search btn btn-xs btn-info"> GO</button>
+                </td>
+            </tr>
+
+            @foreach ($rowData as $row)
                 <tr>
-                    <th>Status</th>
-                    <th> No</th>
-                    <th><input type="checkbox" class="checkall"/></th>
 
-                    @foreach ($tableGrid as $t)
-                        @if($t['view'] =='1')
-                            <th>{{ $t['label'] }}</th>
-                        @endif
-                    @endforeach
-                    <th>{{ Lang::get('core.btn_action') }}</th>
-                </tr>
-                </thead>
+                    <!--the if statements define frequency brackets to change the status of jobs. This is represented by a colour. Yellow is when a job is nearly due, red is past, and green is within range-->
 
-                <tbody>
-                <tr id="sximo-quick-search">
-                    <td></td>
-                    <td> #</td>
-                    <td></td>
-                    @foreach ($tableGrid as $t)
-                        @if($t['view'] =='1')
-                            <td>
-                                {{ SiteHelpers::transForm($t['field'] , $tableForm) }}
-                            </td>
-                        @endif
-                    @endforeach
-                    <td style="width:130px;">
-                        <input type="hidden" value="Search">
-                        <button type="button" class=" do-quick-search btn btn-xs btn-info"> GO</button>
-                    </td>
-                </tr>
+                    <!--if monitored with checks system-->
+                    @if($row->monitor_in_checks == 1)
 
-                @foreach ($rowData as $row)
-                    <tr>
-                       <?php echo $_REQUEST[$row->id]?>
+                        @if($row->datediff >= $row->freq)
+                            <td width="50" class="editable" style="background:indianred"></td>
 
-                        @if($row->id != NULL)
-                            <td width="50" class="editable" style="background:darkseagreen"></td>
-
-                        @elseif ($row->id == 1)
+                        @elseif ($row->datediff >= ($row->freq*0.75))
                             <td width="50" class="editable" style="background:yellow"></td>
                         @else
-                            <td width="50" class="editable" style="background:indianred"></td>
-                        @endif
-
-                        <td width="50"> {{ ++$i }} </td>
-                        <td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}"/></td>
-                        @foreach ($tableGrid as $field)
-                            @if($field['view'] =='1')
-                                <td>
-                                    @if($field['attribute']['image']['active'] =='1')
-                                        {{ SiteHelpers::showUploadedFile($row->$field['field'],$field['attribute']['image']['path']) }}
-                                    @else
-                                        {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
-                                        {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
-                                    @endif
-                                </td>
+                            <td width="50" class="editable" style="background:darkseagreen"></td>
                             @endif
-                        @endforeach
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                    <i class="fa fa-cog"></i> <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu  icons-left pull-right">
-                                    {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
-                                    @if($access['is_detail'] ==1)
-                                        <li>
-                                            <a href="{{ URL::to('jobs/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}</a>
-                                        </li>
-                                    @endif
-                                    @if($access['is_edit'] ==1)
-                                        <li>
-                                            <a href="{{ URL::to('jobs/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}</a>
-                                        </li>
-                                    @endif
-                                    @foreach($subgrid as $md)
-                                        <li>
-                                            <a href="{{ URL::to($md['module'].'?md='.$md['master'].'+'.$md['master_key'].'+'.$md['module'].'+'.$md['key'].'+'.$id) }}"><i
-                                                        class="icon-eye2"></i> {{ $md['title'] }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                                    <!--if not monitored with check system-->
+                            @else
+                                <td width="50" class="editable" style="background:slategrey"></td>
+                            @endif
 
-                @endforeach
+                            <td width="50"> {{ ++$i }} </td>
+                            <td width="50"><input type="checkbox" class="ids" name="id[]" value="{{ $row->id }}"/>
+                            </td>
+                            @foreach ($tableGrid as $field)
+                                @if($field['view'] =='1')
+                                    <td>
+                                        @if($field['attribute']['image']['active'] =='1')
+                                            {{ SiteHelpers::showUploadedFile($row->$field['field'],$field['attribute']['image']['path']) }}
+                                        @else
+                                            {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
+                                            {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
+                                        @endif
+                                    </td>
+                                @endif
+                            @endforeach
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        <i class="fa fa-cog"></i> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu  icons-left pull-right">
+                                        {{--*/ $id = SiteHelpers::encryptID($row->id) /*--}}
+                                        @if($access['is_detail'] ==1)
+                                            <li>
+                                                <a href="{{ URL::to('jobs/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                            class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
+                                                </a>
+                                            </li>
+                                        @endif
 
-                </tbody>
+                                        @if($access['is_edit'] ==1)
+                                            <li>
+                                                <a href="{{ URL::to('jobs/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                            class="fa fa-edit"></i> {{ Lang::get('core.btn_edit') }}
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @foreach($subgrid as $md)
+                                            <li>
+                                                <a href="{{ URL::to($md['module'].'?md='.$md['master'].'+'.$md['master_key'].'+'.$md['module'].'+'.$md['key'].'+'.$id) }}"><i
+                                                            class="icon-eye2"></i> {{ $md['title'] }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </td>
+                </tr>
 
-            </table>
-            <input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}"/>
-        </div>
-        {{ Form::close() }}
-        @include('footer')
+            @endforeach
+
+            </tbody>
+
+        </table>
+        <input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}"/>
+    </div>
+    {{ Form::close() }}
+    <div class="alert alert-info" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Info:</span>
+        <strong>Status Colours: </strong><br>
+        <strong>Green:</strong> Job Complete<br>
+        <strong>Yellow:</strong> Job is approaching its due date<br>
+        <strong>Red:</strong> Job is past its due date<br>
+        <strong>Grey:</strong> Not monitored<br>
+        <br>
+
+        <strong>Note:</strong> Only jobs that are applicable to your currently selected position will be shown here.
+            If you are assigned to multiple positions change your site and department on the dashboard and return to
+            this page to view jobs for that section<br>
 
     </div>
+    @include('footer')
+
+</div>
 </div>
 <script>
     $(document).ready(function () {

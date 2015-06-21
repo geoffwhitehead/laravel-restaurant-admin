@@ -30,7 +30,7 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Check Name</td>
+						<td width='30%' class='label-view text-right'>Name</td>
 						<td>{{ $row->check_name }} </td>
 						
 					</tr>
@@ -42,25 +42,25 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Check Category</td>
+						<td width='30%' class='label-view text-right'>Category</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->check_category,'check_category','1:check_categories:id:name') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Check Frequency</td>
+						<td width='30%' class='label-view text-right'>Frequency</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->check_frequency,'check_frequency','1:check_time_periods:id:name') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Site Id</td>
+						<td width='30%' class='label-view text-right'>Site</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:address_city') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Department Id</td>
+						<td width='30%' class='label-view text-right'>Department</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->department_id,'department_id','1:departments:id:name') }} </td>
 						
 					</tr>
@@ -96,26 +96,20 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Tpid</td>
-						<td>{{ $row->tpid }} </td>
-						
-					</tr>
-				
-					<tr>
 						<td width='30%' class='label-view text-right'>Active</td>
 						<td>{{ $row->active }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Last Completed On</td>
-						<td>{{ $row->last_completed_on }} </td>
+						<td width='30%' class='label-view text-right'>Last Completed By</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->last_completed_by,'last_completed_by','1:tb_users:id:id|first_name|last_name') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Last Completed By</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->last_completed_by,'last_completed_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						<td width='30%' class='label-view text-right'>Last Completed On</td>
+						<td>{{ $row->last_completed_on }} </td>
 						
 					</tr>
 				

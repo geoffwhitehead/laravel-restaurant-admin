@@ -16,7 +16,7 @@ class Saleedit extends BaseModel  {
 	}
 	public static function queryWhere(  ){
 
-		return " WHERE sales.id IS NOT NULL AND sale_checked_by is NULL";
+		return " WHERE sale_checked_by is NULL";
 	}
 
 	public static function queryGroup(){
