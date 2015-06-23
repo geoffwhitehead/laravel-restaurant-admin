@@ -72,7 +72,17 @@ class EventController extends BaseController
         // Master detail link if any
         $this->data['subgrid'] = (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
         // Render into template
-        $this->layout->nest('content', 'event.index', $this->data)
+        //add the departments for the selection box
+
+        //check to see if the user has global access to this site
+        $global_check = DB::select('SELECT COUNT(department_id) as cnt FROM assigned_to as a WHERE a.user_id = '.Session::get('uid').' and a.site_id = '.Session::get('sid').' AND a.department_id = '.GLOBAL_DEP.'');
+        //if the user has global access return all departments
+        if($global_check[0]->cnt == 1){
+            $this->data['departments'] = DB::select('SELECT d.id, d.name FROM departments as d');
+        } else {
+            $this->data['departments'] = DB::select('SELECT d.id, d.name FROM departments as d JOIN assigned_to as a ON a.department_id = d.id WHERE a.user_id = '.Session::get('uid').' AND a.site_id = '.Session::get('sid').'');
+        }
+         $this->layout->nest('content', 'event.index', $this->data)
             ->with('menus', SiteHelpers::menus());
     }
 
@@ -96,7 +106,19 @@ class EventController extends BaseController
 
     public function getUsers()
     {
-        return json_encode(DB::table('tb_users')->select('id', 'first_name', 'last_name')->where('active','=','1')->get());
+        $result = DB::select("select u.id, u.first_name, u.last_name from tb_users u join assigned_to a on a.user_id = u.id where a.site_id = ".Session::get('sid')." and a.department_id = ".Session::get('did')." and a.active = 1");
+
+
+
+ // couldn't get the query builder to work.
+        //$result = DB::table('tb_users')
+          //  ->select('tb_users.id', 'tb.users.first_name', 'tb_users.last_name')
+            //->join('assigned_to', 'tb_users.id',  '=', 'assigned_to.user_id')
+         //   ->where('assigned_to.active','=', 1)
+         //   ->where('assigned_to.site_id', '=', 1)
+          //  ->where('assigned_to.department_id','=',2)
+          //  ->get();
+        return json_encode($result);
 
 
 
@@ -112,6 +134,10 @@ class EventController extends BaseController
 
     public function postCreate()
     {
+        //check to make sure user isnt trying to create shifts with a global selection. Must select a department
+        if (Session::get('did') == 1){
+            return (new Response("You cannot create shifts with a global department", 402));
+        }
         $data = Input::all();
         if (!isset($data['start']))
             return (new Response("No 'start' parameter defined", 400));
@@ -126,6 +152,7 @@ class EventController extends BaseController
                     'shift_end' => $data['end'],
                     'employee_id' => $data['id'],
                     'site_id' => Session::get('sid'),
+                    'department_id' => Session::get('did'),
                     'created_by' => Auth::id(),
                     'created_on' => date('Y-m-d h:i:s')
                 ]);
@@ -145,8 +172,22 @@ class EventController extends BaseController
     public
     function getList()
     {
-        $sid = Session::get('sid');
-        $data = DB::select('SELECT shifts.id, shift_start as start, shift_end as end, manager_conf_flag, admin_conf_flag, paid, tb_users.first_name as title, tb_users.last_name from shifts left outer join tb_users on shifts.employee_id=tb_users.id WHERE shifts.site_id = "' . $sid . '"');
+        $data = DB::select('SELECT shifts.id, shift_start as start, shift_end as end, manager_conf_flag, admin_conf_flag, paid, tb_users.first_name as title, tb_users.last_name from shifts join tb_users on shifts.employee_id=tb_users.id WHERE shifts.site_id = '.Session::get('sid').' and shifts.department_id = '.Session::get('did').'');
+
         return json_encode($data);
     }
+
+    public function postChangeDep(){
+        $result = DB::select("select d.name FROM departments d WHERE d.id = ".Input::get('did')."");
+
+        Session::put('did', Input::get('did'));
+        Session::put('dep', $result[0]->name);
+
+        // redirect
+        Session::flash('message', SiteHelpers::alert('success', 'Success'));
+        return json_encode("success");
+    }
+
+
+
 }

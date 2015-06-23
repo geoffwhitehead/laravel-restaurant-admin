@@ -1,7 +1,7 @@
 <?php
-class Shift extends BaseModel  {
+class Sfbb extends BaseModel  {
 	
-	protected $table = 'shifts';
+	protected $table = 'sfbb_log';
 	protected $primaryKey = 'id';
 
 	public function __construct() {
@@ -12,11 +12,11 @@ class Shift extends BaseModel  {
 	public static function querySelect(  ){
 		
 		
-		return "  SELECT shifts.* FROM shifts  ";
+		return "  SELECT sfbb_log.* FROM sfbb_log  ";
 	}
 	public static function queryWhere(  ){
 		
-		return " WHERE shifts.site_id = ".Session::get('sid')." and shifts.department_id = ".Session::get('did')." and shifts.active = 1";
+		return " WHERE sfbb_log.id IS NOT NULL   ";
 	}
 	
 	public static function queryGroup(){

@@ -44,17 +44,7 @@
 									 <div class="col-md-2">
 									 	
 									 </div>
-								  </div> 					
-								  <div class="form-group  " >
-									<label for="Site Id" class=" control-label col-md-4 text-left"> Site Id </label>
-									<div class="col-md-6">
-									  <select name='site_id' rows='5' id='site_id' code='{$site_id}' 
-							class='select2 '    ></select> 
-									 </div> 
-									 <div class="col-md-2">
-									 	
-									 </div>
-								  </div> 					
+								  </div>
 								  <div class="form-group  " >
 									<label for="Shift Start" class=" control-label col-md-4 text-left"> Shift Start </label>
 									<div class="col-md-6">
@@ -85,7 +75,6 @@
 				<label class="col-sm-4 text-right">&nbsp;</label>
 				<div class="col-sm-8">	
 				<input type="submit" name="apply" class="btn btn-info" value="{{ Lang::get('core.sb_apply') }} " />
-				<input type="submit" name="submit" class="btn btn-primary" value="{{ Lang::get('core.sb_save') }}  " />
 				<button type="button" onclick="location.href='{{ URL::to('shift?md='.$masterdetail["filtermd"].$trackUri) }}' " id="submit" class="btn btn-success ">  {{ Lang::get('core.sb_cancel') }} </button>
 				</div>	  
 		

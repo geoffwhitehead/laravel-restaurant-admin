@@ -54,8 +54,17 @@
 			<div class="col-md-8">
 			<input name="last_name" type="text" id="last_name" class="form-control input-sm" required value="{{ $info->last_name }}" />  
 			 </div> 
-		  </div>    
-	
+		  </div>
+          <div class="form-group">
+              <div class="col-md-4"></div>
+              <div class="col-md-8  alert alert-info" role="alert">
+                  <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                      <span class="sr-only">Info:</span>
+
+                      Changes to these details will only affect the login account, they will not be
+                      reflected in your employee file</p>
+              </div>
+          </div>
 		  <div class="form-group  " >
 			<label for="ipt" class=" control-label col-md-4 text-right"> Avatar </label>
 			<div class="col-md-8">

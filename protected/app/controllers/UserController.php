@@ -170,17 +170,19 @@ class UserController extends BaseController
                         //add extra session variables here
                         $info = DB::select("SELECT emp.default_site,emp.default_department, site.address_city, dep.name FROM employee_records as emp JOIN sites as site on site.id = emp.default_site join departments as dep on dep.id = emp.default_department WHERE emp.employee_id = " . Session::get('uid') . " limit 1");
                         $level = DB::select("select g.level from tb_users u join tb_groups g on g.group_id = u.group_id where u.id = ".$row->id."");
-
+                        $cid = DB::select("select company_name from companies where id = (select company_id from employee_records where employee_id = ".Session::get('uid').")");
                         Session::put('sid', $info[0]->default_site);
                         Session::put('did', $info[0]->default_department);
                         Session::put('site', $info[0]->address_city);
                         Session::put('dep', $info[0]->name);
+                        Session::put('company', $cid[0]->company_name);
                         //defaults
                         Session::put('d_sid', $info[0]->default_site);
                         Session::put('d_did', $info[0]->default_department);
                         Session::put('d_site', $info[0]->address_city);
                         Session::put('d_dep', $info[0]->name);
 
+                        Session::put('level', $level[0]->level);
                         Session::put('lvl', $level[0]->level);
 
 
@@ -376,7 +378,7 @@ class UserController extends BaseController
                 $user = User::find($data[0]->id);
                 $user->reminder = '';
                 $user->password = Hash::make(Input::get('password'));
-                //	$user->save();
+                $user->save();
             }
 
             return Redirect::to('user/login')->with('message', SiteHelpers::alert('success', 'Password has been saved!'));
@@ -513,6 +515,25 @@ class UserController extends BaseController
                     Session::put('gid', $row->group_id);
                     Session::put('eid', $row->group_email);
                     Session::put('fid', $row->first_name . ' ' . $row->last_name);
+
+
+                    //add extra session variables here
+                    $info = DB::select("SELECT emp.default_site,emp.default_department, site.address_city, dep.name FROM employee_records as emp JOIN sites as site on site.id = emp.default_site join departments as dep on dep.id = emp.default_department WHERE emp.employee_id = " . Session::get('uid') . " limit 1");
+                    $level = DB::select("select g.level from tb_users u join tb_groups g on g.group_id = u.group_id where u.id = ".$row->id."");
+
+                    Session::put('sid', $info[0]->default_site);
+                    Session::put('did', $info[0]->default_department);
+                    Session::put('site', $info[0]->address_city);
+                    Session::put('dep', $info[0]->name);
+                    //defaults
+                    Session::put('d_sid', $info[0]->default_site);
+                    Session::put('d_did', $info[0]->default_department);
+                    Session::put('d_site', $info[0]->address_city);
+                    Session::put('d_dep', $info[0]->name);
+
+                    Session::put('lvl', $level[0]->level);
+
+
                     if (CNF_FRONT == 'false') :
                         return Redirect::to('config/dashboard');
                     else :

@@ -38,17 +38,23 @@ class DashboardController extends BaseController  {
 
 		Session::put('sid', Input::get('sid'));
 		$result = DB::select("select a.department_id,s.address_city, d.name FROM assigned_to a join sites s on s.id = a.site_id join departments d on d.id = a.department_id WHERE a.user_id = ".Session::get('uid')." AND a.site_id = ".Session::get('sid')." limit 1" );
+		if($result)
 		//$did = DB::select("SELECT a.department_id FROM assigned_to as a WHERE a.user_id = ".Session::get('uid')." AND a.site_id = ".Session::get('sid')." limit 1");
 		Session::put('did', $result[0]->department_id);
 		Session::put('site', $result[0]->address_city);
 		Session::put('dep', $result[0]->name);
-		Session::flash('message', SiteHelpers::alert('success', "success"));
-		return json_encode(Redirect::back()->with('message' ,SiteHelpers::alert('success','Site changed and Department defaulted')));
+        Session::flash('message', SiteHelpers::alert('success', 'Successfully changed site - Department has been defaulted'));
+        return json_encode("success");
 	}
 	public function postChangeDep(){
-		Session::put('did', Input::get('did'));
-		Session::flash('message', SiteHelpers::alert('success', "success"));
-		return json_encode(Redirect::back()->with('message' ,SiteHelpers::alert('success','Current department changed')));
+        $result = DB::select("select d.name FROM departments d WHERE d.id = ".Input::get('did')."");
+
+        Session::put('did', Input::get('did'));
+        Session::put('dep', $result[0]->name);
+
+        // redirect
+       Session::flash('message', SiteHelpers::alert('success', 'Success'));
+        return json_encode("success");
 	}
 	
 }	

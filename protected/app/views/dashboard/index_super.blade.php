@@ -25,7 +25,8 @@
               <!-- <div class="panel-heading">
                     <div class="panel-title"><h3>Select your current site and department</h3></div>
                 </div>-->
-                <div class="" panel-body>
+
+                <div class="panel-body" >
                     <div>
                         <label for = "site_id">Site</label><br/>
                         <select name='site_id' rows='5' id='site_id' class='select2 '>
@@ -135,6 +136,7 @@
 
     $("#site_id").change(function () {
         $sid = $("#site_id option:selected").val();
+        alert($sid);
         $.ajax({
             type: 'POST',
             url: 'changesite',
@@ -143,22 +145,30 @@
                 sid: $sid
             },
             success: function (data) {
-                window.location.href = "dashboard";
+                if (data === 'success'){
+                    window.location.href = "dashboard";
+                }
+
             }
         });
     });
 
     $("#dep_id").change(function () {
         $did = $("#dep_id option:selected").val();
+        alert($did);
         $.ajax({
             type: 'POST',
             url: 'changedep',
             dataType: 'json',
             data: {
                 did: $did
-            },
+            }
+            ,
             success: function (data) {
-                window.location.href = "dashboard";
+                if (data === 'success'){
+                    window.location.href = "dashboard";
+                }
+
             }
         });
     });

@@ -231,7 +231,9 @@ class UploadedFile extends File
      */
     public function move($directory, $name = null)
     {
+
         if ($this->isValid()) {
+
             if ($this->test) {
                 return parent::move($directory, $name);
             }

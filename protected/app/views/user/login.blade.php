@@ -76,7 +76,7 @@
                     @endif
                 </div>
                 <p style="padding:10px 0" class="text-center">
-                    <a href="{{ URL::to('')}}"> Back to Site </a>
+                    <a href="{{ URL::to('')}}"> Back to Site </a> <!--changed from url::to-->
                 </p>
             </div>
         </div>

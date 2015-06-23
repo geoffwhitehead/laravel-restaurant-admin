@@ -49,6 +49,16 @@
                                     class='select2 ' required></select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8  alert alert-warning" role="alert">
+                            <p><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Warning:</span>
+
+                                Administrators and managing directors are given global access and different views to
+                                most sections, be careful not to accidentally assign someone to these groups.
+                        </div>
+                    </div>
                     <div class="form-group  ">
                         <label for="ipt"
                                class=" control-label col-md-4 text-right">  {{ Lang::get('core.username') }} </label>
@@ -81,82 +91,109 @@
                             {{ Form::text('email', $row['email'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true' )) }}
                         </div>
                     </div>
-
-                    <!--ADDED CODE FROM OTHER TABLES HERE-->
-                    @if($row['id'] == 0)
-                        <div class="form-group  ">
-                            <label for="ipt"
-                                   class=" control-label col-md-4 text-right">Employment Start </label>
-
-                            <div class="col-md-8">
-                                {{ Form::text('employment_start', "" ,array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
-                            </div>
-                        </div>
+                    @if($row['id'] != "")
                         <div class="form-group">
-                            <label for="ipt" class=" control-label col-md-4 text-right"> Company </label>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-8  alert alert-info" role="alert">
+                                <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Info:</span>
 
-                            <div class="col-md-8">
-                                <select name='company_id' rows='5' id='company_id' code='{$company_id}' class='select2 '
-                                        required>
-                                    @foreach ($companies as $company)
-                                        <option value="{{$company->id}}">{{$company->company_name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ipt" class=" control-label col-md-4 text-right"> Default Site </label>
-
-                            <div class="col-md-8">
-                                <select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '
-                                        required>
-                                    @foreach ($sites as $site)
-                                        <option value="{{$site->id}}">{{$site->name}}, {{$site->address_city}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ipt" class=" control-label col-md-4 text-right"> Default Department </label>
-
-                            <div class="col-md-8">
-                                <select name='department_id' rows='5' id='department_id' code='{$department_id}' class='select2 '
-                                        required>
-                                    @foreach ($departments as $department)
-                                        <option value="{{$department->id}}">{{$department->name}}</option>
-                                    @endforeach
-                                </select>
+                                    Changes to these details will only affect the login account, they will not be
+                                    reflected in the employee file</p>
                             </div>
                         </div>
                         @endif
+                                <!--ADDED CODE FROM OTHER TABLES HERE-->
+                        @if($row['id'] == "")
+                            <div class="form-group  ">
+                                <label for="ipt"
+                                       class=" control-label col-md-4 text-right">Employment Start </label>
 
-                                <!--END MODIFICATION-->
-
-
-                        <div class="form-group  ">
-                            <label for="ipt" class=" control-label col-md-4 text-right"> Status </label>
-
-                            <div class="col-md-8">
-
-                                <label class='checked'>
-                                    <input type='radio' name='active' value='0' required @if($row['active'] == '0')
-                                           checked="checked" @endif > Inactive </label>
-                                <label class='checked'>
-                                    <input type='radio' name='active' value='1' required @if($row['active'] == '1')
-                                           checked="checked" @endif > Active </label>
+                                <div class="col-md-8">
+                                    {{ Form::text('employment_start', "" ,array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="ipt" class=" control-label col-md-4 text-right"> Company </label>
+
+                                <div class="col-md-8">
+                                    <select name='company_id' rows='5' id='company_id' code='{$company_id}'
+                                            class='select2 '
+                                            required>
+                                        @foreach ($companies as $company)
+                                            <option value="{{$company->id}}">{{$company->company_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ipt" class=" control-label col-md-4 text-right"> Default Site </label>
+
+                                <div class="col-md-8">
+                                    <select name='site_id' rows='5' id='site_id' code='{$site_id}' class='select2 '
+                                            required>
+                                        @foreach ($sites as $site)
+                                            <option value="{{$site->id}}">{{$site->name}}
+                                                , {{$site->address_city}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ipt" class=" control-label col-md-4 text-right"> Default Department </label>
+
+                                <div class="col-md-8">
+                                    <select name='department_id' rows='5' id='department_id' code='{$department_id}'
+                                            class='select2 '
+                                            required>
+                                        @foreach ($departments as $department)
+                                            <option value="{{$department->id}}">{{$department->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8  alert alert-info" role="alert">
+                                    <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="sr-only">Info:</span>
+
+                                        An assignment will be automatically created for the user based on their default
+                                        site/department. If the employee works at multiple locations or you would like
+                                        them to be able to log into other sites you will need to manually add an
+                                        assignment for them
+
+                                </div>
+                            </div>
+                            @endif
+
+                                    <!--END MODIFICATION-->
 
 
-                        <div class="form-group">
-                            <label class="col-sm-4 text-right">&nbsp;</label>
+                            <div class="form-group  ">
+                                <label for="ipt" class=" control-label col-md-4 text-right"> Status </label>
 
-                            <div class="col-sm-8">
-                                <button type="submit"
-                                        class="btn btn-primary ">  {{ Lang::get('core.sb_savechanges') }} </button>
+                                <div class="col-md-8">
+
+                                    <label class='checked'>
+                                        <input type='radio' name='active' value='0' required @if($row['active'] == '0')
+                                               checked="checked" @endif > Inactive </label>
+                                    <label class='checked'>
+                                        <input type='radio' name='active' value='1' required @if($row['active'] == '1')
+                                               checked="checked" @endif > Active </label>
+                                </div>
                             </div>
 
-                        </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 text-right">&nbsp;</label>
+
+                                <div class="col-sm-8">
+                                    <button type="submit"
+                                            class="btn btn-primary ">  {{ Lang::get('core.sb_savechanges') }} </button>
+                                </div>
+
+                            </div>
 
                 </div>
 
@@ -169,7 +206,12 @@
 
                         <div class="col-md-8">
                             @if($row['id'] !='')
-                                {{ Lang::get('core.notepassword') }}
+                                    <div class="alert alert-info" role="alert">
+                                        <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                            <span class="sr-only">Info:</span>
+                                            Leave blank if you don't want to change the password field
+                                        </p>
+                                    </div>
                             @else
                                 Create Password
                             @endif
@@ -209,6 +251,7 @@
                         </div>
 
                     </div>
+
 
                 </div>
                 {{ Form::close() }}

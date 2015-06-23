@@ -167,6 +167,8 @@
         <input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}"/>
     </div>
     {{ Form::close() }}
+
+    @include('footer')
     <div class="alert alert-info" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Info:</span>
@@ -178,13 +180,18 @@
         <br>
 
         <strong>Note:</strong> Only jobs that are applicable to your currently selected position will be shown here.
-            If you are assigned to multiple positions change your site and department on the dashboard and return to
-            this page to view jobs for that section<br>
+        If you are assigned to multiple positions change your site and department on the dashboard and return to
+        this page to view jobs for that section<br>
 
     </div>
-    @include('footer')
 
-</div>
+    {{ Form::open(array('url'=>'jobs/sfbb/', 'class'=>'form-horizontal' ,'id' =>'sfbb' )) }}
+    <div class="col-md-12">
+        <fieldset>
+            <legend> Jobs</legend>
+
+            <div class="form-group hidethis " style="display:none;">
+
 </div>
 <script>
     $(document).ready(function () {

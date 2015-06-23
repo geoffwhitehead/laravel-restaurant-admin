@@ -21,8 +21,9 @@
 				 </span> 
 				 </span>
                     </a>
+
                     <div class="animated fadeIn siteinfo sidebar-sitedep">
-                      {{Session::get('site')}}<br>{{Session::get('dep')}}
+                        {{Session::get('company')}}<br>{{Session::get('site')}}<br>{{Session::get('dep')}}
                     </div>
                 </div>
                 <div class="photo-header "> {{ SiteHelpers::avatar( 50 )}} </div>
@@ -100,12 +101,6 @@
             @endforeach
         </ul>
 
-        </div>
+    </div>
     </div>
 </nav>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $("#site_id").jCombo("{{ URL::to('invoice/comboselect?filter=sites:id:id|address_city') }}",
-               );
-</script>

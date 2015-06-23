@@ -1,22 +1,22 @@
 <?php
-class JobsController extends BaseController {
+class SfbbController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'jobs';
+	public $module = 'sfbb';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Jobs();
+		$this->model = new Sfbb();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'jobs',
+			'pageModule'=> 'sfbb',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -31,8 +31,8 @@ class JobsController extends BaseController {
 				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));
 				
 		// Filter sort and order for query 
-		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -78,10 +78,9 @@ class JobsController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['details']		= $master['masterView'];
 		// Master detail link if any 
-		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
-
+		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','jobs.index',$this->data)
+		$this->layout->nest('content','sfbb.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -108,7 +107,7 @@ class JobsController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('checks'); 
+			$this->data['row'] = $this->model->getColumnTable('sfbb_log'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -120,7 +119,7 @@ class JobsController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-		$this->layout->nest('content','jobs.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','sfbb.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -136,12 +135,12 @@ class JobsController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('checks'); 
+			$this->data['row'] = $this->model->getColumnTable('sfbb_log'); 
 		}
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','jobs.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','sfbb.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
@@ -150,22 +149,11 @@ class JobsController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('checks');
-			//set the timestamps here
-			$inputID = Input::get('id');
-			if ($inputID == '') {
-				$data = $this->model->createStamps($data, $inputID) ;
-			} else {
-				$data = $this->model->updateStamps($data, $inputID) ;
-			}
+			$data = $this->validatePost('sfbb_log');
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
 			{
-				//create log entry for this task - this is necessary due to the sql query in place, otherwise it wont show in the query results index table for this module.
-				DB::table('checks_log')
-					->insert(array('check_id' => $ID, 'comments' => Input::get('Initial log entry on creation'),'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
-
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
 			} else {
@@ -173,40 +161,28 @@ class JobsController extends BaseController {
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'jobs/add/'.$id.'?md='.$md.$trackUri :  'jobs?md='.$md.$trackUri );
+			$redirect = (!is_null(Input::get('apply')) ? 'sfbb/add/'.$id.'?md='.$md.$trackUri :  'sfbb?md='.$md.$trackUri );
 			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
 		} else {
 			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('jobs/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
+			return Redirect::to('sfbb/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
 		}	
 	
 	}
-	public function postCompleted()
+	
+	public function postDestroy()
 	{
-		date_default_timezone_set('UTC');
-		DB::beginTransaction();
-		try{
-			$ids = Input::get('id');
-			foreach ($ids as $id){
-				DB::table('checks_log')
-					->insert(array('check_id' => $id, 'comments' => Input::get('comments_'.+$id.''),'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
-			}
-
-			//insert the log
-			$serialise = implode(",", $ids);
-			$this->inputLogs("User: ".Auth::id()." has marked jobs with ID's of ".$serialise." as completed");
-
-			DB::commit();
-			Session::flash('message', SiteHelpers::alert('success','Successfully marked the selected jobs as completed'));
-			return Redirect::to('jobs?md='.Input::get('md'))->with('message', SiteHelpers::alert('success',"Jobs with ID/s [".$serialise."] marked as completed"));
-		}catch(Exception $e){
-			DB::rollBack();
-			return Redirect::to('jobs?md='.Input::get('md'))->with('message', "Failed marking the selected jobs as completed");
-		}
-	}
-    public function postSFBB(){
-
-    }
-
+		
+		if($this->access['is_remove'] ==0) 
+			return Redirect::to('')
+				->with('message', SiteHelpers::alert('error',Lang::get('core.note_restric')));		
+		// delete multipe rows 
+		$this->model->destroy(Input::get('id'));
+		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
+		// redirect
+		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
+		return Redirect::to('sfbb?md='.Input::get('md'));
+	}			
+		
 }

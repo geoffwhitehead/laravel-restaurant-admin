@@ -21,27 +21,52 @@
     {{ $details }}
 
     <div class="col-lg-12">
-        <div id="event_content">
-            <div id='external-events'>
+        <div class="col-md-12" id="event_content">
+
+
+            <div class="col-md-8" id='external-events'>
                 <h4>Shifts</h4>
 
-                <div id='lunch'><h4>Lunch asdasdasd</h4></div>
+                <div id='lunch'><h4>Lunch</h4></div>
                 <div id='evening'><h4>Evening</h4></div>
                 <h4>Status panel</h4>
 
                 <div id="status_panel" style=""></div>
-                <div id="loading"
-                     style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">{{ HTML::image('sximo/images/spinner.gif') }}</div>
-                <div id="calendar"></div>
+
+
             </div>
+            <div class="col-md-4">
+                <label for="dep_id">Department:</label><br/>
+                <select name='dep_id' rows='5' id='dep_id' class='select2 '>
+                    @foreach ($departments as $dep)
+                        @if ($dep->id == Session::get('did'))
+                            <option selected value=" {{$dep->id}}"> {{$dep->name}}</option>
+                        @else
+                            <option value=" {{$dep->id}}"> {{$dep->name}}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+@if(Session::get('did') == GLOBAL_DEP)
+                <div class=" col-lg-12 alert alert-info" role="alert">
+                    <p> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Info:</span>
+
+                    You are currently on global access. Select a department. Remember to change back to global if you want to view the rest of the site with global access. You can also do this from home (by clicking the logo in the top left).
+                </div>
+    @else
+            <div class="col-lg-12" id="calendar">
+
+                <div id="loading"
+                     style="position: absolute; left: 80%; top: 50%;"><i class="fa fa-cog fa-3x fa-spin "></i>
+                </div>
+            </div>
+        @endif
         </div>
     </div>
 
-    <!-- ADD START OF SXIMO _ SORRY GAV -->
 
-
-
-
+</div>
 
 </div>
 <script type="text/javascript">
@@ -52,6 +77,22 @@
 
         //hide the loading bar, initially
         //$('#loading').hide();
+
+        $("#dep_id").change(function () {
+            $did = $("#dep_id option:selected").val();
+            $.ajax({
+                type: 'POST',
+                url: 'changedep',
+                dataType: 'json',
+                data: {
+                    did: $did
+                },
+                success: function (data) {
+                    if (data === "success")
+                    window.location.href = 'event';
+                }
+            });
+        });
 
         $.ajax({
             url: 'marvin2/event/users/',
@@ -148,7 +189,6 @@
             },
 
 
-
             drop: function (date) {
                 // retrieve the dropped element's stored Event Object
                 var originalEventObject = $(this).data('eventObject');
@@ -159,7 +199,6 @@
                 // assign it the date that was reported
                 copiedEventObject.start = date;
                 copiedEventObject.end = moment(date).add(copiedEventObject.duration, 'hours');
-               copiedEventObject.draggable();  // TODO THIS NEEDS CHECKING
 
                 //TODO: events dragged onto screen have the ID of user, not the shift id? this needs to be fixed.
                 $.ajax({
@@ -174,7 +213,6 @@
                         // render the event on the calendar
                         // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
                         copiedEventObject.id = data;
-                        copiedEventObject.draggable(); // TODO THIS NEEDS CHECKING
                         $('#calendar').fullCalendar('renderEvent', copiedEventObject, false);
                     },
                     error: function (xhr, status, error) {
@@ -198,6 +236,7 @@
                     error: function () {
                         alert('there was an error while fetching events!');
                     }
+
                 }
             ],
             loading: function (isLoading, view) {
@@ -211,4 +250,7 @@
         })
 
     });
+
+
+
 </script>

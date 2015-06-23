@@ -217,7 +217,7 @@
 
                     <div class="col-md-6">
 
-                        {{ Form::text('sale_date', date('y-m-d'),['sale_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                        {{ Form::text('sale_date', date('d-m-Y'),['sale_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
                     </div>
                     <div class="col-md-1">
 

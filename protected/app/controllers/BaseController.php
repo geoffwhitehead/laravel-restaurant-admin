@@ -1,8 +1,12 @@
 <?php
 
 
-define("GLOBAL_USER",  "3");
-define("MANAGER", "4");
+define("GLOBAL_USER",  3);
+define("MANAGER", 4);
+define("ACCOUNTANT_GID", 4);
+define("GLOBAL_DEP", 1);
+define("KITCHEN_DEP", 4);
+define("FOH_DEP", 2);
 
 
 class BaseController extends Controller {
@@ -411,7 +415,17 @@ class BaseController extends Controller {
 		$data = array();
 		foreach($str as $f){
 			$field = $f['field'];
-			if($f['view'] ==1) 
+            if ($field == 'employee_id'){
+                $emp_id = Input::get($field);
+            }
+            if ($field == 'first_name'){
+                $fname = Input::get($field);
+            }
+            if ($field == 'last_name'){
+                $lname = Input::get($field);
+            }
+
+            if($f['view'] ==1)
 			{
 		
 				if($f['type'] =='textarea_editor' || $f['type'] =='textarea')
@@ -430,8 +444,14 @@ class BaseController extends Controller {
 					{				
 						if(!is_null(Input::file($field)))
 						{
-							$file = Input::file($field); 
+
+                            $cid = DB::select("select company_name from companies where id = (select company_id from employee_records where employee_id = ".$emp_id.")");
+							$file = Input::file($field);
+                            if($f['option']['path_to_upload'] == '/uploads/user_docs/'){
+                                $f['option']['path_to_upload'] = '/uploads/user_docs/'.$cid[0]->company_name.'/'.$lname.' '.$fname.' ['.$emp_id.']/';
+                            }
 							$destinationPath = './'.str_replace('.','',$f['option']['path_to_upload']);
+
 							$filename = $file->getClientOriginalName();
 							$extension =$file->getClientOriginalExtension(); //if you need extension of the file
 							$uploadSuccess = Input::file($field)->move($destinationPath, $filename);

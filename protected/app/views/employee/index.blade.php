@@ -105,7 +105,8 @@
                                 @if($field['view'] =='1')
                                     <td>
                                         @if($field['attribute']['image']['active'] =='1')
-                                            {{ SiteHelpers::showUploadedFile($row->$field['field'],$field['attribute']['image']['path']) }}
+                                            <!--this wont work for me as the files are tagged as "files", not as images-->
+                                            {{ SiteHelpers::showUploadedFile($row->$field['field'],'/uploads/user_docs/'.$row->last_name.' '.$row->first_name.' ['.$row->employee_id.']/') }}
                                         @else
                                             {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
                                             {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
@@ -126,9 +127,10 @@
                                                 <a href="{{ URL::to('employee/show/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
                                                             class="fa  fa-search"></i> {{ Lang::get('core.btn_view') }}
                                                 </a>
+
                                             </li>
                                         @endif
-                                        @if($row->employee_id == Session::get('uid') or Session::get('lvl') >= GLOBAL_USER)
+                                        @if($row->employee_id == Session::get('uid') or Session::get('lvl') <= GLOBAL_USER)
                                             @if($access['is_edit'] ==1)
                                                 <li>
                                                     <a href="{{ URL::to('employee/add/'.$id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
@@ -155,14 +157,16 @@
 
         </div>
         {{ Form::close() }}
+
+        @include('footer')
+
         <div class="alert alert-info" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <p> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Info:</span>
 
-            <p><strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete
+           <strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete
                 but not yet processed by accountant. <br> Green : Registration complete and processed.</p>
         </div>
-        @include('footer')
     </div>
 
 </div>

@@ -151,7 +151,8 @@ class EmployeeController extends BaseController
         $result = DB::select('select count(a.id) as count from assigned_to as a where a.user_id = ' . Input::get('employee_id') . ' and a.site_id = ' . Input::get('default_site') . ' and a.department_id = ' . Input::get('default_department') . ' and a.active = 1');
 
         //if no assignment was found then its not possible to select the site and dep as default.
-        if ($result[0]->count != 0)
+        //you dont create on this form so dont need to check for empty id
+        if ($result[0]->count != 0) {
             if ($validator->passes()) {
                 if ($data['active'] = 0) {
                     DB::table('tb_users')->where('id', $data['employee_id'])->update(array('active' => 0));
@@ -166,6 +167,14 @@ class EmployeeController extends BaseController
                 //mark registration as complete
                 $data['reg_complete'] = 1;
                 //insert the row
+
+                //remove their bank details post registration
+                if(Input::get('processed') == 1){
+                    $data['processed'] = 1;
+                    $data['bank_sortcode'] = "";
+                    $data['bank_account'] = "";
+                }
+
                 $ID = $this->model->insertRow($data, $inputID);
                 // Input logs
                 $this->inputLogs("Employee registration of user id: $ID completed");
@@ -178,7 +187,8 @@ class EmployeeController extends BaseController
                 $md = str_replace(" ", "+", Input::get('md'));
                 return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
                     ->withErrors($validator)->withInput();
-            } else {
+            }
+        } else {
             $md = str_replace(" ", "+", Input::get('md'));
             return Redirect::to('employee/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', 'Error: You need to be assigned to this site and department before it can be selected as default'))
                 ->withErrors($validator)->withInput();
@@ -186,18 +196,19 @@ class EmployeeController extends BaseController
 
     }
 
-    public function postDestroy()
+    public function postDownloadFiles()
     {
-
-        if ($this->access['is_remove'] == 0)
-            return Redirect::to('')
-                ->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
-        // delete multipe rows
-        $this->model->destroy(Input::get('id'));
-        $this->inputLogs("ID : " . implode(",", Input::get('id')) . "  , Has Been Removed Successfully");
-        // redirect
+        $ids = Input::get('id');
+        foreach ($ids as $id) {
+            DB::table('training_records')
+                ->where('id', $id)
+                ->update(array('conf_completed_by' => Auth::id(), 'conf_completed_on' => date("Y-m-d H:i:s")));
+        }
+        //input logs
+        $serialise = implode(",", $ids);
+        $this->inputLogs("User: " . Auth::id() . " has marked training tasks with ID's of " . $serialise . " as completed");
         Session::flash('message', SiteHelpers::alert('success', Lang::get('core.note_success_delete')));
-        return Redirect::to('employee?md=' . Input::get('md'));
+        return Redirect::to('trainingsignoff?md=' . Input::get('md'))->with('message', "" . count($ids) . " Training record/s successfully signed off");
     }
 
 }

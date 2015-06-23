@@ -24,4 +24,5 @@
                     Route::controller('checkslog', 'CheckslogController');
                     Route::controller('jobs', 'JobsController');
                     Route::controller('invoices', 'InvoicesController');
+                    Route::controller('sfbb', 'SfbbController');
                     ?>
