@@ -42,6 +42,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Site</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->site_id,'site_id','1:sites:id:address_city') }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Closing Log</td>
 						<td>{{ $row->closing_log }} </td>
 						

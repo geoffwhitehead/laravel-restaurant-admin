@@ -234,13 +234,13 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $("#site_id").jCombo("{{ URL::to('invoice/comboselect?filter=sites:id:id|address_city') }}",
+        $("#site_id").jCombo("{{ URL::to('invoices/comboselect?filter=sites:id:id|address_city') }}",
                 {selected_value: '{{ $row["site_id"] }}'});
 
-        $("#supplier_id").jCombo("{{ URL::to('invoice/comboselect?filter=suppliers:id:supplier_name|account_ref|site_id') }}",
+        $("#supplier_id").jCombo("{{ URL::to('invoices/comboselect?filter=suppliers:id:supplier_name|account_ref|site_id') }}",
                 {selected_value: '{{ $row["supplier_id"] }}'});
 
-        $("#payment_method_id").jCombo("{{ URL::to('invoice/comboselect?filter=payment_methods:id:invoice_type') }}",
+        $("#payment_method_id").jCombo("{{ URL::to('invoices/comboselect?filter=payment_methods:id:invoice_type') }}",
                 {selected_value: '{{ $row["payment_method_id"] }}'});
 
     });

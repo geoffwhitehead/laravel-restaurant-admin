@@ -98,6 +98,38 @@
                 </table>
             </div>
             <div class="col-md-12">
+                <legend> Deposits Purchased</legend>
+                <table class="table table-striped">
+
+                    <?php
+                    $arraySize = sizeof($purchased_deposits);
+                    ?>
+
+                    @if ($arraySize == 0)
+                        <p>None</p>
+                    @else
+
+                        <thead>
+
+                        <tr>
+                            <th>Booking Date / Time</th>
+                            <th>Name</th>
+                            <th>Covers</th>
+                            <th>Deposit Amount</th>
+                        </tr>
+                        @foreach($purchased_deposits as $pd)
+                            <tr>
+                                <th>{{$pd->booking_date_time}}</th>
+                                <th>{{$pd->booking_name}}</th>
+                                <th>{{$pd->booking_covers}}</th>
+                                <th>{{$pd->deposit_amount}}</th>
+                            </tr>
+                        @endforeach
+                        </thead>
+                    @endif
+                </table>
+            </div>
+            <div class="col-md-12">
                 <legend> Vouchers Used</legend>
                 <table class="table table-striped">
                     <?php
@@ -217,7 +249,7 @@
 
                     <div class="col-md-6">
 
-                        {{ Form::text('sale_date', date('d-m-Y'),['sale_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
+                        {{ Form::text('sale_date', date('Y-m-d'),['sale_date'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
                     </div>
                     <div class="col-md-1">
 

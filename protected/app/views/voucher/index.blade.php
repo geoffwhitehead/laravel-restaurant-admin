@@ -5,7 +5,7 @@
         <div class="page-title">
             <h3> {{ $pageTitle }}
                 <small>{{ $pageNote }}</small>
-                nemo
+
             </h3>
         </div>
 
