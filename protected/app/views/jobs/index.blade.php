@@ -97,8 +97,7 @@
 
                     <!--if monitored with checks system-->
                     @if($row->monitor_in_checks == 1)
-
-                        @if($row->datediff >= $row->freq)
+                        @if(($row->datediff >= $row->freq) or is_null($row->datediff))
                             <td width="50" class="editable" style="background:indianred"></td>
 
                         @elseif ($row->datediff >= ($row->freq*0.75))
@@ -184,14 +183,6 @@
         this page to view jobs for that section<br>
 
     </div>
-
-    {{ Form::open(array('url'=>'jobs/sfbb/', 'class'=>'form-horizontal' ,'id' =>'sfbb' )) }}
-    <div class="col-md-12">
-        <fieldset>
-            <legend> Jobs</legend>
-
-            <div class="form-group hidethis " style="display:none;">
-
 </div>
 <script>
     $(document).ready(function () {
@@ -202,4 +193,4 @@
         });
 
     });
-</script>		
+</script>

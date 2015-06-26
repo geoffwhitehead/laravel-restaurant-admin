@@ -109,6 +109,7 @@
                                         @if($field['attribute']['image']['active'] =='1')
                                             <!--this wont work for me as the files are tagged as "files", not as images-->
                                             {{ SiteHelpers::showUploadedFile($row->$field['field'],'/uploads/user_docs/'.$row->last_name.' '.$row->first_name.' ['.$row->employee_id.']/') }}
+
                                         @else
                                             {{--*/ $conn = (isset($field['conn']) ? $field['conn'] : array() ) /*--}}
                                             {{ SiteHelpers::gridDisplay($row->$field['field'],$field['field'],$conn) }}
@@ -140,6 +141,27 @@
                                                     </a>
                                                 </li>
                                             @endif
+                                        @endif
+                                        @if ($row->scan_p45_p46 != "")
+                                        <li>
+                                            <a href="{{ URL::to('employee/p45/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                        class="fa fa-download"></i> Download P45
+                                            </a>
+                                        </li>
+                                        @endif
+                                        @if ($row->scan_p45_p46 != "")
+                                            <li>
+                                                <a href="{{ URL::to('employee/ni/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                            class="fa fa-download"></i> Download NI
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if ($row->scan_p45_p46 != "")
+                                            <li>
+                                                <a href="{{ URL::to('employee/pass/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                            class="fa fa-download"></i> Download Pass
+                                                </a>
+                                            </li>
                                         @endif
                                         @foreach($subgrid as $md)
                                             <li>

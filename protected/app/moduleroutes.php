@@ -25,4 +25,11 @@
                     Route::controller('jobs', 'JobsController');
                     Route::controller('invoices', 'InvoicesController');
                     Route::controller('sfbb', 'SfbbController');
+                    Route::controller('trainingrecordscomplete', 'TrainingrecordscompleteController');
+                    Route::controller('maintenance', 'MaintenanceController');
+                    Route::controller('maintenancelog', 'MaintenancelogController');
+                    Route::controller('servicecontacts', 'ServicecontactsController');
+                    Route::controller('equipment', 'EquipmentController');
+                    Route::controller('equipmenttypes', 'EquipmenttypesController');
+                    Route::controller('temp', 'TempController');
                     ?>

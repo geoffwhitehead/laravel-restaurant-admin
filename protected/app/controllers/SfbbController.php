@@ -86,7 +86,7 @@ class SfbbController extends BaseController
 
         // query the database to find out if a SFBB record has already been submitted
 
-       $this->data['count_recent'] = DB::select("select count(created_on) as cnt from sfbb_log where site_id = 1 and created_on >= DATE_SUB(NOW(),INTERVAL 16 HOUR)");
+       $this->data['count_recent'] = DB::select("select count(created_on) as cnt from sfbb_log where site_id = ".Session::get('sid')." and created_on >= DATE_SUB(NOW(),INTERVAL 16 HOUR)");
 
         $this->layout->nest('content', 'sfbb.index', $this->data)
             ->with('menus', SiteHelpers::menus());

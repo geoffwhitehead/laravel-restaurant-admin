@@ -78,7 +78,8 @@ class TrainingrecordsController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['details']		= $master['masterView'];
 		// Master detail link if any 
-		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
+		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
+
 		// Render into template
 		$this->layout->nest('content','trainingrecords.index',$this->data)
 						->with('menus', SiteHelpers::menus());

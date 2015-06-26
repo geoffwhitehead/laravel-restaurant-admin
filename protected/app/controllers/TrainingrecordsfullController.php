@@ -32,7 +32,7 @@ class TrainingrecordsfullController extends BaseController {
 				
 		// Filter sort and order for query 
 		$sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id'); 
-		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+		$order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
 		// End Filter sort and order for query 
 		// Filter Search for query		
 		$filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -150,14 +150,7 @@ class TrainingrecordsfullController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
 			$data = $this->validatePost('training_records');
-
-			//set the timestamps here
-			$inputID = Input::get('id');
-			$data = $this->model->createStamps($data, $inputID) ;
-
-
-			//insert the row
-			$ID = $this->model->insertRow($data , $inputID);
+			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
 			{

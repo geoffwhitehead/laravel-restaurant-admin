@@ -17,6 +17,26 @@
 
 
     <div class="page-content-wrapper">
+        <div class="col-md-12" id="my_progress">
+        <label for="progress-bar" class=" control-label col-md-2 text-right"> Your Training Progress</label>
+        <div class="col-md-8">
+            <?php $count = 0?>
+            @foreach ($rowData as $row)
+                <!-- added status colours for training records here-->
+                @if($row->conf_completed_by != NULL)
+                   <?php $count++; ?>
+                @endif
+            @endforeach
+                <div class="progress">
+                    <?php $percent = (int) (100 / sizeof($rowData)) * $count   ?>
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow=$percent aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
+                        {{$percent}} % Complete
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-2"></div
+    </div>
+
         <div class="toolbar-line ">
             @if($access['is_add'] ==1)
                 <a href="{{ URL::to('trainingrecords/add?md='.$masterdetail["filtermd"].$trackUri) }}"
@@ -38,9 +58,9 @@
                    title="{{ Lang::get('core.btn_config') }}">
                     <i class="fa fa-cog"></i>&nbsp;{{ Lang::get('core.btn_config') }} </a>
             @endif
-                <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
-                   title="Confirm Training">
-                    <i class="fa fa-plus-circle"></i>&nbsp;Mark as Complete</a>
+            <a href="javascript://ajax" onclick="MarkCompleted();" class="tips btn btn-xs btn-success"
+               title="Confirm Training">
+                <i class="fa fa-plus-circle"></i>&nbsp;Mark as Complete</a>
 
         </div>
 
@@ -156,15 +176,19 @@
             <input type="hidden" name="md" value="{{ $masterdetail['filtermd']}}"/>
         </div>
         {{ Form::close() }}
-        <div class="alert alert-info" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Info:</span>
-            <p><strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training complete <br> Green: Training confirmed</p>
+
+
+
+        @include('footer')
+        <div class="col-md-12 alert alert-info" role="alert">
+            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
+
+                <strong>Status Colours: </strong><br> Red: Training incomplete <br> Yellow: Training complete <br>
+                Green:
+                Training confirmed</p>
         </div>
     </div>
-
-    @include('footer')
-
 </div>
 <script>
     $(document).ready(function () {

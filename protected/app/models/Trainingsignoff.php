@@ -24,7 +24,8 @@ class Trainingsignoff extends BaseModel
         //allowed admins to see all
 
         if (Session::get('lvl') < GLOBAL_USER) {
-            return "WHERE training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
+            //return "WHERE training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
+            return " WHERE training_tasks.site_id = " . Session::get('sid') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
         } elseif (Session::get('did') == 1) {
             return " WHERE training_tasks.site_id = " . Session::get('sid') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
         } else {

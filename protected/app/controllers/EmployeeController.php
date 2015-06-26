@@ -121,6 +121,50 @@ class EmployeeController extends BaseController
         $this->layout->nest('content', 'employee.form', $this->data)->with('menus', $this->menus);
     }
 
+    function getP45($id)
+    {
+        $emp = DB::select('select * from employee_records e where e.employee_id = '.$id.'');
+        $fname = $emp[0]->first_name;
+        $lname = $emp[0]->last_name;
+        $p45 = $emp[0]->scan_p45_p46;
+        $ni = $emp[0]->scan_ni;
+        $pass = $emp[0]->scan_permit;
+
+        $root = $_SERVER['DOCUMENT_ROOT'];
+
+        return Response::download("".$root."marvin2/uploads/user_docs/".$fname." ".$lname." [".$id."]/".$p45."");
+
+    }
+    function getNi($id)
+    {
+        $emp = DB::select('select * from employee_records e where e.employee_id = '.$id.'');
+        $fname = $emp[0]->first_name;
+        $lname = $emp[0]->last_name;
+        $p45 = $emp[0]->scan_p45_p46;
+        $ni = $emp[0]->scan_ni;
+        $pass = $emp[0]->scan_permit;
+
+        $root = $_SERVER['DOCUMENT_ROOT'];
+
+
+        return Response::download("".$root."marvin2/uploads/user_docs/".$fname." ".$lname." [".$id."]/".$ni."");
+
+    }
+    function getPass($id)
+    {
+        $emp = DB::select('select * from employee_records e where e.employee_id = '.$id.'');
+        $fname = $emp[0]->first_name;
+        $lname = $emp[0]->last_name;
+        $p45 = $emp[0]->scan_p45_p46;
+        $ni = $emp[0]->scan_ni;
+        $pass = $emp[0]->scan_permit;
+
+        $root = $_SERVER['DOCUMENT_ROOT'];
+
+       return  Response::download("".$root."marvin2/uploads/user_docs/".$fname." ".$lname." [".$id."]/".$pass."");
+
+    }
+
     function getShow($id = null)
     {
 

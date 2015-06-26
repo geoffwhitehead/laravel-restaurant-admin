@@ -8,6 +8,12 @@ define("GLOBAL_DEP", 1);
 define("KITCHEN_DEP", 4);
 define("FOH_DEP", 2);
 
+//reserved categories - these categories are used to filter results between different modules
+
+define ("SFBB",1);
+define ("SERVICE",3);
+define ("FIRE",4);
+
 
 class BaseController extends Controller {
 
@@ -17,7 +23,6 @@ class BaseController extends Controller {
 	 * @return void
 	 */
 	//public $menus =''; 
-
 
 
 	public function __construct() {
@@ -445,10 +450,9 @@ class BaseController extends Controller {
 						if(!is_null(Input::file($field)))
 						{
 
-                            $cid = DB::select("select company_name from companies where id = (select company_id from employee_records where employee_id = ".$emp_id.")");
 							$file = Input::file($field);
                             if($f['option']['path_to_upload'] == '/uploads/user_docs/'){
-                                $f['option']['path_to_upload'] = '/uploads/user_docs/'.$cid[0]->company_name.'/'.$lname.' '.$fname.' ['.$emp_id.']/';
+                                $f['option']['path_to_upload'] = '/uploads/user_docs/'.$lname.' '.$fname.' ['.$emp_id.']/';
                             }
 							$destinationPath = './'.str_replace('.','',$f['option']['path_to_upload']);
 

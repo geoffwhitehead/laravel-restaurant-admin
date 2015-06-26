@@ -158,13 +158,18 @@ class JobsController extends BaseController {
 			} else {
 				$data = $this->model->updateStamps($data, $inputID) ;
 			}
+
 			$ID = $this->model->insertRow($data , Input::get('id'));
+             //create initial placeholder log
+
+
 			// Input logs
 			if( Input::get('id') =='')
 			{
+                DB::insert("insert into checks_log (check_id, comments, completed_on, completed_by) values (".$ID.", 'IGNORE - initial placeholder log',STR_TO_DATE('00-00-0000', '%Y-%m-%d'), ".Auth::id().")");
 				//create log entry for this task - this is necessary due to the sql query in place, otherwise it wont show in the query results index table for this module.
-				DB::table('checks_log')
-					->insert(array('check_id' => $ID, 'comments' => Input::get('Initial log entry on creation'),'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
+				//DB::table('checks_log')
+				//	->insert(array('check_id' => $ID, 'comments' => Input::get('Initial log entry on creation'),'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
 
 				$this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
 				$id = SiteHelpers::encryptID($ID);
@@ -205,8 +210,5 @@ class JobsController extends BaseController {
 			return Redirect::to('jobs?md='.Input::get('md'))->with('message', "Failed marking the selected jobs as completed");
 		}
 	}
-    public function postSFBB(){
-
-    }
 
 }

@@ -25,7 +25,13 @@ class DashboardController extends BaseController  {
 
 		} else if( Session::get('lvl') > '1' ) {
 			// Page for Administrator Group
+        $data['dep_balance'] = DB::select("select sum(deposit_amount) from deposits where site_id = ".Session::get('sid')." and confirmed_used_by is null and active = 1 and no_show_flag = 0");
+        $data['last_sale_dep_balance'] = DB::select("select deposit_balance from sales where site_id = ".Session::get('sid')." order by id desc limit 1");
+
+
+
 			$this->layout->nest('content','dashboard.index_admin', $data);
+
 
 		} else {
 

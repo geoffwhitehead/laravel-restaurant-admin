@@ -24,7 +24,8 @@ class Sale extends BaseModel
 
             return "where datediff(curdate(), sales.sale_date) < 3 and sales.site_id = ".Session::get('sid')."";
         } else {
-            return " WHERE sales.id IS NOT NULL";
+            //return " WHERE sales.id IS NOT NULL";
+            return "where sales.site_id = ".Session::get('sid')."";
         }
     }
 

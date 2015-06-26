@@ -16,16 +16,16 @@ class Checkslog extends BaseModel
     {
 
 
-        return "  SELECT checks_log.* FROM checks_log  ";
+        return "  SELECT checks_log.* FROM checks_log join checks on checks.id = checks_log.check_id";
     }
 
     public static function queryWhere()
     {
-        if (Session::get('lvl') > GLOBAL_USER) {
-            return "where check_log.site_id = " . Session::get('sid') . "";
-        } else {
-            return " WHERE checks_log.id IS NOT NULL   ";
-        }
+        //if (Session::get('lvl') > GLOBAL_USER) {
+            return " where checks.site_id = " . Session::get('sid') . "";
+       // } else {
+       //    return " WHERE checks_log.id IS NOT NULL   ";
+      //  }
     }
 
     public static function queryGroup()

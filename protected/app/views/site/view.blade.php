@@ -30,7 +30,7 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Company Id</td>
+						<td width='30%' class='label-view text-right'>Company </td>
 						<td>{{ $row->company_id }} </td>
 						
 					</tr>

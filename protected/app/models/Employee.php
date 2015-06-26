@@ -23,7 +23,8 @@ class Employee extends BaseModel
     {
 
         if (Session::get('lvl') <= GLOBAL_USER) {
-            return " WHERE employee_records.employee_id IS NOT NULL";
+            //return " WHERE employee_records.employee_id IS NOT NULL";
+            return " WHERE employee_records.default_site = " . Session::get('d_sid') ."";
         } elseif (Session::get('lvl') == MANAGER) {
             return " WHERE employee_records.default_site = " . Session::get('d_sid') . " and usr.active = 1";
         } else {

@@ -24,8 +24,6 @@
                       <div class="panel-title"><h3>Select your current site and department</h3></div>
                   </div>-->
                 <div class="" panel-body>
-                    sid : {{Session::get('sid')}} <br>
-                    did : {{Session::get('did')}}
                     <div>
                         <label>Site</label><br/>
                         <select name='site_id' rows='5' id='site_id' class='select2 '>

@@ -24,9 +24,7 @@
         <!-- <div class="panel-heading">
               <div class="panel-title"><h3>Select your current site and department</h3></div>
           </div>-->
-        <div class="" panel-body>
-            sid : {{Session::get('sid')}} <br>
-            did : {{Session::get('did')}}
+        <div class="panel-body" >
             <div>
                 <label>Site</label><br/>
                 <select name='site_id' rows='5' id='site_id' class='select2 '>
@@ -59,8 +57,7 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Info:</span>
 
-        <p><strong>Note: </strong><br> As an admin the site and department selection is not neccessary except in some
-            cases such as creating a sale. Will remove after testing.</p>
+        <p><strong>Note: </strong><br> D</p>
     </div>
 
 

@@ -137,19 +137,22 @@
 
                     </div>
                 </div>
-                @if (Input::get('id') == "")
-                    <div class="form-group  ">
-                        <label for="Active" class=" control-label col-md-4 text-left"> Active </label>
+                <div class="form-group  ">
+                    <label for="Active" class=" control-label col-md-4 text-left"> Active </label>
 
-                        <div class="col-md-6">
-									  <textarea name='active' rows='2' id='active' class='form-control '
-                                              >{{ $row['active'] }}</textarea>
-                        </div>
-                        <div class="col-md-2">
+                    <div class="col-md-6">
 
-                        </div>
+                        <label class='radio radio-inline'>
+                            <input type='radio' name='active' value='0'  @if($row['active'] == '0')
+                                   checked="checked" @endif > Inactive </label>
+                        <label class='radio radio-inline'>
+                            <input type='radio' name='active' value='1'  @if($row['active'] == '1')
+                                   checked="checked" @endif > Active </label>
                     </div>
-                @endif
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
             </fieldset>
         </div>
 
@@ -166,7 +169,6 @@
                     <input type="submit" name="submit" class="btn btn-primary"
                            value="{{ Lang::get('core.sb_save') }}  "/>
                 @endif
-
                 <button type="button"
                         onclick="location.href='{{ URL::to('site?md='.$masterdetail["filtermd"].$trackUri) }}' "
                         id="submit" class="btn btn-success ">  {{ Lang::get('core.sb_cancel') }} </button>
