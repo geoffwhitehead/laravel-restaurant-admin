@@ -157,7 +157,7 @@ class SfbbmonthlyController extends BaseController
             'review_methods' => Input::get('review_methods'), 'changes' => Input::get('changes'), 'new_supply' => Input::get('new_supply'),
             'affected_methods_comments' => Input::get('affected_methods_comments'), 'new_equipment' => Input::get('new_equipment'),
             'new_equipment_comments' => Input::get('new_equipment_comments'), 'other_changes' => Input::get('other_changes'),
-            'created_by' => Auth::id(),));
+            'created_on' => date('Y-m-d T:i:s'), 'created_by' => Auth::id(),));
 
         $this->inputLogs("New SFBB monthly entry has been created by ".Session::get('fname')." ");
 
