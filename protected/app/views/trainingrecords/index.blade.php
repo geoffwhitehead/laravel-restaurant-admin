@@ -18,32 +18,27 @@
 
     <div class="page-content-wrapper">
         <div class="col-md-12" id="my_progress">
-        <label for="progress-bar" class=" control-label col-md-2 text-right"> Your Training Progress</label>
-        <div class="col-md-8">
-            <?php $count = 0?>
-            @foreach ($rowData as $row)
-                <!-- added status colours for training records here-->
-                @if($row->conf_completed_by != NULL)
-                   <?php $count++; ?>
-                @endif
-            @endforeach
-                @if(!empty($rowData))
+            <label for="progress-bar" class=" control-label col-md-2 text-right"> Your Training Progress</label>
+
+            <div class="col-md-8">
+                @if($count[0]->count != 0)
                 <div class="progress">
-                    <?php $percent = (int) (100 / sizeof($rowData)) * $count   ?>
-                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow=$percent aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
+                    <?php $percent = (int)(100 / $count[0]->count) * $count_completed[0]->count   ?>
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                         aria-valuenow=$percent aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
                         {{$percent}} % Complete
                     </div>
                 </div>
-                    @else
+                @else
                     <div class="alert alert-info" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span>
                         :(
                     </div>
-            @endif
+                @endif
+            </div>
+            <div class="col-md-2"></div
         </div>
-        <div class="col-md-2"></div
-    </div>
 
         <div class="toolbar-line ">
             @if($access['is_add'] ==1)

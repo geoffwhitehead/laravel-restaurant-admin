@@ -47,7 +47,8 @@ class TrainingsignoffController extends BaseController {
 		$page = Input::get('page', 1);
 		$params = array(
 			'page'		=> $page ,
-			'limit'		=> (!is_null(Input::get('rows')) ? filter_var(Input::get('rows'),FILTER_VALIDATE_INT) : static::$per_page ) ,
+			//'limit'		=> (!is_null(Input::get('rows')) ? filter_var(Input::get('rows'),FILTER_VALIDATE_INT) : static::$per_page ) ,
+            'limit'		=> (!is_null(Input::get('rows')) ? filter_var(Input::get('rows'),FILTER_VALIDATE_INT) : 50 ) ,
 			'sort'		=> $sort ,
 			'order'		=> $order,
 			'params'	=> $filter,

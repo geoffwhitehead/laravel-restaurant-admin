@@ -25,11 +25,11 @@ class Trainingsignoff extends BaseModel
 
         if (Session::get('lvl') < GLOBAL_USER) {
             //return "WHERE training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
-            return " WHERE training_tasks.site_id = " . Session::get('sid') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
+            return " WHERE (training_tasks.site_id = " . Session::get('sid') . " or training_tasks.global_site_flag = 1) AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
         } elseif (Session::get('did') == 1) {
-            return " WHERE training_tasks.site_id = " . Session::get('sid') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
+            return " WHERE (training_tasks.site_id = " . Session::get('sid') . " or training_tasks.global_site_flag = 1) AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
         } else {
-            return " WHERE training_tasks.site_id = " . Session::get('sid') . " AND training_tasks.department_id = " . Session::get('did') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
+            return " WHERE (training_tasks.site_id = " . Session::get('sid') . " or training_tasks.global_site_flag = 1) AND training_tasks.department_id = " . Session::get('did') . " AND training_records.completed = 1 AND training_records.conf_completed_by IS NULL";
         }
     }
 

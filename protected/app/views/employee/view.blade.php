@@ -117,96 +117,99 @@
             </table>
             <br>
 
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead><h3>Protected</h3></thead>
-                    <tbody>
+            @if (Session::get('lvl') <= GLOBAL_USER or Auth::id() == $row->employee_id)
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead><h3>Protected</h3></thead>
+                        <tbody>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Street</td>
-                        <td>{{ $row->address_street }} </td>
-
-                    </tr>
-
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Town</td>
-                        <td>{{ $row->address_town }} </td>
-
-                    </tr>
-
-                    <tr>
-                        <td width='30%' class='label-view text-right'>County</td>
-                        <td>{{ $row->address_county }} </td>
-
-                    </tr>
-
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Postcode</td>
-                        <td>{{ $row->address_postcode }} </td>
-
-                    </tr>
-                    @if(Session::get('lvl') <= GLOBAL_USER)
                         <tr>
-                            <td width='30%' class='label-view text-right'>Employment End</td>
-                            <td>{{ $row->employment_end }} </td>
+                            <td width='30%' class='label-view text-right'>Street</td>
+                            <td>{{ $row->address_street }} </td>
 
                         </tr>
-                    @endif
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Bank Sortcode</td>
-                        <td>{{ $row->bank_sortcode }} </td>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Town</td>
+                            <td>{{ $row->address_town }} </td>
 
-                    </tr>
+                        </tr>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Bank Account</td>
-                        <td>{{ $row->bank_account }} </td>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>County</td>
+                            <td>{{ $row->address_county }} </td>
 
-                    </tr>
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Ni Number</td>
-                        <td>{{ $row->ni_number }} </td>
+                        </tr>
 
-                    </tr>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Postcode</td>
+                            <td>{{ $row->address_postcode }} </td>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>DOB</td>
-                        <td>{{ $row->date_of_birth }} </td>
+                        </tr>
+                        @if(Session::get('lvl') <= GLOBAL_USER)
+                            <tr>
+                                <td width='30%' class='label-view text-right'>Employment End</td>
+                                <td>{{ $row->employment_end }} </td>
 
-                    </tr>
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Scan P45-6</td>
-                        <td>{{ $row->scan_p45_p46 }} </td>
+                            </tr>
+                        @endif
 
-                    </tr>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Bank Sortcode</td>
+                            <td>{{ $row->bank_sortcode }} </td>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Scan Ni</td>
-                        <td>{{ $row->scan_ni }} </td>
+                        </tr>
 
-                    </tr>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Bank Account</td>
+                            <td>{{ $row->bank_account }} </td>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Scan Permit</td>
-                        <td>{{ $row->scan_permit }} </td>
+                        </tr>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Ni Number</td>
+                            <td>{{ $row->ni_number }} </td>
 
-                    </tr>
+                        </tr>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Reg Complete</td>
-                        <td>{{ $row->reg_complete }} </td>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>DOB</td>
+                            <td>{{ $row->date_of_birth }} </td>
 
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Scan P45-6</td>
+                            <td>{{ $row->scan_p45_p46 }} </td>
 
-                    <tr>
-                        <td width='30%' class='label-view text-right'>Processed</td>
-                        <td>{{ $row->processed }} </td>
+                        </tr>
 
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Scan Ni</td>
+                            <td>{{ $row->scan_ni }} </td>
+
+                        </tr>
+
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Scan Permit</td>
+                            <td>{{ $row->scan_permit }} </td>
+
+                        </tr>
+
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Reg Complete</td>
+                            <td>{{ $row->reg_complete }} </td>
+
+                        </tr>
+
+                        <tr>
+                            <td width='30%' class='label-view text-right'>Processed</td>
+                            <td>{{ $row->processed }} </td>
+
+                        </tr>
+
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
         </div>
     </div>
 </div>

@@ -80,7 +80,12 @@ class TrainingrecordsController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
 
-		// Render into template
+        $this->data['count'] = DB::select("SELECT count(training_records.id) as count FROM training_records JOIN training_tasks ON training_tasks.id = training_records.training_task_id WHERE training_records.user_id = " . Session::get('uid') . "");
+
+        $this->data['count_completed']= DB::select("SELECT count(training_records.id) as count FROM training_records JOIN training_tasks ON training_tasks.id = training_records.training_task_id WHERE training_records.user_id = " . Session::get('uid') . " and training_records.conf_completed_by != 0");
+
+
+        // Render into template
 		$this->layout->nest('content','trainingrecords.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
