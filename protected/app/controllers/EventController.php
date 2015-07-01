@@ -106,7 +106,7 @@ class EventController extends BaseController
 
     public function getUsers()
     {
-        $result = DB::select("select u.id, u.first_name, u.last_name from tb_users u join assigned_to a on a.user_id = u.id where a.site_id = ".Session::get('sid')." and a.department_id = ".Session::get('did')." and a.active = 1");
+        $result = DB::select("select u.id, u.first_name, u.last_name from tb_users u join assigned_to a on a.user_id = u.id where a.site_id = ".Session::get('sid')." and (a.department_id = ".Session::get('did')." or a.department_id = ".GLOBAL_DEP.") and a.active = 1");
 
 
 
