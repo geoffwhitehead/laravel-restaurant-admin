@@ -143,8 +143,10 @@ class AssignController extends BaseController
 
     function postSave($id = 0)
     {
+        //these tests will check that this is a valid assignment
         $test1 = DB::select("select count(a.id) as ids from assigned_to as a where a.department_id = ? and a.site_id = ? and a.user_id = ? ", array(Input::get('department_id'), Input::get('site_id'), Input::get('user_id')));
         $test2 = DB::select("select count(a.id) as ids from assigned_to as a where a.department_id = ? and a.site_id = ? and a.user_id = ? ", array(1, Input::get('site_id'), Input::get('user_id')));
+
         //added section here to check that the person hasn't already got this assignment
         if ($test1[0]->ids > 0) {
             $md = str_replace(" ", "+", Input::get('md'));

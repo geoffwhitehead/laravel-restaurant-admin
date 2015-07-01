@@ -17,7 +17,7 @@ class DashboardController extends BaseController  {
 			'departments' => DB::select('SELECT d.id, d.name FROM departments as d JOIN assigned_to as a ON a.department_id = d.id WHERE a.user_id = '.Session::get('uid').' AND a.site_id = '.Session::get('sid').'')
 		);
 
-		if(Session::get('lvl') > '3')
+		if(Session::get('lvl') > GLOBAL_USER)
 		{
 			// Page for User Group
 			$this->layout->nest('content','dashboard.index', $data);

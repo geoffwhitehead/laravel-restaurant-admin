@@ -16,7 +16,7 @@ class Trainingtasks extends BaseModel  {
 	}
 	public static function queryWhere(  ){
 		
-		return " WHERE training_tasks.id IS NOT NULL   ";
+		return " WHERE (training_tasks.site_id = ".Session::get('sid')." or training_tasks.global_site_flag = 1)";
 	}
 	
 	public static function queryGroup(){

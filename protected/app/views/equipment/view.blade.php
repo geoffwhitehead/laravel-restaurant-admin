@@ -24,7 +24,7 @@
 		<tbody>	
 	
 					<tr>
-						<td width='30%' class='label-view text-right'>Id</td>
+						<td width='30%' class='label-view text-right'>Asset ID</td>
 						<td>{{ $row->id }} </td>
 						
 					</tr>
@@ -60,6 +60,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Purchased On</td>
+						<td>{{ $row->purchased_on }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Notes</td>
 						<td>{{ $row->notes }} </td>
 						
@@ -72,14 +78,38 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Warranty Period (in Months)</td>
+						<td>{{ $row->warranty_period }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Seller</td>
+						<td>{{ $row->seller }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Created On</td>
 						<td>{{ $row->created_on }} </td>
 						
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Warranty Contact Number</td>
+						<td>{{ $row->warranty_contact_number }} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>Updated By</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->updated_by,'updated_by','1:tb_users:id:id|first_name|last_name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Order Number</td>
+						<td>{{ $row->order_number }} </td>
 						
 					</tr>
 				

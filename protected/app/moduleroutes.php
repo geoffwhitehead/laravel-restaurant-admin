@@ -31,5 +31,7 @@
                     Route::controller('servicecontacts', 'ServicecontactsController');
                     Route::controller('equipment', 'EquipmentController');
                     Route::controller('equipmenttypes', 'EquipmenttypesController');
-                    Route::controller('temp', 'TempController');
+                    Route::controller('temperatures', 'TemperaturesController');
+                    Route::controller('fire', 'FireController');
+                    Route::controller('sfbbmonthly', 'SfbbmonthlyController');
                     ?>

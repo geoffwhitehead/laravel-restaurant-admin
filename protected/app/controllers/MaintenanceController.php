@@ -159,6 +159,10 @@ class MaintenanceController extends BaseController
             //insert the check category which will always be maintainance
             $data['check_category'] = SERVICE;
 
+            //if no equipment id is blank, set it to null to avoid database conflicts
+            if ($data['equipment_id'] == ""){
+                $data['equipment_id'] = null;
+            }
 
             $ID = $this->model->insertRow($data, Input::get('id'));
 

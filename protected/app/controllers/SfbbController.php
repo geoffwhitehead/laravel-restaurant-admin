@@ -86,7 +86,7 @@ class SfbbController extends BaseController
 
         // query the database to find out if a SFBB record has already been submitted
 
-       $this->data['count_recent'] = DB::select("select count(created_on) as cnt from sfbb_log where site_id = ".Session::get('sid')." and created_on >= DATE_SUB(NOW(),INTERVAL 16 HOUR)");
+       $this->data['count_recent'] = DB::select("select count(created_on) as cnt , created_by from sfbb_log where site_id = ".Session::get('sid')." and created_on >= DATE_SUB(NOW(),INTERVAL 16 HOUR)");
 
         $this->layout->nest('content', 'sfbb.index', $this->data)
             ->with('menus', SiteHelpers::menus());
@@ -160,11 +160,11 @@ class SfbbController extends BaseController
 
 
                 //create opening log entry
-                $opening_check_id = DB::select("select checks.id from checks where check_name = 'Opening Checks' and site_id = " . Session::get('sid') . "");
+                $opening_check_id = DB::select("select checks.id from checks where check_name = '".SFBB_OPENING_CHECK."' and site_id = " . Session::get('sid') . "");
                 $opening_id = DB::table('checks_log')->insertGetId(array('check_id' => $opening_check_id[0]->id, 'comments' => Input::get('opening_comments'), 'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
 
                 //create closing log entry
-                $closing_check_id = DB::select("select checks.id from checks where check_name = 'Closing Checks' and site_id = " . Session::get('sid') . "");
+                $closing_check_id = DB::select("select checks.id from checks where check_name = '".SFBB_CLOSING_CHECK."' and site_id = " . Session::get('sid') . "");
                 $closing_id = DB::table('checks_log')->insertGetId(array('check_id' => $closing_check_id[0]->id, 'comments' => Input::get('closing_comments'), 'completed_on' => date("Y-m-d H:i:s"), 'completed_by' => Auth::id()));
 
                 //created timestamps
@@ -172,7 +172,7 @@ class SfbbController extends BaseController
                 $data['date'] = date("Y/m/d");
                 $data['opening_log'] = $opening_id;
                 $data['closing_log'] = $closing_id;
-                $data['site_id'] = 1;
+                $data['site_id'] = Session::get('sid');
 
                 $ID = $this->model->insertRow($data, Input::get('id'));
                 // Input logs
@@ -187,7 +187,7 @@ class SfbbController extends BaseController
             } catch (Exception $e) {
                 DB::rollBack();
                 $md = str_replace(" ", "+", Input::get('md'));
-                return Redirect::to('sfbb/index/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', "An error occurred, no changes have been made"));
+                return Redirect::to('sfbb/index/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', "An error occurred, no changes have been made  ".var_dump($e)));
             }
             // Redirect after save
             $md = str_replace(" ", "+", Input::get('md'));

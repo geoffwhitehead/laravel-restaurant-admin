@@ -71,6 +71,10 @@
 
             <div class="col-md-8" id="procedures">
 
+
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
                 <div class="panel panel-default" id="p000">
                     <div class="panel-heading">
                         <div class="panel-title"><h3 id="000">NTP 000 : General</h3></div>
@@ -1775,1487 +1779,1518 @@
                         <p>Order pad</p>
                         <h4>Procedure</h4>
 
-                            <ol>
-                                <li>Prepare order before-hand by putting dashes on the order pad for the appropriate
-                                    amount of
-                                    people
-                                    (refer to image).
-                                </li>
-                                <li>The reason for dashes is so that when you take the order any person can give you
-                                    their order
-                                    first rather than having to start at position 1 and work your way round the table
-                                    (which
-                                    isn’t
-                                    always
-                                    possible).
-                                </li>
-                                <li>Seat numbers are shown in the picture on the right. Note the position of the
-                                    waitperson.
-                                    Starting from the top right and moving clock-wise around the table.
-                                </li>
-                                <li>Most table’s orders are taken from the same position as there aren’t a lot of
-                                    variations
-                                    possible. If this isn’t the case make a note to let people know
-                                </li>
-                                <li>Positions run from top to bottom as shown in picture</li>
-                                <li>Table number is noted in the bottom right</li>
-                                <li>Rice should be a neat column on the right side so that other staff can quickly read
-                                    the
-                                    order.
-                                </li>
-                                <li>Order pads</li>
-                                <ul>
-                                    <li>White slip to Mains</li>
-                                    <li>Pink slip to Starters</li>
-                                    <li>Blue slip to front of house</li>
-                                </ul>
-                                <li>Learn the short hand for all the food</li>
-                                <li>Seat numbers are especially important for large tables so waitpersons can quickly
-                                    take the
-                                    food
-                                    out
-                                    without asking customers what they ordered.
-                                </li>
+                        <ol>
+                            <li>Prepare order before-hand by putting dashes on the order pad for the appropriate
+                                amount of
+                                people
+                                (refer to image).
+                            </li>
+                            <li>The reason for dashes is so that when you take the order any person can give you
+                                their order
+                                first rather than having to start at position 1 and work your way round the table
+                                (which
+                                isn’t
+                                always
+                                possible).
+                            </li>
+                            <li>Seat numbers are shown in the picture on the right. Note the position of the
+                                waitperson.
+                                Starting from the top right and moving clock-wise around the table.
+                            </li>
+                            <li>Most table’s orders are taken from the same position as there aren’t a lot of
+                                variations
+                                possible. If this isn’t the case make a note to let people know
+                            </li>
+                            <li>Positions run from top to bottom as shown in picture</li>
+                            <li>Table number is noted in the bottom right</li>
+                            <li>Rice should be a neat column on the right side so that other staff can quickly read
+                                the
+                                order.
+                            </li>
+                            <li>Order pads</li>
+                            <ul>
+                                <li>White slip to Mains</li>
+                                <li>Pink slip to Starters</li>
+                                <li>Blue slip to front of house</li>
+                            </ul>
+                            <li>Learn the short hand for all the food</li>
+                            <li>Seat numbers are especially important for large tables so waitpersons can quickly
+                                take the
+                                food
+                                out
+                                without asking customers what they ordered.
+                            </li>
 
-                            </ol>
+                        </ol>
 
 
-                            {{ HTML::image('uploads/images/ntp027-1.jpg') }}
-                            {{ HTML::image('uploads/images/ntp027-2.jpg') }}
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>27/04/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
+                        {{ HTML::image('uploads/images/ntp027-1.jpg') }}
+                        {{ HTML::image('uploads/images/ntp027-2.jpg') }}
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>27/04/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p029">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="029">NTP 029 : Age Verification Policy</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines the policy regarding the restaurants challenge 25 age
+                            verification policy</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+
+                        <p>LICENSING (SCOTLAND) ACT 2005</p>
+
+                        <p>AGE VERIFICATION POLICY STAFF DECLARATION</p>
+
+                        <p>PREMISES AGE VERIFICATION POLICY</p>
+
+                        <p>NAME AND ADDRESS OF PREMISES: Nadon Thai Restaurant, 12a Newgate St, Morpeth, NE611BA</p>
+
+                        <p>The sale of alcohol to a child or young person (that is to say, a person aged under 18)
+                            is an offence
+                            which may lead to a fine of up to £5,000 and/or a term of imprisonment not exceeding
+                            three months.
+                            Such
+                            a sale will also lead to a review of the premises license and could result in the
+                            license being
+                            suspended or revoked.</p>
+
+                        <p>Suchittra Nadon / Geoff Whitehead operate an ‘age verification policy’, in terms of which
+                            you must
+                            require production of an acceptable proof-of-age document if you are in any doubt as to
+                            whether a
+                            person
+                            seeking to buy alcohol is less than 25 years of age.</p>
+
+                        <p>Only the following documents are acceptable for proof-of-age purposes:</p>
+
+
+                        <ul>
+                            <li>A passport</li>
+                            <li>A European Union photo card driving license</li>
+                            <li>A Ministry of Defense Form 90 (Defense Identity Card)</li>
+                            <li>A photographic identity card bearing the national Proof of Age Standards Scheme
+                                (PASS)
+                                hologram
+                            </li>
+                            <li>A national identity card issued by a European Union member state (other than the
+                                United
+                                Kingdom),
+                                Norway, Iceland, Liechtenstein or Switzerland, or
+                            </li>
+                            <li>A Biometric Immigration Document.</li>
+                        </ul>
+
+                        <p>If no such document is produced or if you have a suspicion that the document presented is
+                            not
+                            genuine, or
+                            has been tampered with or has been altered, then you must refuse the sale or refuse to
+                            authorize the
+                            sale.</p>
+
+                        <p>Declaration:</p>
+
+                        <p>I have read and understood the foregoing policy. I understand that failure to comply with
+                            its terms
+                            will
+                            be treated as gross misconduct and may lead to my dismissal from my employment.</p>
+
+                        <p>By completing the training procedure you are confirming your acceptance of this
+                            procedure.</p>
+
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>11/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p032">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="032">NTP 032 : Taking an Email Reservation</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>To detail how to take an email reservation</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>iPad / computer with the email reservation client</li>
+                            <li>Phone</li>
+                            <li>Manager to take deposit if required</li>
+                        </ul>
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Emails are received in the mail client on the restaurant iPad. Access them by
+                                pressing the mail
+                                icon
+                                located on the task bar
+                            </li>
+                            <li>Check email bookings periodically to be able to respond quickly. This means at the
+                                start, during
+                                and
+                                at the end of shifts before break.
+                            </li>
+                            <li>Take note of the date format when taking bookings to ensure correct date is entered
+                                in diary.
+                            </li>
+                            <li>Review booking and refer to manager / supervisor if booking is large and on a Friday
+                                /
+                                Saturday
+                            </li>
+                            <li>Firstly phone the customer to confirm when a table is available. Once the customer
+                                confirms and
+                                is
+                                booked in <strong>REPLY TO THEIR EMAIL WITH CONFIRMATION</strong> of the booking.
+                                This will also
+                                mean that other members of staff looking at the email client will see that someone
+                                has actioned
+                                this
+                                reservation and not try to contact the person twice or double book.
+                            </li>
+                            <li>Copy off the customers details into the reservation book noting that it’s an email
+                                reservation.
+                            </li>
+                            <li>If you cannot get In touch with the customer through the phone, reply to the email
+                                stating
+                                available
+                                times. Only put the reservation into the diary when sending a confirmation email or
+                                when a
+                                customer
+                                has confirmed a specific time.
+                            </li>
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>02</td>
+                                <th>Last Amended</th>
+                                <td>26/06/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p015">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="015">NTP 015 : Holiday / Absence Requests</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines how to submit a holiday request</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Fill in all the required information on the holiday request form and hand to
+                                management
+                            </li>
+                            <li>Please give at least 1-2 weeks notice, especially for multiple days</li>
+                            <li>Manager will return form receipt to you with decision / alternative dates</li>
+                            <li>Keep receipt as proof</li>
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p016">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="016">NTP 016 : Reporting a Grievance</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines the method to report a grievance</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td>Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Use the reporting form NTF017.</li>
+                            <li>For use if you are unhappy with any member of staff or any general work related
+                                issue
+                            </li>
+                            <li>Fill out all the relevant sections</li>
+                            <li>Contact Suchittra Nadon and hand this form to her personally or email to
+                                manager@nadonthai.co.uk
+                            </li>
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p019">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="019">NTP 019 : General Health & Safety at Workplace</h3>
                         </div>
                     </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p029">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="029">NTP 029 : Age Verification Policy</h3></div>
-                        </div>
-                        <div class="panel-body">
+                    <div class="panel-body">
 
 
-                            <h4>Purpose</h4>
+                        <h4>Purpose</h4>
 
-                            <p>This procedure outlines the policy regarding the restaurants challenge 25 age
-                                verification policy</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
+                        <p>This procedure outlines general health and safety issues. By completing your training you
+                            are
+                            confirming
+                            you have read and understand this section.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
 
-                            <p>None</p>
-                            <h4>Procedure</h4>
-
-                            <p>LICENSING (SCOTLAND) ACT 2005</p>
-
-                            <p>AGE VERIFICATION POLICY STAFF DECLARATION</p>
-
-                            <p>PREMISES AGE VERIFICATION POLICY</p>
-
-                            <p>NAME AND ADDRESS OF PREMISES: Nadon Thai Restaurant, 12a Newgate St, Morpeth, NE611BA</p>
-
-                            <p>The sale of alcohol to a child or young person (that is to say, a person aged under 18)
-                                is an offence
-                                which may lead to a fine of up to £5,000 and/or a term of imprisonment not exceeding
-                                three months.
-                                Such
-                                a sale will also lead to a review of the premises license and could result in the
-                                license being
-                                suspended or revoked.</p>
-
-                            <p>Suchittra Nadon / Geoff Whitehead operate an ‘age verification policy’, in terms of which
-                                you must
-                                require production of an acceptable proof-of-age document if you are in any doubt as to
-                                whether a
-                                person
-                                seeking to buy alcohol is less than 25 years of age.</p>
-
-                            <p>Only the following documents are acceptable for proof-of-age purposes:</p>
-
-
-                            <ul>
-                                <li>A passport</li>
-                                <li>A European Union photo card driving license</li>
-                                <li>A Ministry of Defense Form 90 (Defense Identity Card)</li>
-                                <li>A photographic identity card bearing the national Proof of Age Standards Scheme
-                                    (PASS)
-                                    hologram
-                                </li>
-                                <li>A national identity card issued by a European Union member state (other than the
-                                    United
-                                    Kingdom),
-                                    Norway, Iceland, Liechtenstein or Switzerland, or
-                                </li>
-                                <li>A Biometric Immigration Document.</li>
-                            </ul>
-
-                            <p>If no such document is produced or if you have a suspicion that the document presented is
-                                not
-                                genuine, or
-                                has been tampered with or has been altered, then you must refuse the sale or refuse to
-                                authorize the
-                                sale.</p>
-
-                            <p>Declaration:</p>
-
-                            <p>I have read and understood the foregoing policy. I understand that failure to comply with
-                                its terms
-                                will
-                                be treated as gross misconduct and may lead to my dismissal from my employment.</p>
-
-                            <p>By completing the training procedure you are confirming your acceptance of this
-                                procedure.</p>
-
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>11/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p032">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="032">NTP 032 : Taking an Email Reservation</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>To detail how to take an email reservation</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-                            <ul>
-                                <li>iPad / computer with the email reservation client</li>
-                                <li>Phone</li>
-                                <li>Manager to take deposit if required</li>
-                            </ul>
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Reporting of injuries</li>
                             <ol>
-                                <li>Emails are received in the mail client on the restaurant iPad. Access them by
-                                    pressing the mail
-                                    icon
-                                    located on the task bar
-                                </li>
-                                <li>Check email bookings periodically to be able to respond quickly. This means at the
-                                    start, during
+                                <li>Whenever you suffer a workplace injury you must fill out the relevant sections
+                                    in the health
                                     and
-                                    at the end of shifts before break.
+                                    safety reporting book
                                 </li>
-                                <li>Take note of the date format when taking bookings to ensure correct date is entered
-                                    in diary.
-                                </li>
-                                <li>Review booking and refer to manager / supervisor if booking is large and on a Friday
-                                    /
-                                    Saturday
-                                </li>
-                                <li>Firstly phone the customer to confirm when a table is available. Once the customer
-                                    confirms and
-                                    is
-                                    booked in <strong>REPLY TO THEIR EMAIL WITH CONFIRMATION</strong> of the booking.
-                                    This will also
-                                    mean that other members of staff looking at the email client will see that someone
-                                    has actioned
-                                    this
-                                    reservation and not try to contact the person twice or double book.
-                                </li>
-                                <li>Copy off the customers details into the reservation book noting that it’s an email
-                                    reservation.
-                                </li>
-                                <li>If you cannot get In touch with the customer through the phone, reply to the email
-                                    stating
-                                    available
-                                    times. Only put the reservation into the diary when sending a confirmation email or
-                                    when a
-                                    customer
-                                    has confirmed a specific time.
-                                </li>
-
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>02</td>
-                                    <th>Last Amended</th>
-                                    <td>26/06/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p015">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="015">NTP 015 : Holiday / Absence Requests</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines how to submit a holiday request</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                            <li>Reporting of near misses</li>
                             <ol>
-                                <li>Fill in all the required information on the holiday request form and hand to
-                                    management
+                                <li>Whenever an accident at work almost occurs or you see something that may cause
+                                    or become a
+                                    hazard; please notify a member of management as soon as possible using form
+                                    NTF019.
                                 </li>
-                                <li>Please give at least 1-2 weeks notice, especially for multiple days</li>
-                                <li>Manager will return form receipt to you with decision / alternative dates</li>
-                                <li>Keep receipt as proof</li>
-
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p016">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="016">NTP 016 : Reporting a Grievance</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines the method to report a grievance</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td>Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                            <li>Using Chemicals</li>
                             <ol>
-                                <li>Use the reporting form NTF017.</li>
-                                <li>For use if you are unhappy with any member of staff or any general work related
-                                    issue
+                                <li>Whenever using any detergents and chemicals use the eyewear and gloves
+                                    provided
                                 </li>
-                                <li>Fill out all the relevant sections</li>
-                                <li>Contact Suchittra Nadon and hand this form to her personally or email to
-                                    manager@nadonthai.co.uk
+                                <li>Use the correct dosage according to the labelling.</li>
+                            </ol>
+                            <li>Injuries</li>
+                            <ol>
+                                <li>A first aid kit is located behind the kitchen door, this first aid kit will be
+                                    regularly
+                                    checked
+                                    to ensure it has all the required supplies but if you notice any supplies
+                                    running low please
+                                    let
+                                    a member of management know
                                 </li>
-
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p019">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="019">NTP 019 : General Health & Safety at Workplace</h3>
-                            </div>
-                        </div>
-                        <div class="panel-body">
+                            <li>Reporting</li>
 
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines general health and safety issues. By completing your training you
-                                are
-                                confirming
-                                you have read and understand this section.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
                             <ol>
-                                <li>Reporting of injuries</li>
+                                <li>All members of staff must report any of the following with the form provided
+                                    (NTF019)
+                                </li>
                                 <ol>
-                                    <li>Whenever you suffer a workplace injury you must fill out the relevant sections
-                                        in the health
-                                        and
-                                        safety reporting book
+                                    <li>If any hazards are noticed or near misses encountered</li>
+                                    <li>Any damages to equipment or building that could affect health and safety
                                     </li>
-                                </ol>
-                                <li>Reporting of near misses</li>
-                                <ol>
-                                    <li>Whenever an accident at work almost occurs or you see something that may cause
-                                        or become a
-                                        hazard; please notify a member of management as soon as possible using form
-                                        NTF019.
-                                    </li>
-                                </ol>
-                                <li>Using Chemicals</li>
-                                <ol>
-                                    <li>Whenever using any detergents and chemicals use the eyewear and gloves
-                                        provided
-                                    </li>
-                                    <li>Use the correct dosage according to the labelling.</li>
-                                </ol>
-                                <li>Injuries</li>
-                                <ol>
-                                    <li>A first aid kit is located behind the kitchen door, this first aid kit will be
-                                        regularly
-                                        checked
-                                        to ensure it has all the required supplies but if you notice any supplies
-                                        running low please
-                                        let
-                                        a member of management know
-                                    </li>
-                                </ol>
-                                <li>Reporting</li>
-
-                                <ol>
-                                    <li>All members of staff must report any of the following with the form provided
-                                        (NTF019)
-                                    </li>
-                                    <ol>
-                                        <li>If any hazards are noticed or near misses encountered</li>
-                                        <li>Any damages to equipment or building that could affect health and safety
-                                        </li>
-                                        <li>Any damages to any PPE or safety equipment (fire of health)</li>
-                                        <li>Any requirements/low stock of PPE or safety equipment</li>
-                                        <li>Dangerous conditions</li>
-                                    </ol>
-                                </ol>
-                                <li>Manual Handling</li>
-                                <ol>
-                                    <li>Refer to poster on manual handling located in store room when performing any
-                                        lifting.
-                                    </li>
-                                </ol>
-
-                            </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p020">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="020">NTP 020 : Specific Health & Safety Issues</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines specific health and safety issues. By completing your training
-                                you are
-                                confirming
-                                you have read and understand the below.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
-                            <ol>
-                                <li>Emptying Bins</li>
-                                <ol>
-                                    <li>Whenever you empty the bins first ensure that the stairwell is clear any hazards
-                                        such as
-                                        boxes
-                                        or oil.
-                                    </li>
-                                    <li>If emptying bottles, first put the bottles in a big bag and make multiple trips.
-                                        Get someone
-                                        to
-                                        help you lift the bags or bin if not too full.
-                                    </li>
-                                    <li>Clear any broken glass with the brushes provided</li>
-                                    <li>Clear any spillages especially to stairway</li>
-                                    <li>Refer to poster on manual handling located in store room</li>
-                                </ol>
-                                <li>Keeping stairs clean and free of obstructions</li>
-                                <ol>
-                                    <li>Don’t leave any rubbish/equipment around the stairwell to prevent trip hazards
-                                    </li>
-                                    <li>Clean any spillages immediately</li>
-                                    <li>Use salt during the winter time prevent icing</li>
-                                </ol>
-                                <li>Using Chemicals</li>
-                                <ol>
-                                    <li>Whenever using any detergents and chemicals use the eyewear and gloves
-                                        provided
-                                    </li>
-                                    <li>Use the correct dosage according to the labelling.</li>
-
-                                </ol>
-                                <li>Keeping store room tidy</li>
-                                <ol>
-                                    <li>Any boxes/stock must be put away on the shelves and not left; to prevent a trip
-                                        hazard
-                                    </li>
-                                    <li>If you see anything causing a hazard notify management ASAP with NTF019</li>
-                                    <li>Doors must be kept closed at all times</li>
-                                </ol>
-                                <li>Cleaning any spillages</li>
-                                <ol>
-                                    <li>Any spillages must be cleaned and floor dried straight away</li>
-                                    <li>Use the yellow hazard signs whilst cleaning and leave afterwards until floor is
-                                        completely
-                                        dry
-                                    </li>
-                                    <li>Dry mop the floor so that it dries more quickly</li>
-                                </ol>
-                                <li>Reporting of any damages</li>
-                                <ol>
-                                    <li>Report any damages or broken equipment / PPE to management so replacements can
-                                        be purchased.
-                                        Regular checks of stock levels and visual checks will be done by management and
-                                        purchase
-                                        orders
-                                        raised if necessary
-                                    </li>
-                                </ol>
-                                <li>Wet weather</li>
-                                <ol>
-                                    <li>During wet weather put the hazard sign out at all times as the floors will be
-                                        constantly
-                                        wet.
-                                    </li>
-                                    <li>Regularly dry mop the floors to keep this under control</li>
-                                </ol>
-                                <li>Moving boxes</li>
-                                <ol>
-                                    <li>When moving boxes around, especially in store-room take multiple trips and refer
-                                        to poster
-                                        on
-                                        manual handling located in the store room. Don’t carry too much at once and
-                                        ensure corridor
-                                        is
-                                        free of hazards.
-                                    </li>
+                                    <li>Any damages to any PPE or safety equipment (fire of health)</li>
+                                    <li>Any requirements/low stock of PPE or safety equipment</li>
+                                    <li>Dangerous conditions</li>
                                 </ol>
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p021">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="021">NTP 021 : Raising Requirements / Ordering</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines how to raise any order requirements</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td>Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
-
-                            <p>Refer to contact details section to send orders</p>
+                            <li>Manual Handling</li>
                             <ol>
-                                <li>For raising drinks order</li>
-                                <ol>
-                                    <li>Complete form NTF021-1 on Sunday</li>
-                                </ol>
-                                <li>For raising a dessert order</li>
-                                <ol>
-                                    Complete form NTF021-2 on Sunday or Wednesday or Thursday before 9:00pm</li>
-                                </ol>
-                                <li>For raising a cleaning supplies / H&S / First aid / Misc orders:</li>
-                                <ol>
-                                    <li>Complete form NTF021-3 any day of the week</li>
-                                </ol>
-                                <li>For raising restaurant dry goods / misc orders</li>
-                                <ol>
-                                    <li>Complete form NTF021-4 any day of the week.</li>
-                                </ol>
-                                <li>For other requirements:</li>
-                                <ol>
-                                    <li>Contact management:</li>
-                                    <ol>
-                                        <li>In person</li>
-                                        <li>by email on morpeth.manager@nadonthai.co.uk</li>
-                                        <li>by phone</li>
-                                    </ol>
-                                </ol>
-                                <li>If relating to health and safety issues detailed in NTP019 or NTP020:</li>
-                                <ol>
-                                    <li>Submit form NTF019</li>
-                                </ol>
-
-
-                            </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p022">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="022">NTP 022 : End of Day (Till)</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p></p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
-                            <ol>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-
-                            </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>27/04/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p028">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="028">NTP 028 : End of Day (Closing)</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines a checklist to closing the restaurant in the evening</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
-                            <ol>
-                                <li>Complete till reports</li>
-                                <li>Staff to complete procedure for closing restaurant (NTP003)</li>
-                                <li>Check dishwasher/glasswasher doors are left open and drained</li>
-                                <li>Check microwaves and rice machine is OFF</li>
-                                <li>Check Fryers are OFF</li>
-                                <li>Check back door is closed</li>
-                                <li>Check fridge/freezers are closed</li>
-                                <li>Check hot cupboard has been switched OFF (plugs next to kitchen door at waist
-                                    height)
+                                <li>Refer to poster on manual handling located in store room when performing any
+                                    lifting.
                                 </li>
-                                <li>Check red switch next to kitchen door is OFF</li>
-                                <li>Check all kitchen lights have been turned OFF</li>
-                                <li>Check all windows in restaurant and toilets are closed</li>
-                                <li>Till is OFF</li>
-                                <li>Check all candles have been blown out</li>
-                                <li>Both fridges are closed</li>
-                                <li>Check all restaurant light have been turned OFF</li>
-                                <li>Front external lights are OFF</li>
-                                <li>Sign is brought in</li>
-                                <li>Stairwell lights are OFF</li>
-                                <li>Lock front door</li>
-
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>11/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
+
+                        </ol>
                     </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p017">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="017">NTP 017 : Taking a Deposit</h3></div>
-                        </div>
-                        <div class="panel-body">
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p020">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="020">NTP 020 : Specific Health & Safety Issues</h3></div>
+                    </div>
+                    <div class="panel-body">
 
 
-                            <h4>Purpose</h4>
+                        <h4>Purpose</h4>
 
-                            <p>This procedure outlines the method to take a deposit from a customer.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td>Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
+                        <p>This procedure outlines specific health and safety issues. By completing your training
+                            you are
+                            confirming
+                            you have read and understand the below.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
 
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Emptying Bins</li>
                             <ol>
-                                <li><strong>Please refer bookings that require a deposit to management /
-                                        supervisor</strong></li>
-                                <li>For bookings over 10 people on a Friday or Saturday night or other special
-                                    occasions.
+                                <li>Whenever you empty the bins first ensure that the stairwell is clear any hazards
+                                    such as
+                                    boxes
+                                    or oil.
                                 </li>
-                                <li>Let customer know that:</li>
-                                <ol>
-                                    <li>A deposit of £5 per head is required to confirm the reservation. This can be
-                                        paid by:
-                                    </li>
-                                    <ol>
-                                        <li>Card over the phone or in person</li>
-                                        <li>Cheque</li>
-                                        <li>Cash</li>
-                                        <li>Deposits are refundable up to 24 hours prior to booking when cancelling
-                                            reservation
-                                        </li>
-                                    </ol>
-                                </ol>
-                                <li>Fill out all sections on form NTF017 and note the amount of deposit paid and your
-                                    initials next
+                                <li>If emptying bottles, first put the bottles in a big bag and make multiple trips.
+                                    Get someone
                                     to
-                                    the reservation in the book.
+                                    help you lift the bags or bin if not too full.
                                 </li>
-                                <li><strong>Till</strong></li>
-                                <li>When a customer is paying for a deposit use the deposit button on the till.</li>
+                                <li>Clear any broken glass with the brushes provided</li>
+                                <li>Clear any spillages especially to stairway</li>
+                                <li>Refer to poster on manual handling located in store room</li>
+                            </ol>
+                            <li>Keeping stairs clean and free of obstructions</li>
+                            <ol>
+                                <li>Don’t leave any rubbish/equipment around the stairwell to prevent trip hazards
+                                </li>
+                                <li>Clean any spillages immediately</li>
+                                <li>Use salt during the winter time prevent icing</li>
+                            </ol>
+                            <li>Using Chemicals</li>
+                            <ol>
+                                <li>Whenever using any detergents and chemicals use the eyewear and gloves
+                                    provided
+                                </li>
+                                <li>Use the correct dosage according to the labelling.</li>
+
+                            </ol>
+                            <li>Keeping store room tidy</li>
+                            <ol>
+                                <li>Any boxes/stock must be put away on the shelves and not left; to prevent a trip
+                                    hazard
+                                </li>
+                                <li>If you see anything causing a hazard notify management ASAP with NTF019</li>
+                                <li>Doors must be kept closed at all times</li>
+                            </ol>
+                            <li>Cleaning any spillages</li>
+                            <ol>
+                                <li>Any spillages must be cleaned and floor dried straight away</li>
+                                <li>Use the yellow hazard signs whilst cleaning and leave afterwards until floor is
+                                    completely
+                                    dry
+                                </li>
+                                <li>Dry mop the floor so that it dries more quickly</li>
+                            </ol>
+                            <li>Reporting of any damages</li>
+                            <ol>
+                                <li>Report any damages or broken equipment / PPE to management so replacements can
+                                    be purchased.
+                                    Regular checks of stock levels and visual checks will be done by management and
+                                    purchase
+                                    orders
+                                    raised if necessary
+                                </li>
+                            </ol>
+                            <li>Wet weather</li>
+                            <ol>
+                                <li>During wet weather put the hazard sign out at all times as the floors will be
+                                    constantly
+                                    wet.
+                                </li>
+                                <li>Regularly dry mop the floors to keep this under control</li>
+                            </ol>
+                            <li>Moving boxes</li>
+                            <ol>
+                                <li>When moving boxes around, especially in store-room take multiple trips and refer
+                                    to poster
+                                    on
+                                    manual handling located in the store room. Don’t carry too much at once and
+                                    ensure corridor
+                                    is
+                                    free of hazards.
+                                </li>
+                            </ol>
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p021">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="021">NTP 021 : Raising Requirements / Ordering</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines how to raise any order requirements</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td>Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+
+                        <p>Refer to contact details section to send orders</p>
+                        <ol>
+                            <li>For raising drinks order</li>
+                            <ol>
+                                <li>Complete form NTF021-1 on Sunday</li>
+                            </ol>
+                            <li>For raising a dessert order</li>
+                            <ol>
+                                Complete form NTF021-2 on Sunday or Wednesday or Thursday before 9:00pm</li>
+                            </ol>
+                            <li>For raising a cleaning supplies / H&S / First aid / Misc orders:</li>
+                            <ol>
+                                <li>Complete form NTF021-3 any day of the week</li>
+                            </ol>
+                            <li>For raising restaurant dry goods / misc orders</li>
+                            <ol>
+                                <li>Complete form NTF021-4 any day of the week.</li>
+                            </ol>
+                            <li>For other requirements:</li>
+                            <ol>
+                                <li>Contact management:</li>
                                 <ol>
-                                    <li>Press the deposit button on a clear screen not on a track (table)</li>
-                                    <li>Type “dep” then enter</li>
-                                    <li>Key in the deposit amount and then press the payment method.</li>
-                                    <li>Immediately press print bill then clerk 1 after this before doing anything else
-                                        to print
+                                    <li>In person</li>
+                                    <li>by email on morpeth.manager@nadonthai.co.uk</li>
+                                    <li>by phone</li>
+                                </ol>
+                            </ol>
+                            <li>If relating to health and safety issues detailed in NTP019 or NTP020:</li>
+                            <ol>
+                                <li>Submit form NTF019</li>
+                            </ol>
+
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p022">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="022">NTP 022 : End of Day (Till)</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p></p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>27/04/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p028">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="028">NTP 028 : End of Day (Closing)</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines a checklist to closing the restaurant in the evening</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Complete till reports</li>
+                            <li>Staff to complete procedure for closing restaurant (NTP003)</li>
+                            <li>Check dishwasher/glasswasher doors are left open and drained</li>
+                            <li>Check microwaves and rice machine is OFF</li>
+                            <li>Check Fryers are OFF</li>
+                            <li>Check back door is closed</li>
+                            <li>Check fridge/freezers are closed</li>
+                            <li>Check hot cupboard has been switched OFF (plugs next to kitchen door at waist
+                                height)
+                            </li>
+                            <li>Check red switch next to kitchen door is OFF</li>
+                            <li>Check all kitchen lights have been turned OFF</li>
+                            <li>Check all windows in restaurant and toilets are closed</li>
+                            <li>Till is OFF</li>
+                            <li>Check all candles have been blown out</li>
+                            <li>Both fridges are closed</li>
+                            <li>Check all restaurant light have been turned OFF</li>
+                            <li>Front external lights are OFF</li>
+                            <li>Sign is brought in</li>
+                            <li>Stairwell lights are OFF</li>
+                            <li>Lock front door</li>
+
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>11/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p017">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="017">NTP 017 : Taking a Deposit</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines the method to take a deposit from a customer.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td>Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li><strong>Please refer bookings that require a deposit to management /
+                                    supervisor</strong></li>
+                            <li>For bookings over 10 people on a Friday or Saturday night or other special
+                                occasions.
+                            </li>
+                            <li>Let customer know that:</li>
+                            <ol>
+                                <li>A deposit of £5 per head is required to confirm the reservation. This can be
+                                    paid by:
+                                </li>
+                                <ol>
+                                    <li>Card over the phone or in person</li>
+                                    <li>Cheque</li>
+                                    <li>Cash</li>
+                                    <li>Deposits are refundable up to 24 hours prior to booking when cancelling
+                                        reservation
+                                    </li>
+                                </ol>
+                            </ol>
+                            <li>Fill out all sections on form NTF017 and note the amount of deposit paid and your
+                                initials next
+                                to
+                                the reservation in the book.
+                            </li>
+                            <li><strong>Till</strong></li>
+                            <li>When a customer is paying for a deposit use the deposit button on the till.</li>
+                            <ol>
+                                <li>Press the deposit button on a clear screen not on a track (table)</li>
+                                <li>Type “dep” then enter</li>
+                                <li>Key in the deposit amount and then press the payment method.</li>
+                                <li>Immediately press print bill then clerk 1 after this before doing anything else
+                                    to print
+                                    receipt.
+                                </li>
+                                <ol>
+                                    <li>If this step is missed you will need to access the EJF located in X key to
+                                        manually
+                                        print
+                                        receipts.
+                                    </li>
+                                </ol>
+                                <li>Print out 2 receipts</li>
+                                <ol>
+                                    <li>Give one to the customer or staple into diary if customer not present</li>
+                                    <li>Put one in till writing the name and date of the reservation on the
                                         receipt.
                                     </li>
-                                    <ol>
-                                        <li>If this step is missed you will need to access the EJF located in X key to
-                                            manually
-                                            print
-                                            receipts.
-                                        </li>
-                                    </ol>
-                                    <li>Print out 2 receipts</li>
-                                    <ol>
-                                        <li>Give one to the customer or staple into diary if customer not present</li>
-                                        <li>Put one in till writing the name and date of the reservation on the
-                                            receipt.
-                                        </li>
-                                    </ol>
-                                </ol>
-                                <li>When applying deposit to a customer’s bill:</li>
-                                <ol>
-                                    <li>Use the “apply deposit” button and key in the deposit amount on a customer’s
-                                        bill (can be
-                                        done
-                                        at any time so can do at the start of the meal so it’s not forgotten later (till
-                                        will show
-                                        negative amount initially when this is done)
-                                    </li>
                                 </ol>
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p030">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="030">NTP 030 : Taking Payments over the Phone</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines how to take a card payment over the phone. Generally used for
-                                taking deposit
-                                payment. You must ensure that you fill out necessary sections in form NTF017 when taking
-                                deposit
-                                payments.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <ul>
-                                <li>Card Machine</li>
-                                <li>Manager must complete this as access code is required to complete.</li>
-                            </ul>
-                            <h4>Procedure</h4>
+                            <li>When applying deposit to a customer’s bill:</li>
                             <ol>
-                                <li>Press MENU</li>
-                                <li>Press F1 for MAILORDER</li>
-                                <li>Press F4 for SALE</li>
-                                <li>It will now prompt for customer’s card number. Ask customer for the long card number
-                                    on their
-                                    card
-                                    and enter this here followed by the green enter button.
+                                <li>Use the “apply deposit” button and key in the deposit amount on a customer’s
+                                    bill (can be
+                                    done
+                                    at any time so can do at the start of the meal so it’s not forgotten later (till
+                                    will show
+                                    negative amount initially when this is done)
                                 </li>
-                                <li>Enter expiry date of the card followed by the green button</li>
-                                <li>Enter the CSC which is the last 3 digits on the signature strip followed by the
-                                    green button
-                                </li>
-                                <li>Enter the numbers of the persons postcode (ie DH1 4PR = 14) followed by green
+                            </ol>
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p030">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="030">NTP 030 : Taking Payments over the Phone</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines how to take a card payment over the phone. Generally used for
+                            taking deposit
+                            payment. You must ensure that you fill out necessary sections in form NTF017 when taking
+                            deposit
+                            payments.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <ul>
+                            <li>Card Machine</li>
+                            <li>Manager must complete this as access code is required to complete.</li>
+                        </ul>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Press MENU</li>
+                            <li>Press F1 for MAILORDER</li>
+                            <li>Press F4 for SALE</li>
+                            <li>It will now prompt for customer’s card number. Ask customer for the long card number
+                                on their
+                                card
+                                and enter this here followed by the green enter button.
+                            </li>
+                            <li>Enter expiry date of the card followed by the green button</li>
+                            <li>Enter the CSC which is the last 3 digits on the signature strip followed by the
+                                green button
+                            </li>
+                            <li>Enter the numbers of the persons postcode (ie DH1 4PR = 14) followed by green
+                                button
+                            </li>
+                            <li>Enter the house number followed by the green button (if no house number leave
+                                blank)
+                            </li>
+                            <li>Enter the SALE amount and proceed as normal.</li>
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>26/06/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+                <div class="panel panel-default" id="p005">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="005">NTP 005 : Cleaning Coffee Machine</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p></p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>If the display on the coffee machine says cleaning required continue.</li>
+                            <ul>
+                                <li>If this is not a convenient time then turn the rotating dial until it says No
+                                    and press
+                                    center
                                     button
                                 </li>
-                                <li>Enter the house number followed by the green button (if no house number leave
-                                    blank)
-                                </li>
-                                <li>Enter the SALE amount and proceed as normal.</li>
-                            </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>26/06/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
+                            </ul>
+                            <li>Press the flashing button to confirm start cleaning. (machine will operate)</li>
+                            <li>Display may ask you to empty grounds or tray.</li>
+                            <ul>
+                                <li>If yes, empty the trays, reinsert and press flashing button.</li>
+                            </ul>
+                            <li>“Display will then ask you to insert cleaning tablet”.</li>
+                            <li>Open hatch at top of machine where you insert ground coffee (what you use for decaf
+                                coffee).
+                                DROP 1
+                                CLEANING TABLET IN. (NOT THE SQUARE DECALC TABLETS)
+                            </li>
+                            <li>Press the flashing button</li>
+                            <li>Machine will now run for about 20 minutes.</li>
+                            <li>Display will then ask you to empty trays again.</li>
+                            <ul>
+                                <li>Empty trays and press flashing button</li>
+                            </ul>
+                            <li>Machine will rinse again and finish cleaning cycle.</li>
+                        </ol>
                     </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>10/05/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p006">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="006">NTP 006 : Descaling Coffee Machine</h3></div>
+                    </div>
+                    <div class="panel-body">
 
-                    <div class="panel panel-default" id="p005">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="005">NTP 005 : Cleaning Coffee Machine</h3></div>
-                        </div>
-                        <div class="panel-body">
 
+                        <h4>Purpose</h4>
 
-                            <h4>Purpose</h4>
+                        <p>This procedure outlines the method to de-scale the coffee machine.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
 
-                            <p></p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                        <p>Descaling tablets.</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>This process will take about 40 minutes to complete so ensure you have enough time
+                                available
+                            </li>
+                            <li>First fill a water jug full of cold water (about 800ml) and insert 3 jura descaling
+                                tablets
+                                letting
+                                them dissolve whilst you continue.
+                            </li>
+                            <li>The display on the coffee machine says decalcs required. Press the flashing button
+                                once.
+                            </li>
+                            <li>Display will prompt to empty tray and grounds container. Do this then press flashing
+                                button.
+                            </li>
                             <ol>
-                                <li>If the display on the coffee machine says cleaning required continue.</li>
-                                <ul>
-                                    <li>If this is not a convenient time then turn the rotating dial until it says No
-                                        and press
-                                        center
-                                        button
-                                    </li>
-                                </ul>
-                                <li>Press the flashing button to confirm start cleaning. (machine will operate)</li>
-                                <li>Display may ask you to empty grounds or tray.</li>
-                                <ul>
-                                    <li>If yes, empty the trays, reinsert and press flashing button.</li>
-                                </ul>
-                                <li>“Display will then ask you to insert cleaning tablet”.</li>
-                                <li>Open hatch at top of machine where you insert ground coffee (what you use for decaf
-                                    coffee).
-                                    DROP 1
-                                    CLEANING TABLET IN. (NOT THE SQUARE DECALC TABLETS)
+                                <li>Display might say “insert tray” when you have inserted, usually this is because
+                                    the silver
+                                    metal
+                                    contacts on the back of the tray are wet. Dry them.
                                 </li>
-                                <li>Press the flashing button</li>
-                                <li>Machine will now run for about 20 minutes.</li>
-                                <li>Display will then ask you to empty trays again.</li>
-                                <ul>
-                                    <li>Empty trays and press flashing button</li>
-                                </ul>
-                                <li>Machine will rinse again and finish cleaning cycle.</li>
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>10/05/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p006">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="006">NTP 006 : Descaling Coffee Machine</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines the method to de-scale the coffee machine.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>Descaling tablets.</p>
-                            <h4>Procedure</h4>
+                            <li>Display says “insert tablet decalcs/cleaning”.</li>
                             <ol>
-                                <li>This process will take about 40 minutes to complete so ensure you have enough time
-                                    available
-                                </li>
-                                <li>First fill a water jug full of cold water (about 800ml) and insert 3 jura descaling
-                                    tablets
-                                    letting
-                                    them dissolve whilst you continue.
-                                </li>
-                                <li>The display on the coffee machine says decalcs required. Press the flashing button
-                                    once.
-                                </li>
-                                <li>Display will prompt to empty tray and grounds container. Do this then press flashing
-                                    button.
-                                </li>
-                                <ol>
-                                    <li>Display might say “insert tray” when you have inserted, usually this is because
-                                        the silver
-                                        metal
-                                        contacts on the back of the tray are wet. Dry them.
-                                    </li>
-                                </ol>
-                                <li>Display says “insert tablet decalcs/cleaning”.</li>
-                                <ol>
-                                    <li>Take out the water holder and pour away any water inside.</li>
-                                    <li>If the tablets have fully dissolved pour the water into the water holder.</li>
-                                    <li>Put the water holder back into the coffee machine.</li>
-                                    <li>Press the flashing button to continue.</li>
-                                </ol>
-                                <li>After pressing button the machine should now be running the decalcs cycle which will
-                                    take about
-                                    40
-                                    minutes to complete.
-                                </li>
-                                <li>... ... ...</li>
-                                <li>Display says “empty tray”</li>
-                                <ol>
-                                    <li>Empty trays and reinsert</li>
-                                    <li>Press flashing button</li>
-                                </ol>
-                                <li>Display says “rinse / refill container”</li>
-                                <ol>
-                                    <li>Remove water container and wash out the cleaning fluid / rinse / refill with
-                                        cold water then
-                                        reinsert into machine
-                                    </li>
-                                    <li>Press flashing button</li>
-                                </ol>
-                                <li>Display says “empty tray”</li>
-                                <ol>
-                                    <li>Empty trays and reinsert</li>
-                                    <li>Press flashing button</li>
-                                </ol>
-                                <li>Cleaning cycle should now have finished. Make one coffee to test and put milk in. If
-                                    milk
-                                    curdles
-                                    then machine hasn’t been cleaned properly and solution is still remaining in system.
-                                </li>
+                                <li>Take out the water holder and pour away any water inside.</li>
+                                <li>If the tablets have fully dissolved pour the water into the water holder.</li>
+                                <li>Put the water holder back into the coffee machine.</li>
+                                <li>Press the flashing button to continue.</li>
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>27/04/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                    <div class="panel panel-default" id="p031">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h3 id="031">NTP 031 : Stock Checking</h3></div>
-                        </div>
-                        <div class="panel-body">
-
-
-                            <h4>Purpose</h4>
-
-                            <p>This procedure outlines how to perform a stock check. Once completed this needs to be
-                                passed to
-                                management.</p>
-                            <h4>Responsibilities</h4>
-                            <table class="table">
-                                <tr>
-                                    <th>Applies to</th>
-                                    <td> Front of House</td>
-                                    <th>To be completed</th>
-                                    <td>Daily</td>
-                                    <td>Start of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kitchen</td>
-                                    <td></td>
-                                    <td>Weekly</td>
-                                    <td>End of Shift</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                    <td>Fortnightly</td>
-                                    <td>Start of Employment</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <p></p>
-                            <h4>Required Materials</h4>
-
-                            <p>None</p>
-                            <h4>Procedure</h4>
+                            <li>After pressing button the machine should now be running the decalcs cycle which will
+                                take about
+                                40
+                                minutes to complete.
+                            </li>
+                            <li>... ... ...</li>
+                            <li>Display says “empty tray”</li>
                             <ol>
-                                <li>Use the drinks order sheet NTF-021.</li>
-                                <li>Write down the exact quantities of all stock excluding spirits (these are done
-                                    separately)
-                                </li>
-                                <li>Include all stock in fridges and in the store room.</li>
-                                <li>Once completed print report from till:</li>
-                                <ol>
-                                    <li>Turn key to z1 position and logon (same position as day sales report)</li>
-                                    <li>Press on full sequential report</li>
-                                    <li>Enter 170 as first PLU and press ENTER</li>
-                                    <li>Enter 400 as last PLU and press ENTER</li>
-                                    <li>Print report</li>
-                                    <li>Staple this to the stock form</li>
-                                    <li>Hand to management with daily reports</li>
-                                </ol>
+                                <li>Empty trays and reinsert</li>
+                                <li>Press flashing button</li>
                             </ol>
-                        </div>
-                        <div class="panel-footer">
-                            <table class="table">
-                                <tr>
-                                    <th>Version</th>
-                                    <td>01</td>
-                                    <th>Last Amended</th>
-                                    <td>15/08/2014</td>
-                                    <th>Author</th>
-                                    <td>Geoff Whitehead</td>
-                                </tr>
-                            </table>
-                        </div>
+                            <li>Display says “rinse / refill container”</li>
+                            <ol>
+                                <li>Remove water container and wash out the cleaning fluid / rinse / refill with
+                                    cold water then
+                                    reinsert into machine
+                                </li>
+                                <li>Press flashing button</li>
+                            </ol>
+                            <li>Display says “empty tray”</li>
+                            <ol>
+                                <li>Empty trays and reinsert</li>
+                                <li>Press flashing button</li>
+                            </ol>
+                            <li>Cleaning cycle should now have finished. Make one coffee to test and put milk in. If
+                                milk
+                                curdles
+                                then machine hasn’t been cleaned properly and solution is still remaining in system.
+                            </li>
+                        </ol>
                     </div>
-                    @endif
-                </div
-            </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>27/04/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="panel panel-default" id="p031">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="031">NTP 031 : Stock Checking</h3></div>
+                    </div>
+                    <div class="panel-body">
 
 
+                        <h4>Purpose</h4>
+
+                        <p>This procedure outlines how to perform a stock check. Once completed this needs to be
+                            passed to
+                            management.</p>
+                        <h4>Responsibilities</h4>
+                        <table class="table">
+                            <tr>
+                                <th>Applies to</th>
+                                <td> Front of House</td>
+                                <th>To be completed</th>
+                                <td>Daily</td>
+                                <td>Start of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Kitchen</td>
+                                <td></td>
+                                <td>Weekly</td>
+                                <td>End of Shift</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>All Staff {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                                <td>Fortnightly</td>
+                                <td>Start of Employment</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>As Required {{ HTML::image('uploads/images/small-tick.png') }}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p></p>
+                        <h4>Required Materials</h4>
+
+                        <p>None</p>
+                        <h4>Procedure</h4>
+                        <ol>
+                            <li>Use the drinks order sheet NTF-021.</li>
+                            <li>Write down the exact quantities of all stock excluding spirits (these are done
+                                separately)
+                            </li>
+                            <li>Include all stock in fridges and in the store room.</li>
+                            <li>Once completed print report from till:</li>
+                            <ol>
+                                <li>Turn key to z1 position and logon (same position as day sales report)</li>
+                                <li>Press on full sequential report</li>
+                                <li>Enter 170 as first PLU and press ENTER</li>
+                                <li>Enter 400 as last PLU and press ENTER</li>
+                                <li>Print report</li>
+                                <li>Staple this to the stock form</li>
+                                <li>Hand to management with daily reports</li>
+                            </ol>
+                        </ol>
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                            <tr>
+                                <th>Version</th>
+                                <td>01</td>
+                                <th>Last Amended</th>
+                                <td>15/08/2014</td>
+                                <th>Author</th>
+                                <td>Geoff Whitehead</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="change_log">Changelog</h3></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            01/07/2015
+                        </div>
+                        <div class="col-md-10">
+                            <p>Added all of the current operating procedures for Morpeth. <strong>Note: </strong>Some of
+                                these will be out of date (Sales, deposits etc). I'm leaving them in until testing has
+                                finished. -Geoff
+                            </p>
+                        </div>
 
 
+                    </div>
+                    <div class="panel-footer">
+                        <table class="table">
+                        </table>
+                    </div>
+                </div>
 
-
-
-
-
-
-
-            @if (Session::get('sid') == 2)
-                <p>procedures for durham go here</p>
-            @endif
-
+                @endif
+            </div
 
     </div>
-    </div>
-<script>
-    $(document).ready(function () {
-        document.getElementById('#p001').focus();
-    }
-</script>
+
+
+
+
+
+
+
+
+
+
+
+    @if (Session::get('sid') == 2)
+        <p>procedures for durham go here</p>
+    @endif
+
+    <script type='text/javascript'>
+
+        $(document).ready(function () {
+            alert('hello');
+            $('a').click(function () {
+                alert('hello');
+            });
+        }
+    </script>
+    <script type="text/javascript">
+
+
+    </script>

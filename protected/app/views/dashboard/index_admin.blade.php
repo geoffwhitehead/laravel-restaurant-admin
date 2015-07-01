@@ -57,7 +57,7 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Info:</span>
 
-        <p><strong>Note: </strong><br> D</p>
+        <p><strong>Note: </strong><br> As an admin you should have global access to sites. Your views will be filtered by this site. This is something i'm currently testing. The user experience may be hindered by having to switch between sites or it may be made less confusing by not seeing all records at once.</p>
     </div>
 
 
@@ -67,7 +67,6 @@
 
     $("#site_id").change(function () {
         $sid = $("#site_id option:selected").val();
-        alert($sid);
         $.ajax({
             type: 'POST',
             url: 'changesite',
@@ -86,7 +85,6 @@
 
     $("#dep_id").change(function () {
         $did = $("#dep_id option:selected").val();
-        alert($did);
         $.ajax({
             type: 'POST',
             url: 'changedep',

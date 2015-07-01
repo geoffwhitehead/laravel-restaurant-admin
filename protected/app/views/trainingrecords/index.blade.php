@@ -27,12 +27,20 @@
                    <?php $count++; ?>
                 @endif
             @endforeach
+                @if(!empty($rowData))
                 <div class="progress">
                     <?php $percent = (int) (100 / sizeof($rowData)) * $count   ?>
                     <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow=$percent aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
                         {{$percent}} % Complete
                     </div>
                 </div>
+                    @else
+                    <div class="alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        :(
+                    </div>
+            @endif
         </div>
         <div class="col-md-2"></div
     </div>

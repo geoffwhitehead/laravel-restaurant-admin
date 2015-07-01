@@ -293,6 +293,8 @@
 
                 @if($row->processed == 0)
 
+                    <?php $path = '/uploads/user_docs/'.$row['last_name'].' '.$row['first_name'].' ['.$row['employee_id'].']/';?>
+
                     <div class="form-group">
                         <label for="Scan P45 P46" class=" control-label col-md-4 text-left"> Scan P45 P46 <span
                                     class="asterix"> * </span></label>
@@ -301,9 +303,7 @@
                             <input type='file' name='scan_p45_p46' id='scan_p45_p46'
                                    @if($row['scan_p45_p46'] =='')class='required'
                                    class='required' @endif style='width:150px !important;'/>
-                            {{Session::get('company')}}
-                            {{ SiteHelpers::showUploadedFile($row['scan_p45_p46'],'/uploads/user_docs/'.Session::get('company').'/'.$row['last_name'].' '.$row['first_name'].' ['.$row['employee_id'].']/') }}
-
+                            {{ SiteHelpers::showUploadedFile($row['scan_ni'],$path) }}
                         </div>
                         <div class="col-md-2">
 
@@ -317,7 +317,9 @@
                         <div class="col-md-6">
                             <input type='file' name='scan_ni' id='scan_ni' @if($row['scan_ni'] =='')
                                    @endif style='width:150px !important;'  />
-                            {{ SiteHelpers::showUploadedFile($row['scan_ni'],'/uploads/user_docs/'.Session::get('company').'/'.$row['last_name'].' '.$row['first_name'].' ['.$row['employee_id'].']/') }}
+
+
+                            {{ SiteHelpers::showUploadedFile($row['scan_ni'],$path) }}
 
                         </div>
                         <div class="col-md-2">

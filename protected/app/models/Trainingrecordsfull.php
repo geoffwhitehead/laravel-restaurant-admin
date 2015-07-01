@@ -17,12 +17,12 @@ class Trainingrecordsfull extends BaseModel  {
     public static function queryWhere(  ){
         if(Session::get('lvl') < GLOBAL_USER){
             //return "where training_tasks.active = 1";
-            return " WHERE training_tasks.site_id = ".Session::get('sid')." and training_tasks.active = 1";
+            return " WHERE (training_tasks.site_id = ".Session::get('sid')." or training_tasks.global_site_flag = 1) and training_tasks.active = 1";
         } else{
             if (Session::get('did') == 1){
-                return " WHERE training_tasks.site_id = ".Session::get('sid')." and training_tasks.active = 1";
+                return " WHERE (training_tasks.site_id = ".Session::get('sid')." or training_tasks.global_site_flag = 1) and training_tasks.active = 1";
             } else {
-                return " WHERE training_tasks.site_id = ".Session::get('sid')." AND training_tasks.department_id = ".Session::get('did')." and training_tasks.active = 1";
+                return " WHERE (training_tasks.site_id = ".Session::get('sid')." or training_tasks.global_site_flag = 1) AND training_tasks.department_id = ".Session::get('did')." and training_tasks.active = 1";
             }
         }
 

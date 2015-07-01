@@ -58,6 +58,20 @@
                     </div>
                 </div>
                 <div class="form-group  ">
+                    <label class=" control-label col-md-1 text-left"></label>
+
+                    <div class="alert alert-warning col-md-6" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Info:</span>
+                        Uploaded file must be in .pdf format.
+                    </div>
+                    <div class="col-md-5">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group  ">
                     <label for="Service Id" class=" control-label col-md-1 text-left"> Service Id </label>
 
                     <div class="col-md-6">

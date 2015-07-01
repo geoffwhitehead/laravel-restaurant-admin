@@ -30,14 +30,14 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Task Name</td>
-						<td>{{ $row->task_name }} </td>
+						<td width='30%' class='label-view text-right'>Department Id</td>
+						<td>{{ SiteHelpers::gridDisplayView($row->department_id,'department_id','1:departments:id:name') }} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>Department Id</td>
-						<td>{{ SiteHelpers::gridDisplayView($row->department_id,'department_id','1:departments:id:name') }} </td>
+						<td width='30%' class='label-view text-right'>Task Name</td>
+						<td>{{ $row->task_name }} </td>
 						
 					</tr>
 				
@@ -50,6 +50,12 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Category Id</td>
 						<td>{{ SiteHelpers::gridDisplayView($row->category_id,'category_id','1:training_categories:id:name') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Applied to all Sites?</td>
+						<td>{{ $row->global_site_flag }} </td>
 						
 					</tr>
 				
@@ -74,6 +80,18 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Active</td>
 						<td>{{ $row->active }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated On</td>
+						<td>{{ $row->updated_on }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Updated By</td>
+						<td>{{ $row->updated_by }} </td>
 						
 					</tr>
 				

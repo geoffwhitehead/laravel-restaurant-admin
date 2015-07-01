@@ -16,9 +16,9 @@ class Jobs extends BaseModel  {
 	}
 	public static function queryWhere(  ){
 		if (Session::get('did') == GLOBAL_DEP){
-            return "WHERE checks.site_id = ".Session::get('sid')."";
+            return "WHERE checks.site_id = ".Session::get('sid')." and checks.check_category != ".CAT_FIRE." and checks.check_category != ".CAT_SFBB." and checks.check_category != ".CAT_SERVICE." and checks.check_category != ".CAT_TEMP."";
         } else {
-            return "WHERE checks.site_id = ".Session::get('sid')." and checks.department_id = ".Session::get('did')."";
+            return "WHERE checks.site_id = ".Session::get('sid')."  and checks.check_category != ".CAT_FIRE." and checks.check_category != ".CAT_SFBB." and checks.check_category != ".CAT_SERVICE." and checks.check_category != ".CAT_TEMP."";
         }
 
 	}

@@ -65,18 +65,17 @@
 
                     <div class="col-md-6">
 
-                        {{ Form::text('authorized_on', $row['authorized_on'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) }}
+                        {{ Form::text('authorized_on', $row['authorized_on'],array('class'=>'form-control date', 'style'=>'width:150px !important;')) }}
                     </div>
                     <div class="col-md-2">
 
                     </div>
                 </div>
-                <div class="form-group  ">
-                    <label for="Amount" class=" control-label col-md-4 text-left"> Amount <span
-                                class="asterix"> * </span></label>
-
+                <div class="form-group  " >
+                    <label for="Amount" class=" control-label col-md-4 text-left"> Amount <span class="asterix"> * </span></label>
                     <div class="col-md-6">
-                        {{ Form::text('amount', $row['amount'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )) }}
+                        <select name='amount' rows='5' id='amount' code='{$amount}'
+                                class='select2 '  required  ></select>
                     </div>
                     <div class="col-md-2">
 
@@ -245,6 +244,12 @@
 
         $("#authorized_by").jCombo("{{ URL::to('voucher/comboselect?filter=tb_users:id:id|first_name|last_name') }}",
                 {  selected_value : '{{ $row["authorized_by"] }}' });
+
+    });
+    $(document).ready(function() {
+
+        $("#amount").jCombo("{{ URL::to('voucher/comboselect?filter=voucher_amounts:id:amount') }}",
+                {  selected_value : '{{ $row["amount"] }}' });
 
     });
 </script>

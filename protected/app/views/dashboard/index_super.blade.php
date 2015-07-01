@@ -59,7 +59,7 @@
                 <div class="alert alert-info" role="alert">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                     <span class="sr-only">Info:</span>
-                    <p><strong>Note: </strong><br> As an admin the site and department selection is not necessary except in some cases such as creating a sale. Will remove after testing.</p>
+                    <p><strong>Note: </strong> As an admin you should have global access to sites. Your views will be filtered by this site. This is something i'm currently testing. The user experience may be hindered by having to switch between sites or it may be made less confusing by not seeing all records at once.</p>
                 </div>
                 <section>
 
@@ -136,7 +136,6 @@
 
     $("#site_id").change(function () {
         $sid = $("#site_id option:selected").val();
-        alert($sid);
         $.ajax({
             type: 'POST',
             url: 'changesite',

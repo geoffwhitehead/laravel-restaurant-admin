@@ -1,27 +1,27 @@
 <?php
-class Saleedit extends BaseModel  {
-
-	protected $table = 'sales';
+class Fire extends BaseModel  {
+	
+	protected $table = 'checks_log';
 	protected $primaryKey = 'id';
 
 	public function __construct() {
 		parent::__construct();
-
+		
 	}
 
 	public static function querySelect(  ){
-
-
-		return "  SELECT sales.* FROM sales  ";
+		
+		
+		return "  SELECT checks_log.* FROM checks_log  ";
 	}
 	public static function queryWhere(  ){
-
-		return " WHERE sale_checked_by is NULL and site_id = ".Session::get('sid')."";
+		
+		return " WHERE checks_log.id IS NOT NULL   ";
 	}
-
+	
 	public static function queryGroup(){
 		return "  ";
 	}
-
+	
 
 }

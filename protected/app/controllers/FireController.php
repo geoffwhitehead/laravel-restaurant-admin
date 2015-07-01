@@ -1,22 +1,22 @@
 <?php
-class EquipmenttypesController extends BaseController {
+class FireController extends BaseController {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'equipmenttypes';
+	public $module = 'fire';
 	static $per_page	= '10';
 	
 	public function __construct() {
 		parent::__construct();
 		$this->beforeFilter('csrf', array('on'=>'post'));
-		$this->model = new Equipmenttypes();
+		$this->model = new Fire();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
 	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'equipmenttypes',
+			'pageModule'=> 'fire',
 			'trackUri' 	=> $this->trackUriSegmented()	
 		);
 			
@@ -80,7 +80,7 @@ class EquipmenttypesController extends BaseController {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		$this->layout->nest('content','equipmenttypes.index',$this->data)
+		$this->layout->nest('content','fire.index',$this->data)
 						->with('menus', SiteHelpers::menus());
 	}		
 	
@@ -107,7 +107,7 @@ class EquipmenttypesController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('equipment_types'); 
+			$this->data['row'] = $this->model->getColumnTable('checks_log'); 
 		}
 		/* Master detail lock key and value */
 		if(!is_null(Input::get('md')) && Input::get('md') !='')
@@ -119,7 +119,7 @@ class EquipmenttypesController extends BaseController {
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['filtermd'] = str_replace(" ","+",Input::get('md')); 		
 		$this->data['id'] = $id;
-		$this->layout->nest('content','equipmenttypes.form',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','fire.form',$this->data)->with('menus', $this->menus );	
 	}
 	
 	function getShow( $id = null)
@@ -135,12 +135,12 @@ class EquipmenttypesController extends BaseController {
 		{
 			$this->data['row'] =  $row;
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('equipment_types'); 
+			$this->data['row'] = $this->model->getColumnTable('checks_log'); 
 		}
 		$this->data['masterdetail']  = $this->masterDetailParam(); 
 		$this->data['id'] = $id;
 		$this->data['access']		= $this->access;
-		$this->layout->nest('content','equipmenttypes.view',$this->data)->with('menus', $this->menus );	
+		$this->layout->nest('content','fire.view',$this->data)->with('menus', $this->menus );	
 	}	
 	
 	function postSave( $id =0)
@@ -149,8 +149,7 @@ class EquipmenttypesController extends BaseController {
 		$rules = $this->validateForm();
 		$validator = Validator::make(Input::all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('equipment_types');
-            $data = $this->model->createStamps($data, Input::get('id'));
+			$data = $this->validatePost('checks_log');
 			$ID = $this->model->insertRow($data , Input::get('id'));
 			// Input logs
 			if( Input::get('id') =='')
@@ -162,11 +161,11 @@ class EquipmenttypesController extends BaseController {
 			}
 			// Redirect after save	
 			$md = str_replace(" ","+",Input::get('md'));
-			$redirect = (!is_null(Input::get('apply')) ? 'equipmenttypes/add/'.$id.'?md='.$md.$trackUri :  'equipmenttypes?md='.$md.$trackUri );
+			$redirect = (!is_null(Input::get('apply')) ? 'fire/add/'.$id.'?md='.$md.$trackUri :  'fire?md='.$md.$trackUri );
 			return Redirect::to($redirect)->with('message', SiteHelpers::alert('success',Lang::get('core.note_success')));
 		} else {
 			$md = str_replace(" ","+",Input::get('md'));
-			return Redirect::to('equipmenttypes/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
+			return Redirect::to('fire/add/'.$id.'?md='.$md)->with('message', SiteHelpers::alert('error',Lang::get('core.note_error')))
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -183,7 +182,7 @@ class EquipmenttypesController extends BaseController {
 		$this->inputLogs("ID : ".implode(",",Input::get('id'))."  , Has Been Removed Successfully");
 		// redirect
 		Session::flash('message', SiteHelpers::alert('success',Lang::get('core.note_success_delete')));
-		return Redirect::to('equipmenttypes?md='.Input::get('md'));
+		return Redirect::to('fire?md='.Input::get('md'));
 	}			
 		
 }

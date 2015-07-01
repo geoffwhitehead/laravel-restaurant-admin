@@ -61,7 +61,6 @@
 
     $("#site_id").change(function () {
         $sid = $("#site_id option:selected").val();
-        alert($sid);
         $.ajax({
             type: 'POST',
             url: 'changesite',
@@ -80,7 +79,6 @@
 
     $("#dep_id").change(function () {
         $did = $("#dep_id option:selected").val();
-        alert($did);
         $.ajax({
             type: 'POST',
             url: 'changedep',

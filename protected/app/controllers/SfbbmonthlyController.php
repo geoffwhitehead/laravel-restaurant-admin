@@ -1,25 +1,25 @@
 <?php
 
-class VoucherController extends BaseController
+class SfbbmonthlyController extends BaseController
 {
 
     protected $layout = "layouts.main";
     protected $data = array();
-    public $module = 'voucher';
+    public $module = 'sfbbmonthly';
     static $per_page = '10';
 
     public function __construct()
     {
         parent::__construct();
         $this->beforeFilter('csrf', array('on' => 'post'));
-        $this->model = new Voucher();
+        $this->model = new Sfbbmonthly();
         $this->info = $this->model->makeInfo($this->module);
         $this->access = $this->model->validAccess($this->info['id']);
 
         $this->data = array(
             'pageTitle' => $this->info['title'],
             'pageNote' => $this->info['note'],
-            'pageModule' => 'voucher',
+            'pageModule' => 'sfbbmonthly',
             'trackUri' => $this->trackUriSegmented()
         );
 
@@ -35,7 +35,7 @@ class VoucherController extends BaseController
 
         // Filter sort and order for query
         $sort = (!is_null(Input::get('sort')) ? Input::get('sort') : 'id');
-        $order = (!is_null(Input::get('order')) ? Input::get('order') : 'desc');
+        $order = (!is_null(Input::get('order')) ? Input::get('order') : 'asc');
         // End Filter sort and order for query
         // Filter Search for query
         $filter = (!is_null(Input::get('search')) ? $this->buildSearch() : '');
@@ -83,7 +83,14 @@ class VoucherController extends BaseController
         // Master detail link if any
         $this->data['subgrid'] = (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
         // Render into template
-        $this->layout->nest('content', 'voucher.index', $this->data)
+
+        // query the database to find out if a SFBB record has already been submitted
+        $this->data['count_recent'] = DB::select("select count(created_on) as cnt , created_by from sfbb_monthly_log where site_id = ".Session::get('sid')." and created_on >= DATE_SUB(NOW(),INTERVAL 30 DAY)");
+
+        $this->layout->nest('content', 'sfbbmonthly.index', $this->data)
+
+
+
             ->with('menus', SiteHelpers::menus());
     }
 
@@ -107,7 +114,7 @@ class VoucherController extends BaseController
         if ($row) {
             $this->data['row'] = $row;
         } else {
-            $this->data['row'] = $this->model->getColumnTable('vouchers');
+            $this->data['row'] = $this->model->getColumnTable('sfbb_monthly_log');
         }
         /* Master detail lock key and value */
         if (!is_null(Input::get('md')) && Input::get('md') != '') {
@@ -118,7 +125,7 @@ class VoucherController extends BaseController
         $this->data['masterdetail'] = $this->masterDetailParam();
         $this->data['filtermd'] = str_replace(" ", "+", Input::get('md'));
         $this->data['id'] = $id;
-        $this->layout->nest('content', 'voucher.form', $this->data)->with('menus', $this->menus);
+        $this->layout->nest('content', 'sfbbmonthly.form', $this->data)->with('menus', $this->menus);
     }
 
     function getShow($id = null)
@@ -133,87 +140,44 @@ class VoucherController extends BaseController
         if ($row) {
             $this->data['row'] = $row;
         } else {
-            $this->data['row'] = $this->model->getColumnTable('vouchers');
+            $this->data['row'] = $this->model->getColumnTable('sfbb_monthly_log');
         }
         $this->data['masterdetail'] = $this->masterDetailParam();
         $this->data['id'] = $id;
         $this->data['access'] = $this->access;
-        $this->layout->nest('content', 'voucher.view', $this->data)->with('menus', $this->menus);
+        $this->layout->nest('content', 'sfbbmonthly.view', $this->data)->with('menus', $this->menus);
     }
 
     function postSave($id = 0)
     {
-        $trackUri = $this->data['trackUri'];
-        $rules = $this->validateForm();
-        $validator = Validator::make(Input::all(), $rules);
-        if ($validator->passes()) {
 
-            //check for duplicate voucher_ref
-            //on a update
-            if (Input::get('id') != "") {
-                $result = DB::select("select count(id) as cnt from vouchers where voucher_ref = " . Input::get('voucher_ref') . " and id != " . Input::get('id') . "");
-                if ($result[0]->cnt == 1) {
-                    $md = str_replace(" ", "+", Input::get('md'));
-                    return Redirect::to('voucher/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', "Error: Duplicate entry for field \"voucher reference\" found, no changes made"));
-                }
-                //on a create
-            } else {
-                $result = DB::select("select count(id) as cnt from vouchers where voucher_ref = " . Input::get('voucher_ref') . "");
-                if ($result[0]->cnt == 1) {
-                    $md = str_replace(" ", "+", Input::get('md'));
-                    return Redirect::to('voucher/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', "Error: Duplicate entry for field \"voucher reference\" found, no changes made"));
-                }
-            }
+        DB::table('sfbb_monthly_log')->insert(array('date' => date('Y-m-d'), 'site_id' => Session::get('sid'),
+            'problems' => Input::get('problems'), 'problem_details' => Input::get('problem_details'), 'problem_remedy' => Input::get('problem_remedy'),
+            'new_staff' => Input::get('new_staff'), 'new_staff_trained' => Input::get('new_staff_trained'), 'menu_changed' => Input::get('menu_changed'),
+            'review_methods' => Input::get('review_methods'), 'changes' => Input::get('changes'), 'new_supply' => Input::get('new_supply'),
+            'affected_methods_comments' => Input::get('affected_methods_comments'), 'new_equipment' => Input::get('new_equipment'),
+            'new_equipment_comments' => Input::get('new_equipment_comments'), 'other_changes' => Input::get('other_changes'),
+            'created_by' => Auth::id(),));
 
+        $this->inputLogs("New SFBB monthly entry has been created by ".Session::get('fname')." ");
 
-            $data = $this->validatePost('vouchers');
-            //set the timestamps here
-            $inputID = Input::get('id');
-            if ($inputID == '') {
-                $data = $this->model->createStamps($data, $inputID);
-            } else {
-                $data = $this->model->updateStamps($data, $inputID);
-            }
-            //insert the row
-            $ID = $this->model->insertRow($data, $inputID);
-            // Input logs
-            if (Input::get('id') == '') {
-                $this->inputLogs("New voucher with ID : $ID has been created");
-                $id = SiteHelpers::encryptID($ID);
-            } else {
-                $this->inputLogs(" Voucher with ID : $ID has been edited");
-            }
-            // Redirect after save
-            $md = str_replace(" ", "+", Input::get('md'));
-            $redirect = (!is_null(Input::get('apply')) ? 'voucher/add/' . $id . '?md=' . $md . $trackUri : 'voucher?md=' . $md . $trackUri);
-            return Redirect::to($redirect)->with('message', SiteHelpers::alert('success', Lang::get('core.note_success')));
-        } else {
-            $md = str_replace(" ", "+", Input::get('md'));
-            return Redirect::to('voucher/add/' . $id . '?md=' . $md)->with('message', SiteHelpers::alert('error', Lang::get('core.note_error')))
-                ->withErrors($validator)->withInput();
-        }
+        // Redirect after save
+        return Redirect::to('sfbbmonthly/')->with('message', SiteHelpers::alert('success', Lang::get('Success')));
 
     }
 
-    public function postConfirm()
+    public function postDestroy()
     {
-        DB::beginTransaction();
-        try {
-            $ids = Input::get('id');
-            foreach ($ids as $id) {
-                DB::table('vouchers')
-                    ->where('id', $id)
-                    ->update(array('confirmed_used_by' => Auth::id(), 'confirmed_used_on' => date("Y-m-d H:i:s"), 'used' => 1, 'site_used' => Session::get('sid')));
-            }
-            //input logs
-            $serialise = implode(",", $ids);
-            $this->inputLogs("User: " . Auth::id() . " has marked vouchers with ID's of " . $serialise . " as used");
-            Session::flash('message', SiteHelpers::alert('success', "Success"));
-            DB::commit();
-            return Redirect::to('voucher?md=' . Input::get('md'))->with('message', SiteHelpers::alert('success', "Successfully marked " . count($ids) . " voucher/s"));
-        } catch (Exception $e) {
-            DB::rollBack();
-        }
+
+        if ($this->access['is_remove'] == 0)
+            return Redirect::to('')
+                ->with('message', SiteHelpers::alert('error', Lang::get('core.note_restric')));
+        // delete multipe rows
+        $this->model->destroy(Input::get('id'));
+        $this->inputLogs("ID : " . implode(",", Input::get('id')) . "  , Has Been Removed Successfully");
+        // redirect
+        Session::flash('message', SiteHelpers::alert('success', Lang::get('core.note_success_delete')));
+        return Redirect::to('sfbbmonthly?md=' . Input::get('md'));
     }
 
 }

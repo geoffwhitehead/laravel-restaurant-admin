@@ -163,13 +163,13 @@ class UsersController extends BaseController
                     array('user_id' => $ID, 'site_id' => Input::get('site_id'), 'department_id' => Input::get('department_id'), 'created_by' => Session::get('uid'),)
                 );
 
-                // CREATING INITIAL TRAINING RECORDS HERE - INSERTS IF DEPARTMENT ID IS THE SAME OR GLOBAL (IE "1")
+                // CREATING INITIAL TRAINING RECORDS HERE - INSERTS IF DEPARTMENT ID IS THE SAME OR GLOBAL (IE "1") ALSO CHECK FOR GLOBAL SITE FLAG AND ADD THESE RECORDS IF THE DEP MATCHES.
                 if (Input::get('department_id') == 1) {
                     //if the assignment is global
-                    $tasks = DB::select("SELECT training_tasks.id FROM training_tasks WHERE training_tasks.site_id = ? AND training_tasks.active = ?", array(Input::get('site_id'), 1));
+                    $tasks = DB::select("SELECT training_tasks.id FROM training_tasks WHERE (training_tasks.site_id = ? or training_tasks.global_site_flag = ?) AND training_tasks.active = ?", array(Input::get('site_id'), ACTIVE, ACTIVE));
                 } else {
                     //if specific, select all with global or matching id
-                    $tasks = DB::select("SELECT training_tasks.id FROM training_tasks WHERE training_tasks.site_id = ? AND (training_tasks.department_id = ? OR training_tasks.department_id = ?) AND training_tasks.active = ?", array(Input::get('site_id'), Input::get('department_id'), 1, 1));
+                    $tasks = DB::select("SELECT training_tasks.id FROM training_tasks WHERE (training_tasks.site_id = ? or training_tasks.global_site_flag = ?) AND (training_tasks.department_id = ? OR training_tasks.department_id = ?) AND training_tasks.active = ?", array(Input::get('site_id'), ACTIVE, Input::get('department_id'), GLOBAL_DEP, ACTIVE));
                 }
                 //now loop through all task id's and create training records
                 foreach ($tasks as $task) {

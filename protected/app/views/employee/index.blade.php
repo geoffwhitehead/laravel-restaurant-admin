@@ -16,8 +16,6 @@
     </div>
 
 
-
-
     <div class="page-content-wrapper">
         <div class="toolbar-line ">
             @if($access['is_add'] ==1)
@@ -141,27 +139,28 @@
                                                     </a>
                                                 </li>
                                             @endif
-                                        @endif
-                                        @if ($row->scan_p45_p46 != "")
-                                        <li>
-                                            <a href="{{ URL::to('employee/p45/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                        class="fa fa-download"></i> Download P45
-                                            </a>
-                                        </li>
-                                        @endif
-                                        @if ($row->scan_p45_p46 != "")
-                                            <li>
-                                                <a href="{{ URL::to('employee/ni/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                            class="fa fa-download"></i> Download NI
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if ($row->scan_p45_p46 != "")
-                                            <li>
-                                                <a href="{{ URL::to('employee/pass/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
-                                                            class="fa fa-download"></i> Download Pass
-                                                </a>
-                                            </li>
+
+                                            @if ($row->scan_p45_p46 != "")
+                                                <li>
+                                                    <a href="{{ URL::to('employee/p45/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                                class="fa fa-download"></i> Download P45
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @if ($row->scan_p45_p46 != "")
+                                                <li>
+                                                    <a href="{{ URL::to('employee/ni/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                                class="fa fa-download"></i> Download NI
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @if ($row->scan_p45_p46 != "")
+                                                <li>
+                                                    <a href="{{ URL::to('employee/pass/'.$row->employee_id.'?md='.$masterdetail["filtermd"].$trackUri)}}"><i
+                                                                class="fa fa-download"></i> Download Pass
+                                                    </a>
+                                                </li>
+                                            @endif
                                         @endif
                                         @foreach($subgrid as $md)
                                             <li>
@@ -171,7 +170,6 @@
                                     </ul>
                                 </div>
                             </td>
-
                     </tr>
                 @endforeach
                 </tbody>
@@ -185,10 +183,10 @@
         @include('footer')
 
         <div class="alert alert-info" role="alert">
-            <p> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Info:</span>
+            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Info:</span>
 
-           <strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete
+                <strong>Status Colours: </strong><br> Red : Registration incomplete <br> Yellow : Registration complete
                 but not yet processed by accountant. <br> Green : Registration complete and processed.</p>
         </div>
     </div>

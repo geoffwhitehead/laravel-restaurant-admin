@@ -50,25 +50,54 @@
 
                     </div>
                 </div>
+                <div class="form-group  ">
+                    <label for="Global" class=" control-label col-md-4 text-left"> Apply to all Sites? </label>
+
+                    <div class="col-md-6">
+
+                        <input type='checkbox' name='global_site_flag' id='global_site_flag' value='1'  @if($row['global_site_flag'] == '1')
+                               checked="checked" @endif >
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                @if ($row['id'] != "")
+                <div class="form-group  ">
+                    <div class=" control-label col-md-4 text-left"></div>
+
+                    <div class="alert alert-warning col-md-6" role = "alert">
+
+                        <p> <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            At the moment, applying a global status will only affect new employees. Current staff will <strong>not</strong> receive this training task. Ideally it would be better to wait for me to implement this feature, but you can apply it now if you need to. -Geoff</p>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                @endif
                 <!--only show if new entry-->
                 @if ($row['id'] == "")
+
+
                     <div class="form-group">
-                        <label for="Department Id" class=" control-label col-md-4 text-left"> Department Id </label>
+                        <label for="Site Id" class=" control-label col-md-4 text-left"> Site Id </label>
 
                         <div class="col-md-6">
-                            <select name='department_id' rows='5' id='department_id' code='{$department_id}'
-                                    class='select2 '></select>
+                            <select name='site_id' rows='5' id='site_id' code='{$site_id}'
+                                    class='select2 ' required></select>
                         </div>
                         <div class="col-md-2">
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="Site Id" class=" control-label col-md-4 text-left"> Site Id </label>
+                        <label for="Department Id" class=" control-label col-md-4 text-left"> Department Id </label>
 
                         <div class="col-md-6">
-                            <select name='site_id' rows='5' id='site_id' code='{$site_id}'
-                                    class='select2 '></select>
+                            <select name='department_id' rows='5' id='department_id' code='{$department_id}'
+                                    class='select2 ' required></select>
                         </div>
                         <div class="col-md-2">
 
@@ -80,7 +109,7 @@
 
                     <div class="col-md-6">
                         <select name='category_id' rows='5' id='category_id' code='{$category_id}'
-                                class='select2 '></select>
+                                class='select2 ' required></select>
                     </div>
                     <div class="col-md-2">
 
@@ -146,19 +175,24 @@
             {{ Form::close() }}
         </div>
     </div>
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
 
-            $("#department_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=departments:id:name') }}",
-                    {selected_value: '{{ $row["department_id"] }}'});
+        $("#department_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=departments:id:name') }}",
+                {selected_value: '{{ $row["department_id"] }}'});
 
-            $("#site_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=sites:id:address_city') }}",
-                    {selected_value: '{{ $row["site_id"] }}'});
+        $("#site_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=sites:id:address_city') }}",
+                {selected_value: '{{ $row["site_id"] }}'});
 
-            $("#category_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=training_categories:id:name') }}",
-                    {selected_value: '{{ $row["category_id"] }}'});
+        $("#category_id").jCombo("{{ URL::to('trainingtasks/comboselect?filter=training_categories:id:name') }}",
+                {selected_value: '{{ $row["category_id"] }}'});
 
-
+        $("input[name='global_site_flag']").on('ifChecked', function (event) {
+            $('#site_id').prop('disabled', true);
         });
-    </script>
+        $("input[name='global_site_flag']").on('ifUnchecked', function (event) {
+            $('#site_id').prop('disabled', false);
+        });
+    });
+</script>

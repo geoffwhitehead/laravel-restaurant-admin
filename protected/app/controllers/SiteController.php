@@ -163,10 +163,11 @@ class SiteController extends BaseController
                 // Input logs
 
                 //create the intial checks for sfbb for the new site
-                DB::insert("insert into checks(check_name, description, check_category, check_frequency, site_id, department_id, monitor_in_checks, created_on, created_by) values ('Opening Checks', 'Encompasses all SFBB opening checks', 1, 1, " . $ID . ", 4, 0, CURRENT_TIMESTAMP, " . Auth::id() . ")");
+                DB::insert("insert into checks(check_name, description, check_category, check_frequency, site_id, department_id, monitor_in_checks, created_on, created_by) values ('".SFBB_OPENING_CHECK."', 'Encompasses all SFBB opening checks', 1, 1, " . $ID . ", 4, 0, CURRENT_TIMESTAMP, " . Auth::id() . ")");
 
-                DB::insert("insert into checks(check_name, description, check_category, check_frequency, site_id, department_id, monitor_in_checks, created_on, created_by) values ('Closing Checks', 'Encompasses all SFBB closing checks', 1, 1, " . $ID . ", 4, 0, CURRENT_TIMESTAMP, " . Auth::id() . ")");
+                DB::insert("insert into checks(check_name, description, check_category, check_frequency, site_id, department_id, monitor_in_checks, created_on, created_by) values ('".SFBB_CLOSING_CHECK."', 'Encompasses all SFBB closing checks', 1, 1, " . $ID . ", 4, 0, CURRENT_TIMESTAMP, " . Auth::id() . ")");
 
+                //find all the site_global training records and create
                 if (Input::get('id') == '') {
                     $this->inputLogs("New Entry row with ID : $ID  , Has Been Save Successfully");
                     $id = SiteHelpers::encryptID($ID);

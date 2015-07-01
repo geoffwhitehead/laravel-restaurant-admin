@@ -75,7 +75,7 @@
             <tbody>
             <tr id="sximo-quick-search">
                 <td></td>
-                <td> #</td>
+                <td>#</td>
                 <td></td>
                 @foreach ($tableGrid as $t)
                     @if($t['view'] =='1')

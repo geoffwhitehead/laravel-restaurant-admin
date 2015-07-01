@@ -151,6 +151,8 @@ class TrainingtasksController extends BaseController
             $data = $this->validatePost('training_tasks');
             //set the timestamps here
             $inputID = Input::get('id');
+            // add the site flag separately here
+            $data['global_site_flag'] = Input::get('global_site_flag');
             if ($inputID == '') {
                 $data = $this->model->createStamps($data, $inputID) ;
             } else {
@@ -165,13 +167,25 @@ class TrainingtasksController extends BaseController
 
                 //find all the users that would have to complete this task
 
-                //the training record is global
-                if (Input::get('department_id') == 1) {
-                    $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE a.site_id = ? and a.active = ?", array(Input::get('site_id'), 1));
+                // if the task is flagged as global (for all sites)
+                if(Input::get('global_site_flag') == 1){
+                    //the training record is global
+                    if (Input::get('department_id') == GLOBAL_DEP) {
+                        $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE a.active = ".ACTIVE."");
+                    } else {
+                        //the assignment is specific - selects all tasks with matching department, and the global departments.
+                        $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE (a.department_id = ? or a.department_id = ?) AND a.active = ?", array(Input::get('department_id'), GLOBAL_DEP, ACTIVE));
+                    }
                 } else {
-                    //the assignment is specific - selects all tasks with matching department, and the global departments.
-                    $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE a.site_id = ? AND (a.department_id = ? or a.department_id = ?) AND a.active = ?", array(Input::get('site_id'), Input::get('department_id'), 1, 1));
+                    //the training record is global
+                    if (Input::get('department_id') == GLOBAL_DEP) {
+                        $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE a.site_id = ? and a.active = ?", array(Input::get('site_id'), ACTIVE));
+                    } else {
+                        //the assignment is specific - selects all tasks with matching department, and the global departments.
+                        $users = DB::select("SELECT distinct a.user_id FROM assigned_to as a WHERE a.site_id = ? AND (a.department_id = ? or a.department_id = ?) AND a.active = ?", array(Input::get('site_id'), Input::get('department_id'), GLOBAL_DEP, ACTIVE));
+                    }
                 }
+
 
                 //loop through and create training records for these tasks
                 foreach ($users as $user) {
