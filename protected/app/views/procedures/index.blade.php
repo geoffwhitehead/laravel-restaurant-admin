@@ -52,7 +52,6 @@
                         <li>{{ HTML::link('#p019', 'General Health & Safety at Workplace')}}</li>
                         <li>{{ HTML::link('#p020', 'Specific Health & Safety Issues')}}</li>
 
-
                     </ul>
                     <li>MANAGERIAL</li>
                     <ul>
@@ -64,6 +63,14 @@
                         <li>{{ HTML::link('#p005', 'Cleaning Coffee Machine')}}</li>
                         <li>{{ HTML::link('#p006', 'Descaling Coffee Machine')}}</li>
                         <li>{{ HTML::link('#p031', 'Stock Checking')}}</li>
+                        <li>{{ HTML::link('#p039', 'Equipment Failure / Malfunction')}}</li>
+                        <li>{{ HTML::link('#p033', 'Extraction System Failure')}}</li>
+                        <li>{{ HTML::link('#p034', 'Boiler Failure / Temperature Issues')}}</li>
+                        <li>{{ HTML::link('#p035', 'Electrical Failure')}}</li>
+                        <li>{{ HTML::link('#p036', 'Water Leak')}}</li>
+                        <li>{{ HTML::link('#p037', 'Gas Failure')}}</li>
+                        <li>{{ HTML::link('#p038', 'Refuse / Bin Collection Issues')}}</li>
+
                     </ul>
                 </ul>
             </div>
@@ -3158,18 +3165,17 @@
                     </div>
                 </div>
                 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
                 <div class="panel panel-default" id="p031">
                     <div class="panel-heading">
-                        <div class="panel-title"><h3 id="031">NTP 031 : Stock Checking</h3></div>
+                        <div class="panel-title"><h3 id="031">NTP 032 : What to do : Equipment Failure </h3></div>
                     </div>
                     <div class="panel-body">
 
 
-                        <h4>Purpose</h4>
+                        <h4>What to do : Equipment Failure </h4>
 
-                        <p>This procedure outlines how to perform a stock check. Once completed this needs to be
-                            passed to
-                            management.</p>
+                        <p>...</p>
                         <h4>Responsibilities</h4>
                         <table class="table">
                             <tr>
@@ -3207,21 +3213,8 @@
                         <p>None</p>
                         <h4>Procedure</h4>
                         <ol>
-                            <li>Use the drinks order sheet NTF-021.</li>
-                            <li>Write down the exact quantities of all stock excluding spirits (these are done
-                                separately)
-                            </li>
-                            <li>Include all stock in fridges and in the store room.</li>
-                            <li>Once completed print report from till:</li>
-                            <ol>
-                                <li>Turn key to z1 position and logon (same position as day sales report)</li>
-                                <li>Press on full sequential report</li>
-                                <li>Enter 170 as first PLU and press ENTER</li>
-                                <li>Enter 400 as last PLU and press ENTER</li>
-                                <li>Print report</li>
-                                <li>Staple this to the stock form</li>
-                                <li>Hand to management with daily reports</li>
-                            </ol>
+                            <li>under contruction</li>
+                        </ol>
                         </ol>
                     </div>
                     <div class="panel-footer">
@@ -3238,8 +3231,109 @@
                     </div>
 
                 </div>
+                <div class="panel panel-default" id="p039">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="032">NTP 032 : Equipment Failure / Malfunction</h3></div>
+                    </div>
+                    <div class="panel-body">
 
-                <div class="panel panel-default">
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p033">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="033">NTP 033 : Extraction System Failure</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p034">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="034">NTP 034 : Boiler Failure / Temperature Issues</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p035">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="035">NTP 035 : Electrical Failure</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p036">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="036">NTP 036 : Water Leak</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p037">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="037">NTP 037 : Gas Failure / Leaks</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default" id="p038">
+                    <div class="panel-heading">
+                        <div class="panel-title"><h3 id="038">NTP 038 : Refuse / Bin Collection Issues</h3></div>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <h4>Purpose</h4>
+
+                        <p>UNDER CONSTRUCTION.</p>
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="panel panel-warning">
                     <div class="panel-heading">
                         <div class="panel-title"><h3 id="change_log">Changelog</h3></div>
                     </div>
