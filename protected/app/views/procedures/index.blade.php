@@ -3239,7 +3239,7 @@
 
                 </div>
 
-                <div class="panel panel-info">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title"><h3 id="change_log">Changelog</h3></div>
                     </div>
