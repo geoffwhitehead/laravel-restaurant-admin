@@ -22,6 +22,7 @@ class Invoices extends BaseModel  {
         }
 
 
+
 	}
 	
 	public static function queryGroup(){

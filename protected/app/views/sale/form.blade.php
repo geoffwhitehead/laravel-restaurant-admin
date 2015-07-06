@@ -922,7 +922,7 @@
             sum = 0;
             sum += Number($('#report-total-sale').val());
             sum -= Number($('#voucher-sale').val());
-            sum -= Number($('#deposit-used-amt').val());
+            //sum -= Number($('#deposit-used-amt').val()); - don't need this; the total sale staff enter from the till already has this reduction
             $('#actual-total-sale').val(sum.toFixed(2));
             sum -= Number($('#report-card-sale').val());
             sum += Number($('#card-tips-inc').val());
