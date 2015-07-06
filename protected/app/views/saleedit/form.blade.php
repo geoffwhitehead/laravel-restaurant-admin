@@ -470,7 +470,7 @@
                         <span class="asterix"> * </span></label>
 
                     <div class="col-md-6">
-                        {{ Form::text('cash_checked_amt', $row['cash_checked_amt'],array('class'=>'form-control decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-checked-amt' )) }}
+                        {{ Form::text('cash_checked_amt', $row['cash_checked_amt'],array('class'=>'form-control cash-box decimal', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number', 'id'=>'cash-checked-amt' )) }}
                     </div>
                     <div class="col-md-1">
 
@@ -734,7 +734,7 @@
        // sum -= Number($('#deposit-used-amt').val()); dont need this, the total salw staff enter from the till already has this reduction
         $('#actual-total-sale').val(sum.toFixed(2));
         sum -= Number($('#report-card-sale').val());
-        sum += Number($('#card-tips-inc').val());
+        //sum -= Number($('#card-tips-inc').val());
         $('#expected-cash-sale').val(sum.toFixed(2));
         sum -= Number($('#total-cash-invoices').val());
         $('#cash-rem-after-bills').val(sum.toFixed(2));
